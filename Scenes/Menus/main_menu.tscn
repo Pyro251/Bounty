@@ -1,0 +1,202 @@
+[gd_scene format=3 uid="uid://du38dfghcom27"]
+
+[ext_resource type="Texture2D" uid="uid://f2yo16annf56" path="res://Assets/Menus/MainMenu/Group 1.png" id="1_38aua"]
+[ext_resource type="Script" uid="uid://dv5vrt2ewxnte" path="res://Scripts/main_menu.gd" id="1_pha2q"]
+[ext_resource type="PackedScene" uid="uid://b5u0dnk0vsbin" path="res://Shaders/Scenes/shaders.tscn" id="2_penys"]
+[ext_resource type="FontFile" uid="uid://dndfik3argnf5" path="res://Assets/Fonts/Edge_of_the_galaxy/EdgeOfTheGalaxyRegular-OVEa6.otf" id="4_aur2u"]
+[ext_resource type="Script" uid="uid://v86otcjdcl6t" path="res://Scripts/button.gd" id="5_5wi6m"]
+[ext_resource type="AudioStream" uid="uid://dj1ae0pxqx75c" path="res://Assets/sound/Buttons/Play/kauasilbershlachparodes-shutter-click-3-494029.mp3" id="6_neey8"]
+[ext_resource type="AudioStream" uid="uid://dlf3181g8utgc" path="res://Assets/sound/Buttons/Blip/blipSelect(3).wav" id="7_4fgt5"]
+
+[sub_resource type="Theme" id="Theme_aur2u"]
+default_font = ExtResource("4_aur2u")
+default_font_size = 0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_38aua"]
+bg_color = Color(0.14901961, 0.14901961, 0.14901961, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+shadow_size = 10
+shadow_offset = Vector2(0.865, 5.985)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aur2u"]
+bg_color = Color(0.18359044, 0.18359044, 0.18359044, 1)
+border_width_left = 15
+border_width_top = 15
+border_width_right = 15
+border_width_bottom = 15
+border_color = Color(0.1476717, 0.14767185, 0.14767176, 1)
+border_blend = true
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+expand_margin_top = 5.0
+expand_margin_bottom = 5.0
+shadow_offset = Vector2(0.865, 5.985)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pha2q"]
+bg_color = Color(0.22670749, 0.22670749, 0.22670746, 1)
+border_width_left = 15
+border_width_top = 15
+border_width_right = 15
+border_width_bottom = 15
+border_color = Color(0.26293245, 0.26293245, 0.26293242, 1)
+border_blend = true
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+expand_margin_top = 10.0
+expand_margin_bottom = 10.0
+shadow_size = 10
+shadow_offset = Vector2(0.865, 5.985)
+
+[sub_resource type="InputEventKey" id="InputEventKey_penys"]
+device = -1
+keycode = 32
+unicode = 32
+
+[sub_resource type="InputEventKey" id="InputEventKey_aur2u"]
+device = -1
+keycode = 4194309
+
+[sub_resource type="Shortcut" id="Shortcut_aur2u"]
+events = [SubResource("InputEventKey_penys"), SubResource("InputEventKey_aur2u")]
+
+[sub_resource type="Theme" id="Theme_5wi6m"]
+default_font = ExtResource("4_aur2u")
+
+[sub_resource type="Theme" id="Theme_chkef"]
+default_font = ExtResource("4_aur2u")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5wi6m"]
+bg_color = Color(0.30624878, 0.1286192, 0.121844865, 1)
+border_width_left = 15
+border_width_top = 15
+border_width_right = 15
+border_width_bottom = 15
+border_color = Color(0.24432683, 0.13429776, 0.13186726, 1)
+border_blend = true
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+shadow_offset = Vector2(0.865, 5.985)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_penys"]
+bg_color = Color(0.35945734, 0.15650335, 0.14987409, 1)
+border_width_left = 15
+border_width_top = 15
+border_width_right = 15
+border_width_bottom = 15
+border_color = Color(0.41297364, 0.2413998, 0.23775369, 1)
+border_blend = true
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+expand_margin_top = 10.0
+expand_margin_bottom = 10.0
+shadow_size = 10
+shadow_offset = Vector2(0.865, 5.985)
+
+[sub_resource type="LabelSettings" id="LabelSettings_5wi6m"]
+font = ExtResource("4_aur2u")
+font_size = 208
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_j4kqa"]
+random_pitch = 1.2389202
+random_volume_offset_db = 3.64
+streams_count = 1
+stream_0/stream = ExtResource("6_neey8")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_anmaw"]
+random_pitch = 1.3029965
+streams_count = 1
+stream_0/stream = ExtResource("7_4fgt5")
+
+[node name="MainMenu" type="Control" unique_id=612595288]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pha2q")
+
+[node name="Shaders" parent="." unique_id=821094781 instance=ExtResource("2_penys")]
+
+[node name="Group1" type="Sprite2D" parent="." unique_id=75769537]
+position = Vector2(951, 566)
+texture = ExtResource("1_38aua")
+
+[node name="Play" type="Button" parent="." unique_id=674722236]
+layout_mode = 0
+offset_left = 610.375
+offset_top = 367.5
+offset_right = 1309.375
+offset_bottom = 467.5
+theme = SubResource("Theme_aur2u")
+theme_override_font_sizes/font_size = 62
+theme_override_styles/normal = SubResource("StyleBoxFlat_38aua")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_aur2u")
+theme_override_styles/hover = SubResource("StyleBoxFlat_pha2q")
+shortcut = SubResource("Shortcut_aur2u")
+text = "PLAY"
+script = ExtResource("5_5wi6m")
+
+[node name="Options" type="Button" parent="." unique_id=541206921]
+layout_mode = 0
+offset_left = 610.375
+offset_top = 505.5
+offset_right = 1309.375
+offset_bottom = 605.5
+theme = SubResource("Theme_5wi6m")
+theme_override_font_sizes/font_size = 62
+theme_override_styles/normal = SubResource("StyleBoxFlat_38aua")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_aur2u")
+theme_override_styles/hover = SubResource("StyleBoxFlat_pha2q")
+text = "Options"
+script = ExtResource("5_5wi6m")
+
+[node name="Quit" type="Button" parent="." unique_id=351531780]
+layout_mode = 0
+offset_left = 610.375
+offset_top = 643.5
+offset_right = 1309.375
+offset_bottom = 743.5
+theme = SubResource("Theme_chkef")
+theme_override_font_sizes/font_size = 62
+theme_override_styles/normal = SubResource("StyleBoxFlat_38aua")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_5wi6m")
+theme_override_styles/hover = SubResource("StyleBoxFlat_penys")
+text = "Quit"
+script = ExtResource("5_5wi6m")
+
+[node name="Title" type="Label" parent="." unique_id=1116725505]
+layout_mode = 0
+offset_left = 552.0
+offset_top = 131.0
+offset_right = 1391.0
+offset_bottom = 355.0
+text = "COOL GAME"
+label_settings = SubResource("LabelSettings_5wi6m")
+
+[node name="PlayButtonSound" type="AudioStreamPlayer" parent="." unique_id=1011642229]
+stream = SubResource("AudioStreamRandomizer_j4kqa")
+
+[node name="BlipSound" type="AudioStreamPlayer" parent="." unique_id=555507027]
+stream = SubResource("AudioStreamRandomizer_anmaw")
+volume_db = -17.961
+
+[connection signal="focus_entered" from="Play" to="." method="_on_play_focus_entered"]
+[connection signal="mouse_entered" from="Play" to="." method="_on_play_mouse_entered"]
+[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
+[connection signal="focus_entered" from="Options" to="." method="_on_options_focus_entered"]
+[connection signal="mouse_entered" from="Options" to="." method="_on_options_mouse_entered"]
+[connection signal="focus_entered" from="Quit" to="." method="_on_quit_focus_entered"]
+[connection signal="mouse_entered" from="Quit" to="." method="_on_quit_mouse_entered"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]

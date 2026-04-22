@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://qslv5r0fslo8"]
+
+[ext_resource type="Texture2D" uid="uid://dk811l810o1sw" path="res://Assets/GodotIcon/icon.svg" id="1_18hms"]
+[ext_resource type="Script" uid="uid://c3t1au4vq7sn" path="res://Scripts/skill_button.gd" id="2_63qb2"]
+
+[node name="SkillButton" type="TextureButton" unique_id=174643385]
+self_modulate = Color(0.29954746, 0.29954746, 0.29954743, 1)
+z_index = 2
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1854.0
+offset_bottom = -1013.0
+grow_horizontal = 2
+grow_vertical = 2
+disabled = true
+texture_normal = ExtResource("1_18hms")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("2_63qb2")
+
+[node name="SkillLevel" type="Label" parent="." unique_id=1667063706]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -64.0
+offset_top = -20.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.21176471)
+theme_override_font_sizes/font_size = 14
+text = "0/3"
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="SkillBranch" type="Line2D" parent="." unique_id=1255091271]
+top_level = true
+z_index = 1
+default_color = Color(0.581033, 0.58103293, 0.5810329, 1)
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

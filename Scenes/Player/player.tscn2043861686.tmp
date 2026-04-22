@@ -1,0 +1,144 @@
+[gd_scene format=3 uid="uid://crjyhkqrei5ud"]
+
+[ext_resource type="Script" uid="uid://db3polanlhkce" path="res://Scripts/player.gd" id="1_uvnfx"]
+[ext_resource type="PackedScene" uid="uid://qslv5r0fslo8" path="res://Scenes/Menus/Skill Tree/skill_button.tscn" id="2_a3d8c"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tugb3"]
+radius = 22.505554
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uvnfx"]
+radius = 28.442924
+
+[node name="Player" type="CharacterBody2D" unique_id=111604148 groups=["player"]]
+script = ExtResource("1_uvnfx")
+
+[node name="LookAtCursor" type="Node2D" parent="." unique_id=301159316]
+
+[node name="Body" type="ProgressBar" parent="LookAtCursor" unique_id=1829384493]
+offset_left = -23.0
+offset_top = -20.0
+offset_right = 23.666664
+offset_bottom = 25.0
+step = 0.1
+value = 100.0
+show_percentage = false
+
+[node name="ShootPos" type="Marker2D" parent="LookAtCursor" unique_id=981844130]
+position = Vector2(38, 0)
+rotation = 1.5707964
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=703187005]
+position = Vector2(0.5, 2.5)
+shape = SubResource("CircleShape2D_tugb3")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1692806024]
+position_smoothing_enabled = true
+position_smoothing_speed = 19.195
+
+[node name="Cursor" type="Node2D" parent="." unique_id=2114056855]
+
+[node name="ColorRect" type="ColorRect" parent="Cursor" unique_id=1394591963]
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 3.0
+offset_bottom = 3.0
+
+[node name="Ammo" type="Node2D" parent="." unique_id=854653242]
+
+[node name="CurrentAmmoLabel" type="Label" parent="Ammo" unique_id=1000337043]
+offset_left = -58.0
+offset_top = 34.0
+offset_right = 57.0
+offset_bottom = 57.0
+text = "Current Ammo"
+
+[node name="ShootTimer" type="Timer" parent="." unique_id=999761599]
+wait_time = 0.25
+one_shot = true
+
+[node name="Collectables" type="Area2D" parent="." unique_id=903536303 groups=["player"]]
+collision_layer = 12
+collision_mask = 12
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collectables" unique_id=1395328534]
+position = Vector2(1, 3)
+shape = SubResource("CircleShape2D_uvnfx")
+
+[node name="SkillTree" type="Control" parent="." unique_id=1896996169]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="SkillTree" unique_id=465950203]
+layout_mode = 0
+offset_left = -664.0
+offset_top = -404.0
+offset_right = 665.0
+offset_bottom = 404.0
+color = Color(0.3590689, 0.35906917, 0.35906896, 1)
+
+[node name="SkillButton" parent="." unique_id=174643385 instance=ExtResource("2_a3d8c")]
+offset_left = -482.0
+offset_top = -44.0
+offset_right = -392.0
+offset_bottom = 49.5
+
+[node name="SkillButton" parent="SkillButton" unique_id=2071373857 instance=ExtResource("2_a3d8c")]
+layout_mode = 1
+offset_left = 175.0
+offset_top = -68.0
+offset_right = 177.0
+offset_bottom = -66.5
+max_level = 2
+
+[node name="SkillButton" parent="SkillButton/SkillButton" unique_id=1232000275 instance=ExtResource("2_a3d8c")]
+layout_mode = 1
+offset_left = 124.0
+offset_top = -116.0
+offset_right = 126.0
+offset_bottom = -114.5
+max_level = 2
+
+[node name="SkillButton" parent="SkillButton/SkillButton/SkillButton" unique_id=1039991925 instance=ExtResource("2_a3d8c")]
+layout_mode = 1
+offset_left = 2.0
+offset_top = 132.0
+offset_right = 4.0
+offset_bottom = 133.5
+max_level = 2
+
+[node name="SkillButton2" parent="SkillButton" unique_id=408754749 instance=ExtResource("2_a3d8c")]
+layout_mode = 1
+offset_left = 175.0
+offset_top = 57.0
+offset_right = 177.0
+offset_bottom = 58.5
+max_level = 2
+
+[node name="SkillButton2" parent="SkillButton/SkillButton2" unique_id=386149715 instance=ExtResource("2_a3d8c")]
+layout_mode = 1
+offset_left = 127.0
+offset_top = 58.0
+offset_right = 129.0
+offset_bottom = 59.5
+max_level = 2
+
+[node name="SkillButton2" parent="SkillButton/SkillButton2/SkillButton2" unique_id=1755100713 instance=ExtResource("2_a3d8c")]
+layout_mode = 1
+offset_left = 132.0
+offset_top = 99.0
+offset_right = 134.0
+offset_bottom = 100.5
+max_level = 2
+
+[node name="SkillButton3" parent="SkillButton/SkillButton2/SkillButton2" unique_id=1076241153 instance=ExtResource("2_a3d8c")]
+layout_mode = 1
+offset_left = 132.0
+offset_top = -66.0
+offset_right = 134.0
+offset_bottom = -64.5
+max_level = 2
+
+[connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]
+[connection signal="area_entered" from="Collectables" to="." method="_on_collectables_area_entered"]

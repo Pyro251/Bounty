@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://dyrsfma7fk763"]
+
+[ext_resource type="Script" uid="uid://q5ao7jwlewq4" path="res://Scripts/enemy.gd" id="1_t1exs"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_t1exs"]
+radius = 56.32051
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_t1exs"]
+particle_flag_disable_z = true
+angle_min = -720.0
+angle_max = 720.0
+spread = 180.0
+initial_velocity_max = 169.23
+angular_velocity_min = -1.6093254e-05
+angular_velocity_max = 88.61998
+gravity = Vector3(0, 0, 0)
+scale_max = 20.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cava2"]
+radius = 420.0012
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sat7a"]
+radius = 28.160255
+
+[node name="DebugEnemy" type="CharacterBody2D" unique_id=1492660224]
+script = ExtResource("1_t1exs")
+
+[node name="Body" type="ProgressBar" parent="." unique_id=398626695]
+offset_left = -30.0
+offset_top = -27.0
+offset_right = 29.0
+offset_bottom = 25.0
+value = 100.0
+show_percentage = false
+
+[node name="BulletDetect" type="Area2D" parent="." unique_id=239577765]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BulletDetect" unique_id=1576396424]
+position = Vector2(1, -1)
+shape = SubResource("CircleShape2D_t1exs")
+
+[node name="ExplosionParticles" type="GPUParticles2D" parent="." unique_id=1182310347]
+emitting = false
+amount = 158
+lifetime = 1.12
+one_shot = true
+explosiveness = 1.0
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_t1exs")
+
+[node name="PlayerDetection" type="Area2D" parent="." unique_id=1557648911]
+collision_layer = 64
+collision_mask = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetection" unique_id=1184948781]
+shape = SubResource("CircleShape2D_cava2")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=2045278558]
+shape = SubResource("CircleShape2D_sat7a")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1704712220]
+path_desired_distance = 3.0
+target_desired_distance = 3.0
+path_postprocessing = 1
+debug_enabled = true
+
+[node name="Timer" type="Timer" parent="." unique_id=2142564415]
+one_shot = true
+
+[connection signal="area_entered" from="BulletDetect" to="." method="_on_bullet_detect_area_entered"]
+[connection signal="finished" from="ExplosionParticles" to="." method="_on_explosion_particles_finished"]
+[connection signal="area_entered" from="PlayerDetection" to="." method="_on_player_detection_area_entered"]
+[connection signal="area_exited" from="PlayerDetection" to="." method="_on_player_detection_area_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

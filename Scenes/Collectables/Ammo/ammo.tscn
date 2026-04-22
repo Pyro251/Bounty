@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://cskobb6i5dv6i"]
+
+[ext_resource type="Script" uid="uid://bhwcwcssjheps" path="res://Scripts/ammo.gd" id="1_tsywu"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ejf7a"]
+radius = 18.027756
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tsywu"]
+radius = 212.84972
+
+[node name="Ammo" type="Node2D" unique_id=1406210591]
+script = ExtResource("1_tsywu")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1391825309]
+offset_left = -18.0
+offset_top = -19.0
+offset_right = 22.0
+offset_bottom = 21.0
+color = Color(0.8980392, 0.7607843, 0.5529412, 1)
+
+[node name="collecting" type="Area2D" parent="." unique_id=832998392 groups=["ammo"]]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="collecting" unique_id=1210450889]
+shape = SubResource("CircleShape2D_ejf7a")
+
+[node name="magnet" type="Area2D" parent="." unique_id=1736315125 groups=["magnet"]]
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="magnet" unique_id=1392811924]
+position = Vector2(2, 1)
+shape = SubResource("CircleShape2D_tsywu")
+
+[connection signal="area_entered" from="collecting" to="." method="_on_collecting_area_entered"]
+[connection signal="area_entered" from="magnet" to="." method="_on_magnet_area_entered"]

@@ -1,0 +1,84 @@
+[gd_scene format=3 uid="uid://1i162pgw0hts"]
+
+[ext_resource type="Script" uid="uid://61fa85f03nyg" path="res://Scripts/stationary_enemy.gd" id="1_2gjou"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5u4g2"]
+size = Vector2(37, 34)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_h84am"]
+radius = 21.470911
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_nplyx"]
+particle_flag_disable_z = true
+angle_min = -720.0
+angle_max = 720.0
+spread = 180.0
+initial_velocity_max = 169.23
+angular_velocity_min = -1.6093254e-05
+angular_velocity_max = 88.61998
+gravity = Vector3(0, 0, 0)
+scale_max = 20.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2gjou"]
+radius = 356.0014
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xt718"]
+bg_color = Color(0.728822, 0.728822, 0.7288219, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0rhk1"]
+bg_color = Color(1, 1, 1, 1)
+
+[node name="StationaryEnemy" type="CharacterBody2D" unique_id=362908067]
+script = ExtResource("1_2gjou")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=937308337]
+position = Vector2(0.5, 1)
+shape = SubResource("RectangleShape2D_5u4g2")
+
+[node name="BulletDetect" type="Area2D" parent="." unique_id=1545309539]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BulletDetect" unique_id=171098023]
+position = Vector2(1, -1)
+shape = SubResource("CircleShape2D_h84am")
+
+[node name="ExplosionParticles" type="GPUParticles2D" parent="." unique_id=103376655]
+emitting = false
+amount = 158
+lifetime = 1.12
+one_shot = true
+explosiveness = 1.0
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_nplyx")
+
+[node name="PlayerDetect" type="Area2D" parent="." unique_id=1399899630]
+collision_layer = 128
+collision_mask = 128
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetect" unique_id=813200035]
+shape = SubResource("CircleShape2D_2gjou")
+
+[node name="Body" type="ProgressBar" parent="." unique_id=744700209]
+offset_left = -23.0
+offset_top = -20.0
+offset_right = 22.0
+offset_bottom = 21.0
+theme_override_styles/background = SubResource("StyleBoxFlat_xt718")
+theme_override_styles/fill = SubResource("StyleBoxFlat_0rhk1")
+value = 100.0
+show_percentage = false
+
+[node name="ShootSpeedTimer" type="Timer" parent="." unique_id=985831894]
+wait_time = 0.75
+one_shot = true
+
+[node name="ShootPos" type="Marker2D" parent="." unique_id=249418268]
+position = Vector2(43, 0)
+rotation = 1.5707964
+
+[connection signal="area_entered" from="BulletDetect" to="." method="_on_bullet_detect_area_entered"]
+[connection signal="finished" from="ExplosionParticles" to="." method="_on_explosion_particles_finished"]
+[connection signal="area_entered" from="PlayerDetect" to="." method="_on_player_detect_area_entered"]
+[connection signal="area_exited" from="PlayerDetect" to="." method="_on_player_detect_area_exited"]
+[connection signal="timeout" from="ShootSpeedTimer" to="." method="_on_shoot_speed_timer_timeout"]

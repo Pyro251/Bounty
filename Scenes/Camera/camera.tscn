@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://dpl1lfggjmjc5"]
+
+[ext_resource type="Script" uid="uid://leb8nuqfn8qp" path="res://Scripts/camera_2d.gd" id="1_8yjwa"]
+[ext_resource type="PackedScene" uid="uid://ctwp1f3llatkb" path="res://Scenes/Player/player_ui.tscn" id="3_xn7yw"]
+
+[node name="Camera2D" type="Camera2D" unique_id=584421790]
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
+script = ExtResource("1_8yjwa")
+
+[node name="PlayerUI" parent="." unique_id=69200222 instance=ExtResource("3_xn7yw")]

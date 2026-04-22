@@ -1,0 +1,152 @@
+[gd_scene format=3 uid="uid://b426pcc7hs5re"]
+
+[ext_resource type="Script" uid="uid://bx3ar6oqtilwl" path="res://Scripts/chest.gd" id="1_kot7y"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kot7y"]
+radius = 47.095646
+
+[sub_resource type="Animation" id="Animation_kot7y"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("1:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("3:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_m0ps6"]
+resource_name = "open"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("1:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 51.2)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-65, -25)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("3:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(55, -40)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_635gd"]
+_data = {
+&"RESET": SubResource("Animation_kot7y"),
+&"open": SubResource("Animation_m0ps6")
+}
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_kot7y"]
+particle_flag_disable_z = true
+angle_min = -720.0
+angle_max = 720.0
+spread = 180.0
+initial_velocity_max = 200.0
+angular_velocity_min = -77.540016
+angular_velocity_max = 77.539986
+gravity = Vector3(0, 0, 0)
+scale_min = 8.0
+scale_max = 16.0
+
+[node name="Chest" type="Node2D" unique_id=1459169606]
+script = ExtResource("1_kot7y")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=654368779]
+collision_layer = 16
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=462436691]
+position = Vector2(1, 1)
+shape = SubResource("CircleShape2D_kot7y")
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=1909859186]
+offset_left = -22.0
+offset_top = 23.0
+offset_right = 22.243439
+offset_bottom = 67.99333
+rotation = -1.5707964
+max_value = 1.0
+value = 1.0
+show_percentage = false
+
+[node name="1" type="Marker2D" parent="." unique_id=1718626643]
+
+[node name="2" type="Marker2D" parent="." unique_id=922724202]
+
+[node name="3" type="Marker2D" parent="." unique_id=1169291646]
+
+[node name="Timer" type="Timer" parent="." unique_id=1115077327]
+one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=620605101]
+libraries/ = SubResource("AnimationLibrary_635gd")
+
+[node name="CollectionParticles" type="GPUParticles2D" parent="." unique_id=81503375]
+emitting = false
+amount = 40
+lifetime = 0.52
+one_shot = true
+explosiveness = 1.0
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_kot7y")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

@@ -1,0 +1,263 @@
+[gd_scene format=3 uid="uid://dvq3bvwhseisp"]
+
+[ext_resource type="Script" uid="uid://ji5ho4q5m06x" path="res://Scenes/Menus/between_levels.gd" id="1_4p7o0"]
+[ext_resource type="FontFile" uid="uid://dgagq6pv7mlul" path="res://Assets/Fonts/Corke/Corke-aY7eK.ttf" id="1_8vk2w"]
+[ext_resource type="FontFile" uid="uid://bfsfjqm4kxeel" path="res://Assets/Fonts/Edge_of_the_galaxy/EdgeOfTheGalaxyItalic-ZVJB3.otf" id="2_4p7o0"]
+[ext_resource type="FontFile" uid="uid://bj5l6a2dnvkmu" path="res://Assets/Fonts/Corke/CorkeItalic-PVzYm.ttf" id="3_40rlg"]
+[ext_resource type="Script" uid="uid://v86otcjdcl6t" path="res://Scripts/button.gd" id="4_bqrii"]
+[ext_resource type="PackedScene" uid="uid://b5u0dnk0vsbin" path="res://Shaders/Scenes/shaders.tscn" id="6_40rlg"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_yu661"]
+font = ExtResource("1_8vk2w")
+font_size = 300
+font_color = Color(0, 0, 0, 1)
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_kgc81"]
+font = ExtResource("2_4p7o0")
+font_size = 65
+font_color = Color(0.74558026, 0.7455802, 0.7455802, 1)
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Theme" id="Theme_40rlg"]
+default_font = ExtResource("3_40rlg")
+default_font_size = 91
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8opbd"]
+bg_color = Color(1, 1, 1, 1)
+draw_center = false
+
+[sub_resource type="Animation" id="Animation_ks1b7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LevelAnimation/Label:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LevelAnimation/Label2:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("LevelAnimation/Button:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("LevelAnimation/ColorRect:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_hnuln"]
+resource_name = "level_1_entered_animation_end"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LevelAnimation/Label:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LevelAnimation/Label2:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.23333335, 2.8333333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("LevelAnimation/Button:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.23333335, 3.3666666),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("LevelAnimation/ColorRect:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.1333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_mtuoh"]
+resource_name = "level_1_entered_animation_start"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LevelAnimation/Label:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.0000422),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LevelAnimation/Label2:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5000211, 1.9605479),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("LevelAnimation/Button:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2.0024102, 2.6024356),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_524i7"]
+_data = {
+&"RESET": SubResource("Animation_ks1b7"),
+&"level_1_entered_animation_end": SubResource("Animation_hnuln"),
+&"level_1_entered_animation_start": SubResource("Animation_mtuoh")
+}
+
+[node name="Between_levels" type="Control" unique_id=1134236599]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4p7o0")
+
+[node name="LevelAnimation" type="Control" parent="." unique_id=1180005393]
+z_index = 4096
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="LevelAnimation" unique_id=1335693902]
+layout_mode = 0
+offset_left = -1664.0
+offset_top = -901.0
+offset_right = 3940.0
+offset_bottom = 2206.0
+
+[node name="Label" type="Label" parent="LevelAnimation" unique_id=1139835755]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 436.0
+offset_top = 16.0
+offset_right = 1397.0
+offset_bottom = 390.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+text = "STAGE 1"
+label_settings = SubResource("LabelSettings_yu661")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="LevelAnimation" unique_id=1647140154]
+visible = false
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 747.0
+offset_top = 326.0
+offset_right = 1050.0
+offset_bottom = 396.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+text = "CONCEPTION"
+label_settings = SubResource("LabelSettings_kgc81")
+
+[node name="Button" type="Button" parent="LevelAnimation" unique_id=1808171142]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 722.0
+offset_top = 682.0
+offset_right = 1169.0
+offset_bottom = 812.0
+theme = SubResource("Theme_40rlg")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 111
+theme_override_styles/normal = SubResource("StyleBoxFlat_8opbd")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8opbd")
+theme_override_styles/hover = SubResource("StyleBoxFlat_8opbd")
+text = "CONTINUE"
+script = ExtResource("4_bqrii")
+
+[node name="Levels" type="AnimationPlayer" parent="." unique_id=1249396997]
+libraries/ = SubResource("AnimationLibrary_524i7")
+
+[node name="Shaders" parent="." unique_id=821094781 instance=ExtResource("6_40rlg")]
+
+[connection signal="pressed" from="LevelAnimation/Button" to="." method="_on_button_pressed"]

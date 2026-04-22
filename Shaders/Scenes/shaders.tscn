@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://b5u0dnk0vsbin"]
+
+[ext_resource type="Shader" uid="uid://d4flp1a5ufswh" path="res://Shaders/Scripts/vhs.gdshader" id="1_2cn5d"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ninpl"]
+shader = ExtResource("1_2cn5d")
+shader_parameter/overlay = false
+shader_parameter/scanlines_opacity = 0.18000000855
+shader_parameter/scanlines_width = 0.13600000646
+shader_parameter/grille_opacity = 0.1600000076
+shader_parameter/resolution = Vector2(1920, 1080)
+shader_parameter/pixelate = true
+shader_parameter/roll = true
+shader_parameter/roll_speed = 1.655
+shader_parameter/roll_size = 5.494000260965
+shader_parameter/roll_variation = 4.905000229727619
+shader_parameter/distort_intensity = 0.00400000019
+shader_parameter/noise_opacity = 0.0110000005225
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.170000008075
+shader_parameter/aberration = 0.00800004787999997
+shader_parameter/brightness = 1.4
+shader_parameter/discolor = true
+shader_parameter/warp_amount = 1.0
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.53
+shader_parameter/vignette_opacity = 0.5
+
+[node name="Shaders" type="CanvasLayer" unique_id=821094781]
+
+[node name="VHSShader" type="ColorRect" parent="." unique_id=1296610099]
+material = SubResource("ShaderMaterial_ninpl")
+offset_left = -187.0
+offset_top = -136.0
+offset_right = 2150.0
+offset_bottom = 1287.0
+mouse_filter = 2
