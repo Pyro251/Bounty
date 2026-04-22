@@ -1,5 +1,133 @@
 [gd_scene format=3 uid="uid://cib3hpo6yhfar"]
 
+[ext_resource type="PackedScene" uid="uid://doqbe36j80fkd" path="res://Shaders/Scenes/shaders.tscn" id="1_lhakl"]
+[ext_resource type="Script" uid="uid://xskm2gq0ud7b" path="res://Scripts/level_cleared_screen.gd" id="1_vtcng"]
+[ext_resource type="FontFile" uid="uid://dndfik3argnf5" path="res://Assets/Fonts/Edge_of_the_galaxy/EdgeOfTheGalaxyRegular-OVEa6.otf" id="2_l4qi4"]
+[ext_resource type="Script" uid="uid://v86otcjdcl6t" path="res://Scripts/button.gd" id="3_1kku6"]
+
+[sub_resource type="Theme" id="Theme_flx3f"]
+default_font = ExtResource("2_l4qi4")
+default_font_size = 128
+
+[sub_resource type="Theme" id="Theme_drwfw"]
+default_font = ExtResource("2_l4qi4")
+default_font_size = 101
+
+[sub_resource type="Theme" id="Theme_hpuxl"]
+default_font = ExtResource("2_l4qi4")
+default_font_size = 0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yu860"]
+bg_color = Color(0.14901961, 0.14901961, 0.14901961, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+shadow_size = 10
+shadow_offset = Vector2(0.865, 5.985)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1sows"]
+bg_color = Color(0.18359044, 0.18359044, 0.18359044, 1)
+border_width_left = 15
+border_width_top = 15
+border_width_right = 15
+border_width_bottom = 15
+border_color = Color(0.1476717, 0.14767185, 0.14767176, 1)
+border_blend = true
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+expand_margin_top = 5.0
+expand_margin_bottom = 5.0
+shadow_offset = Vector2(0.865, 5.985)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lg47r"]
+bg_color = Color(0.22670749, 0.22670749, 0.22670746, 1)
+border_width_left = 15
+border_width_top = 15
+border_width_right = 15
+border_width_bottom = 15
+border_color = Color(0.26293245, 0.26293245, 0.26293242, 1)
+border_blend = true
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+expand_margin_top = 10.0
+expand_margin_bottom = 10.0
+shadow_size = 10
+shadow_offset = Vector2(0.865, 5.985)
+
+[sub_resource type="InputEventKey" id="InputEventKey_penys"]
+device = -1
+keycode = 32
+unicode = 32
+
+[sub_resource type="InputEventKey" id="InputEventKey_aur2u"]
+device = -1
+keycode = 4194309
+
+[sub_resource type="Shortcut" id="Shortcut_2iodg"]
+events = [SubResource("InputEventKey_penys"), SubResource("InputEventKey_aur2u")]
+
 [node name="LevelClearedScreen" type="Control" unique_id=495189117]
 layout_mode = 3
 anchors_preset = 0
+script = ExtResource("1_vtcng")
+
+[node name="BG" type="ColorRect" parent="." unique_id=360390827]
+layout_mode = 0
+offset_left = -1370.0
+offset_top = -804.0
+offset_right = 1494.0
+offset_bottom = 867.0
+color = Color(0.3553137, 0.35531354, 0.35531357, 1)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=9019474]
+
+[node name="LevelClearedLabel" type="Label" parent="." unique_id=578446159]
+layout_mode = 0
+offset_left = -745.0
+offset_top = -408.0
+offset_right = -73.0
+offset_bottom = -270.0
+theme = SubResource("Theme_flx3f")
+text = "LEVEL CLEARED"
+
+[node name="MoneyMade" type="Label" parent="." unique_id=1888191860]
+layout_mode = 0
+offset_left = -744.0
+offset_top = -178.0
+offset_right = -85.0
+offset_bottom = -69.0
+theme = SubResource("Theme_drwfw")
+text = "Money  Made: ##"
+
+[node name="EnemiesKilled" type="Label" parent="." unique_id=458120918]
+layout_mode = 0
+offset_left = -740.0
+offset_top = -48.0
+offset_right = 64.0
+offset_bottom = 61.0
+theme = SubResource("Theme_drwfw")
+text = "Enemies DEMOLISHED:"
+
+[node name="Play" type="Button" parent="." unique_id=1550172272]
+layout_mode = 0
+offset_left = -554.0
+offset_top = 93.0
+offset_right = 552.0
+offset_bottom = 366.0
+theme = SubResource("Theme_hpuxl")
+theme_override_font_sizes/font_size = 127
+theme_override_styles/normal = SubResource("StyleBoxFlat_yu860")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_1sows")
+theme_override_styles/hover = SubResource("StyleBoxFlat_lg47r")
+shortcut = SubResource("Shortcut_2iodg")
+text = "BACK TO BASE"
+script = ExtResource("3_1kku6")
+
+[node name="Shaders" parent="." unique_id=821094781 instance=ExtResource("1_lhakl")]
+
+[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
