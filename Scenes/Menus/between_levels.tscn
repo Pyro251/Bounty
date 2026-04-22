@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dvq3bvwhseisp"]
 
-[ext_resource type="Script" uid="uid://ji5ho4q5m06x" path="res://Scenes/Menus/between_levels.gd" id="1_4p7o0"]
+[ext_resource type="Script" uid="uid://ji5ho4q5m06x" path="res://Scripts/between_levels.gd" id="1_4p7o0"]
 [ext_resource type="FontFile" uid="uid://dgagq6pv7mlul" path="res://Assets/Fonts/Corke/Corke-aY7eK.ttf" id="1_8vk2w"]
 [ext_resource type="FontFile" uid="uid://bfsfjqm4kxeel" path="res://Assets/Fonts/Edge_of_the_galaxy/EdgeOfTheGalaxyItalic-ZVJB3.otf" id="2_4p7o0"]
 [ext_resource type="FontFile" uid="uid://bj5l6a2dnvkmu" path="res://Assets/Fonts/Corke/CorkeItalic-PVzYm.ttf" id="3_40rlg"]

@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://b8xykwakmlfbm"]
 
-[ext_resource type="Script" uid="uid://dgf6jtumev2hn" path="res://Scenes/Levels/base.gd" id="1_apibs"]
+[ext_resource type="Script" uid="uid://dgf6jtumev2hn" path="res://Scripts/base.gd" id="1_apibs"]
 [ext_resource type="Texture2D" uid="uid://dgagkclcjyo8x" path="res://Assets/Tiles/Wall/New Piskel(1).png" id="1_cde1o"]
 [ext_resource type="PackedScene" uid="uid://crjyhkqrei5ud" path="res://Scenes/Player/player.tscn" id="2_ohyxv"]
 [ext_resource type="PackedScene" uid="uid://dpl1lfggjmjc5" path="res://Scenes/Camera/camera.tscn" id="3_apibs"]
