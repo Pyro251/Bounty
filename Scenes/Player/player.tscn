@@ -12,6 +12,12 @@
 [ext_resource type="AudioStream" uid="uid://cghf6lmy3o4cf" path="res://Assets/sound/Collectables/Ammo/pickupCoin.wav" id="10_jhyir"]
 [ext_resource type="AudioStream" uid="uid://bfkcim7oidf7r" path="res://Assets/sound/misc/LevelCleared/sunovia-level-up-289723.mp3" id="11_74mp2"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oikmp"]
+bg_color = Color(0.6431373, 0.30588236, 0.30588236, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_06tpx"]
+bg_color = Color(0, 0, 0, 1)
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_tugb3"]
 radius = 22.505554
 
@@ -158,6 +164,8 @@ offset_left = -23.0
 offset_top = -20.0
 offset_right = 23.666664
 offset_bottom = 25.0
+theme_override_styles/background = SubResource("StyleBoxFlat_oikmp")
+theme_override_styles/fill = SubResource("StyleBoxFlat_06tpx")
 step = 0.1
 value = 100.0
 show_percentage = false
@@ -189,6 +197,7 @@ offset_left = -4.0
 offset_top = -4.0
 offset_right = 3.0
 offset_bottom = 3.0
+color = Color(0, 0, 0, 1)
 metadata/_edit_use_anchors_ = true
 
 [node name="Area2D" type="Area2D" parent="Cursor" unique_id=104884029]
@@ -311,7 +320,7 @@ layout_mode = 0
 offset_left = 58.0
 offset_top = 8.0
 offset_right = 897.0
-offset_bottom = 472.0
+offset_bottom = 422.0
 color = Color(0.32915837, 0.3291584, 0.3291584, 1)
 script = ExtResource("5_jlvik")
 
@@ -320,7 +329,7 @@ layout_mode = 0
 offset_left = -893.0
 offset_top = -504.0
 offset_right = -54.0
-offset_bottom = 466.0
+offset_bottom = 423.0
 color = Color(0.5850621, 0.58506197, 0.5850624, 1)
 script = ExtResource("5_jlvik")
 hover_scale = Vector2(1.05, 1.01)
@@ -339,10 +348,10 @@ layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_left = 33.515
-offset_top = -194.82
-offset_right = 546.515
-offset_bottom = -92.81998
+offset_left = 33.999985
+offset_top = -150.5
+offset_right = 547.0
+offset_bottom = -48.49997
 grow_vertical = 2
 
 [node name="EstimatedEnemies" type="Label" parent="LevelPrep/MainPanel/VBoxContainer" unique_id=677327623]
@@ -384,9 +393,9 @@ script = ExtResource("6_0u5uq")
 z_index = 2
 layout_mode = 0
 offset_left = -778.0
-offset_top = 341.0
+offset_top = 300.0
 offset_right = -162.0
-offset_bottom = 437.0
+offset_bottom = 396.0
 theme = SubResource("Theme_jlvik")
 theme_override_font_sizes/font_size = 62
 theme_override_styles/normal = SubResource("StyleBoxFlat_gk6dx")

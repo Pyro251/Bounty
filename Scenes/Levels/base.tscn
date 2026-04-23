@@ -56,7 +56,6 @@ offset_left = -2118.0
 offset_top = -3139.0
 offset_right = 2562.0
 offset_bottom = 3484.0
-color = Color(0.47397572, 0.47397578, 0.4739756, 1)
 
 [node name="Walls" type="TileMapLayer" parent="." unique_id=408825123]
 z_index = -1

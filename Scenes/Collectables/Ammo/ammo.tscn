@@ -16,7 +16,7 @@ offset_left = -18.0
 offset_top = -19.0
 offset_right = 22.0
 offset_bottom = 21.0
-color = Color(0.8980392, 0.7607843, 0.5529412, 1)
+color = Color(0.30691853, 0.23045409, 0.10725426, 1)
 
 [node name="collecting" type="Area2D" parent="." unique_id=832998392 groups=["ammo"]]
 collision_layer = 4

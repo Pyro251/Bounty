@@ -11,7 +11,8 @@ default_font_size = 97
 [sub_resource type="LabelSettings" id="LabelSettings_h3wt1"]
 font = ExtResource("2_v8xh3")
 font_size = 127
-outline_color = Color(0.8431839, 0.8431839, 0.84318376, 1)
+font_color = Color(0, 0, 0, 1)
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="Theme" id="Theme_nqcsj"]
 default_font = ExtResource("2_v8xh3")
