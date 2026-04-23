@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="2D Topdown Shooter"
+config/name="Bounty"
 run/main_scene="uid://du38dfghcom27"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://Assets/GodotIcon/icon.svg"

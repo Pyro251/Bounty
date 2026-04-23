@@ -192,6 +192,12 @@ stream = SubResource("AudioStreamRandomizer_j4kqa")
 stream = SubResource("AudioStreamRandomizer_anmaw")
 volume_db = -17.961
 
+[node name="Label" type="Label" parent="." unique_id=1627827462]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Niggarious"
+
 [connection signal="focus_entered" from="Play" to="." method="_on_play_focus_entered"]
 [connection signal="mouse_entered" from="Play" to="." method="_on_play_mouse_entered"]
 [connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
