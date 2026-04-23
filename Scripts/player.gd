@@ -7,6 +7,7 @@ extends CharacterBody2D
 @onready var ready_up_sound_2: AudioStreamPlayer = $Sounds/ReadyUpSound2
 @onready var shoot_sound: AudioStreamPlayer = $Sounds/ShootSound
 @onready var pickup_ammo_sound: AudioStreamPlayer = $Sounds/PickupAmmoSound
+@onready var level_cleared_sound: AudioStreamPlayer = $Sounds/LevelClearedSound
 
 @onready var cursor: Node2D = $Cursor
 @onready var look_at_cursor: Node2D = $LookAtCursor
@@ -37,6 +38,7 @@ func _ready() -> void:
 	close_run_prep()
 	Global.open_run_settings.connect(open_run_prep)
 	Global.close_run_settings.connect(close_run_prep)
+	Global.level_cleared.connect(level_cleared)
 
 
 func _physics_process(delta: float) -> void:
@@ -78,6 +80,10 @@ func _physics_process(delta: float) -> void:
 	
 	start_level_button.text = str("START LEVEL ", Global.current_level, "?")
 	body.value = health
+	
+	if Global.enemies_in_current_level == Global.enemies_killed:
+		if Global.can_clear_level:
+			level_cleared()
 	
 	move_and_slide()
 
@@ -149,3 +155,7 @@ func _on_hit_box_area_entered(area: Area2D) -> void:
 		anim_player.play("hit")
 		health -= 5
 		Global.player_damaged.emit()
+
+func level_cleared():
+	level_cleared_sound.play()
+	Global.can_clear_level = false

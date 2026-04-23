@@ -89,9 +89,9 @@ color = Color(0.3553137, 0.35531354, 0.35531357, 1)
 [node name="LevelClearedLabel" type="Label" parent="." unique_id=578446159]
 layout_mode = 0
 offset_left = -745.0
-offset_top = -408.0
+offset_top = -373.0
 offset_right = -73.0
-offset_bottom = -270.0
+offset_bottom = -235.0
 theme = SubResource("Theme_flx3f")
 text = "LEVEL CLEARED"
 
@@ -116,9 +116,9 @@ text = "Enemies DEMOLISHED:"
 [node name="Play" type="Button" parent="." unique_id=1550172272]
 layout_mode = 0
 offset_left = -554.0
-offset_top = 93.0
+offset_top = 121.0
 offset_right = 552.0
-offset_bottom = 366.0
+offset_bottom = 309.0
 theme = SubResource("Theme_hpuxl")
 theme_override_font_sizes/font_size = 127
 theme_override_styles/normal = SubResource("StyleBoxFlat_yu860")

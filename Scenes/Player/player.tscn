@@ -3,13 +3,14 @@
 [ext_resource type="Script" uid="uid://db3polanlhkce" path="res://Scripts/player.gd" id="1_uvnfx"]
 [ext_resource type="PackedScene" uid="uid://qslv5r0fslo8" path="res://Scenes/Menus/Skill Tree/skill_button.tscn" id="2_a3d8c"]
 [ext_resource type="Texture2D" uid="uid://484qfv0agrwl" path="res://Assets/Light/prop_fade_start_50.png" id="3_xpcdj"]
-[ext_resource type="PackedScene" uid="uid://b5u0dnk0vsbin" path="res://Shaders/Scenes/shaders.tscn" id="4_mtuoh"]
+[ext_resource type="PackedScene" uid="uid://doqbe36j80fkd" path="res://Shaders/Scenes/shaders.tscn" id="4_mtuoh"]
 [ext_resource type="FontFile" uid="uid://dndfik3argnf5" path="res://Assets/Fonts/Edge_of_the_galaxy/EdgeOfTheGalaxyRegular-OVEa6.otf" id="5_dd0ac"]
 [ext_resource type="Script" uid="uid://df17yyllcfci4" path="res://Scripts/Panel.gd" id="5_jlvik"]
 [ext_resource type="Script" uid="uid://v86otcjdcl6t" path="res://Scripts/button.gd" id="6_0u5uq"]
 [ext_resource type="AudioStream" uid="uid://b8hpxsrqs1d7b" path="res://Assets/sound/Buttons/LevelPrepOpen/litupsubway-ui-hover-sfx-513360.mp3" id="7_0u5uq"]
 [ext_resource type="AudioStream" uid="uid://bvxpbuqxr2fnx" path="res://Assets/sound/Shooting/BasicGun/dev_guy-semi-automatic-riflepistol-shot-389472.mp3" id="9_gk6dx"]
 [ext_resource type="AudioStream" uid="uid://cghf6lmy3o4cf" path="res://Assets/sound/Collectables/Ammo/pickupCoin.wav" id="10_jhyir"]
+[ext_resource type="AudioStream" uid="uid://bfkcim7oidf7r" path="res://Assets/sound/misc/LevelCleared/sunovia-level-up-289723.mp3" id="11_74mp2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tugb3"]
 radius = 22.505554
@@ -104,6 +105,11 @@ stream_0/stream = ExtResource("9_gk6dx")
 random_pitch = 1.2226403
 streams_count = 1
 stream_0/stream = ExtResource("10_jhyir")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_oikmp"]
+random_pitch = 1.078792
+streams_count = 1
+stream_0/stream = ExtResource("11_74mp2")
 
 [sub_resource type="Animation" id="Animation_jhyir"]
 length = 0.001
@@ -417,8 +423,15 @@ stream = SubResource("AudioStreamRandomizer_74mp2")
 volume_db = -8.667
 pitch_scale = 1.82
 
+[node name="LevelClearedSound" type="AudioStreamPlayer" parent="Sounds" unique_id=477157814]
+stream = SubResource("AudioStreamRandomizer_oikmp")
+pitch_scale = 1.76
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1115550535]
 libraries/ = SubResource("AnimationLibrary_oikmp")
+
+[node name="AudioListener" type="AudioListener2D" parent="." unique_id=229436142]
+current = true
 
 [connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]
 [connection signal="area_entered" from="Collectables" to="." method="_on_collectables_area_entered"]
