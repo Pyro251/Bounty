@@ -1,0 +1,7 @@
+[gd_resource type="LabelSettings" format=3 uid="uid://rephklwoaysm"]
+
+[ext_resource type="FontFile" uid="uid://dndfik3argnf5" path="res://Assets/Fonts/Edge_of_the_galaxy/EdgeOfTheGalaxyRegular-OVEa6.otf" id="1_gn8pt"]
+
+[resource]
+font = ExtResource("1_gn8pt")
+font_size = 208
