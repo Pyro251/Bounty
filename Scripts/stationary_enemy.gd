@@ -4,6 +4,7 @@ extends CharacterBody2D
 @onready var explosion_particles: GPUParticles2D = $ExplosionParticles
 @onready var shoot_pos: Marker2D = $ShootPos
 @onready var shoot_speed_timer: Timer = $ShootSpeedTimer
+@onready var shoot_sound: AudioStreamPlayer2D = $ShootSound
 
 @export var target: Node = null
 
@@ -34,11 +35,13 @@ func die():
 	body.hide()
 	Global.player_money += 50
 	can_die = false
+	Global.enemies_killed += 1
 
 func _on_explosion_particles_finished() -> void:
 	queue_free()
 
 func _shoot():
+	shoot_sound.play()
 	var new_bullet = BULLET_SCENE.instantiate()
 	new_bullet.global_position = shoot_pos.global_position
 	new_bullet.global_rotation = shoot_pos.global_rotation

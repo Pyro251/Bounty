@@ -1,0 +1,87 @@
+[gd_scene format=3 uid="uid://dsb13ox1hlm48"]
+
+[ext_resource type="FontFile" uid="uid://dndfik3argnf5" path="res://Assets/Fonts/Edge_of_the_galaxy/EdgeOfTheGalaxyRegular-OVEa6.otf" id="1_1ptls"]
+[ext_resource type="Script" uid="uid://b3ksx2q7xkdmm" path="res://Scripts/level_cleared_trigger.gd" id="1_5chko"]
+[ext_resource type="AudioStream" uid="uid://diuf3al3hk3tc" path="res://Assets/sound/misc/ready_up/freesound_community-sci-fi-charge-up-37395.mp3" id="3_r2h2s"]
+[ext_resource type="AudioStream" uid="uid://c3rkly7kf6s1f" path="res://Assets/sound/misc/ready_up/u_u4pf5h7zip-click-345983.mp3" id="4_22wjv"]
+[ext_resource type="AudioStream" uid="uid://bcl4idsvtgsuq" path="res://Assets/sound/misc/CancelLevelTrigger/idontknow-cancel-116016.mp3" id="5_22wjv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uqe6s"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1ptls"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gtyeh"]
+size = Vector2(401, 283)
+
+[sub_resource type="LabelSettings" id="LabelSettings_5chko"]
+font = ExtResource("1_1ptls")
+font_size = 64
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_jg24e"]
+random_pitch = 1.319508
+streams_count = 1
+stream_0/stream = ExtResource("3_r2h2s")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_upoxr"]
+random_pitch = 1.319508
+streams_count = 1
+stream_0/stream = ExtResource("4_22wjv")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_1rmkm"]
+streams_count = 1
+stream_0/stream = ExtResource("5_22wjv")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_pr6km"]
+random_pitch = 1.086421
+streams_count = 1
+stream_0/stream = SubResource("AudioStreamRandomizer_1rmkm")
+
+[node name="LevelClearedTrigger" type="ProgressBar" unique_id=999598559]
+z_index = -5
+offset_left = -193.0
+offset_top = -130.0
+offset_right = 193.0
+offset_bottom = 137.0
+theme_override_styles/background = SubResource("StyleBoxFlat_uqe6s")
+theme_override_styles/fill = SubResource("StyleBoxFlat_1ptls")
+max_value = 1.0
+fill_mode = 2
+show_percentage = false
+script = ExtResource("1_5chko")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=266773611]
+collision_layer = 32
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1208579010]
+position = Vector2(190.5, 131.5)
+shape = SubResource("RectangleShape2D_gtyeh")
+
+[node name="READY?" type="Label" parent="Area2D" unique_id=2111068702]
+offset_left = 92.0
+offset_top = 96.0
+offset_right = 295.0
+offset_bottom = 165.0
+text = "EXTRACT"
+label_settings = SubResource("LabelSettings_5chko")
+
+[node name="ReadyUpTimer" type="Timer" parent="." unique_id=1278797794]
+one_shot = true
+
+[node name="ReadyUpSound" type="AudioStreamPlayer" parent="." unique_id=220645721]
+stream = SubResource("AudioStreamRandomizer_jg24e")
+
+[node name="ReadyUpEndSound" type="AudioStreamPlayer" parent="." unique_id=364439389]
+stream = SubResource("AudioStreamRandomizer_upoxr")
+
+[node name="LevelTriggerCancelSound" type="AudioStreamPlayer" parent="." unique_id=989094591]
+stream = SubResource("AudioStreamRandomizer_pr6km")
+volume_db = -7.436
+pitch_scale = 1.42
+
+[connection signal="focus_exited" from="." to="." method="_on_focus_exited"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
+[connection signal="timeout" from="ReadyUpTimer" to="." method="_on_ready_up_timer_timeout"]

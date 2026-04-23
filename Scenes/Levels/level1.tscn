@@ -1,12 +1,13 @@
 [gd_scene format=4 uid="uid://ceu2tf0kaw4gv"]
 
 [ext_resource type="Texture2D" uid="uid://dgagkclcjyo8x" path="res://Assets/Tiles/Wall/New Piskel(1).png" id="1_c0r4e"]
+[ext_resource type="Script" uid="uid://dkfyrrtgul8nu" path="res://Scripts/level.gd" id="1_i36j2"]
 [ext_resource type="Texture2D" uid="uid://dfokgf3y6htp3" path="res://Assets/Tiles/New Piskel(3).png" id="1_m0h5h"]
 [ext_resource type="PackedScene" uid="uid://crjyhkqrei5ud" path="res://Scenes/Player/player.tscn" id="2_m0h5h"]
 [ext_resource type="PackedScene" uid="uid://dpl1lfggjmjc5" path="res://Scenes/Camera/camera.tscn" id="3_20uw2"]
 [ext_resource type="PackedScene" uid="uid://cskobb6i5dv6i" path="res://Scenes/Collectables/Ammo/ammo.tscn" id="4_i36j2"]
-[ext_resource type="PackedScene" uid="uid://dyrsfma7fk763" path="res://Scenes/Enemies/debug_enemy.tscn" id="5_hkfpk"]
 [ext_resource type="PackedScene" uid="uid://1i162pgw0hts" path="res://Scenes/Enemies/stationary_enemy.tscn" id="7_20uw2"]
+[ext_resource type="PackedScene" uid="uid://dsb13ox1hlm48" path="res://Scenes/Levels/level_cleared_trigger.tscn" id="8_i36j2"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_m0h5h"]
 vertices = PackedVector2Array(32, 32, -32, 32, -32, -32, 32, -32)
@@ -44,7 +45,8 @@ sources/3 = SubResource("TileSetAtlasSource_ir7pk")
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_i36j2"]
 
-[node name="level1" type="Node2D" unique_id=1627836218]
+[node name="level1" type="Node2D" unique_id=1627836218 groups=["level1"]]
+script = ExtResource("1_i36j2")
 
 [node name="BG" type="TileMapLayer" parent="." unique_id=2053103087]
 z_index = -6
@@ -78,10 +80,6 @@ position = Vector2(379, 126)
 [node name="Ammo6" parent="." unique_id=886263569 instance=ExtResource("4_i36j2")]
 position = Vector2(-13, 284)
 
-[node name="DebugEnemy" parent="." unique_id=1492660224 node_paths=PackedStringArray("Goal") instance=ExtResource("5_hkfpk")]
-position = Vector2(-88, -333)
-Goal = NodePath("../Player")
-
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=865519190]
 navigation_polygon = SubResource("NavigationPolygon_i36j2")
 
@@ -96,3 +94,9 @@ target = NodePath("../Player")
 [node name="StationaryEnemy3" parent="." unique_id=642498565 node_paths=PackedStringArray("target") instance=ExtResource("7_20uw2")]
 position = Vector2(1497, -1230)
 target = NodePath("../Player")
+
+[node name="LevelClearedTrigger" parent="." unique_id=999598559 instance=ExtResource("8_i36j2")]
+offset_left = 644.0
+offset_top = -3190.0
+offset_right = 1030.0
+offset_bottom = -2923.0

@@ -22,7 +22,7 @@ func _ready() -> void:
 	
 	#Global.shoot.connect(trigger_shake)
 	Global.player_damaged.connect(trigger_shake)
-	
+	Global.trigger_camera_shake.connect(trigger_shake)
 
 func _process(delta: float) -> void:
 	desired_offset = (get_global_mouse_position()-position) * 0.5

@@ -4,6 +4,10 @@
 [ext_resource type="FontFile" uid="uid://dndfik3argnf5" path="res://Assets/Fonts/Edge_of_the_galaxy/EdgeOfTheGalaxyRegular-OVEa6.otf" id="2_v8xh3"]
 [ext_resource type="AudioStream" uid="uid://uydmhx6i4krg" path="res://Assets/sound/Money/GainMoney/litupsubway-key-collect-sfx-522219.mp3" id="3_v8xh3"]
 
+[sub_resource type="Theme" id="Theme_v8xh3"]
+default_font = ExtResource("2_v8xh3")
+default_font_size = 97
+
 [sub_resource type="LabelSettings" id="LabelSettings_h3wt1"]
 font = ExtResource("2_v8xh3")
 font_size = 127
@@ -87,46 +91,6 @@ tracks/5/keys = {
 "values": [Color(1, 1, 1, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_xn7yw"]
-resource_name = "add_ammo_1"
-length = 0.16666667
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CurrentAmmo:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.08347802, 0.16666667),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [0.0, -0.08726646, 0.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("CurrentAmmo:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.08347802, 0.16666667),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(1, 1), Vector2(1.49, 1.49), Vector2(1, 1)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("CurrentAmmo:self_modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.08347802, 0.16666667),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(0.14555562, 0.31978014, 1.4439226e-07, 1), Color(1, 1, 1, 1)]
-}
-
 [sub_resource type="Animation" id="Animation_v8xh3"]
 resource_name = "add_money_1"
 length = 0.16666667
@@ -203,52 +167,10 @@ tracks/5/keys = {
 "values": [Color(1, 1, 1, 1), Color(0.13311541, 0.6723447, 3.85046e-07, 1), Color(1, 1, 1, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_nqcsj"]
-resource_name = "change_ammo_1"
-length = 0.16666667
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CurrentAmmo:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.08347802, 0.16666667),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [0.0, -0.08726646, 0.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("CurrentAmmo:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.08347802, 0.16666667),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(1, 1), Vector2(1.49, 1.49), Vector2(1, 1)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("CurrentAmmo:self_modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.08347802, 0.16666667),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(0.52663386, 0, 0.009247265, 1), Color(1, 1, 1, 1)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_pocnh"]
 _data = {
 &"RESET": SubResource("Animation_wmbm5"),
-&"add_ammo_1": SubResource("Animation_xn7yw"),
-&"add_money_1": SubResource("Animation_v8xh3"),
-&"change_ammo_1": SubResource("Animation_nqcsj")
+&"add_money_1": SubResource("Animation_v8xh3")
 }
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_h3wt1"]
@@ -258,6 +180,14 @@ stream_0/stream = ExtResource("3_v8xh3")
 
 [node name="PlayerUI" type="CanvasLayer" unique_id=69200222]
 script = ExtResource("1_nqcsj")
+
+[node name="CurrentLocation" type="Label" parent="." unique_id=180037738]
+offset_left = 763.0
+offset_top = 145.0
+offset_right = 1154.0
+offset_bottom = 250.0
+theme = SubResource("Theme_v8xh3")
+text = "HOME BASE"
 
 [node name="CurrentAmmo" type="Label" parent="." unique_id=1722381002]
 offset_left = 184.0
@@ -288,3 +218,6 @@ libraries/ = SubResource("AnimationLibrary_pocnh")
 [node name="GainCoinSound" type="AudioStreamPlayer" parent="." unique_id=1013762685]
 stream = SubResource("AudioStreamRandomizer_h3wt1")
 volume_db = -0.15
+
+[node name="MoneyAnim" type="AnimationPlayer" parent="." unique_id=6067867]
+libraries/ = SubResource("AnimationLibrary_pocnh")

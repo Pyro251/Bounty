@@ -12,6 +12,9 @@ var in_area: bool = false
 
 const BEGGINING_VALUE: int = 0
 
+func _ready() -> void:
+	Global.can_clear_level = true
+
 func _physics_process(delta: float) -> void:
 	if in_area:
 		ready_up.value = ready_up_timer.time_left
