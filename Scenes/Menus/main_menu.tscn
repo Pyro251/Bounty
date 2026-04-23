@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://f2yo16annf56" path="res://Assets/Menus/MainMenu/Group 1.png" id="1_38aua"]
 [ext_resource type="Script" uid="uid://dv5vrt2ewxnte" path="res://Scripts/main_menu.gd" id="1_pha2q"]
-[ext_resource type="PackedScene" uid="uid://b5u0dnk0vsbin" path="res://Shaders/Scenes/shaders.tscn" id="2_penys"]
+[ext_resource type="PackedScene" uid="uid://doqbe36j80fkd" path="res://Shaders/Scenes/shaders.tscn" id="2_penys"]
 [ext_resource type="FontFile" uid="uid://dndfik3argnf5" path="res://Assets/Fonts/Edge_of_the_galaxy/EdgeOfTheGalaxyRegular-OVEa6.otf" id="4_aur2u"]
 [ext_resource type="Script" uid="uid://v86otcjdcl6t" path="res://Scripts/button.gd" id="5_5wi6m"]
 [ext_resource type="AudioStream" uid="uid://dj1ae0pxqx75c" path="res://Assets/sound/Buttons/Play/kauasilbershlachparodes-shutter-click-3-494029.mp3" id="6_neey8"]
