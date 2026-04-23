@@ -11,6 +11,7 @@ signal enemy_killed
 signal player_damaged
 signal level_cleared
 signal trigger_camera_shake
+signal shoot
 
 var player_pos
 

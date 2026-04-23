@@ -30,11 +30,12 @@ radius = 28.442924
 [sub_resource type="LabelSettings" id="LabelSettings_jlvik"]
 font = ExtResource("5_dd0ac")
 font_size = 91
+font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_gk6dx"]
 font = ExtResource("5_dd0ac")
 font_size = 45
-font_color = Color(0.7246436, 0.7246422, 0.724643, 1)
+font_color = Color(0.18000486, 0.18000486, 0.18000486, 1)
 
 [sub_resource type="Theme" id="Theme_jlvik"]
 default_font = ExtResource("5_dd0ac")
@@ -332,7 +333,6 @@ offset_right = -54.0
 offset_bottom = 423.0
 color = Color(0.5850621, 0.58506197, 0.5850624, 1)
 script = ExtResource("5_jlvik")
-hover_scale = Vector2(1.05, 1.01)
 
 [node name="EstimatedEnemies" type="Label" parent="LevelPrep/MainPanel" unique_id=648411363]
 layout_mode = 0
@@ -340,6 +340,9 @@ offset_left = 35.0
 offset_top = 199.0
 offset_right = 295.0
 offset_bottom = 297.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 text = "INSIGHT:"
 label_settings = SubResource("LabelSettings_jlvik")
 
@@ -356,11 +359,17 @@ grow_vertical = 2
 
 [node name="EstimatedEnemies" type="Label" parent="LevelPrep/MainPanel/VBoxContainer" unique_id=677327623]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 text = "Estamimated Enemies: 2"
 label_settings = SubResource("LabelSettings_gk6dx")
 
 [node name="EstimatedDifficulty" type="Label" parent="LevelPrep/MainPanel/VBoxContainer" unique_id=1563776432]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 text = "Estamimated Difficulty: Easy"
 label_settings = SubResource("LabelSettings_gk6dx")
 

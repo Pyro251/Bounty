@@ -96,6 +96,7 @@ func _shoot():
 		new_bullet.global_rotation = shoot_pos.global_rotation
 		get_parent().add_child(new_bullet)
 		Global.ammo_changed.emit()
+		Global.shoot.emit()
 		if !Global.at_base:
 			ammo -= 1
 		#if !rapid_fire:
