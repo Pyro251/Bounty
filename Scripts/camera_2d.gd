@@ -20,7 +20,7 @@ func _ready() -> void:
 	
 	playercamera.enabled = true
 	
-	#Global.shoot.connect(trigger_shake)
+	Global.shoot.connect(trigger_shake)
 	Global.player_damaged.connect(trigger_shake)
 	Global.trigger_camera_shake.connect(trigger_shake)
 

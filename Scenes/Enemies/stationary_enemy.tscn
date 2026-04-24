@@ -9,7 +9,15 @@ size = Vector2(37, 34)
 [sub_resource type="CircleShape2D" id="CircleShape2D_h84am"]
 radius = 21.470911
 
+[sub_resource type="Gradient" id="Gradient_xt718"]
+offsets = PackedFloat32Array(0.42957747, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_0rhk1"]
+gradient = SubResource("Gradient_xt718")
+width = 255
+
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_nplyx"]
+lifetime_randomness = 0.45
 particle_flag_disable_z = true
 angle_min = -720.0
 angle_max = 720.0
@@ -18,16 +26,19 @@ initial_velocity_max = 169.23
 angular_velocity_min = -1.6093254e-05
 angular_velocity_max = 88.61998
 gravity = Vector3(0, 0, 0)
+radial_accel_min = -64.950005
+radial_accel_max = 47.679996
 scale_max = 20.0
+color_ramp = SubResource("GradientTexture1D_0rhk1")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2gjou"]
 radius = 356.0014
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xt718"]
-bg_color = Color(0.728822, 0.728822, 0.7288219, 1)
+bg_color = Color(0.34615496, 3.3691526e-07, 2.4065375e-07, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0rhk1"]
-bg_color = Color(1, 1, 1, 1)
+bg_color = Color(0, 0, 0, 1)
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_0rhk1"]
 random_pitch = 1.3697538
@@ -54,6 +65,7 @@ emitting = false
 amount = 158
 lifetime = 1.12
 one_shot = true
+speed_scale = 2.74
 explosiveness = 1.0
 randomness = 1.0
 process_material = SubResource("ParticleProcessMaterial_nplyx")

@@ -80,6 +80,7 @@ offset_right = 7.0
 offset_bottom = 16.0
 scale = Vector2(1e-05, 1e-05)
 pivot_offset = Vector2(8.095, 31.87)
+color = Color(0, 0, 0, 1)
 metadata/_edit_use_anchors_ = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1885000627]

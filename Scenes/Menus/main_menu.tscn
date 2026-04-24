@@ -5,8 +5,10 @@
 [ext_resource type="PackedScene" uid="uid://doqbe36j80fkd" path="res://Shaders/Scenes/shaders.tscn" id="2_penys"]
 [ext_resource type="FontFile" uid="uid://dndfik3argnf5" path="res://Assets/Fonts/Edge_of_the_galaxy/EdgeOfTheGalaxyRegular-OVEa6.otf" id="4_aur2u"]
 [ext_resource type="Script" uid="uid://v86otcjdcl6t" path="res://Scripts/button.gd" id="5_5wi6m"]
-[ext_resource type="AudioStream" uid="uid://dj1ae0pxqx75c" path="res://Assets/sound/Buttons/Play/kauasilbershlachparodes-shutter-click-3-494029.mp3" id="6_neey8"]
+[ext_resource type="LabelSettings" uid="uid://rephklwoaysm" path="res://Assets/Fonts/LabelSettings.tres" id="6_anmaw"]
 [ext_resource type="AudioStream" uid="uid://dlf3181g8utgc" path="res://Assets/sound/Buttons/Blip/blipSelect(3).wav" id="7_4fgt5"]
+[ext_resource type="AudioStream" uid="uid://dll188v6xdvb" path="res://Assets/sound/Buttons/Close/litupsubway-ui-close-sfx-513359.mp3" id="7_j4kqa"]
+[ext_resource type="PackedScene" uid="uid://bi8b5i1inwbwc" path="res://Scenes/Menus/loading_screen.tscn" id="10_ftsii"]
 
 [sub_resource type="Theme" id="Theme_aur2u"]
 default_font = ExtResource("4_aur2u")
@@ -103,16 +105,6 @@ expand_margin_bottom = 10.0
 shadow_size = 10
 shadow_offset = Vector2(0.865, 5.985)
 
-[sub_resource type="LabelSettings" id="LabelSettings_5wi6m"]
-font = ExtResource("4_aur2u")
-font_size = 208
-
-[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_j4kqa"]
-random_pitch = 1.2389202
-random_volume_offset_db = 3.64
-streams_count = 1
-stream_0/stream = ExtResource("6_neey8")
-
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_anmaw"]
 random_pitch = 1.3029965
 streams_count = 1
@@ -182,21 +174,19 @@ offset_left = 552.0
 offset_top = 131.0
 offset_right = 1391.0
 offset_bottom = 355.0
-text = "COOL GAME"
-label_settings = SubResource("LabelSettings_5wi6m")
+text = "BOUNTY"
+label_settings = ExtResource("6_anmaw")
+horizontal_alignment = 1
 
-[node name="PlayButtonSound" type="AudioStreamPlayer" parent="." unique_id=1011642229]
-stream = SubResource("AudioStreamRandomizer_j4kqa")
+[node name="ButtonClick" type="AudioStreamPlayer" parent="." unique_id=794507333]
+stream = ExtResource("7_j4kqa")
 
 [node name="BlipSound" type="AudioStreamPlayer" parent="." unique_id=555507027]
 stream = SubResource("AudioStreamRandomizer_anmaw")
 volume_db = -17.961
 
-[node name="Label" type="Label" parent="." unique_id=1627827462]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-text = "Niggarious"
+[node name="loading_screen" parent="." unique_id=2136475057 instance=ExtResource("10_ftsii")]
+visible = false
 
 [connection signal="focus_entered" from="Play" to="." method="_on_play_focus_entered"]
 [connection signal="mouse_entered" from="Play" to="." method="_on_play_mouse_entered"]
@@ -206,3 +196,4 @@ text = "Niggarious"
 [connection signal="focus_entered" from="Quit" to="." method="_on_quit_focus_entered"]
 [connection signal="mouse_entered" from="Quit" to="." method="_on_quit_mouse_entered"]
 [connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
+[connection signal="loaded" from="loading_screen" to="." method="_on_loading_screen_loaded"]
