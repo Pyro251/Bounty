@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://61fa85f03nyg" path="res://Scripts/stationary_enemy.gd" id="1_2gjou"]
 [ext_resource type="AudioStream" uid="uid://balows47fups0" path="res://Assets/sound/Shooting/Enemy/laserShoot(1).wav" id="2_xt718"]
+[ext_resource type="AudioStream" uid="uid://btuos22715jyd" path="res://Assets/sound/Shooting/Enemy/freesound_community-small-explosion-103779.mp3" id="3_0rhk1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5u4g2"]
 size = Vector2(37, 34)
@@ -44,6 +45,11 @@ bg_color = Color(0, 0, 0, 1)
 random_pitch = 1.3697538
 streams_count = 1
 stream_0/stream = ExtResource("2_xt718")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_5u4g2"]
+random_pitch = 1.2432214
+streams_count = 1
+stream_0/stream = ExtResource("3_0rhk1")
 
 [node name="StationaryEnemy" type="CharacterBody2D" unique_id=362908067]
 script = ExtResource("1_2gjou")
@@ -97,6 +103,10 @@ rotation = 1.5707964
 
 [node name="ShootSound" type="AudioStreamPlayer2D" parent="." unique_id=813542742]
 stream = SubResource("AudioStreamRandomizer_0rhk1")
+
+[node name="ExplodeSound" type="AudioStreamPlayer2D" parent="." unique_id=1633752455]
+stream = SubResource("AudioStreamRandomizer_5u4g2")
+pitch_scale = 1.34
 
 [connection signal="area_entered" from="BulletDetect" to="." method="_on_bullet_detect_area_entered"]
 [connection signal="finished" from="ExplosionParticles" to="." method="_on_explosion_particles_finished"]

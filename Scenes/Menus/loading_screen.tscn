@@ -4,6 +4,7 @@
 [ext_resource type="LabelSettings" uid="uid://rephklwoaysm" path="res://Assets/Fonts/LabelSettings.tres" id="1_18mfb"]
 [ext_resource type="Script" uid="uid://b6tf1xoqis13n" path="res://progress_bar.gd" id="2_1njbj"]
 [ext_resource type="AudioStream" uid="uid://cscfhb6w852f8" path="res://Assets/sound/tone.wav" id="4_aatm5"]
+[ext_resource type="AudioStream" uid="uid://c6j5gaj0q6xm7" path="res://Assets/sound/soundreality-textures-impact-137826.mp3" id="5_etwiq"]
 
 [sub_resource type="Animation" id="Animation_aatm5"]
 resource_name = "Fill bar"
@@ -40,6 +41,11 @@ _data = {
 &"Fill bar": SubResource("Animation_aatm5"),
 &"RESET": SubResource("Animation_etwiq")
 }
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_0w37i"]
+random_pitch = 1.1553527
+streams_count = 1
+stream_0/stream = ExtResource("5_etwiq")
 
 [node name="loading_screen" type="Node2D" unique_id=2136475057]
 script = ExtResource("1_1njbj")
@@ -78,6 +84,11 @@ libraries/ = SubResource("AnimationLibrary_0w37i")
 [node name="Tone" type="AudioStreamPlayer" parent="ProgressBar" unique_id=522363161]
 stream = ExtResource("4_aatm5")
 pitch_scale = 0.4
+
+[node name="CoolTone" type="AudioStreamPlayer" parent="ProgressBar" unique_id=324678672]
+stream = SubResource("AudioStreamRandomizer_0w37i")
+volume_db = -9.36
+pitch_scale = 1.44
 
 [connection signal="animation_finished" from="ProgressBar/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="animation_started" from="ProgressBar/AnimationPlayer" to="." method="_on_animation_player_animation_started"]

@@ -115,6 +115,7 @@ func _on_collectables_area_entered(area: Area2D) -> void:
 		Global.ammo_added.emit()
 		ammo += 15
 
+
 func level_changed():
 	levels_animation_player.play("level_1_entered")
 

@@ -188,6 +188,7 @@ offset_top = 145.0
 offset_right = 1154.0
 offset_bottom = 250.0
 theme = SubResource("Theme_v8xh3")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "HOME BASE"
 
 [node name="CurrentAmmo" type="Label" parent="." unique_id=1722381002]
