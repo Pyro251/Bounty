@@ -12,6 +12,7 @@ signal player_damaged
 signal level_cleared
 signal trigger_camera_shake
 signal shoot
+signal money_collected
 
 var player_pos
 

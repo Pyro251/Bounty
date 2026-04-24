@@ -32,4 +32,4 @@ func _on_quit_mouse_entered() -> void:
 
 
 func _on_loading_screen_loaded():
-	get_tree().change_scene_to_file("res://Scenes/Menus/between_levels.tscn")        
+	get_tree().change_scene_to_file("res://Scenes/Levels/base.tscn")
