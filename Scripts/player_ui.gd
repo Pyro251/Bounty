@@ -18,6 +18,7 @@ extends CanvasLayer
 var can_use_ability: bool = true
 var using_ability_bar: bool = false
 var using_teleport_bar: bool = false
+var can_cooldown = false
 
 func _ready() -> void:
 	Global.ammo_changed.connect(ammo_changed)
@@ -35,13 +36,7 @@ func _process(delta: float) -> void:
 		current_location.text = str("HOME BASE")
 	else:
 		current_location.text = str("LEVEL ", Global.current_level)
-	
-	if using_ability_bar:
-		abilitiy_bar.value = abiltiy_cooldown_timer.time_left
-	else:
-		abilitiy_bar.value = abilitiy_bar.max_value
-	
-	time_left_in_ability_bar.value = time_left_in_ability_timer.time_left
+
 	
 	if using_teleport_bar:
 		teleport_bar.value = teleport_timer.time_left
@@ -53,10 +48,15 @@ func _process(delta: float) -> void:
 			using_ability_bar = true
 			Global.using_ability = true
 			can_use_ability = false
-			time_left_in_ability_timer.start()
-			abiltiy_cooldown_timer.start()
+			$AbilityBar.play("use_ability")
+			$PressFforAbility.hide()
 			Global.rapid_fire_used.emit()
-	
+	if can_cooldown:
+		print("can cooldown")
+		$AbilityBar.play("cooldown")
+		can_cooldown = false
+		
+		
 	if Input.is_action_just_pressed("dash_teleport"):
 		if Global.can_teleport:
 			using_teleport_bar = true
@@ -64,10 +64,12 @@ func _process(delta: float) -> void:
 			teleport_timer.start()
 			Global.can_teleport = false
 	
-	if Global.using_ability:
-		time_left_in_ability_bar.show()
-	else:
-		time_left_in_ability_bar.hide()
+	#if Global.using_ability:
+		#time_left_in_ability_bar.show()
+		#$PressFforAbility.show()
+	#else:
+		#time_left_in_ability_bar.hide()
+		#$PressFforAbility.hide()
 
 
 func ammo_changed():
@@ -81,18 +83,26 @@ func money_added():
 	money_anim.play("add_money_1")
 
 
-func _on_abiltiy_cooldown_timer_timeout() -> void:
-	using_ability_bar = false
-	cooldown_done_anim.play("ready")
-	can_use_ability = true
 
-
-func _on_time_left_in_ability_timer_timeout() -> void:
+func _on_time_left_in_ability_timeout() -> void:
 	Global.ability_ended.emit()
 	Global.using_ability = false
+	can_cooldown = true
+	time_left_in_ability_bar.hide()
+	
 
 
 func _on_teleport_timer_timeout() -> void:
 	using_teleport_bar = false
 	teleport_anim.play("ready")
 	Global.can_teleport = true
+
+
+func _on_ability_bar_animation_finished(cooldown):
+	using_ability_bar = false
+	#cooldown_done_anim.play("ready")
+	can_use_ability = true
+	time_left_in_ability_bar.show()
+	$PressFforAbility.show()
+	$AbilityBar.play("reset")
+	print("cooldownDone")

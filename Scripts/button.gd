@@ -18,11 +18,12 @@ func _init_pivot() -> void:
 
 
 func _button_enter() -> void:
-	blip.play()
+	#blip.play()
 	create_tween().tween_property(self, "scale", hover_scale, 0.1).set_trans(Tween.TRANS_SINE)
 
 func _button_exit() -> void:
 	create_tween().tween_property(self, "scale", Vector2.ONE, 0.1).set_trans(Tween.TRANS_SINE)
 
 func _button_pressed() -> void:
-	click.play()
+	pass
+	#click.play()

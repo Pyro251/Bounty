@@ -119,6 +119,7 @@ stream = SubResource("AudioStreamRandomizer_ou2ib")
 pitch_scale = 1.46
 
 [node name="ResearchStation" parent="." unique_id=51131661 instance=ExtResource("9_ou2ib")]
+z_index = -1
 position = Vector2(-145, -302)
 
 [connection signal="area_entered" from="ReadyUp/Area2D" to="." method="_on_area_2d_area_entered"]
