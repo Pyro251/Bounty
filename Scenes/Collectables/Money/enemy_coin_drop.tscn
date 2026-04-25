@@ -41,6 +41,15 @@ collision_mask = 4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="collect" unique_id=863182123]
 shape = SubResource("CircleShape2D_8baih")
 
+[node name="CoinSpawn1" type="Marker2D" parent="." unique_id=1261476950]
+position = Vector2(-14, 11)
+
+[node name="CoinSpawn2" type="Marker2D" parent="." unique_id=564384720]
+position = Vector2(22, -8)
+
+[node name="CoinSpawn3" type="Marker2D" parent="." unique_id=882935353]
+position = Vector2(-17, -15)
+
 [connection signal="area_entered" from="magnet" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="magnet" to="." method="_on_magnet_area_exited"]
 [connection signal="area_entered" from="collect" to="." method="_on_collect_area_entered"]

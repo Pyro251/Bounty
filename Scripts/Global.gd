@@ -25,10 +25,10 @@ var in_menu: bool = false
 var at_base: bool = true
 
 var current_level: int = 1
-var level_to_load = str("res://Scenes/Levels/level", current_level, ".tscn")
+var level_to_load
 
 var player_money: int = 0
 
-var enemies_in_current_level: int = 5
+var enemies_in_current_level: int = 3
 var enemies_killed: int = 0
 var can_clear_level: bool = true
