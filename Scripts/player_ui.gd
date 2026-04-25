@@ -100,9 +100,10 @@ func _on_teleport_timer_timeout() -> void:
 
 func _on_ability_bar_animation_finished(cooldown):
 	using_ability_bar = false
+	Global.ability_ended.emit()
 	#cooldown_done_anim.play("ready")
-	can_use_ability = true
+	can_use_ability = false
 	time_left_in_ability_bar.show()
 	$PressFforAbility.show()
-	$AbilityBar.play("reset")
+	$AbilityBar.play("cooldown")
 	print("cooldownDone")

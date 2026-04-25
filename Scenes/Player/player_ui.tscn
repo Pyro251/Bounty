@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://6krktoifhfcv" path="res://Scripts/player_ui.gd" id="1_nqcsj"]
 [ext_resource type="FontFile" uid="uid://dndfik3argnf5" path="res://Assets/Fonts/Edge_of_the_galaxy/EdgeOfTheGalaxyRegular-OVEa6.otf" id="2_v8xh3"]
 [ext_resource type="AudioStream" uid="uid://uydmhx6i4krg" path="res://Assets/sound/Money/GainMoney/litupsubway-key-collect-sfx-522219.mp3" id="3_v8xh3"]
-[ext_resource type="PackedScene" path="res://Scenes/Menus/pause_menu.tscn" id="4_h3wt1"]
+[ext_resource type="PackedScene" uid="uid://df53hobwfnkci" path="res://Scenes/Menus/pause_menu.tscn" id="4_h3wt1"]
 
 [sub_resource type="Theme" id="Theme_v8xh3"]
 default_font = ExtResource("2_v8xh3")
@@ -1141,6 +1141,6 @@ libraries/ = SubResource("AnimationLibrary_ddssi")
 autoplay = &"reset"
 
 [connection signal="timeout" from="TeleportTimer" to="." method="_on_teleport_timer_timeout"]
-[connection signal="animation_finished" from="AbilityBar" to="." method="_on_ability_bar_animation_finished"]
 [connection signal="animation_finished" from="AbilityBar" to="." method="_on_ability_cooldown_timeout"]
 [connection signal="animation_finished" from="AbilityBar" to="." method="_on_time_left_in_ability_timeout"]
+[connection signal="animation_finished" from="AbilityBar" to="." method="_on_ability_bar_animation_finished"]
