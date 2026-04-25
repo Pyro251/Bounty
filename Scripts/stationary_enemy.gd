@@ -6,6 +6,9 @@ extends CharacterBody2D
 @onready var shoot_speed_timer: Timer = $ShootSpeedTimer
 @onready var shoot_sound: AudioStreamPlayer2D = $ShootSound
 @onready var explode_sound: AudioStreamPlayer2D = $ExplodeSound
+@onready var coin_spawn_1: Marker2D = $CoinSpawn1
+@onready var coin_spawn_2: Marker2D = $CoinSpawn2
+@onready var coin_spawn_3: Marker2D = $CoinSpawn3
 
 @export var target: Node = null
 
@@ -21,6 +24,8 @@ func _on_bullet_detect_area_entered(area: Area2D) -> void:
 	if area.is_in_group("player_bullet"):
 		health -= 20
 
+func _ready() -> void:
+	player_detected = false
 
 func _physics_process(delta: float) -> void:
 	body.value = health
@@ -43,23 +48,16 @@ func die():
 	add_money_collectable()
 
 func add_money_collectable():
-	var random = randi_range(1,3)
-	var new_coin = COIN_DROP_SCENE.instantiate()
-	new_coin.global_position = self.global_position
-	match random:
-		1:
-			get_parent().add_child(new_coin)
-			print("Spawned 1 coin")
-		2:
-			get_parent().add_child(new_coin)
-			get_parent().add_child(new_coin)
-			print("Spawned 2 coin")
-		3:
-			get_parent().add_child(new_coin)
-			get_parent().add_child(new_coin)
-			get_parent().add_child(new_coin)
-			print("Spawned 3 coin")
-	random = randi_range(1,3)
+	var spawn_quantity = randi_range(3,6)
+	var new_coin
+
+	
+	for i in spawn_quantity:
+		new_coin = COIN_DROP_SCENE.instantiate()
+		get_parent().add_child(new_coin)
+		new_coin.global_position = self.global_position
+		spawn_quantity = randi_range(3, 6)
+	
 
 func _on_explosion_particles_finished() -> void:
 	queue_free()
@@ -73,8 +71,9 @@ func _shoot():
 
 
 func _on_player_detect_area_entered(area: Area2D) -> void:
-	shoot_speed_timer.start()
-	player_detected = true
+	if area.is_in_group("player"):
+		shoot_speed_timer.start()
+		player_detected = true
 
 
 func _on_player_detect_area_exited(area: Area2D) -> void:

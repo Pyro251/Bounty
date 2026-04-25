@@ -79,10 +79,15 @@ func _physics_process(delta: float) -> void:
 	Global.current_ammo = ammo
 	
 	start_level_button.text = str("START LEVEL ", Global.current_level, "?")
+	
 	body.value = health
 	
+	Global.level_to_load = str("res://Scenes/Levels/level_", Global.current_level, ".tscn")
+	
 	if Global.enemies_in_current_level == Global.enemies_killed:
+		print("1")
 		if Global.can_clear_level:
+			print("2")
 			level_cleared()
 	
 	move_and_slide()
@@ -143,6 +148,7 @@ func close_run_prep():
 func _on_play_pressed() -> void:
 	get_tree().change_scene_to_file(Global.level_to_load)
 	print("loading:", Global.level_to_load)
+	print("Current Level: ", Global.current_level)
 	Global.in_menu = false
 	Global.at_base = false
 

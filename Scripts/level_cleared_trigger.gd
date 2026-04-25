@@ -22,25 +22,25 @@ func _physics_process(delta: float) -> void:
 		can_extract = false
 
 func _on_area_2d_area_exited(area: Area2D) -> void:
-	in_area = false
-	ready_up_timer.stop()
-	ready_up_sound.stop()
-	ready_up_end_sound.play()
-	
+	if area.is_in_group("player"):
+		in_area = false
+		ready_up_timer.stop()
+		ready_up_sound.stop()
+		ready_up_end_sound.play()
 
 
 func _on_ready_up_timer_timeout() -> void:
 	can_extract = false
 	Global.at_base = true
-	Global.current_level += 1
 	get_tree().change_scene_to_file("res://Scenes/Menus/level_cleared_screen.tscn")
 
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
-	if can_extract:
-		in_area = true
-		ready_up_timer.start()
-		ready_up_sound.play()
-	else:
-		level_trigger_cancel_sound.play()
-		Global.trigger_camera_shake.emit()
+	if area.is_in_group("player"):
+		if can_extract:
+			in_area = true
+			ready_up_timer.start()
+			ready_up_sound.play()
+		else:
+			level_trigger_cancel_sound.play()
+			Global.trigger_camera_shake.emit()

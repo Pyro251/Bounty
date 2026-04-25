@@ -108,6 +108,15 @@ stream = SubResource("AudioStreamRandomizer_0rhk1")
 stream = SubResource("AudioStreamRandomizer_5u4g2")
 pitch_scale = 1.34
 
+[node name="CoinSpawn1" type="Marker2D" parent="." unique_id=93878726]
+position = Vector2(-28, 25)
+
+[node name="CoinSpawn2" type="Marker2D" parent="." unique_id=1730721444]
+position = Vector2(32, 4)
+
+[node name="CoinSpawn3" type="Marker2D" parent="." unique_id=76281479]
+position = Vector2(-17, -15)
+
 [connection signal="area_entered" from="BulletDetect" to="." method="_on_bullet_detect_area_entered"]
 [connection signal="finished" from="ExplosionParticles" to="." method="_on_explosion_particles_finished"]
 [connection signal="area_entered" from="PlayerDetect" to="." method="_on_player_detect_area_entered"]
