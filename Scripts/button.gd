@@ -2,6 +2,8 @@ extends Button
 
 @export var hover_scale: Vector2 = Vector2(1.1, 1.1)
 @export var pressed_scale: Vector2 = Vector2(0.9, 0.9)
+@export var click: AudioStreamPlayer = null
+@export var blip: AudioStreamPlayer = null
 
 func _ready() -> void:
 	mouse_entered.connect(_button_enter)
@@ -16,10 +18,11 @@ func _init_pivot() -> void:
 
 
 func _button_enter() -> void:
+	blip.play()
 	create_tween().tween_property(self, "scale", hover_scale, 0.1).set_trans(Tween.TRANS_SINE)
 
 func _button_exit() -> void:
 	create_tween().tween_property(self, "scale", Vector2.ONE, 0.1).set_trans(Tween.TRANS_SINE)
 
 func _button_pressed() -> void:
-	pass
+	click.play()

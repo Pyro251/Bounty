@@ -33,7 +33,7 @@ scale_max = 20.0
 color_ramp = SubResource("GradientTexture1D_0rhk1")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2gjou"]
-radius = 356.0014
+radius = 667.20013
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xt718"]
 bg_color = Color(0.34615496, 3.3691526e-07, 2.4065375e-07, 1)
@@ -98,7 +98,7 @@ wait_time = 0.75
 one_shot = true
 
 [node name="ShootPos" type="Marker2D" parent="." unique_id=249418268]
-position = Vector2(43, 0)
+position = Vector2(27, 0)
 rotation = 1.5707964
 
 [node name="ShootSound" type="AudioStreamPlayer2D" parent="." unique_id=813542742]
@@ -107,15 +107,6 @@ stream = SubResource("AudioStreamRandomizer_0rhk1")
 [node name="ExplodeSound" type="AudioStreamPlayer2D" parent="." unique_id=1633752455]
 stream = SubResource("AudioStreamRandomizer_5u4g2")
 pitch_scale = 1.34
-
-[node name="CoinSpawn1" type="Marker2D" parent="." unique_id=93878726]
-position = Vector2(-28, 25)
-
-[node name="CoinSpawn2" type="Marker2D" parent="." unique_id=1730721444]
-position = Vector2(32, 4)
-
-[node name="CoinSpawn3" type="Marker2D" parent="." unique_id=76281479]
-position = Vector2(-17, -15)
 
 [connection signal="area_entered" from="BulletDetect" to="." method="_on_bullet_detect_area_entered"]
 [connection signal="finished" from="ExplosionParticles" to="." method="_on_explosion_particles_finished"]

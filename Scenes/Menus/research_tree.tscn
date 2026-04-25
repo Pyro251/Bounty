@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://nv5jpf8haru3"]
+
+[ext_resource type="PackedScene" uid="uid://cri1ax1lsoupi" path="res://Scenes/SkillTree/skill_button.tscn" id="1_up8uh"]
+
+[node name="ResearchTree" type="Control" unique_id=938331891]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SkillButton" parent="." unique_id=4599111 instance=ExtResource("1_up8uh")]
+layout_mode = 0
+offset_left = 170.0
+offset_top = 83.0
+offset_right = 210.0
+offset_bottom = 123.0
+
+[node name="Panel" type="Panel" parent="." unique_id=517799067]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

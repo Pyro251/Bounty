@@ -145,7 +145,7 @@ target = NodePath("../Player")
 position = Vector2(1057, -2538)
 target = NodePath("../Player")
 
-[node name="StationaryEnemy12" parent="." unique_id=744416773 node_paths=PackedStringArray("target") instance=ExtResource("6_fphuk")]
+[node name="StationaryEnemy12" parent="." unique_id=744416773 node_paths=PackedStringArray("target") groups=["level2"] instance=ExtResource("6_fphuk")]
 position = Vector2(1174, -2538)
 target = NodePath("../Player")
 

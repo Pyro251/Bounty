@@ -8,7 +8,10 @@
 [ext_resource type="LabelSettings" uid="uid://rephklwoaysm" path="res://Assets/Fonts/LabelSettings.tres" id="6_anmaw"]
 [ext_resource type="AudioStream" uid="uid://dlf3181g8utgc" path="res://Assets/sound/Buttons/Blip/blipSelect(3).wav" id="7_4fgt5"]
 [ext_resource type="AudioStream" uid="uid://dll188v6xdvb" path="res://Assets/sound/Buttons/Close/litupsubway-ui-close-sfx-513359.mp3" id="7_j4kqa"]
+[ext_resource type="PackedScene" uid="uid://drk1pycy1a2ky" path="res://Scenes/Player/menu_cursor.tscn" id="10_anmaw"]
 [ext_resource type="PackedScene" uid="uid://bi8b5i1inwbwc" path="res://Scenes/Menus/loading_screen.tscn" id="10_ftsii"]
+[ext_resource type="PackedScene" uid="uid://coid35tdcb4ul" path="res://Scenes/Sounds/blip.tscn" id="11_lg1h6"]
+[ext_resource type="PackedScene" uid="uid://cnmerspdilm08" path="res://Scenes/Sounds/click.tscn" id="12_80s4p"]
 
 [sub_resource type="Theme" id="Theme_aur2u"]
 default_font = ExtResource("4_aur2u")
@@ -119,13 +122,15 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_pha2q")
 
+[node name="MenuCursor" parent="." unique_id=1703668164 instance=ExtResource("10_anmaw")]
+
 [node name="Shaders" parent="." unique_id=821094781 instance=ExtResource("2_penys")]
 
 [node name="Group1" type="Sprite2D" parent="." unique_id=75769537]
 position = Vector2(951, 566)
 texture = ExtResource("1_38aua")
 
-[node name="Play" type="Button" parent="." unique_id=674722236]
+[node name="Play" type="Button" parent="." unique_id=674722236 node_paths=PackedStringArray("click", "blip")]
 layout_mode = 0
 offset_left = 610.375
 offset_top = 367.5
@@ -139,8 +144,10 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_pha2q")
 shortcut = SubResource("Shortcut_aur2u")
 text = "PLAY"
 script = ExtResource("5_5wi6m")
+click = NodePath("../Click")
+blip = NodePath("../Blip")
 
-[node name="Options" type="Button" parent="." unique_id=541206921]
+[node name="Options" type="Button" parent="." unique_id=541206921 node_paths=PackedStringArray("click", "blip")]
 layout_mode = 0
 offset_left = 610.375
 offset_top = 505.5
@@ -153,8 +160,10 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_aur2u")
 theme_override_styles/hover = SubResource("StyleBoxFlat_pha2q")
 text = "Options"
 script = ExtResource("5_5wi6m")
+click = NodePath("../Click")
+blip = NodePath("../Blip")
 
-[node name="Quit" type="Button" parent="." unique_id=351531780]
+[node name="Quit" type="Button" parent="." unique_id=351531780 node_paths=PackedStringArray("click", "blip")]
 layout_mode = 0
 offset_left = 610.375
 offset_top = 643.5
@@ -167,6 +176,8 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_5wi6m")
 theme_override_styles/hover = SubResource("StyleBoxFlat_penys")
 text = "Quit"
 script = ExtResource("5_5wi6m")
+click = NodePath("../Click")
+blip = NodePath("../Blip")
 
 [node name="Title" type="Label" parent="." unique_id=1116725505]
 layout_mode = 0
@@ -178,6 +189,9 @@ text = "BOUNTY"
 label_settings = ExtResource("6_anmaw")
 horizontal_alignment = 1
 
+[node name="loading_screen" parent="." unique_id=2136475057 instance=ExtResource("10_ftsii")]
+visible = false
+
 [node name="ButtonClick" type="AudioStreamPlayer" parent="." unique_id=794507333]
 stream = ExtResource("7_j4kqa")
 
@@ -185,8 +199,9 @@ stream = ExtResource("7_j4kqa")
 stream = SubResource("AudioStreamRandomizer_anmaw")
 volume_db = -17.961
 
-[node name="loading_screen" parent="." unique_id=2136475057 instance=ExtResource("10_ftsii")]
-visible = false
+[node name="Blip" parent="." unique_id=1149648539 instance=ExtResource("11_lg1h6")]
+
+[node name="Click" parent="." unique_id=894376312 instance=ExtResource("12_80s4p")]
 
 [connection signal="focus_entered" from="Play" to="." method="_on_play_focus_entered"]
 [connection signal="mouse_entered" from="Play" to="." method="_on_play_mouse_entered"]

@@ -7,6 +7,8 @@
 [ext_resource type="AudioStream" uid="uid://c3rkly7kf6s1f" path="res://Assets/sound/misc/ready_up/u_u4pf5h7zip-click-345983.mp3" id="5_gtyeh"]
 [ext_resource type="AudioStream" uid="uid://diuf3al3hk3tc" path="res://Assets/sound/misc/ready_up/freesound_community-sci-fi-charge-up-37395.mp3" id="5_mg0ed"]
 [ext_resource type="FontFile" uid="uid://dndfik3argnf5" path="res://Assets/Fonts/Edge_of_the_galaxy/EdgeOfTheGalaxyRegular-OVEa6.otf" id="5_mom1x"]
+[ext_resource type="AudioStream" uid="uid://blqvwul2mtvlx" path="res://Assets/sound/litupsubway-ui-equip-sfx-513361.mp3" id="8_uanx3"]
+[ext_resource type="PackedScene" uid="uid://dwcw6y41hq7p1" path="res://Scenes/SkillTree/research_station.tscn" id="9_ou2ib"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_smvwu"]
 polygon = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
@@ -46,6 +48,11 @@ stream_0/stream = ExtResource("5_mg0ed")
 random_pitch = 1.319508
 streams_count = 1
 stream_0/stream = ExtResource("5_gtyeh")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_ou2ib"]
+random_pitch = 1.1265541
+streams_count = 1
+stream_0/stream = ExtResource("8_uanx3")
 
 [node name="Base" type="Node2D" unique_id=1226035713]
 script = ExtResource("1_apibs")
@@ -106,6 +113,13 @@ stream = SubResource("AudioStreamRandomizer_mom1x")
 
 [node name="ReadyUpEndSound" type="AudioStreamPlayer" parent="." unique_id=1975495111]
 stream = SubResource("AudioStreamRandomizer_mg0ed")
+
+[node name="OnLoadedSound" type="AudioStreamPlayer" parent="." unique_id=104406056]
+stream = SubResource("AudioStreamRandomizer_ou2ib")
+pitch_scale = 1.46
+
+[node name="ResearchStation" parent="." unique_id=51131661 instance=ExtResource("9_ou2ib")]
+position = Vector2(-145, -302)
 
 [connection signal="area_entered" from="ReadyUp/Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="ReadyUp/Area2D" to="." method="_on_area_2d_area_exited"]

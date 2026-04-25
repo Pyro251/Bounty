@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://drk1pycy1a2ky"]
+
+[ext_resource type="Script" uid="uid://c8b21n4itvk80" path="res://Scripts/cursor.gd" id="1_dtneu"]
+
+[node name="MenuCursor" type="Node2D" unique_id=1703668164]
+process_mode = 3
+z_index = 4096
+script = ExtResource("1_dtneu")
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=1205773448]
+offset_left = -6.0
+offset_top = -6.0
+offset_right = 5.0
+offset_bottom = 5.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=489286084]
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 3.0
+offset_bottom = 3.0
+metadata/_edit_use_anchors_ = true
