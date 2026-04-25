@@ -27,6 +27,7 @@ var can_shoot: bool = true
 var skill_tree_show: bool = false
 var flashlight_show: bool = false
 var health: int = 100
+var can_move = true
 
 const BULLET_SCENE = preload("res://Scenes/Weapons/Bullet/bullet.tscn")
 
@@ -45,9 +46,9 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
-	
-	var input_direction = Input.get_vector("left", "right", "up", "down")
-	velocity = input_direction * player_speed
+	if can_move:
+		var input_direction = Input.get_vector("left", "right", "up", "down")
+		velocity = input_direction * player_speed
 	
 	cursor.global_position = get_global_mouse_position()
 	look_at_cursor.look_at(cursor.global_position)
@@ -92,7 +93,7 @@ func _physics_process(delta: float) -> void:
 			level_cleared()
 	
 	if health <= 0:
-		get_tree().quit()sa
+		get_tree().quit()
 	move_and_slide()
 
 
@@ -139,12 +140,14 @@ func open_run_prep():
 	Global.hide_player_ui.emit()
 	Global.in_menu = true
 	level_prep.show()
+	can_move = false
 	#Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
 func close_run_prep():
 	Global.show_player_ui.emit()
 	Global.in_menu = false
 	level_prep.hide()
+	can_move = true
 	#Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
 
 

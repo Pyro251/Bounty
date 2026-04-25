@@ -29,6 +29,16 @@ window/size/viewport_height=1080
 
 enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg")
 
+[file_customization]
+
+folder_colors={
+"res://Scenes/Collectables/": "yellow",
+"res://Scenes/Enemies/": "red",
+"res://Scenes/Levels/": "purple",
+"res://Scenes/Menus/": "green",
+"res://Scenes/Player/": "blue"
+}
+
 [global_group]
 
 player=""
