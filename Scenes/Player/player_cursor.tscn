@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://bdyasc8vqfpw5"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_74mp2"]
+radius = 6.0827627
+
+[node name="cursor" type="Node2D" unique_id=1543912225]
+process_mode = 3
+z_index = 4096
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=1071717054]
+process_mode = 3
+offset_left = -5.0
+offset_top = -5.0
+offset_right = 1.6176462
+offset_bottom = 1.6176462
+scale = Vector2(1.36, 1.36)
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1172668432]
+process_mode = 3
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 3.0
+offset_bottom = 3.0
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1572821180]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=234152847]
+shape = SubResource("CircleShape2D_74mp2")

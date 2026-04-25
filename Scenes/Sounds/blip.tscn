@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://coid35tdcb4ul"]
+
+[ext_resource type="AudioStream" uid="uid://dlf3181g8utgc" path="res://Assets/sound/Buttons/Blip/blipSelect(3).wav" id="1_0pajm"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_p2n42"]
+random_pitch = 1.5256422
+streams_count = 1
+stream_0/stream = ExtResource("1_0pajm")
+
+[node name="Blip" type="AudioStreamPlayer" unique_id=1149648539]
+stream = SubResource("AudioStreamRandomizer_p2n42")
+volume_db = -7.879
+pitch_scale = 1.45

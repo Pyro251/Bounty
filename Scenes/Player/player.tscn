@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://crjyhkqrei5ud"]
 
 [ext_resource type="Script" uid="uid://db3polanlhkce" path="res://Scripts/player.gd" id="1_uvnfx"]
+[ext_resource type="PackedScene" uid="uid://bdyasc8vqfpw5" path="res://Scenes/Player/player_cursor.tscn" id="2_06tpx"]
 [ext_resource type="PackedScene" uid="uid://qslv5r0fslo8" path="res://Scenes/Menus/Skill Tree/skill_button.tscn" id="2_a3d8c"]
 [ext_resource type="Texture2D" uid="uid://484qfv0agrwl" path="res://Assets/Light/prop_fade_start_50.png" id="3_xpcdj"]
 [ext_resource type="PackedScene" uid="uid://doqbe36j80fkd" path="res://Shaders/Scenes/shaders.tscn" id="4_mtuoh"]
@@ -11,6 +12,8 @@
 [ext_resource type="AudioStream" uid="uid://bvxpbuqxr2fnx" path="res://Assets/sound/Shooting/BasicGun/dev_guy-semi-automatic-riflepistol-shot-389472.mp3" id="9_gk6dx"]
 [ext_resource type="AudioStream" uid="uid://cghf6lmy3o4cf" path="res://Assets/sound/Collectables/Ammo/pickupCoin.wav" id="10_jhyir"]
 [ext_resource type="AudioStream" uid="uid://bfkcim7oidf7r" path="res://Assets/sound/misc/LevelCleared/sunovia-level-up-289723.mp3" id="11_74mp2"]
+[ext_resource type="PackedScene" uid="uid://coid35tdcb4ul" path="res://Scenes/Sounds/blip.tscn" id="13_7g0yx"]
+[ext_resource type="PackedScene" uid="uid://cnmerspdilm08" path="res://Scenes/Sounds/click.tscn" id="14_dey5f"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oikmp"]
 bg_color = Color(0.6431373, 0.30588236, 0.30588236, 1)
@@ -20,9 +23,6 @@ bg_color = Color(0, 0, 0, 1)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tugb3"]
 radius = 22.505554
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_xpcdj"]
-radius = 6.0827627
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_uvnfx"]
 radius = 28.442924
@@ -158,6 +158,8 @@ _data = {
 [node name="Player" type="CharacterBody2D" unique_id=111604148 groups=["player"]]
 script = ExtResource("1_uvnfx")
 
+[node name="cursor" parent="." unique_id=1543912225 instance=ExtResource("2_06tpx")]
+
 [node name="LookAtCursor" type="Node2D" parent="." unique_id=301159316]
 
 [node name="Body" type="ProgressBar" parent="LookAtCursor" unique_id=1829384493]
@@ -189,24 +191,6 @@ texture_scale = 4.24
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=703187005]
 position = Vector2(0.5, 2.5)
 shape = SubResource("CircleShape2D_tugb3")
-
-[node name="Cursor" type="Node2D" parent="." unique_id=2114056855]
-z_index = 4096
-
-[node name="ColorRect" type="ColorRect" parent="Cursor" unique_id=1394591963]
-offset_left = -4.0
-offset_top = -4.0
-offset_right = 3.0
-offset_bottom = 3.0
-color = Color(0, 0, 0, 1)
-metadata/_edit_use_anchors_ = true
-
-[node name="Area2D" type="Area2D" parent="Cursor" unique_id=104884029]
-collision_layer = 16
-collision_mask = 16
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Cursor/Area2D" unique_id=367140423]
-shape = SubResource("CircleShape2D_xpcdj")
 
 [node name="Ammo" type="Node2D" parent="." unique_id=854653242]
 
@@ -382,7 +366,7 @@ offset_bottom = -36.0
 color = Color(0.47397572, 0.47397572, 0.47397572, 1)
 script = ExtResource("5_jlvik")
 
-[node name="Cancel" type="Button" parent="LevelPrep" unique_id=1028242498]
+[node name="Cancel" type="Button" parent="LevelPrep" unique_id=1028242498 node_paths=PackedStringArray("click", "blip")]
 z_index = 2
 layout_mode = 0
 offset_left = -611.0
@@ -397,8 +381,10 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_74mp2")
 shortcut = SubResource("Shortcut_oikmp")
 text = "CANCEL"
 script = ExtResource("6_0u5uq")
+click = NodePath("../../Sounds/Click")
+blip = NodePath("../../Sounds/Blip")
 
-[node name="Play" type="Button" parent="LevelPrep" unique_id=1943965166]
+[node name="Play" type="Button" parent="LevelPrep" unique_id=1943965166 node_paths=PackedStringArray("click", "blip")]
 z_index = 2
 layout_mode = 0
 offset_left = -778.0
@@ -413,6 +399,8 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_74mp2")
 shortcut = SubResource("Shortcut_oikmp")
 text = "P L A Y"
 script = ExtResource("6_0u5uq")
+click = NodePath("../../Sounds/Click")
+blip = NodePath("../../Sounds/Blip")
 
 [node name="HitBox" type="Area2D" parent="." unique_id=12916167]
 collision_layer = 256
@@ -444,6 +432,10 @@ pitch_scale = 1.82
 [node name="LevelClearedSound" type="AudioStreamPlayer" parent="Sounds" unique_id=477157814]
 stream = SubResource("AudioStreamRandomizer_oikmp")
 pitch_scale = 1.76
+
+[node name="Blip" parent="Sounds" unique_id=1149648539 instance=ExtResource("13_7g0yx")]
+
+[node name="Click" parent="Sounds" unique_id=894376312 instance=ExtResource("14_dey5f")]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1115550535]
 libraries/ = SubResource("AnimationLibrary_oikmp")

@@ -3,16 +3,23 @@
 [ext_resource type="Script" uid="uid://6krktoifhfcv" path="res://Scripts/player_ui.gd" id="1_nqcsj"]
 [ext_resource type="FontFile" uid="uid://dndfik3argnf5" path="res://Assets/Fonts/Edge_of_the_galaxy/EdgeOfTheGalaxyRegular-OVEa6.otf" id="2_v8xh3"]
 [ext_resource type="AudioStream" uid="uid://uydmhx6i4krg" path="res://Assets/sound/Money/GainMoney/litupsubway-key-collect-sfx-522219.mp3" id="3_v8xh3"]
+[ext_resource type="PackedScene" uid="uid://df53hobwfnkci" path="res://Scenes/Menus/pause_menu.tscn" id="4_h3wt1"]
 
 [sub_resource type="Theme" id="Theme_v8xh3"]
 default_font = ExtResource("2_v8xh3")
 default_font_size = 97
 
+[sub_resource type="LabelSettings" id="LabelSettings_msvkv"]
+font = ExtResource("2_v8xh3")
+font_size = 116
+font_color = Color(0, 0, 0, 1)
+outline_size = 8
+
 [sub_resource type="LabelSettings" id="LabelSettings_h3wt1"]
 font = ExtResource("2_v8xh3")
 font_size = 127
 font_color = Color(0, 0, 0, 1)
-outline_color = Color(0, 0, 0, 1)
+outline_size = 8
 
 [sub_resource type="Theme" id="Theme_nqcsj"]
 default_font = ExtResource("2_v8xh3")
@@ -175,9 +182,159 @@ _data = {
 }
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_h3wt1"]
-random_pitch = 1.1512225
+random_pitch = 1.5426563
 streams_count = 1
 stream_0/stream = ExtResource("3_v8xh3")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h3wt1"]
+bg_color = Color(0.24477634, 0.24477643, 0.24477628, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pocnh"]
+bg_color = Color(0.033853274, 0.03385329, 0.033853233, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+
+[sub_resource type="Theme" id="Theme_pocnh"]
+default_font = ExtResource("2_v8xh3")
+default_font_size = 32
+
+[sub_resource type="Theme" id="Theme_h3wt1"]
+default_font = ExtResource("2_v8xh3")
+default_font_size = 41
+
+[sub_resource type="LabelSettings" id="LabelSettings_pocnh"]
+font = ExtResource("2_v8xh3")
+font_size = 40
+font_color = Color(0, 0, 0, 1)
+outline_size = 8
+
+[sub_resource type="Animation" id="Animation_h3wt1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TeleportBar:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TeleportBar:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_pocnh"]
+resource_name = "ready"
+length = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TeleportBar:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.07333686, 0.15),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1.9749014, 1.9749014, 1.9749014, 1), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TeleportBar:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.07333686, 0.15),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.11, 1.11), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_msvkv"]
+_data = {
+&"RESET": SubResource("Animation_h3wt1"),
+&"ready": SubResource("Animation_pocnh")
+}
+
+[sub_resource type="Animation" id="Animation_msvkv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AbilitiyCooldownBar:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AbilitiyCooldownBar:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_3m0mf"]
+resource_name = "ready"
+length = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AbilitiyCooldownBar:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.07270465, 0.15),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(18.892157, 18.892157, 18.892157, 1), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AbilitiyCooldownBar:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.07270465, 0.15),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.13, 1.13), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ovxsg"]
+_data = {
+&"RESET": SubResource("Animation_msvkv"),
+&"ready": SubResource("Animation_3m0mf")
+}
 
 [node name="PlayerUI" type="CanvasLayer" unique_id=69200222]
 script = ExtResource("1_nqcsj")
@@ -188,8 +345,9 @@ offset_top = 145.0
 offset_right = 1154.0
 offset_bottom = 250.0
 theme = SubResource("Theme_v8xh3")
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0.18359044, 0.18359044, 0.18359044, 1)
 text = "HOME BASE"
+label_settings = SubResource("LabelSettings_msvkv")
 
 [node name="CurrentAmmo" type="Label" parent="." unique_id=1722381002]
 offset_left = 184.0
@@ -220,6 +378,116 @@ libraries/ = SubResource("AnimationLibrary_pocnh")
 [node name="GainCoinSound" type="AudioStreamPlayer" parent="." unique_id=1013762685]
 stream = SubResource("AudioStreamRandomizer_h3wt1")
 volume_db = -0.15
+pitch_scale = 1.58
 
 [node name="MoneyAnim" type="AnimationPlayer" parent="." unique_id=6067867]
 libraries/ = SubResource("AnimationLibrary_pocnh")
+
+[node name="AbilitiyCooldownBar" type="ProgressBar" parent="." unique_id=1947784146]
+offset_left = 192.0
+offset_top = 689.0
+offset_right = 555.0
+offset_bottom = 726.0
+pivot_offset = Vector2(180.885, 16.98)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/background = SubResource("StyleBoxFlat_h3wt1")
+theme_override_styles/fill = SubResource("StyleBoxFlat_pocnh")
+max_value = 5.0
+value = 5.0
+show_percentage = false
+
+[node name="PressFforAbilty" type="Label" parent="AbilitiyCooldownBar" unique_id=1965877827]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -58.5
+offset_top = -14.5
+offset_right = 60.5
+offset_bottom = 20.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_pocnh")
+text = "CoolDown"
+
+[node name="TimeLeftInAbilityBar" type="ProgressBar" parent="." unique_id=1875270331]
+offset_left = 192.0
+offset_top = 732.0
+offset_right = 555.0
+offset_bottom = 759.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/background = SubResource("StyleBoxFlat_h3wt1")
+theme_override_styles/fill = SubResource("StyleBoxFlat_pocnh")
+max_value = 3.0
+value = 3.0
+show_percentage = false
+
+[node name="PressFforAbilty" type="Label" parent="." unique_id=1808954948]
+offset_left = 196.0
+offset_top = 637.0
+offset_right = 477.0
+offset_bottom = 682.0
+theme = SubResource("Theme_h3wt1")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+text = "Press F for Ability"
+label_settings = SubResource("LabelSettings_pocnh")
+
+[node name="PauseMenu" parent="." unique_id=271841684 instance=ExtResource("4_h3wt1")]
+visible = false
+offset_left = -294.0
+offset_top = -60.0
+offset_right = -294.0
+offset_bottom = -53.0
+
+[node name="TeleportBar" type="ProgressBar" parent="." unique_id=899795906]
+offset_left = 1550.0
+offset_top = 815.0
+offset_right = 1740.0
+offset_bottom = 903.0
+pivot_offset = Vector2(93.995, 42.885)
+theme_override_styles/background = SubResource("StyleBoxFlat_h3wt1")
+theme_override_styles/fill = SubResource("StyleBoxFlat_pocnh")
+max_value = 2.0
+fill_mode = 3
+show_percentage = false
+
+[node name="Teleport" type="Label" parent="TeleportBar" unique_id=705213920]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -31.5
+offset_top = -17.5
+offset_right = 31.5
+offset_bottom = 17.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_pocnh")
+text = "TELEPORT"
+
+[node name="AbiltiyCooldownTimer" type="Timer" parent="." unique_id=1928038125]
+wait_time = 5.0
+one_shot = true
+
+[node name="TimeLeftInAbilityTimer" type="Timer" parent="." unique_id=1965149685]
+wait_time = 3.0
+one_shot = true
+
+[node name="TeleportTimer" type="Timer" parent="." unique_id=1719645311]
+wait_time = 2.0
+one_shot = true
+
+[node name="TeleportAnim" type="AnimationPlayer" parent="." unique_id=194500783]
+libraries/ = SubResource("AnimationLibrary_msvkv")
+
+[node name="CooldownDoneAnim" type="AnimationPlayer" parent="." unique_id=1056590976]
+libraries/ = SubResource("AnimationLibrary_ovxsg")
+
+[connection signal="timeout" from="AbiltiyCooldownTimer" to="." method="_on_abiltiy_cooldown_timer_timeout"]
+[connection signal="timeout" from="TimeLeftInAbilityTimer" to="." method="_on_time_left_in_ability_timer_timeout"]
+[connection signal="timeout" from="TeleportTimer" to="." method="_on_teleport_timer_timeout"]

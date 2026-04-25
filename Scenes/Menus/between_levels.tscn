@@ -1,11 +1,13 @@
 [gd_scene format=3 uid="uid://dvq3bvwhseisp"]
 
-[ext_resource type="Script" uid="uid://ji5ho4q5m06x" path="res://Scripts/between_levels.gd" id="1_4p7o0"]
 [ext_resource type="FontFile" uid="uid://dgagq6pv7mlul" path="res://Assets/Fonts/Corke/Corke-aY7eK.ttf" id="1_8vk2w"]
+[ext_resource type="Script" uid="uid://b6c7077qc60pa" path="res://Scenes/Menus/pause_menu.gd" id="1_yu661"]
 [ext_resource type="FontFile" uid="uid://bfsfjqm4kxeel" path="res://Assets/Fonts/Edge_of_the_galaxy/EdgeOfTheGalaxyItalic-ZVJB3.otf" id="2_4p7o0"]
 [ext_resource type="FontFile" uid="uid://bj5l6a2dnvkmu" path="res://Assets/Fonts/Corke/CorkeItalic-PVzYm.ttf" id="3_40rlg"]
 [ext_resource type="Script" uid="uid://v86otcjdcl6t" path="res://Scripts/button.gd" id="4_bqrii"]
-[ext_resource type="PackedScene" uid="uid://b5u0dnk0vsbin" path="res://Shaders/Scenes/shaders.tscn" id="6_40rlg"]
+[ext_resource type="PackedScene" uid="uid://doqbe36j80fkd" path="res://Shaders/Scenes/shaders.tscn" id="6_40rlg"]
+[ext_resource type="PackedScene" uid="uid://coid35tdcb4ul" path="res://Scenes/Sounds/blip.tscn" id="7_kgc81"]
+[ext_resource type="PackedScene" uid="uid://cnmerspdilm08" path="res://Scenes/Sounds/click.tscn" id="8_8opbd"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_yu661"]
 font = ExtResource("1_8vk2w")
@@ -184,7 +186,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_4p7o0")
+script = ExtResource("1_yu661")
 
 [node name="LevelAnimation" type="Control" parent="." unique_id=1180005393]
 z_index = 4096
@@ -237,7 +239,7 @@ size_flags_horizontal = 4
 text = "CONCEPTION"
 label_settings = SubResource("LabelSettings_kgc81")
 
-[node name="Button" type="Button" parent="LevelAnimation" unique_id=1808171142]
+[node name="Button" type="Button" parent="LevelAnimation" unique_id=1808171142 node_paths=PackedStringArray("click", "blip")]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 0
 offset_left = 722.0
@@ -254,10 +256,16 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_8opbd")
 theme_override_styles/hover = SubResource("StyleBoxFlat_8opbd")
 text = "CONTINUE"
 script = ExtResource("4_bqrii")
+click = NodePath("../../Click")
+blip = NodePath("../../Blip")
 
 [node name="Levels" type="AnimationPlayer" parent="." unique_id=1249396997]
 libraries/ = SubResource("AnimationLibrary_524i7")
 
 [node name="Shaders" parent="." unique_id=821094781 instance=ExtResource("6_40rlg")]
+
+[node name="Blip" parent="." unique_id=1149648539 instance=ExtResource("7_kgc81")]
+
+[node name="Click" parent="." unique_id=894376312 instance=ExtResource("8_8opbd")]
 
 [connection signal="pressed" from="LevelAnimation/Button" to="." method="_on_button_pressed"]

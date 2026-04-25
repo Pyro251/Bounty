@@ -43,6 +43,9 @@ func die():
 	body.hide()
 	can_die = false
 	Global.enemies_killed += 1
+	print("enemies killed: ", Global.enemies_killed)
+	print("total enemies in level: ", Global.enemies_in_current_level)
+	print("enemies left to kill: ", Global.enemies_in_current_level - Global.enemies_killed)
 	
 	# Spawns some coins on death.
 	add_money_collectable()
@@ -50,7 +53,6 @@ func die():
 func add_money_collectable():
 	var spawn_quantity = randi_range(3,6)
 	var new_coin
-
 	
 	for i in spawn_quantity:
 		new_coin = COIN_DROP_SCENE.instantiate()

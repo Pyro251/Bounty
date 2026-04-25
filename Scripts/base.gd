@@ -4,6 +4,7 @@ extends Node2D
 @onready var ready_up_timer: Timer = $ReadyUpTimer
 @onready var ready_up_sound: AudioStreamPlayer = $ReadyUpSound
 @onready var ready_up_end_sound: AudioStreamPlayer = $ReadyUpEndSound
+@onready var on_loaded_sound: AudioStreamPlayer = $OnLoadedSound
 
 @export var target_value = 100
 @export var ready_up_speed = 0.4
@@ -13,6 +14,7 @@ var in_area: bool = false
 const BEGGINING_VALUE: int = 0
 
 func _ready() -> void:
+	on_loaded_sound.play()
 	Global.can_clear_level = true
 
 func _physics_process(delta: float) -> void:

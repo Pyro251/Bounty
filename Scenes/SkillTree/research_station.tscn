@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://dwcw6y41hq7p1"]
+
+[ext_resource type="FontFile" uid="uid://dndfik3argnf5" path="res://Assets/Fonts/Edge_of_the_galaxy/EdgeOfTheGalaxyRegular-OVEa6.otf" id="1_0y3bn"]
+[ext_resource type="Script" uid="uid://cshtunr5ocwj3" path="res://Scripts/research_station.gd" id="1_wbt5b"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_3fowh"]
+font = ExtResource("1_0y3bn")
+font_size = 34
+outline_size = 16
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_wbt5b"]
+font = ExtResource("1_0y3bn")
+font_size = 45
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rexrh"]
+size = Vector2(407.5, 151)
+
+[node name="ResearchStation" type="Node2D" unique_id=51131661]
+script = ExtResource("1_wbt5b")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=42185097]
+offset_left = -183.0
+offset_top = -57.0
+offset_right = 175.0
+offset_bottom = 60.0
+color = Color(0, 0, 0, 1)
+
+[node name="pressE" type="Label" parent="." unique_id=1471346442]
+offset_left = -50.0
+offset_top = 65.0
+offset_right = 45.0
+offset_bottom = 103.0
+text = "press E"
+label_settings = SubResource("LabelSettings_3fowh")
+
+[node name="research" type="Label" parent="." unique_id=242160459]
+offset_left = -80.0
+offset_top = -22.0
+offset_right = 81.0
+offset_bottom = 27.0
+text = "RESEARCH"
+label_settings = SubResource("LabelSettings_wbt5b")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=446920218]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1445688391]
+position = Vector2(1.75, 9.5)
+shape = SubResource("RectangleShape2D_rexrh")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

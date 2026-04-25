@@ -4,6 +4,9 @@
 [ext_resource type="Script" uid="uid://xskm2gq0ud7b" path="res://Scripts/level_cleared_screen.gd" id="1_vtcng"]
 [ext_resource type="FontFile" uid="uid://dndfik3argnf5" path="res://Assets/Fonts/Edge_of_the_galaxy/EdgeOfTheGalaxyRegular-OVEa6.otf" id="2_l4qi4"]
 [ext_resource type="Script" uid="uid://v86otcjdcl6t" path="res://Scripts/button.gd" id="3_1kku6"]
+[ext_resource type="PackedScene" uid="uid://drk1pycy1a2ky" path="res://Scenes/Player/menu_cursor.tscn" id="5_1kku6"]
+[ext_resource type="PackedScene" uid="uid://coid35tdcb4ul" path="res://Scenes/Sounds/blip.tscn" id="6_drwfw"]
+[ext_resource type="PackedScene" uid="uid://cnmerspdilm08" path="res://Scenes/Sounds/click.tscn" id="7_hpuxl"]
 
 [sub_resource type="Theme" id="Theme_flx3f"]
 default_font = ExtResource("2_l4qi4")
@@ -76,6 +79,8 @@ layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_vtcng")
 
+[node name="MenuCursor" parent="." unique_id=1703668164 instance=ExtResource("5_1kku6")]
+
 [node name="BG" type="ColorRect" parent="." unique_id=360390827]
 layout_mode = 0
 offset_left = -1370.0
@@ -113,7 +118,7 @@ offset_bottom = 61.0
 theme = SubResource("Theme_drwfw")
 text = "Enemies DEMOLISHED:"
 
-[node name="Play" type="Button" parent="." unique_id=1550172272]
+[node name="Play" type="Button" parent="." unique_id=1550172272 node_paths=PackedStringArray("click", "blip")]
 layout_mode = 0
 offset_left = -554.0
 offset_top = 121.0
@@ -127,7 +132,13 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_lg47r")
 shortcut = SubResource("Shortcut_2iodg")
 text = "BACK TO BASE"
 script = ExtResource("3_1kku6")
+click = NodePath("../Click")
+blip = NodePath("../Blip")
 
 [node name="Shaders" parent="." unique_id=821094781 instance=ExtResource("1_lhakl")]
+
+[node name="Blip" parent="." unique_id=1149648539 instance=ExtResource("6_drwfw")]
+
+[node name="Click" parent="." unique_id=894376312 instance=ExtResource("7_hpuxl")]
 
 [connection signal="pressed" from="Play" to="." method="_on_play_pressed"]

@@ -9,7 +9,7 @@ extends CharacterBody2D
 @onready var pickup_ammo_sound: AudioStreamPlayer = $Sounds/PickupAmmoSound
 @onready var level_cleared_sound: AudioStreamPlayer = $Sounds/LevelClearedSound
 
-@onready var cursor: Node2D = $Cursor
+@onready var cursor: Node2D = $cursor
 @onready var look_at_cursor: Node2D = $LookAtCursor
 @onready var shoot_pos: Marker2D = $LookAtCursor/ShootPos
 @onready var shoot_timer: Timer = $ShootTimer
@@ -39,6 +39,9 @@ func _ready() -> void:
 	Global.open_run_settings.connect(open_run_prep)
 	Global.close_run_settings.connect(close_run_prep)
 	Global.level_cleared.connect(level_cleared)
+	Global.rapid_fire_used.connect(activate_rapid_fire)
+	Global.ability_ended.connect(deactivate_rapid_fire)
+	Global.teleport.connect(teleport)
 
 
 func _physics_process(delta: float) -> void:
@@ -85,11 +88,11 @@ func _physics_process(delta: float) -> void:
 	Global.level_to_load = str("res://Scenes/Levels/level_", Global.current_level, ".tscn")
 	
 	if Global.enemies_in_current_level == Global.enemies_killed:
-		print("1")
 		if Global.can_clear_level:
-			print("2")
 			level_cleared()
 	
+	if health <= 0:
+		get_tree().quit()sa
 	move_and_slide()
 
 
@@ -167,3 +170,12 @@ func _on_hit_box_area_entered(area: Area2D) -> void:
 func level_cleared():
 	level_cleared_sound.play()
 	Global.can_clear_level = false
+
+func activate_rapid_fire():
+	shoot_timer.wait_time = 0.1
+
+func deactivate_rapid_fire():
+	shoot_timer.wait_time = 0.25
+
+func teleport():
+	global_position = cursor.global_position
