@@ -29,8 +29,7 @@ func _process(delta: float) -> void:
 	desired_offset.x = clamp(desired_offset.x, min_offset, max_offset)
 	desired_offset.y = clamp(desired_offset.y, min_offset / 2.0, max_offset / 2.0)
 	
-	global_position = get_parent().get_node("Player").global_position + desired_offset
-	
+	global_position = get_parent().get_node("Player").global_position + desired_offset	
 	if _shake_strength > 0:
 		_shake_strength = lerp(_shake_strength, 0.0, shake_fade * delta)
 		offset = Vector2(randf_range(-_shake_strength, _shake_strength), randf_range(-_shake_strength, _shake_strength))

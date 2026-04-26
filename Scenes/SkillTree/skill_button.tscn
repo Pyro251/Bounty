@@ -2,11 +2,31 @@
 
 [ext_resource type="Texture2D" uid="uid://dk811l810o1sw" path="res://Assets/GodotIcon/icon.svg" id="1_hkca8"]
 [ext_resource type="Script" uid="uid://c3t1au4vq7sn" path="res://Scripts/skill_button.gd" id="2_1ueth"]
+[ext_resource type="FontFile" uid="uid://dndfik3argnf5" path="res://Assets/Fonts/Edge_of_the_galaxy/EdgeOfTheGalaxyRegular-OVEa6.otf" id="3_1ueth"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_vp1i6"]
+font = ExtResource("3_1ueth")
+font_size = 45
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1ueth"]
+bg_color = Color(0.27387273, 0.27387276, 0.2738727, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+
+[sub_resource type="LabelSettings" id="LabelSettings_8ar8t"]
+font = ExtResource("3_1ueth")
+font_size = 55
 
 [node name="SkillButton" type="TextureButton" unique_id=4599111]
 self_modulate = Color(0.5649617, 0.5649616, 0.5649616, 1)
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 142.0
+offset_bottom = 142.0
 texture_normal = ExtResource("1_hkca8")
 ignore_texture_size = true
 stretch_mode = 0
@@ -20,15 +40,54 @@ offset_bottom = 40.0
 mouse_filter = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1044783842]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -23.0
+grow_horizontal = 2
+grow_vertical = 0
 
 [node name="Label" type="Label" parent="MarginContainer" unique_id=400376991]
 layout_mode = 2
 size_flags_vertical = 8
+theme_override_font_sizes/font_size = 35
 text = "0/3"
+label_settings = SubResource("LabelSettings_vp1i6")
 horizontal_alignment = 2
 vertical_alignment = 2
 
+[node name="Line2D" type="Line2D" parent="." unique_id=1240884686]
+top_level = true
+z_index = -1
+width = 4.0
+default_color = Color(0.6748149, 0.6748145, 0.6748146, 1)
+
+[node name="TextBox" type="PanelContainer" parent="." unique_id=1561706234]
+visible = false
+z_index = 1
+layout_mode = 0
+offset_left = 120.0
+offset_top = -59.0
+offset_right = 252.0
+offset_bottom = 31.0
+pivot_offset = Vector2(0, 89.735)
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_1ueth")
+
+[node name="MarginContainer" type="MarginContainer" parent="TextBox" unique_id=1524882654]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Text" type="Label" parent="TextBox/MarginContainer" unique_id=272141335]
+layout_mode = 2
+text = "Test"
+label_settings = SubResource("LabelSettings_8ar8t")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
 [connection signal="pressed" from="." to="." method="_on_pressed"]
