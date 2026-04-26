@@ -1,6 +1,58 @@
 [gd_scene format=3 uid="uid://nv5jpf8haru3"]
 
+[ext_resource type="Script" uid="uid://c4oglmmrdnqdh" path="res://Scripts/progress_bar.gd" id="1_hq6we"]
 [ext_resource type="PackedScene" uid="uid://cri1ax1lsoupi" path="res://Scenes/SkillTree/skill_button.tscn" id="1_up8uh"]
+[ext_resource type="FontFile" uid="uid://dndfik3argnf5" path="res://Assets/Fonts/Edge_of_the_galaxy/EdgeOfTheGalaxyRegular-OVEa6.otf" id="2_rg40v"]
+[ext_resource type="PackedScene" uid="uid://drk1pycy1a2ky" path="res://Scenes/Player/menu_cursor.tscn" id="3_vhcyw"]
+[ext_resource type="PackedScene" uid="uid://doqbe36j80fkd" path="res://Shaders/Scenes/shaders.tscn" id="4_k0pwm"]
+[ext_resource type="Script" uid="uid://v86otcjdcl6t" path="res://Scripts/button.gd" id="6_unfjh"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_vhcyw"]
+font = ExtResource("2_rg40v")
+font_size = 97
+
+[sub_resource type="Theme" id="Theme_g2pfg"]
+default_font = ExtResource("2_rg40v")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4g5dg"]
+bg_color = Color(0.14901961, 0.14901961, 0.14901961, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+shadow_size = 10
+shadow_offset = Vector2(0.865, 5.985)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_umm0i"]
+bg_color = Color(0.30624878, 0.1286192, 0.121844865, 1)
+border_width_left = 15
+border_width_top = 15
+border_width_right = 15
+border_width_bottom = 15
+border_color = Color(0.24432683, 0.13429776, 0.13186726, 1)
+border_blend = true
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+shadow_offset = Vector2(0.865, 5.985)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i45nu"]
+bg_color = Color(0.35945734, 0.15650335, 0.14987409, 1)
+border_width_left = 15
+border_width_top = 15
+border_width_right = 15
+border_width_bottom = 15
+border_color = Color(0.41297364, 0.2413998, 0.23775369, 1)
+border_blend = true
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+expand_margin_top = 10.0
+expand_margin_bottom = 10.0
+shadow_size = 10
+shadow_offset = Vector2(0.865, 5.985)
 
 [node name="ResearchTree" type="Control" unique_id=938331891]
 layout_mode = 3
@@ -9,18 +61,74 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_hq6we")
+
+[node name="BG" type="ColorRect" parent="." unique_id=387277632]
+z_index = -2
+layout_mode = 0
+offset_left = -952.0
+offset_top = -579.0
+offset_right = 3160.0
+offset_bottom = 1896.0
+mouse_filter = 2
+color = Color(0.14767182, 0.14767179, 0.14767179, 1)
+
+[node name="Title" type="Label" parent="." unique_id=492918533]
+layout_mode = 0
+offset_left = 769.0
+offset_top = 124.0
+offset_right = 1122.0
+offset_bottom = 229.0
+text = "Research"
+label_settings = SubResource("LabelSettings_vhcyw")
+
+[node name="MenuCursor" parent="." unique_id=1703668164 instance=ExtResource("3_vhcyw")]
+
+[node name="Shaders" parent="." unique_id=821094781 instance=ExtResource("4_k0pwm")]
+follow_viewport_enabled = true
 
 [node name="SkillButton" parent="." unique_id=4599111 instance=ExtResource("1_up8uh")]
 layout_mode = 0
-offset_left = 170.0
-offset_top = 83.0
-offset_right = 210.0
-offset_bottom = 123.0
+offset_left = 779.0
+offset_top = 499.0
+offset_right = 921.0
+offset_bottom = 641.0
+text = "COOL UPGRADE
 
-[node name="Panel" type="Panel" parent="." unique_id=517799067]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+yahooo"
+
+[node name="SkillButton" parent="SkillButton" unique_id=1827569660 instance=ExtResource("1_up8uh")]
+layout_mode = 0
+offset_left = 366.0
+offset_top = -171.0
+offset_right = 508.0
+offset_bottom = -29.0
+disabled = true
+text = "2"
+
+[node name="SkillButton2" parent="SkillButton" unique_id=1615386792 instance=ExtResource("1_up8uh")]
+layout_mode = 0
+offset_left = 366.0
+offset_top = 100.0
+offset_right = 508.0
+offset_bottom = 242.0
+disabled = true
+text = "3"
+
+[node name="Quit" type="Button" parent="." unique_id=361308108 node_paths=PackedStringArray("click", "blip")]
+layout_mode = 0
+offset_left = 676.0
+offset_top = 778.0
+offset_right = 1219.0
+offset_bottom = 878.0
+theme = SubResource("Theme_g2pfg")
+theme_override_font_sizes/font_size = 62
+theme_override_styles/normal = SubResource("StyleBoxFlat_4g5dg")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_umm0i")
+theme_override_styles/hover = SubResource("StyleBoxFlat_i45nu")
+text = "DONE"
+script = ExtResource("6_unfjh")
+click = NodePath("")
+blip = NodePath("")
+
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
