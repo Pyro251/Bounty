@@ -9,6 +9,7 @@ func _physics_process(delta: float) -> void:
 	start_level_button.text = str("START LEVEL ", Global.current_level, "?")
 
 func _on_play_pressed() -> void:
+	Global.at_base = false
 	get_tree().change_scene_to_file(Global.level_to_load)
 
 
