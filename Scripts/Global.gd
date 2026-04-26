@@ -39,6 +39,7 @@ var current_level: int = 1
 var level_to_load
 
 var player_money: int = 0
+var money_made_this_level: int = 0
 
 var enemies_in_current_level: int
 var enemies_killed: int = 0
