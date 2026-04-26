@@ -32,6 +32,7 @@ var bullet_damage = 20
 
 var in_menu: bool = false
 var at_base: bool = true
+var can_move: bool = true
 var paused: bool = false
 
 var current_level: int = 1
