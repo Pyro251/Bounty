@@ -13,12 +13,18 @@ extends CanvasLayer
 @onready var teleport_timer: Timer = $TeleportTimer
 @onready var teleport_bar: ProgressBar = $TeleportBar
 @onready var teleport_anim: AnimationPlayer = $TeleportAnim
-@onready var cooldown_done_anim: AnimationPlayer = $CooldownDoneAnim
+@onready var ability_anim: AnimationPlayer = $AbilityAnim
+@onready var ammo_anim: AnimationPlayer = $AmmoAnim
+@onready var letter_anim: AnimationPlayer = $LetterAnim
+
+#music/sounds:
+@onready var chords: AudioStreamPlayer = $music/Chords
 
 var can_use_ability: bool = true
 var using_ability_bar: bool = false
 var using_teleport_bar: bool = false
 var can_cooldown = false
+var can_use_ability_anim = true
 
 func _ready() -> void:
 	Global.ammo_changed.connect(ammo_changed)
@@ -34,6 +40,9 @@ func _process(delta: float) -> void:
 	
 	if Global.at_base:
 		current_location.text = str("HOME BASE")
+		
+
+	
 	else:
 		current_location.text = str("LEVEL ", Global.current_level)
 
@@ -45,16 +54,19 @@ func _process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("ability"):
 		if can_use_ability:
-			using_ability_bar = true
 			Global.using_ability = true
 			can_use_ability = false
-			$AbilityBar.play("use_ability")
-			$PressFforAbility.hide()
+			can_use_ability_anim = false
+			ability_anim.play("use_ability")
+			letter_anim.play("fade out")
+			ammo_anim.play("ammo_down")
+			$Ability.play()
+			$Ability2.play()
 			Global.rapid_fire_used.emit()
+			print("ability used")
 	if can_cooldown:
-		print("can cooldown")
-		$AbilityBar.play("cooldown")
-		can_cooldown = false
+		ability_anim.play("cooldown")
+		
 		
 		
 	if Input.is_action_just_pressed("dash_teleport"):
@@ -63,14 +75,8 @@ func _process(delta: float) -> void:
 			Global.teleport.emit()
 			teleport_timer.start()
 			Global.can_teleport = false
+			$Teleport.play()
 	
-	#if Global.using_ability:
-		#time_left_in_ability_bar.show()
-		#$PressFforAbility.show()
-	#else:
-		#time_left_in_ability_bar.hide()
-		#$PressFforAbility.hide()
-
 
 func ammo_changed():
 	animation_player.play("change_ammo_1")
@@ -83,14 +89,8 @@ func money_added():
 	money_anim.play("add_money_1")
 
 
-
-func _on_time_left_in_ability_timeout() -> void:
-	Global.ability_ended.emit()
-	Global.using_ability = false
-	can_cooldown = true
-	time_left_in_ability_bar.hide()
 	
-
+	
 
 func _on_teleport_timer_timeout() -> void:
 	using_teleport_bar = false
@@ -98,12 +98,26 @@ func _on_teleport_timer_timeout() -> void:
 	Global.can_teleport = true
 
 
-func _on_ability_bar_animation_finished(cooldown):
-	using_ability_bar = false
-	Global.ability_ended.emit()
-	#cooldown_done_anim.play("ready")
-	can_use_ability = false
-	time_left_in_ability_bar.show()
-	$PressFforAbility.show()
-	$AbilityBar.play("cooldown")
-	print("cooldownDone")
+func _on_ability_anim_animation_finished(use_ability):
+	if !can_use_ability_anim:
+		Global.ability_ended.emit()
+		Global.using_ability = false
+		can_cooldown = true
+		$AbilityEnd.play()
+		time_left_in_ability_bar.hide()
+		print("ability bar finished")
+		can_use_ability_anim = true
+
+func _on_ability_anim_animation_finished_cooldown(cooldown):
+	if can_cooldown:
+		Global.ability_ended.emit()
+		ability_anim.play("ready")
+		can_use_ability = true
+		time_left_in_ability_bar.show()
+		letter_anim.play("fade in")
+		ability_anim.play("RESET")
+		$CooldownDoneAnim.play("ready")
+		$Regen.play()
+		ammo_anim.play("ammo_up")
+		print("cooldown bar finished")
+		can_cooldown = false

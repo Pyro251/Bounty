@@ -1,6 +1,6 @@
 extends RigidBody2D
 
-@export var magnet_speed: float = 5.0
+@export var magnet_speed: float = 8.0
 
 @onready var coin_spawn_1: Marker2D = $CoinSpawn1
 @onready var coin_spawn_2: Marker2D = $CoinSpawn2
