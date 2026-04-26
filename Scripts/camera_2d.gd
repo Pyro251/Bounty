@@ -16,7 +16,7 @@ var _shake_strength: float = 0.0
 
 func _ready() -> void:
 	Global.hide_player_ui.connect(hide_player_ui)
-	
+	Global.show_player_ui.connect(show_player_ui)
 	
 	playercamera.enabled = true
 	
@@ -37,6 +37,9 @@ func _process(delta: float) -> void:
 
 func hide_player_ui():
 	player_ui.hide()
+
+func show_player_ui():
+	player_ui.show()
 
 func trigger_shake() -> void:
 	_shake_strength = max_shake

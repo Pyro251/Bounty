@@ -4,7 +4,6 @@ extends CharacterBody2D
 
 # Sounds
 @onready var close_ready_prep_sound: AudioStreamPlayer = $Sounds/CloseReadyPrepSound
-@onready var ready_up_sound_2: AudioStreamPlayer = $Sounds/ReadyUpSound2
 @onready var shoot_sound: AudioStreamPlayer = $Sounds/ShootSound
 @onready var pickup_ammo_sound: AudioStreamPlayer = $Sounds/PickupAmmoSound
 @onready var level_cleared_sound: AudioStreamPlayer = $Sounds/LevelClearedSound
@@ -17,8 +16,6 @@ extends CharacterBody2D
 @onready var skill_tree: Control = $SkillTree
 @onready var flashlight: PointLight2D = $LookAtCursor/Flashlight
 @onready var levels_animation_player: AnimationPlayer = $Levels
-@onready var level_prep: Control = $LevelPrep
-@onready var start_level_button: Button = $LevelPrep/Play
 @onready var body: ProgressBar = $LookAtCursor/Body
 @onready var anim_player: AnimationPlayer = $AnimationPlayer
 
@@ -27,7 +24,6 @@ var can_shoot: bool = true
 var skill_tree_show: bool = false
 var flashlight_show: bool = false
 var health: int = 100
-var can_move = true
 
 const BULLET_SCENE = preload("res://Scenes/Weapons/Bullet/bullet.tscn")
 
@@ -36,9 +32,6 @@ func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
 	skill_tree_show = false
 	
-	close_run_prep()
-	Global.open_run_settings.connect(open_run_prep)
-	Global.close_run_settings.connect(close_run_prep)
 	Global.level_cleared.connect(level_cleared)
 	Global.rapid_fire_used.connect(activate_rapid_fire)
 	Global.ability_ended.connect(deactivate_rapid_fire)
@@ -46,7 +39,7 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
-	if can_move:
+	if Global.can_move:
 		var input_direction = Input.get_vector("left", "right", "up", "down")
 		velocity = input_direction * player_speed
 	
@@ -87,7 +80,6 @@ func _physics_process(delta: float) -> void:
 	
 	Global.current_ammo = ammo
 	
-	start_level_button.text = str("START LEVEL ", Global.current_level, "?")
 	
 	body.value = health
 	
@@ -138,36 +130,6 @@ func _on_button_pressed() -> void:
 	match Global.current_level:
 		1:
 			levels_animation_player.play("level_1_entered_animation_end")
-
-
-func open_run_prep():
-	ready_up_sound_2.play()
-	Global.hide_player_ui.emit()
-	Global.in_menu = true
-	level_prep.show()
-	can_move = false
-	#Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-
-func close_run_prep():
-	Global.show_player_ui.emit()
-	Global.in_menu = false
-	level_prep.hide()
-	can_move = true
-	#Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
-
-
-func _on_play_pressed() -> void:
-	get_tree().change_scene_to_file(Global.level_to_load)
-	print("loading:", Global.level_to_load)
-	print("Current Level: ", Global.current_level)
-	Global.in_menu = false
-	Global.at_base = false
-
-
-func _on_cancel_pressed() -> void:
-	close_ready_prep_sound.play()
-	close_run_prep()
-
 
 func _on_hit_box_area_entered(area: Area2D) -> void:
 	if area.is_in_group("enemy_bullet"):
