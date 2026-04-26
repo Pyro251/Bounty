@@ -10,6 +10,8 @@
 [ext_resource type="FontFile" uid="uid://dndfik3argnf5" path="res://Assets/Fonts/Edge_of_the_galaxy/EdgeOfTheGalaxyRegular-OVEa6.otf" id="5_mom1x"]
 [ext_resource type="AudioStream" uid="uid://blqvwul2mtvlx" path="res://Assets/sound/litupsubway-ui-equip-sfx-513361.mp3" id="8_uanx3"]
 [ext_resource type="PackedScene" uid="uid://dwcw6y41hq7p1" path="res://Scenes/SkillTree/research_station.tscn" id="9_ou2ib"]
+[ext_resource type="AudioStream" uid="uid://b8hpxsrqs1d7b" path="res://Assets/sound/Buttons/LevelPrepOpen/litupsubway-ui-hover-sfx-513360.mp3" id="10_24o66"]
+[ext_resource type="PackedScene" uid="uid://ccifrvhnrnr3x" path="res://Scenes/Player/level_prep.tscn" id="12_dui0l"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_smvwu"]
 polygon = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
@@ -54,6 +56,11 @@ stream_0/stream = ExtResource("5_gtyeh")
 random_pitch = 1.1265541
 streams_count = 1
 stream_0/stream = ExtResource("8_uanx3")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_0s6n1"]
+random_pitch = 1.0451186
+streams_count = 1
+stream_0/stream = ExtResource("10_24o66")
 
 [node name="Base" type="Node2D" unique_id=1226035713]
 script = ExtResource("1_apibs")
@@ -124,9 +131,19 @@ stream = SubResource("AudioStreamRandomizer_mg0ed")
 stream = SubResource("AudioStreamRandomizer_ou2ib")
 pitch_scale = 1.46
 
+[node name="ReadyUpSound2" type="AudioStreamPlayer" parent="." unique_id=1805847353]
+stream = SubResource("AudioStreamRandomizer_0s6n1")
+pitch_scale = 1.03
+
 [node name="ResearchStation" parent="." unique_id=51131661 instance=ExtResource("9_ou2ib")]
 z_index = -1
 position = Vector2(-145, -302)
+
+[node name="LevelPrep" parent="." unique_id=1618305278 instance=ExtResource("12_dui0l")]
+offset_left = -902.0
+offset_top = -125.0
+offset_right = -862.0
+offset_bottom = -85.0
 
 [connection signal="area_entered" from="ReadyUp/Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="ReadyUp/Area2D" to="." method="_on_area_2d_area_exited"]
