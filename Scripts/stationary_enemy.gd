@@ -26,6 +26,7 @@ func _on_bullet_detect_area_entered(area: Area2D) -> void:
 
 func _ready() -> void:
 	player_detected = false
+	target = get_parent().get_node("Player")
 
 func _physics_process(delta: float) -> void:
 	body.value = health

@@ -13,5 +13,14 @@ func _ready() -> void:
 		2:
 			Global.enemies_in_current_level = 12
 			print("(level 2) ENEMIES_IN_CURRENT_LEVEL SET TO: ", Global.enemies_in_current_level)
-	
+		3:
+			Global.enemies_in_current_level = 18
+			print("(level 3) ENEMIES_IN_CURRENT_LEVEL SET TO: ", Global.enemies_in_current_level)
+		4:
+			Global.enemies_in_current_level = 15
+			print("(level 4) ENEMIES_IN_CURRENT_LEVEL SET TO: ", Global.enemies_in_current_level)
+		5:
+			Global.enemies_in_current_level = 2
+			print("(level 5) ENEMIES_IN_CURRENT_LEVEL SET TO: ", Global.enemies_in_current_level)
+		
 	Global.can_clear_level = true
