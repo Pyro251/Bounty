@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dgf6jtumev2hn" path="res://Scripts/base.gd" id="1_apibs"]
 [ext_resource type="Texture2D" uid="uid://dgagkclcjyo8x" path="res://Assets/Tiles/Wall/New Piskel(1).png" id="1_cde1o"]
+[ext_resource type="AudioStream" uid="uid://ct7r6ibvxyiab" path="res://Scenes/Sounds/music/Base.wav" id="2_3s6ea"]
 [ext_resource type="PackedScene" uid="uid://crjyhkqrei5ud" path="res://Scenes/Player/player.tscn" id="2_ohyxv"]
 [ext_resource type="PackedScene" uid="uid://dpl1lfggjmjc5" path="res://Scenes/Camera/camera.tscn" id="3_apibs"]
 [ext_resource type="AudioStream" uid="uid://c3rkly7kf6s1f" path="res://Assets/sound/misc/ready_up/u_u4pf5h7zip-click-345983.mp3" id="5_gtyeh"]
@@ -56,6 +57,11 @@ stream_0/stream = ExtResource("8_uanx3")
 
 [node name="Base" type="Node2D" unique_id=1226035713]
 script = ExtResource("1_apibs")
+
+[node name="Base" type="AudioStreamPlayer" parent="." unique_id=908271393]
+stream = ExtResource("2_3s6ea")
+volume_db = -9.657
+autoplay = true
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=545252660]
 z_index = -6

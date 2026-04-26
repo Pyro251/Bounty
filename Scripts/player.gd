@@ -66,6 +66,11 @@ func _physics_process(delta: float) -> void:
 		flashlight_show = !flashlight_show
 	
 	
+	#if Global.at_base:
+		#chords.play()
+		#if chords.playing == true:
+			#print("playing chords")
+	
 	Global.player_pos = Vector2(self.global_position.x, self.global_position.y)
 	
 	#if skill_tree_show:

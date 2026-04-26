@@ -1,0 +1,185 @@
+[gd_scene format=3 uid="uid://ccifrvhnrnr3x"]
+
+[ext_resource type="Script" uid="uid://df17yyllcfci4" path="res://Scripts/Panel.gd" id="1_5woj2"]
+[ext_resource type="FontFile" uid="uid://dndfik3argnf5" path="res://Assets/Fonts/Edge_of_the_galaxy/EdgeOfTheGalaxyRegular-OVEa6.otf" id="2_wi1mu"]
+[ext_resource type="Script" uid="uid://v86otcjdcl6t" path="res://Scripts/button.gd" id="3_4bwks"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_jlvik"]
+font = ExtResource("2_wi1mu")
+font_size = 91
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_gk6dx"]
+font = ExtResource("2_wi1mu")
+font_size = 45
+font_color = Color(0.18000486, 0.18000486, 0.18000486, 1)
+
+[sub_resource type="Theme" id="Theme_jlvik"]
+default_font = ExtResource("2_wi1mu")
+default_font_size = 0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gk6dx"]
+bg_color = Color(0.14901961, 0.14901961, 0.14901961, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+shadow_size = 10
+shadow_offset = Vector2(0.865, 5.985)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jhyir"]
+bg_color = Color(0.18359044, 0.18359044, 0.18359044, 1)
+border_width_left = 15
+border_width_top = 15
+border_width_right = 15
+border_width_bottom = 15
+border_color = Color(0.1476717, 0.14767185, 0.14767176, 1)
+border_blend = true
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+expand_margin_top = 5.0
+expand_margin_bottom = 5.0
+shadow_offset = Vector2(0.865, 5.985)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_74mp2"]
+bg_color = Color(0.22670749, 0.22670749, 0.22670746, 1)
+border_width_left = 15
+border_width_top = 15
+border_width_right = 15
+border_width_bottom = 15
+border_color = Color(0.26293245, 0.26293245, 0.26293242, 1)
+border_blend = true
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+expand_margin_top = 10.0
+expand_margin_bottom = 10.0
+shadow_size = 10
+shadow_offset = Vector2(0.865, 5.985)
+
+[sub_resource type="InputEventKey" id="InputEventKey_penys"]
+device = -1
+keycode = 32
+unicode = 32
+
+[sub_resource type="InputEventKey" id="InputEventKey_aur2u"]
+device = -1
+keycode = 4194309
+
+[sub_resource type="Shortcut" id="Shortcut_oikmp"]
+events = [SubResource("InputEventKey_penys"), SubResource("InputEventKey_aur2u")]
+
+[node name="LevelPrep" type="Control" unique_id=1618305278]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="BG" type="ColorRect" parent="." unique_id=805262749]
+layout_mode = 0
+offset_left = -1619.0
+offset_top = -855.0
+offset_right = 1862.0
+offset_bottom = 1115.0
+color = Color(0.12955844, 0.12955847, 0.12955844, 1)
+
+[node name="MainPanel" type="ColorRect" parent="." unique_id=15570735]
+layout_mode = 0
+offset_left = -893.0
+offset_top = -504.0
+offset_right = -54.0
+offset_bottom = 423.0
+color = Color(0.5850621, 0.58506197, 0.5850624, 1)
+script = ExtResource("1_5woj2")
+
+[node name="EstimatedEnemies" type="Label" parent="MainPanel" unique_id=1266495144]
+layout_mode = 0
+offset_left = 35.0
+offset_top = 199.0
+offset_right = 295.0
+offset_bottom = 297.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+text = "INSIGHT:"
+label_settings = SubResource("LabelSettings_jlvik")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainPanel" unique_id=1620685510]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 33.999985
+offset_top = -150.5
+offset_right = 547.0
+offset_bottom = -48.49997
+grow_vertical = 2
+
+[node name="EstimatedEnemies" type="Label" parent="MainPanel/VBoxContainer" unique_id=1512765212]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+text = "Estamimated Enemies: 3"
+label_settings = SubResource("LabelSettings_gk6dx")
+
+[node name="EstimatedDifficulty" type="Label" parent="MainPanel/VBoxContainer" unique_id=884302582]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+text = "Estamimated Difficulty: Easy"
+label_settings = SubResource("LabelSettings_gk6dx")
+
+[node name="TopRightPanel" type="ColorRect" parent="." unique_id=470353712]
+layout_mode = 0
+offset_left = 55.0
+offset_top = -505.0
+offset_right = 894.0
+offset_bottom = -36.0
+color = Color(0.47397572, 0.47397572, 0.47397572, 1)
+script = ExtResource("1_5woj2")
+
+[node name="Cancel" type="Button" parent="." unique_id=1619040426]
+z_index = 2
+layout_mode = 0
+offset_left = -611.0
+offset_top = -494.0
+offset_right = -360.0
+offset_bottom = -398.0
+theme = SubResource("Theme_jlvik")
+theme_override_font_sizes/font_size = 62
+theme_override_styles/normal = SubResource("StyleBoxFlat_gk6dx")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_jhyir")
+theme_override_styles/hover = SubResource("StyleBoxFlat_74mp2")
+shortcut = SubResource("Shortcut_oikmp")
+text = "CANCEL"
+script = ExtResource("3_4bwks")
+
+[node name="Play" type="Button" parent="." unique_id=224059655]
+z_index = 2
+layout_mode = 0
+offset_left = -778.0
+offset_top = 300.0
+offset_right = -162.0
+offset_bottom = 396.0
+theme = SubResource("Theme_jlvik")
+theme_override_font_sizes/font_size = 62
+theme_override_styles/normal = SubResource("StyleBoxFlat_gk6dx")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_jhyir")
+theme_override_styles/hover = SubResource("StyleBoxFlat_74mp2")
+shortcut = SubResource("Shortcut_oikmp")
+text = "P L A Y"
+script = ExtResource("3_4bwks")
+
+[node name="BottomRightPanel" type="ColorRect" parent="." unique_id=927234126]
+layout_mode = 0
+offset_left = 58.0
+offset_top = 8.0
+offset_right = 897.0
+offset_bottom = 422.0
+color = Color(0.32915837, 0.3291584, 0.3291584, 1)
+script = ExtResource("1_5woj2")

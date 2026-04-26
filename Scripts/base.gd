@@ -41,3 +41,7 @@ func _on_area_2d_area_exited(area: Area2D) -> void:
 
 func _on_ready_up_timer_timeout() -> void:
 	Global.open_run_settings.emit()
+
+
+func _on_loading_screen_loaded():
+	pass # Replace with function body.

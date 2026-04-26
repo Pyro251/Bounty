@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://bi8b5i1inwbwc" path="res://Scenes/Menus/loading_screen.tscn" id="10_ftsii"]
 [ext_resource type="PackedScene" uid="uid://coid35tdcb4ul" path="res://Scenes/Sounds/blip.tscn" id="11_lg1h6"]
 [ext_resource type="PackedScene" uid="uid://cnmerspdilm08" path="res://Scenes/Sounds/click.tscn" id="12_80s4p"]
+[ext_resource type="AudioStream" uid="uid://byi4vm1dwgqp7" path="res://Scenes/Sounds/music/Menu.mp3" id="13_80s4p"]
 
 [sub_resource type="Theme" id="Theme_aur2u"]
 default_font = ExtResource("4_aur2u")
@@ -202,6 +203,12 @@ volume_db = -17.961
 [node name="Blip" parent="." unique_id=1149648539 instance=ExtResource("11_lg1h6")]
 
 [node name="Click" parent="." unique_id=894376312 instance=ExtResource("12_80s4p")]
+
+[node name="Menu" type="AudioStreamPlayer" parent="." unique_id=757180030]
+stream = ExtResource("13_80s4p")
+autoplay = true
+playback_type = 1
+parameters/looping = true
 
 [connection signal="focus_entered" from="Play" to="." method="_on_play_focus_entered"]
 [connection signal="mouse_entered" from="Play" to="." method="_on_play_mouse_entered"]

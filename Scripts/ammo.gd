@@ -1,7 +1,7 @@
 extends Node2D
 
 var magnet_on: bool = false
-var magnet_speed: float = 10.0
+var magnet_speed: float = 13.0
 
 func _physics_process(delta: float) -> void:
 	#if magnet_on and !Global.chest_in_anim:

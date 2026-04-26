@@ -59,7 +59,7 @@ func add_money_collectable():
 		get_parent().add_child(new_coin)
 		new_coin.global_position = self.global_position
 		spawn_quantity = randi_range(3, 6)
-	
+	#maybe make it so they drop ammo too??
 
 func _on_explosion_particles_finished() -> void:
 	queue_free()

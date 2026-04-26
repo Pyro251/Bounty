@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://1i162pgw0hts" path="res://Scenes/Enemies/stationary_enemy.tscn" id="6_fphuk"]
 [ext_resource type="PackedScene" uid="uid://crjyhkqrei5ud" path="res://Scenes/Player/player.tscn" id="7_pnnky"]
 [ext_resource type="PackedScene" uid="uid://dpl1lfggjmjc5" path="res://Scenes/Camera/camera.tscn" id="8_pnnky"]
+[ext_resource type="AudioStream" uid="uid://c4l7sit2cgeic" path="res://Scenes/Sounds/music/Level.wav" id="9_blpqv"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_m0h5h"]
 vertices = PackedVector2Array(32, 32, -32, 32, -32, -32, 32, -32)
@@ -152,3 +153,8 @@ target = NodePath("../Player")
 [node name="Player" parent="." unique_id=111604148 instance=ExtResource("7_pnnky")]
 
 [node name="Camera2D" parent="." unique_id=584421790 instance=ExtResource("8_pnnky")]
+
+[node name="Level" type="AudioStreamPlayer" parent="." unique_id=615980964]
+stream = ExtResource("9_blpqv")
+volume_db = -9.226
+autoplay = true
