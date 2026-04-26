@@ -4,6 +4,7 @@ func _ready() -> void:
 	
 	Global.can_clear_level = true
 	Global.enemies_killed = 0
+	Global.money_made_this_level = 0
 	
 	
 	match Global.current_level:
