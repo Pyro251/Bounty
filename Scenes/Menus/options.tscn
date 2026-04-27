@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://dphptfsmm08hq"]
+
+[ext_resource type="PackedScene" uid="uid://doqbe36j80fkd" path="res://Shaders/Scenes/shaders.tscn" id="1_kv3oe"]
+[ext_resource type="Script" uid="uid://23jtecabgdj4" path="res://Scripts/options.gd" id="1_sk06h"]
+[ext_resource type="LabelSettings" uid="uid://rephklwoaysm" path="res://Assets/Fonts/LabelSettings.tres" id="2_yqpik"]
+[ext_resource type="FontFile" uid="uid://dndfik3argnf5" path="res://Assets/Fonts/Edge_of_the_galaxy/EdgeOfTheGalaxyRegular-OVEa6.otf" id="3_yqpik"]
+[ext_resource type="PackedScene" uid="uid://drk1pycy1a2ky" path="res://Scenes/Player/menu_cursor.tscn" id="5_8ogrm"]
+
+[node name="Options" type="Control" unique_id=1044197230]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sk06h")
+
+[node name="BG" type="ColorRect" parent="." unique_id=1644144551]
+layout_mode = 0
+offset_left = -674.0
+offset_top = -433.0
+offset_right = 2528.0
+offset_bottom = 1679.0
+color = Color(0.080783345, 0.080783345, 0.080783345, 1)
+
+[node name="Shaders" parent="." unique_id=821094781 instance=ExtResource("1_kv3oe")]
+
+[node name="Title" type="Label" parent="." unique_id=1139982320]
+layout_mode = 0
+offset_left = 552.0
+offset_top = 131.0
+offset_right = 1391.0
+offset_bottom = 275.0
+text = "OPTIONS"
+label_settings = ExtResource("2_yqpik")
+horizontal_alignment = 1
+
+[node name="TabBar" type="TabBar" parent="." unique_id=2056259898]
+layout_mode = 0
+offset_left = 470.0
+offset_top = 269.0
+offset_right = 822.0
+offset_bottom = 354.0
+theme_override_fonts/font = ExtResource("3_yqpik")
+theme_override_font_sizes/font_size = 36
+current_tab = 2
+clip_tabs = false
+tab_count = 3
+tab_0/title = "Graphics"
+tab_1/title = "Gameplay"
+tab_2/title = "Statistics"
+
+[node name="Panel1" type="ColorRect" parent="." unique_id=1039967935]
+layout_mode = 0
+offset_left = 469.0
+offset_top = 351.0
+offset_right = 1534.0
+offset_bottom = 895.0
+color = Color(0.5609549, 0.5609549, 0.5609549, 1)
+
+[node name="Panel2" type="ColorRect" parent="." unique_id=1984208678]
+visible = false
+layout_mode = 0
+offset_left = 469.0
+offset_top = 351.0
+offset_right = 1534.0
+offset_bottom = 895.0
+color = Color(0.5609549, 0.5609549, 0.5609549, 1)
+
+[node name="Panel3" type="ColorRect" parent="." unique_id=361283379]
+visible = false
+layout_mode = 0
+offset_left = 469.0
+offset_top = 351.0
+offset_right = 1534.0
+offset_bottom = 895.0
+color = Color(0.5609549, 0.5609549, 0.5609549, 1)
+
+[node name="MenuCursor" parent="." unique_id=1703668164 instance=ExtResource("5_8ogrm")]
