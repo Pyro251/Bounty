@@ -31,3 +31,7 @@ func _on_options_mouse_entered():
 
 func _on_quit_mouse_entered():
 	$Blip.play()
+
+
+func _on_quit_pressed() -> void:
+	get_tree().quit()

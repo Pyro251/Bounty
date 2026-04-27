@@ -31,6 +31,7 @@ func _ready() -> void:
 	Global.ammo_added.connect(ammo_added)
 	#Global.enemy_killed.connect(money_added)
 	Global.money_collected.connect(money_added)
+	Global.can_teleport = true
 
 
 func _process(delta: float) -> void:
