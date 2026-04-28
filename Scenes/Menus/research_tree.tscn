@@ -54,6 +54,11 @@ expand_margin_bottom = 10.0
 shadow_size = 10
 shadow_offset = Vector2(0.865, 5.985)
 
+[sub_resource type="LabelSettings" id="LabelSettings_hq6we"]
+font = ExtResource("2_rg40v")
+font_size = 97
+font_color = Color(1, 1, 0.39215687, 1)
+
 [node name="ResearchTree" type="Control" unique_id=938331891]
 layout_mode = 3
 anchors_preset = 15
@@ -75,11 +80,11 @@ color = Color(0.14767182, 0.14767179, 0.14767179, 1)
 
 [node name="Title" type="Label" parent="." unique_id=492918533]
 layout_mode = 0
-offset_left = 769.0
-offset_top = 124.0
-offset_right = 1122.0
-offset_bottom = 229.0
-text = "Research"
+offset_left = 551.0
+offset_top = 166.0
+offset_right = 904.0
+offset_bottom = 271.0
+text = "RESEARCH"
 label_settings = SubResource("LabelSettings_vhcyw")
 
 [node name="MenuCursor" parent="." unique_id=1703668164 instance=ExtResource("3_vhcyw")]
@@ -87,15 +92,16 @@ label_settings = SubResource("LabelSettings_vhcyw")
 [node name="Shaders" parent="." unique_id=821094781 instance=ExtResource("4_k0pwm")]
 follow_viewport_enabled = true
 
-[node name="SkillButton" parent="." unique_id=4599111 instance=ExtResource("1_up8uh")]
+[node name="SkillButton" parent="." unique_id=4599111 groups=["health1"] instance=ExtResource("1_up8uh")]
 layout_mode = 0
 offset_left = 779.0
 offset_top = 499.0
 offset_right = 921.0
 offset_bottom = 641.0
-text = "COOL UPGRADE
+text = "HEALTH
 
-yahooo"
+increases maximum health by 5
+Costs 100 dollars"
 
 [node name="SkillButton" parent="SkillButton" unique_id=1827569660 instance=ExtResource("1_up8uh")]
 layout_mode = 0
@@ -115,7 +121,7 @@ offset_bottom = 242.0
 disabled = true
 text = "3"
 
-[node name="Quit" type="Button" parent="." unique_id=361308108 node_paths=PackedStringArray("click", "blip")]
+[node name="Quit" type="Button" parent="." unique_id=361308108]
 layout_mode = 0
 offset_left = 676.0
 offset_top = 778.0
@@ -128,7 +134,14 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_umm0i")
 theme_override_styles/hover = SubResource("StyleBoxFlat_i45nu")
 text = "DONE"
 script = ExtResource("6_unfjh")
-click = NodePath("")
-blip = NodePath("")
+
+[node name="Money" type="Label" parent="." unique_id=1450796174]
+layout_mode = 0
+offset_left = 996.0
+offset_top = 164.0
+offset_right = 1566.0
+offset_bottom = 294.0
+text = "MONEY: 0000"
+label_settings = SubResource("LabelSettings_hq6we")
 
 [connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]

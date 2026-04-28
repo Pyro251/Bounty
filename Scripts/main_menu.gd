@@ -3,8 +3,12 @@ extends Control
 @onready var blip_sound: AudioStreamPlayer = $BlipSound
 @onready var click_sound: AudioStreamPlayer = $ButtonClick
 @onready var loading = $loading_screen
+@onready var options_menu: Control = $OptionsMenu
+@onready var change_log: Control = $ChangeLog
 
 func _ready():
+	change_log.show()
+	options_menu.hide()
 	loading.hide()
 
 func _on_play_pressed() -> void:
@@ -35,3 +39,8 @@ func _on_quit_mouse_entered():
 
 func _on_quit_pressed() -> void:
 	get_tree().quit()
+
+
+func _on_options_pressed() -> void:
+	options_menu.show()
+	click_sound.play()

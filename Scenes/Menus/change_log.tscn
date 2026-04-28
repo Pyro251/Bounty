@@ -1,0 +1,148 @@
+[gd_scene format=3 uid="uid://dc6wrv5g6n5r3"]
+
+[ext_resource type="Script" uid="uid://bxeci7l7kkvdl" path="res://Scenes/Menus/change_log.gd" id="1_3pqo7"]
+[ext_resource type="FontFile" uid="uid://dndfik3argnf5" path="res://Assets/Fonts/Edge_of_the_galaxy/EdgeOfTheGalaxyRegular-OVEa6.otf" id="1_bqh7i"]
+[ext_resource type="Script" uid="uid://v86otcjdcl6t" path="res://Scripts/button.gd" id="3_ewit8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gljoj"]
+bg_color = Color(0.5330367, 0.5330367, 0.5330366, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.33288068, 0.33288074, 0.33288044, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_color = Color(0, 0, 0, 0.3529412)
+shadow_size = 35
+shadow_offset = Vector2(15.31, 30.285)
+
+[sub_resource type="LabelSettings" id="LabelSettings_osxki"]
+font = ExtResource("1_bqh7i")
+font_size = 145
+outline_size = 33
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 31
+shadow_color = Color(0, 0, 0, 0.02745098)
+
+[sub_resource type="Theme" id="Theme_bqh7i"]
+default_font = ExtResource("1_bqh7i")
+default_font_size = 51
+
+[sub_resource type="Theme" id="Theme_pphjs"]
+default_font = ExtResource("1_bqh7i")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sxvbq"]
+bg_color = Color(0.14901961, 0.14901961, 0.14901961, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+shadow_size = 10
+shadow_offset = Vector2(0.865, 5.985)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kyvh6"]
+bg_color = Color(0.30624878, 0.1286192, 0.121844865, 1)
+border_width_left = 15
+border_width_top = 15
+border_width_right = 15
+border_width_bottom = 15
+border_color = Color(0.24432683, 0.13429776, 0.13186726, 1)
+border_blend = true
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+shadow_offset = Vector2(0.865, 5.985)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cn2xk"]
+bg_color = Color(0.35945734, 0.15650335, 0.14987409, 1)
+border_width_left = 15
+border_width_top = 15
+border_width_right = 15
+border_width_bottom = 15
+border_color = Color(0.41297364, 0.2413998, 0.23775369, 1)
+border_blend = true
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+expand_margin_top = 10.0
+expand_margin_bottom = 10.0
+shadow_size = 10
+shadow_offset = Vector2(0.865, 5.985)
+
+[node name="ChangeLog" type="Control" unique_id=637736780]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3pqo7")
+
+[node name="BG" type="Panel" parent="." unique_id=908368295]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -710.0
+offset_top = -419.5
+offset_right = 710.0
+offset_bottom = 359.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_gljoj")
+
+[node name="Title" type="Label" parent="." unique_id=36097913]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -234.0
+offset_top = -372.0
+offset_right = 237.0
+offset_bottom = -215.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 120
+text = "Changes"
+label_settings = SubResource("LabelSettings_osxki")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1831767474]
+layout_mode = 0
+offset_left = 349.0
+offset_top = 338.0
+offset_right = 1534.0
+offset_bottom = 882.0
+theme = SubResource("Theme_bqh7i")
+theme_override_colors/default_color = Color(0.7539839, 0.75398386, 0.75398386, 1)
+bbcode_enabled = true
+text = "+ Added this changes screen
++ Added the first branch of the research tree, still needs some tweaks
++ Added an options screen [b](Work in progress)[/b]
++ Possibly fixed teleport button
++ Made temporary fix for fullscreen, manuel or dynamic resolution setting will come soon"
+
+[node name="Done" type="Button" parent="." unique_id=1428305640]
+layout_mode = 0
+offset_left = 675.0
+offset_top = 755.0
+offset_right = 1218.0
+offset_bottom = 855.0
+theme = SubResource("Theme_pphjs")
+theme_override_font_sizes/font_size = 62
+theme_override_styles/normal = SubResource("StyleBoxFlat_sxvbq")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_kyvh6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cn2xk")
+text = "GOT IT"
+script = ExtResource("3_ewit8")
+
+[connection signal="pressed" from="Done" to="." method="_on_done_pressed"]

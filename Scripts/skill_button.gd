@@ -8,6 +8,10 @@ class_name SkillNode
 @onready var panel: Panel = $Panel
 @onready var label: Label = $MarginContainer/Label
 @onready var line_2d: Line2D = $Line2D
+@onready var accept_anim: AnimationPlayer = $AcceptAnim
+@onready var reject_anim: AnimationPlayer = $RejectAnim
+@onready var reject_sound: AudioStreamPlayer = $RejectSound
+@onready var accept_sound: AudioStreamPlayer = $AcceptSound
 
 @onready var text_box: PanelContainer = $TextBox
 @onready var text_label: Label = $TextBox/MarginContainer/Text
@@ -18,19 +22,6 @@ var level: int = 0:
 		level = value
 		#label.text = str(level) + "/3"
 		label.text = str(level, "/", max_level)
-
-
-
-
-#@onready var skill_level: Label = $SkillLevel
-#@onready var skill_branch: Line2D = $SkillBranch
-#
-
-#
-#var level: int = 0:
-	#set(value):
-		#level = value
-		#skill_level.text = str(level, "/", max_level)
 
 func _ready() -> void:
 	text_label.text = text
@@ -44,15 +35,34 @@ func _ready() -> void:
 
 
 func _on_pressed() -> void:
-	level = min(level + 1, max_level)
+
 	self.self_modulate = Color(1.0, 1.0, 1.0, 1.0)
 	line_2d.default_color = Color(1.0, 1.0, 1.0, 1.0)
 	
+	# Handels how much it can be upgraded
 	var skills = get_children()
 	for skill in skills:
 		if skill is SkillNode and level == levels_to_unlock_next_level:
 			skill.disabled = false
+	
+	
+	# Handels actually giving the player the ability.
+	if self.is_in_group("health1"):
+		if Global.player_money >= 100:
+			Global.max_player_health += 10.0
+			Global.player_money -= 100
+			accept()
+		else:
+			reject()
 
+
+func accept():
+	accept_anim.play("Accept")
+	level = min(level + 1, max_level)
+
+func reject():
+	reject_sound.play()
+	reject_anim.play("Reject")
 
 func _on_mouse_entered() -> void:
 	text_box.show()
