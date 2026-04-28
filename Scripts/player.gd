@@ -19,7 +19,6 @@ extends CharacterBody2D
 @onready var body: ProgressBar = $LookAtCursor/Body
 @onready var anim_player: AnimationPlayer = $AnimationPlayer
 
-var ammo: int = 20
 var can_shoot: bool = true
 var skill_tree_show: bool = false
 var flashlight_show: bool = false
@@ -45,7 +44,7 @@ func _physics_process(delta: float) -> void:
 	cursor.global_position = get_global_mouse_position()
 	look_at_cursor.look_at(cursor.global_position)
 	
-	if ammo > 0:
+	if Global.ammo > 0:
 		if Input.is_action_pressed("shoot") and can_shoot:
 			_shoot()
 			can_shoot = false
@@ -57,7 +56,9 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("flashlight"):
 		flashlight_show = !flashlight_show
 	
-	
+	if Input.is_action_just_pressed("show_mouse"):
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		
 	#if Global.at_base:
 		#chords.play()
 		#if chords.playing == true:
@@ -71,7 +72,6 @@ func _physics_process(delta: float) -> void:
 	else:
 		flashlight.hide()
 	
-	Global.current_ammo = ammo
 	
 	
 	body.max_value = Global.max_player_health
@@ -101,7 +101,7 @@ func _shoot():
 		Global.ammo_changed.emit()
 		Global.shoot.emit()
 		if !Global.at_base:
-			ammo -= 1
+			Global.ammo -= 1
 		#if !rapid_fire:
 			#ammo -= 1
 		#Global.shoot.emit()
@@ -116,7 +116,8 @@ func _on_collectables_area_entered(area: Area2D) -> void:
 	if area.is_in_group("ammo"):
 		pickup_ammo_sound.play()
 		Global.ammo_added.emit()
-		ammo += 15
+		Global.ammo += 15
+
 
 
 func level_changed():

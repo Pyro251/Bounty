@@ -10,11 +10,14 @@
 [ext_resource type="AudioStream" uid="uid://dll188v6xdvb" path="res://Assets/sound/Buttons/Close/litupsubway-ui-close-sfx-513359.mp3" id="7_j4kqa"]
 [ext_resource type="PackedScene" uid="uid://dphptfsmm08hq" path="res://Scenes/Menus/options.tscn" id="8_6t1rs"]
 [ext_resource type="PackedScene" uid="uid://dc6wrv5g6n5r3" path="res://Scenes/Menus/change_log.tscn" id="9_0xbgx"]
+[ext_resource type="Script" uid="uid://bc20seiaopdj0" path="res://Scenes/Menus/loading_screen.gd" id="10_8bdjp"]
 [ext_resource type="PackedScene" uid="uid://drk1pycy1a2ky" path="res://Scenes/Player/menu_cursor.tscn" id="10_anmaw"]
-[ext_resource type="PackedScene" uid="uid://bi8b5i1inwbwc" path="res://Scenes/Menus/loading_screen.tscn" id="10_ftsii"]
+[ext_resource type="Script" uid="uid://b6tf1xoqis13n" path="res://progress_bar.gd" id="11_fx838"]
 [ext_resource type="PackedScene" uid="uid://coid35tdcb4ul" path="res://Scenes/Sounds/blip.tscn" id="11_lg1h6"]
+[ext_resource type="AudioStream" uid="uid://cscfhb6w852f8" path="res://Assets/sound/tone.wav" id="12_0rh2w"]
 [ext_resource type="PackedScene" uid="uid://cnmerspdilm08" path="res://Scenes/Sounds/click.tscn" id="12_80s4p"]
 [ext_resource type="AudioStream" uid="uid://byi4vm1dwgqp7" path="res://Scenes/Sounds/music/Menu.mp3" id="13_80s4p"]
+[ext_resource type="AudioStream" uid="uid://c6j5gaj0q6xm7" path="res://Assets/sound/soundreality-textures-impact-137826.mp3" id="13_ou7d0"]
 
 [sub_resource type="Theme" id="Theme_aur2u"]
 default_font = ExtResource("4_aur2u")
@@ -111,6 +114,47 @@ expand_margin_bottom = 10.0
 shadow_size = 10
 shadow_offset = Vector2(0.865, 5.985)
 
+[sub_resource type="Animation" id="Animation_aatm5"]
+resource_name = "Fill bar"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:value")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 100.0]
+}
+
+[sub_resource type="Animation" id="Animation_etwiq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:value")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0w37i"]
+_data = {
+&"Fill bar": SubResource("Animation_aatm5"),
+&"RESET": SubResource("Animation_etwiq")
+}
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_0w37i"]
+random_pitch = 1.1553527
+streams_count = 1
+stream_0/stream = ExtResource("13_ou7d0")
+
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_anmaw"]
 random_pitch = 1.3029965
 streams_count = 1
@@ -198,8 +242,49 @@ layout_mode = 1
 [node name="ChangeLog" parent="." unique_id=637736780 instance=ExtResource("9_0xbgx")]
 layout_mode = 1
 
-[node name="loading_screen" parent="." unique_id=2136475057 instance=ExtResource("10_ftsii")]
+[node name="loading_screen" type="Node2D" parent="." unique_id=2136475057]
 visible = false
+script = ExtResource("10_8bdjp")
+
+[node name="ColorRect" type="ColorRect" parent="loading_screen" unique_id=805257285]
+offset_right = 1924.0
+offset_bottom = 1088.0
+color = Color(0.10046754, 0.10551586, 0.100022025, 1)
+
+[node name="Label" type="Label" parent="loading_screen" unique_id=2036702383]
+anchors_preset = -1
+anchor_bottom = 0.5
+offset_left = 2.0
+offset_top = 402.0
+offset_right = 1916.0
+offset_bottom = 1080.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+text = "Loading..."
+label_settings = ExtResource("6_anmaw")
+horizontal_alignment = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="loading_screen" unique_id=1627778365]
+offset_left = 262.0
+offset_top = 715.0
+offset_right = 1594.0
+offset_bottom = 742.0
+rounded = true
+show_percentage = false
+script = ExtResource("11_fx838")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="loading_screen/ProgressBar" unique_id=79733499]
+libraries/ = SubResource("AnimationLibrary_0w37i")
+
+[node name="Tone" type="AudioStreamPlayer" parent="loading_screen/ProgressBar" unique_id=522363161]
+stream = ExtResource("12_0rh2w")
+pitch_scale = 0.4
+
+[node name="CoolTone" type="AudioStreamPlayer" parent="loading_screen/ProgressBar" unique_id=324678672]
+stream = SubResource("AudioStreamRandomizer_0w37i")
+volume_db = -9.36
+pitch_scale = 1.44
 
 [node name="ButtonClick" type="AudioStreamPlayer" parent="." unique_id=794507333]
 stream = ExtResource("7_j4kqa")
@@ -228,3 +313,5 @@ parameters/looping = true
 [connection signal="mouse_entered" from="Quit" to="." method="_on_quit_mouse_entered"]
 [connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
 [connection signal="loaded" from="loading_screen" to="." method="_on_loading_screen_loaded"]
+[connection signal="animation_finished" from="loading_screen/ProgressBar/AnimationPlayer" to="loading_screen" method="_on_animation_player_animation_finished"]
+[connection signal="animation_started" from="loading_screen/ProgressBar/AnimationPlayer" to="loading_screen" method="_on_animation_player_animation_started"]
