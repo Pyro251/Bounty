@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://dk811l810o1sw" path="res://Assets/GodotIcon/icon.svg" id="1_hkca8"]
 [ext_resource type="Script" uid="uid://c3t1au4vq7sn" path="res://Scripts/skill_button.gd" id="2_1ueth"]
 [ext_resource type="FontFile" uid="uid://dndfik3argnf5" path="res://Assets/Fonts/Edge_of_the_galaxy/EdgeOfTheGalaxyRegular-OVEa6.otf" id="3_1ueth"]
+[ext_resource type="AudioStream" uid="uid://bcl4idsvtgsuq" path="res://Assets/sound/misc/CancelLevelTrigger/idontknow-cancel-116016.mp3" id="4_vp1i6"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_vp1i6"]
 font = ExtResource("3_1ueth")
@@ -23,10 +24,106 @@ corner_radius_bottom_right = 15
 font = ExtResource("3_1ueth")
 font_size = 55
 
+[sub_resource type="Animation" id="Animation_vp1i6"]
+resource_name = "Accept"
+length = 0.17
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.16666667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.18481863, 0.64285684, 0, 1), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.16666667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.25, 1.25), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_1ueth"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_8ar8t"]
+resource_name = "Reject"
+length = 0.17
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.16666667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.99422306, 0, 0.23917401, 1), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.16666667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.25, 1.25), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8ar8t"]
+_data = {
+&"Accept": SubResource("Animation_vp1i6"),
+&"RESET": SubResource("Animation_1ueth"),
+&"Reject": SubResource("Animation_8ar8t")
+}
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_8ar8t"]
+random_pitch = 1.2418578
+streams_count = 1
+stream_0/stream = ExtResource("4_vp1i6")
+
 [node name="SkillButton" type="TextureButton" unique_id=4599111]
 self_modulate = Color(0.5649617, 0.5649616, 0.5649616, 1)
 offset_right = 142.0
 offset_bottom = 142.0
+pivot_offset = Vector2(70.2, 70.645)
 texture_normal = ExtResource("1_hkca8")
 ignore_texture_size = true
 stretch_mode = 0
@@ -87,6 +184,18 @@ theme_override_constants/margin_bottom = 10
 layout_mode = 2
 text = "Test"
 label_settings = SubResource("LabelSettings_8ar8t")
+
+[node name="RejectAnim" type="AnimationPlayer" parent="." unique_id=407200291]
+libraries/ = SubResource("AnimationLibrary_8ar8t")
+
+[node name="AcceptAnim" type="AnimationPlayer" parent="." unique_id=544211330]
+libraries/ = SubResource("AnimationLibrary_8ar8t")
+
+[node name="RejectSound" type="AudioStreamPlayer" parent="." unique_id=194637377]
+stream = SubResource("AudioStreamRandomizer_8ar8t")
+pitch_scale = 1.64
+
+[node name="AcceptSound" type="AudioStreamPlayer" parent="." unique_id=1009656485]
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

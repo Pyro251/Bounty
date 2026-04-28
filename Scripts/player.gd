@@ -23,7 +23,6 @@ var ammo: int = 20
 var can_shoot: bool = true
 var skill_tree_show: bool = false
 var flashlight_show: bool = false
-var health: int = 100
 
 const BULLET_SCENE = preload("res://Scenes/Weapons/Bullet/bullet.tscn")
 
@@ -66,12 +65,6 @@ func _physics_process(delta: float) -> void:
 	
 	Global.player_pos = Vector2(self.global_position.x, self.global_position.y)
 	
-	#if skill_tree_show:
-		#skill_tree.show()
-		#Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-	#else:
-		#skill_tree.hide()
-		#Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
 	
 	if flashlight_show:
 		flashlight.show()
@@ -81,7 +74,8 @@ func _physics_process(delta: float) -> void:
 	Global.current_ammo = ammo
 	
 	
-	body.value = health
+	body.max_value = Global.max_player_health
+	body.value = Global.player_health
 	
 	Global.level_to_load = str("res://Scenes/Levels/level_", Global.current_level, ".tscn")
 	
@@ -89,8 +83,11 @@ func _physics_process(delta: float) -> void:
 		if Global.can_clear_level:
 			level_cleared()
 	
-	if health <= 0:
+	if Global.player_health <= 0:
 		get_tree().quit()
+	if Global.player_health >= Global.max_player_health:
+		Global.player_health = Global.max_player_health
+		
 	move_and_slide()
 
 
@@ -134,7 +131,7 @@ func _on_button_pressed() -> void:
 func _on_hit_box_area_entered(area: Area2D) -> void:
 	if area.is_in_group("enemy_bullet"):
 		anim_player.play("hit")
-		health -= 5
+		Global.player_health -= 5
 		Global.player_damaged.emit()
 
 func level_cleared():

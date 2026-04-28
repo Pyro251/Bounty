@@ -5,6 +5,55 @@
 [ext_resource type="LabelSettings" uid="uid://rephklwoaysm" path="res://Assets/Fonts/LabelSettings.tres" id="2_yqpik"]
 [ext_resource type="FontFile" uid="uid://dndfik3argnf5" path="res://Assets/Fonts/Edge_of_the_galaxy/EdgeOfTheGalaxyRegular-OVEa6.otf" id="3_yqpik"]
 [ext_resource type="PackedScene" uid="uid://drk1pycy1a2ky" path="res://Scenes/Player/menu_cursor.tscn" id="5_8ogrm"]
+[ext_resource type="Script" uid="uid://v86otcjdcl6t" path="res://Scripts/button.gd" id="6_sow1w"]
+[ext_resource type="PackedScene" uid="uid://cnmerspdilm08" path="res://Scenes/Sounds/click.tscn" id="7_emxk7"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_8ogrm"]
+font = ExtResource("3_yqpik")
+font_size = 36
+
+[sub_resource type="Theme" id="Theme_emxk7"]
+default_font = ExtResource("3_yqpik")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7fubm"]
+bg_color = Color(0.14901961, 0.14901961, 0.14901961, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+shadow_size = 10
+shadow_offset = Vector2(0.865, 5.985)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ltnem"]
+bg_color = Color(0.30624878, 0.1286192, 0.121844865, 1)
+border_width_left = 15
+border_width_top = 15
+border_width_right = 15
+border_width_bottom = 15
+border_color = Color(0.24432683, 0.13429776, 0.13186726, 1)
+border_blend = true
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+shadow_offset = Vector2(0.865, 5.985)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fodw8"]
+bg_color = Color(0.35945734, 0.15650335, 0.14987409, 1)
+border_width_left = 15
+border_width_top = 15
+border_width_right = 15
+border_width_bottom = 15
+border_color = Color(0.41297364, 0.2413998, 0.23775369, 1)
+border_blend = true
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+expand_margin_top = 10.0
+expand_margin_bottom = 10.0
+shadow_size = 10
+shadow_offset = Vector2(0.865, 5.985)
 
 [node name="Options" type="Control" unique_id=1044197230]
 layout_mode = 3
@@ -15,22 +64,26 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_sk06h")
 
+[node name="MenuCursor" parent="." unique_id=1703668164 instance=ExtResource("5_8ogrm")]
+
 [node name="BG" type="ColorRect" parent="." unique_id=1644144551]
 layout_mode = 0
 offset_left = -674.0
 offset_top = -433.0
 offset_right = 2528.0
 offset_bottom = 1679.0
+mouse_filter = 2
 color = Color(0.080783345, 0.080783345, 0.080783345, 1)
 
 [node name="Shaders" parent="." unique_id=821094781 instance=ExtResource("1_kv3oe")]
+visible = false
 
 [node name="Title" type="Label" parent="." unique_id=1139982320]
 layout_mode = 0
-offset_left = 552.0
-offset_top = 131.0
-offset_right = 1391.0
-offset_bottom = 275.0
+offset_left = 551.0
+offset_top = 116.0
+offset_right = 1390.0
+offset_bottom = 260.0
 text = "OPTIONS"
 label_settings = ExtResource("2_yqpik")
 horizontal_alignment = 1
@@ -56,7 +109,48 @@ offset_left = 469.0
 offset_top = 351.0
 offset_right = 1534.0
 offset_bottom = 895.0
+mouse_filter = 2
 color = Color(0.5609549, 0.5609549, 0.5609549, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel1" unique_id=1589598544]
+layout_mode = 0
+offset_left = 54.0
+offset_top = 30.0
+offset_right = 143.0
+offset_bottom = 89.0
+theme_override_constants/separation = 23
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel1/VBoxContainer" unique_id=2078832857]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel1/VBoxContainer/HBoxContainer" unique_id=487713122]
+layout_mode = 2
+theme_override_font_sizes/font_size = 26
+text = "V-Sinc"
+label_settings = SubResource("LabelSettings_8ogrm")
+
+[node name="CheckButton" type="CheckButton" parent="Panel1/VBoxContainer/HBoxContainer" unique_id=515832610]
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Panel1/VBoxContainer" unique_id=1692991425]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel1/VBoxContainer/HBoxContainer2" unique_id=1443005740]
+layout_mode = 2
+theme_override_font_sizes/font_size = 26
+text = "Resolution"
+label_settings = SubResource("LabelSettings_8ogrm")
+
+[node name="OptionButton" type="OptionButton" parent="Panel1/VBoxContainer/HBoxContainer2" unique_id=1518351516]
+layout_mode = 2
+selected = 0
+item_count = 3
+popup/item_0/text = "1               "
+popup/item_0/id = 0
+popup/item_1/text = "2              "
+popup/item_1/id = 1
+popup/item_2/text = "3             "
+popup/item_2/id = 2
 
 [node name="Panel2" type="ColorRect" parent="." unique_id=1984208678]
 visible = false
@@ -65,6 +159,7 @@ offset_left = 469.0
 offset_top = 351.0
 offset_right = 1534.0
 offset_bottom = 895.0
+mouse_filter = 2
 color = Color(0.5609549, 0.5609549, 0.5609549, 1)
 
 [node name="Panel3" type="ColorRect" parent="." unique_id=361283379]
@@ -74,6 +169,25 @@ offset_left = 469.0
 offset_top = 351.0
 offset_right = 1534.0
 offset_bottom = 895.0
+mouse_filter = 2
 color = Color(0.5609549, 0.5609549, 0.5609549, 1)
 
-[node name="MenuCursor" parent="." unique_id=1703668164 instance=ExtResource("5_8ogrm")]
+[node name="Done" type="Button" parent="." unique_id=1539435738 node_paths=PackedStringArray("click", "blip")]
+layout_mode = 0
+offset_left = 747.0
+offset_top = 782.0
+offset_right = 1280.0
+offset_bottom = 875.0
+theme = SubResource("Theme_emxk7")
+theme_override_font_sizes/font_size = 62
+theme_override_styles/normal = SubResource("StyleBoxFlat_7fubm")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ltnem")
+theme_override_styles/hover = SubResource("StyleBoxFlat_fodw8")
+text = "Done"
+script = ExtResource("6_sow1w")
+click = NodePath("")
+blip = NodePath("")
+
+[node name="Click" parent="." unique_id=894376312 instance=ExtResource("7_emxk7")]
+
+[connection signal="pressed" from="Done" to="." method="_on_done_pressed"]

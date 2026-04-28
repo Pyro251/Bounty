@@ -8,6 +8,8 @@
 [ext_resource type="LabelSettings" uid="uid://rephklwoaysm" path="res://Assets/Fonts/LabelSettings.tres" id="6_anmaw"]
 [ext_resource type="AudioStream" uid="uid://dlf3181g8utgc" path="res://Assets/sound/Buttons/Blip/blipSelect(3).wav" id="7_4fgt5"]
 [ext_resource type="AudioStream" uid="uid://dll188v6xdvb" path="res://Assets/sound/Buttons/Close/litupsubway-ui-close-sfx-513359.mp3" id="7_j4kqa"]
+[ext_resource type="PackedScene" uid="uid://dphptfsmm08hq" path="res://Scenes/Menus/options.tscn" id="8_6t1rs"]
+[ext_resource type="PackedScene" uid="uid://dc6wrv5g6n5r3" path="res://Scenes/Menus/change_log.tscn" id="9_0xbgx"]
 [ext_resource type="PackedScene" uid="uid://drk1pycy1a2ky" path="res://Scenes/Player/menu_cursor.tscn" id="10_anmaw"]
 [ext_resource type="PackedScene" uid="uid://bi8b5i1inwbwc" path="res://Scenes/Menus/loading_screen.tscn" id="10_ftsii"]
 [ext_resource type="PackedScene" uid="uid://coid35tdcb4ul" path="res://Scenes/Sounds/blip.tscn" id="11_lg1h6"]
@@ -190,6 +192,12 @@ text = "BOUNTY"
 label_settings = ExtResource("6_anmaw")
 horizontal_alignment = 1
 
+[node name="OptionsMenu" parent="." unique_id=1044197230 instance=ExtResource("8_6t1rs")]
+layout_mode = 1
+
+[node name="ChangeLog" parent="." unique_id=637736780 instance=ExtResource("9_0xbgx")]
+layout_mode = 1
+
 [node name="loading_screen" parent="." unique_id=2136475057 instance=ExtResource("10_ftsii")]
 visible = false
 
@@ -215,6 +223,7 @@ parameters/looping = true
 [connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
 [connection signal="focus_entered" from="Options" to="." method="_on_options_focus_entered"]
 [connection signal="mouse_entered" from="Options" to="." method="_on_options_mouse_entered"]
+[connection signal="pressed" from="Options" to="." method="_on_options_pressed"]
 [connection signal="focus_entered" from="Quit" to="." method="_on_quit_focus_entered"]
 [connection signal="mouse_entered" from="Quit" to="." method="_on_quit_mouse_entered"]
 [connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]

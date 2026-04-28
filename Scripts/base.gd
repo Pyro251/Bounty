@@ -21,6 +21,7 @@ func _ready() -> void:
 	Global.can_clear_level = true
 	Global.open_run_settings.connect(open_run_prep)
 	Global.close_run_settings.connect(close_run_prep)
+	Global.player_health = Global.max_player_health
 
 func _physics_process(delta: float) -> void:
 	if in_area:
