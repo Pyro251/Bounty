@@ -118,18 +118,20 @@ label_settings = SubResource("LabelSettings_osxki")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1831767474]
 layout_mode = 0
-offset_left = 349.0
-offset_top = 338.0
-offset_right = 1534.0
-offset_bottom = 882.0
+offset_left = 319.0
+offset_top = 355.0
+offset_right = 1625.0
+offset_bottom = 899.0
 theme = SubResource("Theme_bqh7i")
 theme_override_colors/default_color = Color(0.7539839, 0.75398386, 0.75398386, 1)
+theme_override_font_sizes/normal_font_size = 40
 bbcode_enabled = true
-text = "+ Added this changes screen
-+ Added the first branch of the research tree, still needs some tweaks
-+ Added an options screen [b](Work in progress)[/b]
-+ Possibly fixed teleport button
-+ Made temporary fix for fullscreen, manuel or dynamic resolution setting will come soon"
+text = "+ Added loading screen to Base Menu
++ Fixed level prep menu not opening at player's position
++ Added \"show mouse\" button for debugging (press \\)
++ Added \"purchace ammo\" button and changed it so any code only references Global ammo and the player code no longer handles ammo
++ Attempted to make the label on level prep scene match enemy count in the next level"
+fit_content = true
 
 [node name="Done" type="Button" parent="." unique_id=1428305640]
 layout_mode = 0

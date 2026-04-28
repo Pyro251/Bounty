@@ -137,9 +137,10 @@ pitch_scale = 1.03
 
 [node name="ResearchStation" parent="." unique_id=51131661 instance=ExtResource("9_ou2ib")]
 z_index = -1
-position = Vector2(-145, -302)
+position = Vector2(-145, -380)
 
 [node name="LevelPrep" parent="." unique_id=1618305278 instance=ExtResource("12_dui0l")]
+visible = false
 offset_left = -902.0
 offset_top = -125.0
 offset_right = -862.0

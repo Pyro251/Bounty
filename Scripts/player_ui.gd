@@ -36,7 +36,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	
-	current_ammo.text = str(Global.current_ammo)
+	current_ammo.text = str(Global.ammo)
 	current_money_label.text = str(Global.player_money)
 	
 	if Global.at_base:

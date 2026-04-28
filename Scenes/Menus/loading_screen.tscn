@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://b6tf1xoqis13n" path="res://progress_bar.gd" id="2_1njbj"]
 [ext_resource type="AudioStream" uid="uid://cscfhb6w852f8" path="res://Assets/sound/tone.wav" id="4_aatm5"]
 [ext_resource type="AudioStream" uid="uid://c6j5gaj0q6xm7" path="res://Assets/sound/soundreality-textures-impact-137826.mp3" id="5_etwiq"]
+[ext_resource type="PackedScene" uid="uid://doqbe36j80fkd" path="res://Shaders/Scenes/shaders.tscn" id="6_0w37i"]
 
 [sub_resource type="Animation" id="Animation_aatm5"]
 resource_name = "Fill bar"
@@ -36,10 +37,26 @@ tracks/0/keys = {
 "values": [0.0]
 }
 
+[sub_resource type="Animation" id="Animation_0w37i"]
+resource_name = "load_level"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:value")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 100.0]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0w37i"]
 _data = {
 &"Fill bar": SubResource("Animation_aatm5"),
-&"RESET": SubResource("Animation_etwiq")
+&"RESET": SubResource("Animation_etwiq"),
+&"load_level": SubResource("Animation_0w37i")
 }
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_0w37i"]
@@ -90,5 +107,9 @@ stream = SubResource("AudioStreamRandomizer_0w37i")
 volume_db = -9.36
 pitch_scale = 1.44
 
+[node name="Shaders" parent="." unique_id=821094781 instance=ExtResource("6_0w37i")]
+
+[connection signal="child_entered_tree" from="." to="." method="_on_child_entered_tree"]
 [connection signal="animation_finished" from="ProgressBar/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="animation_finished" from="ProgressBar/AnimationPlayer" to="." method="_on_animation_player_animation_finished_load"]
 [connection signal="animation_started" from="ProgressBar/AnimationPlayer" to="." method="_on_animation_player_animation_started"]

@@ -19,6 +19,8 @@ font_color = Color(0.18000486, 0.18000486, 0.18000486, 1)
 default_font = ExtResource("2_wi1mu")
 default_font_size = 0
 
+[sub_resource type="ViewportTexture" id="ViewportTexture_wi1mu"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gk6dx"]
 bg_color = Color(0.14901961, 0.14901961, 0.14901961, 1)
 corner_radius_top_left = 4
@@ -148,6 +150,43 @@ offset_bottom = -36.0
 color = Color(0.47397572, 0.47397572, 0.47397572, 1)
 script = ExtResource("1_5woj2")
 
+[node name="Label" type="Label" parent="TopRightPanel" unique_id=777979865]
+layout_mode = 0
+offset_left = 220.0
+offset_top = 171.0
+offset_right = 608.0
+offset_bottom = 205.0
+theme_override_fonts/font = ExtResource("2_wi1mu")
+theme_override_font_sizes/font_size = 31
+text = "Purchase More Starting Ammo?"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="TopRightPanel/Label" unique_id=515710722]
+layout_mode = 0
+offset_left = 44.0
+offset_top = 119.0
+offset_right = 343.0
+offset_bottom = 153.0
+theme_override_fonts/font = ExtResource("2_wi1mu")
+theme_override_font_sizes/font_size = 25
+text = "Adds ten extra starting ammo"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PurchaseAmmo" type="Button" parent="." unique_id=133630877]
+layout_mode = 0
+offset_left = 276.0
+offset_top = -290.0
+offset_right = 655.0
+offset_bottom = -224.0
+theme = SubResource("Theme_jlvik")
+theme_override_fonts/font = ExtResource("2_wi1mu")
+theme_override_font_sizes/font_size = 40
+text = "$50"
+icon = SubResource("ViewportTexture_wi1mu")
+script = ExtResource("3_4bwks")
+
 [node name="Cancel" type="Button" parent="." unique_id=1619040426]
 z_index = 2
 layout_mode = 0
@@ -192,5 +231,6 @@ script = ExtResource("1_5woj2")
 [node name="CloseReadyPrepSound" type="AudioStreamPlayer" parent="." unique_id=1098142731]
 stream = SubResource("AudioStreamMP3_wi1mu")
 
+[connection signal="pressed" from="PurchaseAmmo" to="." method="_on_purchase_ammo_pressed"]
 [connection signal="pressed" from="Cancel" to="." method="_on_cancel_pressed"]
 [connection signal="pressed" from="StartLevel" to="." method="_on_play_pressed"]

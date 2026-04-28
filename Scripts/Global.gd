@@ -14,6 +14,7 @@ signal trigger_camera_shake
 signal shoot
 signal money_collected
 signal teleport
+signal load_level
 
 # abilities
 signal ability_ended
@@ -27,7 +28,7 @@ var player_pos
 
 var chest_in_anim: bool = true
 
-var current_ammo: int
+var ammo: int
 var bullet_damage = 20
 
 var in_menu: bool = false

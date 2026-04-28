@@ -22,6 +22,7 @@ func _on_play_pressed() -> void:
 
 
 func _on_loading_screen_loaded():
+	Global.ammo += 20
 	get_tree().change_scene_to_file("res://Scenes/Levels/base.tscn")
 
 
