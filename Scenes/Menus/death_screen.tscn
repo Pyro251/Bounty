@@ -1,0 +1,216 @@
+[gd_scene format=3 uid="uid://bvhuxgqhdfgfm"]
+
+[ext_resource type="FontFile" uid="uid://dndfik3argnf5" path="res://Assets/Fonts/Edge_of_the_galaxy/EdgeOfTheGalaxyRegular-OVEa6.otf" id="1_1f5c6"]
+[ext_resource type="Script" uid="uid://bq8xvw5mwnan0" path="res://Scripts/death_screen.gd" id="1_whv4k"]
+[ext_resource type="PackedScene" uid="uid://drk1pycy1a2ky" path="res://Scenes/Player/menu_cursor.tscn" id="2_awtwc"]
+[ext_resource type="PackedScene" uid="uid://doqbe36j80fkd" path="res://Shaders/Scenes/shaders.tscn" id="3_awtwc"]
+[ext_resource type="Script" uid="uid://v86otcjdcl6t" path="res://Scripts/button.gd" id="4_nl8mi"]
+[ext_resource type="FontFile" uid="uid://bt17ccrgmyjg4" path="res://Assets/Fonts/Edge_of_the_galaxy/EdgeOfTheGalaxyPosterItalic-x3o1m.otf" id="4_swjgs"]
+
+[sub_resource type="Theme" id="Theme_nl8mi"]
+default_font = ExtResource("1_1f5c6")
+default_font_size = 21
+
+[sub_resource type="LabelSettings" id="LabelSettings_whv4k"]
+font = ExtResource("1_1f5c6")
+font_size = 104
+
+[sub_resource type="LabelSettings" id="LabelSettings_awtwc"]
+font = ExtResource("1_1f5c6")
+font_size = 104
+font_color = Color(0.84768444, 0, 0.2248989, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_wnf7a"]
+font = ExtResource("4_swjgs")
+font_size = 72
+font_color = Color(0.7159709, 0.24579638, 0.21319556, 1)
+outline_size = 7
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Theme" id="Theme_whv4k"]
+default_font = ExtResource("1_1f5c6")
+default_font_size = 0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_swjgs"]
+bg_color = Color(0.14901961, 0.14901961, 0.14901961, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+shadow_size = 10
+shadow_offset = Vector2(0.865, 5.985)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wnf7a"]
+bg_color = Color(0.18359044, 0.18359044, 0.18359044, 1)
+border_width_left = 15
+border_width_top = 15
+border_width_right = 15
+border_width_bottom = 15
+border_color = Color(0.1476717, 0.14767185, 0.14767176, 1)
+border_blend = true
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+expand_margin_top = 5.0
+expand_margin_bottom = 5.0
+shadow_offset = Vector2(0.865, 5.985)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vssh3"]
+bg_color = Color(0.22670749, 0.22670749, 0.22670746, 1)
+border_width_left = 15
+border_width_top = 15
+border_width_right = 15
+border_width_bottom = 15
+border_color = Color(0.26293245, 0.26293245, 0.26293242, 1)
+border_blend = true
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+expand_margin_top = 10.0
+expand_margin_bottom = 10.0
+shadow_size = 10
+shadow_offset = Vector2(0.865, 5.985)
+
+[sub_resource type="InputEventKey" id="InputEventKey_penys"]
+device = -1
+keycode = 32
+unicode = 32
+
+[sub_resource type="InputEventKey" id="InputEventKey_aur2u"]
+device = -1
+keycode = 4194309
+
+[sub_resource type="Shortcut" id="Shortcut_vqoif"]
+events = [SubResource("InputEventKey_penys"), SubResource("InputEventKey_aur2u")]
+
+[sub_resource type="Theme" id="Theme_swjgs"]
+default_font = ExtResource("1_1f5c6")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vqoif"]
+bg_color = Color(0.14901961, 0.14901961, 0.14901961, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+shadow_size = 10
+shadow_offset = Vector2(0.865, 5.985)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_51wk8"]
+bg_color = Color(0.30624878, 0.1286192, 0.121844865, 1)
+border_width_left = 15
+border_width_top = 15
+border_width_right = 15
+border_width_bottom = 15
+border_color = Color(0.24432683, 0.13429776, 0.13186726, 1)
+border_blend = true
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+shadow_offset = Vector2(0.865, 5.985)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tmt2y"]
+bg_color = Color(0.35945734, 0.15650335, 0.14987409, 1)
+border_width_left = 15
+border_width_top = 15
+border_width_right = 15
+border_width_bottom = 15
+border_color = Color(0.41297364, 0.2413998, 0.23775369, 1)
+border_blend = true
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+expand_margin_top = 10.0
+expand_margin_bottom = 10.0
+shadow_size = 10
+shadow_offset = Vector2(0.865, 5.985)
+
+[node name="DeathScreen" type="Control" unique_id=1608849374]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_whv4k")
+
+[node name="Shaders" parent="." unique_id=821094781 instance=ExtResource("3_awtwc")]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=861906873]
+layout_mode = 0
+offset_left = -491.0
+offset_top = -306.0
+offset_right = 2324.0
+offset_bottom = 1442.0
+color = Color(0.103743516, 0.10374353, 0.103743516, 1)
+
+[node name="you" type="Label" parent="." unique_id=7876898]
+layout_mode = 0
+offset_left = 773.0
+offset_top = 184.0
+offset_right = 918.0
+offset_bottom = 297.0
+theme = SubResource("Theme_nl8mi")
+text = "you"
+label_settings = SubResource("LabelSettings_whv4k")
+
+[node name="DIED" type="Label" parent="." unique_id=1392020587]
+layout_mode = 0
+offset_left = 953.0
+offset_top = 183.0
+offset_right = 1109.0
+offset_bottom = 296.0
+theme = SubResource("Theme_nl8mi")
+text = "DIED"
+label_settings = SubResource("LabelSettings_awtwc")
+
+[node name="Funny_haha" type="Label" parent="." unique_id=1792589725]
+layout_mode = 0
+offset_left = 430.0
+offset_top = 341.0
+offset_right = 1411.0
+offset_bottom = 419.0
+text = "Dang you suck...."
+label_settings = SubResource("LabelSettings_wnf7a")
+horizontal_alignment = 1
+
+[node name="MenuCursor" parent="." unique_id=1703668164 instance=ExtResource("2_awtwc")]
+
+[node name="LoadFromLastSaveButton" type="Button" parent="." unique_id=809833311 node_paths=PackedStringArray("click", "blip")]
+layout_mode = 0
+offset_left = 615.0
+offset_top = 542.0
+offset_right = 1272.0
+offset_bottom = 668.0
+theme = SubResource("Theme_whv4k")
+theme_override_font_sizes/font_size = 62
+theme_override_styles/normal = SubResource("StyleBoxFlat_swjgs")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_wnf7a")
+theme_override_styles/hover = SubResource("StyleBoxFlat_vssh3")
+shortcut = SubResource("Shortcut_vqoif")
+text = "Load from last save"
+script = ExtResource("4_nl8mi")
+click = NodePath("")
+blip = NodePath("")
+
+[node name="QuitToMainMenu" type="Button" parent="." unique_id=1580080400 node_paths=PackedStringArray("click", "blip")]
+layout_mode = 0
+offset_left = 615.0
+offset_top = 686.0
+offset_right = 1279.0
+offset_bottom = 859.0
+theme = SubResource("Theme_swjgs")
+theme_override_font_sizes/font_size = 62
+theme_override_styles/normal = SubResource("StyleBoxFlat_vqoif")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_51wk8")
+theme_override_styles/hover = SubResource("StyleBoxFlat_tmt2y")
+text = "Quit to main menu"
+script = ExtResource("4_nl8mi")
+click = NodePath("")
+blip = NodePath("")
+
+[connection signal="pressed" from="LoadFromLastSaveButton" to="." method="_on_load_from_last_save_button_pressed"]
+[connection signal="pressed" from="QuitToMainMenu" to="." method="_on_quit_to_main_menu_pressed"]
