@@ -1,5 +1,6 @@
 extends Node
 
+
 signal ammo_changed
 signal ammo_added
 signal level_changed
@@ -15,10 +16,14 @@ signal shoot
 signal money_collected
 signal teleport
 signal load_level
+signal game_saved
 
 # abilities
 signal ability_ended
 signal rapid_fire_used
+
+#abilities
+var health1: int = 0
 
 var current_ability: String
 var using_ability: bool = false
@@ -35,6 +40,7 @@ var in_menu: bool = false
 var at_base: bool = true
 var can_move: bool = true
 var paused: bool = false
+var show_changes: bool = true
 
 var current_level: int = 1
 var level_to_load

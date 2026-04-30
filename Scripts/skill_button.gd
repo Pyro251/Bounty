@@ -29,13 +29,19 @@ func _ready() -> void:
 	if get_parent() is SkillNode:
 		line_2d.add_point(self.global_position + self.size / 2)
 		line_2d.add_point(get_parent().global_position + get_parent().size / 2)
+	
+	if self.is_in_group("health1"):
+		level = Global.health1
+		if Global.health1 > 0 :
+			self.self_modulate = Color(1.0, 1.0, 1.0, 1.0)
+			line_2d.default_color = Color(1.0, 1.0, 1.0, 1.0)
 
 #func _on_pressed() -> void:
 
 
 
 func _on_pressed() -> void:
-
+	
 	self.self_modulate = Color(1.0, 1.0, 1.0, 1.0)
 	line_2d.default_color = Color(1.0, 1.0, 1.0, 1.0)
 	
@@ -51,6 +57,7 @@ func _on_pressed() -> void:
 		if Global.player_money >= 100:
 			Global.max_player_health += 10.0
 			Global.player_money -= 100
+			Global.health1 = min(Global.health1 + 1, max_level)
 			accept()
 		else:
 			reject()
@@ -63,6 +70,9 @@ func accept():
 func reject():
 	reject_sound.play()
 	reject_anim.play("Reject")
+
+
+
 
 func _on_mouse_entered() -> void:
 	text_box.show()

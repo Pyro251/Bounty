@@ -34,3 +34,17 @@ func test_esc():
 
 func _on_resume_pressed() -> void:
 	resume()
+
+
+func _on_save_pressed() -> void:
+	SaveLoad._set_save_data()
+	SaveLoad._save()
+	Global.game_saved.emit()
+
+func _on_save_and_quit_pressed() -> void:
+	SaveLoad._set_save_data()
+	SaveLoad._save()
+	get_tree().change_scene_to_file("res://Scenes/Menus/main_menu.tscn")
+
+func _on_force_quit_pressed() -> void:
+	get_tree().quit()

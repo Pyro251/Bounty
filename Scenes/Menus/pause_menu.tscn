@@ -12,6 +12,115 @@
 shader = ExtResource("1_tf3q2")
 shader_parameter/lod = 0.0
 
+[sub_resource type="Animation" id="Animation_tf3q2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BG:material:shader_parameter/lod")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Marker2D/Panel:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Marker2D/Panel:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(608, 123.484985)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MenuCursor:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_yeo1y"]
+resource_name = "in"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BG:material:shader_parameter/lod")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 2.6190001244025]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Marker2D/Panel:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.16666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Marker2D/Panel:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.16666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(608, 123.484985), Vector2(608, 217)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MenuCursor:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.06918448),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pw12o"]
+_data = {
+&"RESET": SubResource("Animation_tf3q2"),
+&"in": SubResource("Animation_yeo1y")
+}
+
 [sub_resource type="Theme" id="Theme_nwnlq"]
 default_font = ExtResource("2_yeo1y")
 default_font_size = 0
@@ -70,115 +179,6 @@ keycode = 4194309
 [sub_resource type="Shortcut" id="Shortcut_2cpnl"]
 events = [SubResource("InputEventKey_penys"), SubResource("InputEventKey_aur2u")]
 
-[sub_resource type="Animation" id="Animation_tf3q2"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("BG:material:shader_parameter/lod")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Panel:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Panel:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(608, 123.484985)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("MenuCursor:modulate")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_yeo1y"]
-resource_name = "in"
-length = 0.3
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("BG:material:shader_parameter/lod")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 2.6190001244025]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Panel:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.16666667),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Panel:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.16666667),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(608, 123.484985), Vector2(608, 217)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("MenuCursor:modulate")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.06918448),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_pw12o"]
-_data = {
-&"RESET": SubResource("Animation_tf3q2"),
-&"in": SubResource("Animation_yeo1y")
-}
-
 [node name="PauseMenu" type="Control" unique_id=271841684]
 process_mode = 3
 layout_mode = 3
@@ -200,44 +200,47 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -863.0
-offset_top = -637.0
-offset_right = 810.0
-offset_bottom = 625.0
+offset_left = -1356.0
+offset_top = -498.0
+offset_right = 317.0
+offset_bottom = 764.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Panel" type="Panel" parent="." unique_id=1316004900]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=88438912]
+libraries/ = SubResource("AnimationLibrary_pw12o")
+
+[node name="Blip" parent="." unique_id=1149648539 instance=ExtResource("6_nwnlq")]
+
+[node name="Click" parent="." unique_id=894376312 instance=ExtResource("7_8kr8e")]
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=469929395]
+position = Vector2(5, -122)
+
+[node name="Panel" type="Panel" parent="Marker2D" unique_id=1316004900]
 modulate = Color(1, 1, 1, 0)
+offset_left = 608.0
+offset_top = 123.484985
+offset_right = 1864.5
+offset_bottom = 1098.4857
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Marker2D/Panel" unique_id=2138452238]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -352.0
-offset_top = -416.515
-offset_right = 904.5
-offset_bottom = 323.485
+offset_left = -417.25
+offset_top = -369.50018
+offset_right = 545.5
+offset_bottom = 443.49982
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.875, 0.875)
+theme_override_constants/separation = 32
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel" unique_id=2138452238]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -407.0
-offset_top = -249.5
-offset_right = 407.0
-offset_bottom = 249.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 44
-
-[node name="Resume" type="Button" parent="Panel/VBoxContainer" unique_id=2097557822 node_paths=PackedStringArray("click", "blip")]
+[node name="Resume" type="Button" parent="Marker2D/Panel/VBoxContainer" unique_id=2097557822 node_paths=PackedStringArray("click", "blip")]
 layout_mode = 2
 theme = SubResource("Theme_nwnlq")
 theme_override_font_sizes/font_size = 127
@@ -247,10 +250,23 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_803fv")
 shortcut = SubResource("Shortcut_2cpnl")
 text = "Resume"
 script = ExtResource("3_pw12o")
-click = NodePath("../../../Click")
-blip = NodePath("../../../Blip")
+click = NodePath("../../../../Click")
+blip = NodePath("../../../../Blip")
 
-[node name="Options" type="Button" parent="Panel/VBoxContainer" unique_id=1537346671 node_paths=PackedStringArray("click", "blip")]
+[node name="Save" type="Button" parent="Marker2D/Panel/VBoxContainer" unique_id=1490808071 node_paths=PackedStringArray("click", "blip")]
+layout_mode = 2
+theme = SubResource("Theme_nwnlq")
+theme_override_font_sizes/font_size = 127
+theme_override_styles/normal = SubResource("StyleBoxFlat_8kr8e")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_cnjyl")
+theme_override_styles/hover = SubResource("StyleBoxFlat_803fv")
+shortcut = SubResource("Shortcut_2cpnl")
+text = "Save"
+script = ExtResource("3_pw12o")
+click = NodePath("../../../../Click")
+blip = NodePath("../../../../Blip")
+
+[node name="Options" type="Button" parent="Marker2D/Panel/VBoxContainer" unique_id=1537346671 node_paths=PackedStringArray("click", "blip")]
 layout_mode = 2
 theme = SubResource("Theme_nwnlq")
 theme_override_font_sizes/font_size = 127
@@ -260,10 +276,10 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_803fv")
 shortcut = SubResource("Shortcut_2cpnl")
 text = "Options"
 script = ExtResource("3_pw12o")
-click = NodePath("../../../Click")
-blip = NodePath("../../../Blip")
+click = NodePath("../../../../Click")
+blip = NodePath("../../../../Blip")
 
-[node name="SeveAndQuit" type="Button" parent="Panel/VBoxContainer" unique_id=52146261 node_paths=PackedStringArray("click", "blip")]
+[node name="SaveAndQuit" type="Button" parent="Marker2D/Panel/VBoxContainer" unique_id=52146261 node_paths=PackedStringArray("click", "blip")]
 layout_mode = 2
 theme = SubResource("Theme_nwnlq")
 theme_override_font_sizes/font_size = 127
@@ -273,14 +289,23 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_803fv")
 shortcut = SubResource("Shortcut_2cpnl")
 text = "Save & Quit"
 script = ExtResource("3_pw12o")
-click = NodePath("../../../Click")
-blip = NodePath("../../../Blip")
+click = NodePath("../../../../Click")
+blip = NodePath("../../../../Blip")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=88438912]
-libraries/ = SubResource("AnimationLibrary_pw12o")
+[node name="ForceQuit" type="Button" parent="Marker2D/Panel/VBoxContainer" unique_id=1683182134 node_paths=PackedStringArray("click", "blip")]
+layout_mode = 2
+theme = SubResource("Theme_nwnlq")
+theme_override_font_sizes/font_size = 127
+theme_override_styles/normal = SubResource("StyleBoxFlat_8kr8e")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_cnjyl")
+theme_override_styles/hover = SubResource("StyleBoxFlat_803fv")
+shortcut = SubResource("Shortcut_2cpnl")
+text = "Force Quit"
+script = ExtResource("3_pw12o")
+click = NodePath("../../../../Click")
+blip = NodePath("../../../../Blip")
 
-[node name="Blip" parent="." unique_id=1149648539 instance=ExtResource("6_nwnlq")]
-
-[node name="Click" parent="." unique_id=894376312 instance=ExtResource("7_8kr8e")]
-
-[connection signal="pressed" from="Panel/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="Marker2D/Panel/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="Marker2D/Panel/VBoxContainer/Save" to="." method="_on_save_pressed"]
+[connection signal="pressed" from="Marker2D/Panel/VBoxContainer/SaveAndQuit" to="." method="_on_save_and_quit_pressed"]
+[connection signal="pressed" from="Marker2D/Panel/VBoxContainer/ForceQuit" to="." method="_on_force_quit_pressed"]

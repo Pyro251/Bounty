@@ -123,14 +123,15 @@ offset_top = 355.0
 offset_right = 1625.0
 offset_bottom = 899.0
 theme = SubResource("Theme_bqh7i")
-theme_override_colors/default_color = Color(0.7539839, 0.75398386, 0.75398386, 1)
+theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 40
 bbcode_enabled = true
-text = "+ Added loading screen to Base Menu
-+ Fixed level prep menu not opening at player's position
-+ Added \"show mouse\" button for debugging (press \\)
-+ Added \"purchace ammo\" button and changed it so any code only references Global ammo and the player code no longer handles ammo
-+ Attempted to make the label on level prep scene match enemy count in the next level"
+text = "+ Added two new buttons to pause screen. Save button, and Force Quit button.
++ Added dynamic saving and loading to the game. Research tree saves as well.
++ Tweaked font colors to make sense, and have higher contrast so you can see them better
++ Added the ability to buy ammo in the \"level-prep\" menu
++ Better loading screen handling
++ Some bug fixes"
 fit_content = true
 
 [node name="Done" type="Button" parent="." unique_id=1428305640]
