@@ -177,29 +177,49 @@ script = ExtResource("1_pha2q")
 position = Vector2(951, 566)
 texture = ExtResource("1_38aua")
 
-[node name="Play" type="Button" parent="." unique_id=674722236 node_paths=PackedStringArray("click", "blip")]
-layout_mode = 0
-offset_left = 610.375
-offset_top = 367.5
-offset_right = 1309.375
-offset_bottom = 467.5
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=184856236]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -356.0
+offset_top = -245.0
+offset_right = 356.0
+offset_bottom = 245.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 55
+
+[node name="NewGame" type="Button" parent="VBoxContainer" unique_id=674722236 node_paths=PackedStringArray("click", "blip")]
+layout_mode = 2
 theme = SubResource("Theme_aur2u")
 theme_override_font_sizes/font_size = 62
 theme_override_styles/normal = SubResource("StyleBoxFlat_38aua")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_aur2u")
 theme_override_styles/hover = SubResource("StyleBoxFlat_pha2q")
 shortcut = SubResource("Shortcut_aur2u")
-text = "PLAY"
+text = "NEW GAME"
 script = ExtResource("5_5wi6m")
-click = NodePath("../Click")
-blip = NodePath("../Blip")
+click = NodePath("../../Click")
+blip = NodePath("../../Blip")
 
-[node name="Options" type="Button" parent="." unique_id=541206921 node_paths=PackedStringArray("click", "blip")]
-layout_mode = 0
-offset_left = 610.375
-offset_top = 505.5
-offset_right = 1309.375
-offset_bottom = 605.5
+[node name="LoadGame" type="Button" parent="VBoxContainer" unique_id=1096315970 node_paths=PackedStringArray("click", "blip")]
+layout_mode = 2
+theme = SubResource("Theme_aur2u")
+theme_override_font_sizes/font_size = 62
+theme_override_styles/normal = SubResource("StyleBoxFlat_38aua")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_aur2u")
+theme_override_styles/hover = SubResource("StyleBoxFlat_pha2q")
+shortcut = SubResource("Shortcut_aur2u")
+text = "LOAD GAME"
+script = ExtResource("5_5wi6m")
+click = NodePath("../../Click")
+blip = NodePath("../../Blip")
+
+[node name="Options" type="Button" parent="VBoxContainer" unique_id=541206921 node_paths=PackedStringArray("click", "blip")]
+layout_mode = 2
 theme = SubResource("Theme_5wi6m")
 theme_override_font_sizes/font_size = 62
 theme_override_styles/normal = SubResource("StyleBoxFlat_38aua")
@@ -207,15 +227,11 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_aur2u")
 theme_override_styles/hover = SubResource("StyleBoxFlat_pha2q")
 text = "Options"
 script = ExtResource("5_5wi6m")
-click = NodePath("../Click")
-blip = NodePath("../Blip")
+click = NodePath("../../Click")
+blip = NodePath("../../Blip")
 
-[node name="Quit" type="Button" parent="." unique_id=351531780 node_paths=PackedStringArray("click", "blip")]
-layout_mode = 0
-offset_left = 610.375
-offset_top = 643.5
-offset_right = 1309.375
-offset_bottom = 743.5
+[node name="Quit" type="Button" parent="VBoxContainer" unique_id=351531780 node_paths=PackedStringArray("click", "blip")]
+layout_mode = 2
 theme = SubResource("Theme_chkef")
 theme_override_font_sizes/font_size = 62
 theme_override_styles/normal = SubResource("StyleBoxFlat_38aua")
@@ -223,8 +239,8 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_5wi6m")
 theme_override_styles/hover = SubResource("StyleBoxFlat_penys")
 text = "Quit"
 script = ExtResource("5_5wi6m")
-click = NodePath("../Click")
-blip = NodePath("../Blip")
+click = NodePath("../../Click")
+blip = NodePath("../../Blip")
 
 [node name="Title" type="Label" parent="." unique_id=1116725505]
 layout_mode = 0
@@ -237,9 +253,11 @@ label_settings = ExtResource("6_anmaw")
 horizontal_alignment = 1
 
 [node name="OptionsMenu" parent="." unique_id=1044197230 instance=ExtResource("8_6t1rs")]
+visible = false
 layout_mode = 1
 
 [node name="ChangeLog" parent="." unique_id=637736780 instance=ExtResource("9_0xbgx")]
+visible = false
 layout_mode = 1
 
 [node name="loading_screen" type="Node2D" parent="." unique_id=2136475057]
@@ -303,15 +321,16 @@ autoplay = true
 playback_type = 1
 parameters/looping = true
 
-[connection signal="focus_entered" from="Play" to="." method="_on_play_focus_entered"]
-[connection signal="mouse_entered" from="Play" to="." method="_on_play_mouse_entered"]
-[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
-[connection signal="focus_entered" from="Options" to="." method="_on_options_focus_entered"]
-[connection signal="mouse_entered" from="Options" to="." method="_on_options_mouse_entered"]
-[connection signal="pressed" from="Options" to="." method="_on_options_pressed"]
-[connection signal="focus_entered" from="Quit" to="." method="_on_quit_focus_entered"]
-[connection signal="mouse_entered" from="Quit" to="." method="_on_quit_mouse_entered"]
-[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
+[connection signal="focus_entered" from="VBoxContainer/NewGame" to="." method="_on_play_focus_entered"]
+[connection signal="mouse_entered" from="VBoxContainer/NewGame" to="." method="_on_play_mouse_entered"]
+[connection signal="pressed" from="VBoxContainer/NewGame" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="VBoxContainer/LoadGame" to="." method="_on_load_game_pressed"]
+[connection signal="focus_entered" from="VBoxContainer/Options" to="." method="_on_options_focus_entered"]
+[connection signal="mouse_entered" from="VBoxContainer/Options" to="." method="_on_options_mouse_entered"]
+[connection signal="pressed" from="VBoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="focus_entered" from="VBoxContainer/Quit" to="." method="_on_quit_focus_entered"]
+[connection signal="mouse_entered" from="VBoxContainer/Quit" to="." method="_on_quit_mouse_entered"]
+[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]
 [connection signal="loaded" from="loading_screen" to="." method="_on_loading_screen_loaded"]
 [connection signal="animation_finished" from="loading_screen/ProgressBar/AnimationPlayer" to="loading_screen" method="_on_animation_player_animation_finished"]
 [connection signal="animation_started" from="loading_screen/ProgressBar/AnimationPlayer" to="loading_screen" method="_on_animation_player_animation_started"]

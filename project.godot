@@ -19,6 +19,7 @@ config/icon="res://Assets/GodotIcon/icon.svg"
 
 Global="*uid://d16yq3gkgxbwg"
 DialogueManager="*uid://c3rodes2l3gxb"
+SaveLoad="*uid://lfplbm3qckve"
 
 [display]
 
