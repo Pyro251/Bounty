@@ -84,7 +84,7 @@ func _physics_process(delta: float) -> void:
 			level_cleared()
 	
 	if Global.player_health <= 0:
-		get_tree().quit()
+		get_tree().change_scene_to_file("res://Scenes/Menus/death_screen.tscn")
 	if Global.player_health >= Global.max_player_health:
 		Global.player_health = Global.max_player_health
 		
