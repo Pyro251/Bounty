@@ -19,6 +19,7 @@ var player_detected: bool = false
 
 const BULLET_SCENE = preload("res://Scenes/Enemies/enemy_bullet.tscn")
 const COIN_DROP_SCENE = preload("res://Scenes/Collectables/Money/enemy_coin_drop.tscn")
+const HEALTH_DROP_SCENE = preload("res://Scenes/Collectables/Health/enemy_health_drop.tscn")
 
 func _on_bullet_detect_area_entered(area: Area2D) -> void:
 	if area.is_in_group("player_bullet"):
@@ -54,12 +55,25 @@ func die():
 func add_money_collectable():
 	var spawn_quantity = randi_range(3,6)
 	var new_coin
+	var new_health
 	
 	for i in spawn_quantity:
-		new_coin = COIN_DROP_SCENE.instantiate()
-		get_parent().add_child(new_coin)
-		new_coin.global_position = self.global_position
+		var random_num = randi_range(1,3)
+		match random_num:
+			1:
+				new_coin = COIN_DROP_SCENE.instantiate()
+				get_parent().add_child(new_coin)
+				new_coin.global_position = self.global_position
+			2:
+				new_coin = COIN_DROP_SCENE.instantiate()
+				get_parent().add_child(new_coin)
+				new_coin.global_position = self.global_position
+			3:
+				new_health = HEALTH_DROP_SCENE.instantiate()
+				get_parent().add_child(new_health)
+				new_health.global_position = self.global_position
 		spawn_quantity = randi_range(3, 6)
+		
 	#maybe make it so they drop ammo too??
 
 func _on_explosion_particles_finished() -> void:

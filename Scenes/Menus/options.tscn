@@ -20,6 +20,15 @@ default_font_size = 15
 font = ExtResource("3_yqpik")
 font_size = 36
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_emxk7"]
+bg_color = Color(0.40704077, 0.6822227, 0.3195136, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l3l4f"]
+bg_color = Color(0.7049166, 0.57172513, 0.45243257, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aopeh"]
+bg_color = Color(0.46530426, 0.64712983, 0.57106525, 1)
+
 [sub_resource type="Theme" id="Theme_emxk7"]
 default_font = ExtResource("3_yqpik")
 
@@ -103,13 +112,14 @@ offset_top = 255.0
 offset_right = 1607.0
 offset_bottom = 899.0
 theme = SubResource("Theme_7fubm")
-current_tab = 0
+current_tab = 2
 tab_0/title = "Graphics"
 tab_1/title = "Gameplay"
 tab_2/title = "Audio"
 tab_3/title = "Statistics"
 
 [node name="TabBar" type="TabBar" parent="TabContainer" unique_id=1700488526]
+visible = false
 layout_mode = 2
 theme = SubResource("Theme_ltnem")
 metadata/_tab_index = 0
@@ -162,10 +172,22 @@ metadata/_tab_index = 1
 metadata/_tab_name = "Gameplay"
 
 [node name="TabBar3" type="TabBar" parent="TabContainer" unique_id=1101101757]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 2
 metadata/_tab_name = "Audio"
+
+[node name="MasterVolume" type="HSlider" parent="TabContainer/TabBar3" unique_id=2082531559]
+layout_mode = 0
+offset_left = 411.0
+offset_top = 130.0
+offset_right = 683.0
+offset_bottom = 158.0
+theme_override_styles/slider = SubResource("StyleBoxFlat_emxk7")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_l3l4f")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_aopeh")
+max_value = 1.5
+step = 0.001
+value = 1.0
 
 [node name="TabBar4" type="TabBar" parent="TabContainer" unique_id=1709817894]
 visible = false
