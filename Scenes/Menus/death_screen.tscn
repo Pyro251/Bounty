@@ -179,7 +179,7 @@ horizontal_alignment = 1
 
 [node name="MenuCursor" parent="." unique_id=1703668164 instance=ExtResource("2_awtwc")]
 
-[node name="LoadFromLastSaveButton" type="Button" parent="." unique_id=809833311 node_paths=PackedStringArray("click", "blip")]
+[node name="LoadFromLastSaveButton" type="Button" parent="." unique_id=809833311]
 layout_mode = 0
 offset_left = 615.0
 offset_top = 542.0
@@ -193,10 +193,8 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_vssh3")
 shortcut = SubResource("Shortcut_vqoif")
 text = "Load from last save"
 script = ExtResource("4_nl8mi")
-click = NodePath("")
-blip = NodePath("")
 
-[node name="QuitToMainMenu" type="Button" parent="." unique_id=1580080400 node_paths=PackedStringArray("click", "blip")]
+[node name="QuitToMainMenu" type="Button" parent="." unique_id=1580080400]
 layout_mode = 0
 offset_left = 615.0
 offset_top = 686.0
@@ -209,8 +207,6 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_51wk8")
 theme_override_styles/hover = SubResource("StyleBoxFlat_tmt2y")
 text = "Quit to main menu"
 script = ExtResource("4_nl8mi")
-click = NodePath("")
-blip = NodePath("")
 
 [connection signal="pressed" from="LoadFromLastSaveButton" to="." method="_on_load_from_last_save_button_pressed"]
 [connection signal="pressed" from="QuitToMainMenu" to="." method="_on_quit_to_main_menu_pressed"]

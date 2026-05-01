@@ -1,6 +1,6 @@
-[gd_scene format=3 uid="uid://n0qbnjmfsbut"]
+[gd_scene format=3 uid="uid://btwfiaqk68euo"]
 
-[ext_resource type="Script" uid="uid://bgtwf8djtllbf" path="res://Scripts/dropped_collectable.gd" id="1_3apfn"]
+[ext_resource type="Script" uid="uid://bgtwf8djtllbf" path="res://Scripts/dropped_collectable.gd" id="1_cmnrn"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_epms5"]
 
@@ -12,29 +12,29 @@ radius = 175.07141
 [sub_resource type="CircleShape2D" id="CircleShape2D_8baih"]
 radius = 15.033297
 
-[node name="EnemyCoinDrop" type="RigidBody2D" unique_id=1141752234 groups=["money"]]
+[node name="EnemyHealthDrop" type="RigidBody2D" unique_id=1141752234 groups=["health"]]
 physics_material_override = SubResource("PhysicsMaterial_epms5")
 gravity_scale = 0.0
-script = ExtResource("1_3apfn")
+script = ExtResource("1_cmnrn")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1289222258]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1289222258 groups=["health"]]
 offset_left = -10.0
 offset_top = -10.0
 offset_right = 10.0
 offset_bottom = 10.0
-color = Color(0.8590105, 0.85786927, 7.70092e-07, 1)
+color = Color(0.25010714, 0.5620787, 0, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2123194563]
 shape = SubResource("RectangleShape2D_3apfn")
 
-[node name="magnet" type="Area2D" parent="." unique_id=1038262483 groups=["money"]]
+[node name="magnet" type="Area2D" parent="." unique_id=1038262483 groups=["health"]]
 collision_layer = 8
 collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="magnet" unique_id=1473134783]
 shape = SubResource("CircleShape2D_3apfn")
 
-[node name="collect" type="Area2D" parent="." unique_id=1378185724 groups=["money"]]
+[node name="collect" type="Area2D" parent="." unique_id=1378185724 groups=["health"]]
 collision_layer = 4
 collision_mask = 4
 

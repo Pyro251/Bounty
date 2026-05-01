@@ -126,12 +126,9 @@ theme = SubResource("Theme_bqh7i")
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 40
 bbcode_enabled = true
-text = "+ Added two new buttons to pause screen. Save button, and Force Quit button.
-+ Added dynamic saving and loading to the game. Research tree saves as well.
-+ Tweaked font colors to make sense, and have higher contrast so you can see them better
-+ Added the ability to buy ammo in the \"level-prep\" menu
-+ Better loading screen handling
-+ Some bug fixes"
+text = "+ Enemies now drop small amounts of health along with coins. It is weighted to where there is a higher amount of coins than health dropped per enemy killed.
++ Re-coded options menu to be more efficiant, also added audio tab.
++ Started work on audio settings, can't get Hslider to work."
 fit_content = true
 
 [node name="Done" type="Button" parent="." unique_id=1428305640]
