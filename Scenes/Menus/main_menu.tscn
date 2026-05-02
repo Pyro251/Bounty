@@ -187,13 +187,14 @@ anchor_bottom = 0.5
 offset_left = -356.0
 offset_top = -245.0
 offset_right = 356.0
-offset_bottom = 245.0
+offset_bottom = 307.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 55
+theme_override_constants/separation = 46
 
 [node name="NewGame" type="Button" parent="VBoxContainer" unique_id=674722236 node_paths=PackedStringArray("click", "blip")]
 layout_mode = 2
+size_flags_vertical = 3
 theme = SubResource("Theme_aur2u")
 theme_override_font_sizes/font_size = 62
 theme_override_styles/normal = SubResource("StyleBoxFlat_38aua")
@@ -207,6 +208,7 @@ blip = NodePath("../../Blip")
 
 [node name="LoadGame" type="Button" parent="VBoxContainer" unique_id=1096315970 node_paths=PackedStringArray("click", "blip")]
 layout_mode = 2
+size_flags_vertical = 3
 theme = SubResource("Theme_aur2u")
 theme_override_font_sizes/font_size = 62
 theme_override_styles/normal = SubResource("StyleBoxFlat_38aua")
@@ -220,6 +222,7 @@ blip = NodePath("../../Blip")
 
 [node name="Options" type="Button" parent="VBoxContainer" unique_id=541206921 node_paths=PackedStringArray("click", "blip")]
 layout_mode = 2
+size_flags_vertical = 3
 theme = SubResource("Theme_5wi6m")
 theme_override_font_sizes/font_size = 62
 theme_override_styles/normal = SubResource("StyleBoxFlat_38aua")
@@ -232,6 +235,7 @@ blip = NodePath("../../Blip")
 
 [node name="Quit" type="Button" parent="VBoxContainer" unique_id=351531780 node_paths=PackedStringArray("click", "blip")]
 layout_mode = 2
+size_flags_vertical = 3
 theme = SubResource("Theme_chkef")
 theme_override_font_sizes/font_size = 62
 theme_override_styles/normal = SubResource("StyleBoxFlat_38aua")
@@ -306,10 +310,12 @@ pitch_scale = 1.44
 
 [node name="ButtonClick" type="AudioStreamPlayer" parent="." unique_id=794507333]
 stream = ExtResource("7_j4kqa")
+bus = &"UI"
 
 [node name="BlipSound" type="AudioStreamPlayer" parent="." unique_id=555507027]
 stream = SubResource("AudioStreamRandomizer_anmaw")
 volume_db = -17.961
+bus = &"UI"
 
 [node name="Blip" parent="." unique_id=1149648539 instance=ExtResource("11_lg1h6")]
 
@@ -318,12 +324,14 @@ volume_db = -17.961
 [node name="Menu" type="AudioStreamPlayer" parent="." unique_id=757180030]
 stream = ExtResource("13_80s4p")
 autoplay = true
+bus = &"Music"
 playback_type = 1
 parameters/looping = true
 
 [connection signal="focus_entered" from="VBoxContainer/NewGame" to="." method="_on_play_focus_entered"]
 [connection signal="mouse_entered" from="VBoxContainer/NewGame" to="." method="_on_play_mouse_entered"]
 [connection signal="pressed" from="VBoxContainer/NewGame" to="." method="_on_play_pressed"]
+[connection signal="mouse_entered" from="VBoxContainer/LoadGame" to="." method="_on_load_game_mouse_entered"]
 [connection signal="pressed" from="VBoxContainer/LoadGame" to="." method="_on_load_game_pressed"]
 [connection signal="focus_entered" from="VBoxContainer/Options" to="." method="_on_options_focus_entered"]
 [connection signal="mouse_entered" from="VBoxContainer/Options" to="." method="_on_options_mouse_entered"]

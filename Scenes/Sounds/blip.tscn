@@ -11,3 +11,4 @@ stream_0/stream = ExtResource("1_0pajm")
 stream = SubResource("AudioStreamRandomizer_p2n42")
 volume_db = -7.879
 pitch_scale = 1.45
+bus = &"UI"

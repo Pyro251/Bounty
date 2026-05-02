@@ -14,7 +14,8 @@ class_name SkillNode
 @onready var accept_sound: AudioStreamPlayer = $AcceptSound
 
 @onready var text_box: PanelContainer = $TextBox
-@onready var text_label: Label = $TextBox/MarginContainer/Text
+@onready var text_label: RichTextLabel = $TextBox/MarginContainer/Text
+
 
 
 var level: int = 0:
@@ -35,6 +36,16 @@ func _ready() -> void:
 		if Global.health1 > 0 :
 			self.self_modulate = Color(1.0, 1.0, 1.0, 1.0)
 			line_2d.default_color = Color(1.0, 1.0, 1.0, 1.0)
+	if self.is_in_group("health2"):
+		level = Global.health2
+		if Global.health2 > 0 :
+			self.self_modulate = Color(1.0, 1.0, 1.0, 1.0)
+			line_2d.default_color = Color(1.0, 1.0, 1.0, 1.0)
+	if self.is_in_group("regen1"):
+		level = Global.regen1
+		if Global.regen1 > 0 :
+			self.self_modulate = Color(1.0, 1.0, 1.0, 1.0)
+			line_2d.default_color = Color(1.0, 1.0, 1.0, 1.0)
 
 #func _on_pressed() -> void:
 
@@ -53,15 +64,30 @@ func _on_pressed() -> void:
 	
 	
 	# Handels actually giving the player the ability.
-	if self.is_in_group("health1"):
-		if Global.player_money >= 100:
-			Global.max_player_health += 10.0
-			Global.player_money -= 100
-			Global.health1 = min(Global.health1 + 1, max_level)
-			accept()
-		else:
-			reject()
-
+	if level < max_level:
+		if self.is_in_group("health1"):
+			if Global.player_money >= 100:
+				Global.max_player_health += 5.0
+				Global.player_money -= 100
+				Global.health1 = min(Global.health1 + 1, max_level)
+				accept()
+			else:
+				reject()
+		if self.is_in_group("health2"):
+			if Global.player_money >= 400:
+				Global.max_player_health += 15.0
+				Global.player_money -= 400
+				Global.health2 = min(Global.health2 + 1, max_level)
+				accept()
+			else:
+				reject()
+		if self.is_in_group("regen1"):
+			if Global.player_money >= 100:
+				Global.health_per_enemy_health_collectable += 15
+				Global.player_money -= 100
+				Global.regen1 = min(Global.regen1 + 1, max_level)
+			else:
+				reject()
 
 func accept():
 	accept_anim.play("Accept")

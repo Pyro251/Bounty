@@ -57,7 +57,12 @@ func _on_options_pressed() -> void:
 
 
 func _on_load_game_pressed() -> void:
+	click_sound.play()
 	loading.show()
 	$loading_screen/ProgressBar/AnimationPlayer.play("Fill bar")
 	SaveLoad._load()
 	SaveLoad._set_load_data()
+
+
+func _on_load_game_mouse_entered() -> void:
+	$Blip.play()

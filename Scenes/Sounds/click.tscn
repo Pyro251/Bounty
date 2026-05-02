@@ -10,3 +10,4 @@ stream_0/stream = ExtResource("1_hb1nb")
 [node name="Click" type="AudioStreamPlayer" unique_id=894376312]
 stream = SubResource("AudioStreamRandomizer_ntfhp")
 pitch_scale = 1.3
+bus = &"UI"
