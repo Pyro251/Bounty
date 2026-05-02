@@ -7,7 +7,19 @@ var save_data: Dictionary = {
 	"player_health": 100.0,
 	"player_money": 100,
 	"show_changes": true,
-	"health1": 0
+	
+	# research tree
+	"health1": 0,
+	"health2": 0,
+	"regen1": 0,
+	
+	# audio settings
+	"master_audio": 1.0,
+	"music_audio": 1.0,
+	"ui_audio": 1.0,
+	"enemies_audio": 1.0,
+	"projectiles_audio": 1.0,
+	"collectables_audio": 1.0,
 }
 
 func _ready() -> void:
@@ -28,6 +40,8 @@ func _set_save_data():
 	
 	#abilities
 	save_data.health1 = Global.health1
+	save_data.health2 = Global.health2
+	save_data.regen1 = Global.regen1
 
 func _load():
 	if FileAccess.file_exists(SAVE_LOCATION):
@@ -48,6 +62,8 @@ func _set_load_data():
 	
 	#abilities
 	Global.health1 = save_data.health1
+	Global.health2 = save_data.health2
+	Global.regen1 = save_data.regen1
 
 func _wipe_save():
 	DirAccess.remove_absolute(SAVE_LOCATION)

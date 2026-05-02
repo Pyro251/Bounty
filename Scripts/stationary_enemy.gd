@@ -73,6 +73,7 @@ func add_money_collectable():
 				get_parent().add_child(new_health)
 				new_health.global_position = self.global_position
 		spawn_quantity = randi_range(3, 6)
+		random_num = randi_range(1,3)
 		
 	#maybe make it so they drop ammo too??
 

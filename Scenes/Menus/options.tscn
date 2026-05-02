@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://drk1pycy1a2ky" path="res://Scenes/Player/menu_cursor.tscn" id="5_8ogrm"]
 [ext_resource type="Script" uid="uid://v86otcjdcl6t" path="res://Scripts/button.gd" id="6_sow1w"]
 [ext_resource type="PackedScene" uid="uid://cnmerspdilm08" path="res://Scenes/Sounds/click.tscn" id="7_emxk7"]
+[ext_resource type="PackedScene" uid="uid://coid35tdcb4ul" path="res://Scenes/Sounds/blip.tscn" id="8_7fubm"]
 
 [sub_resource type="Theme" id="Theme_7fubm"]
 default_font = ExtResource("3_yqpik")
@@ -20,14 +21,21 @@ default_font_size = 15
 font = ExtResource("3_yqpik")
 font_size = 36
 
+[sub_resource type="LabelSettings" id="LabelSettings_emxk7"]
+font_size = 51
+
+[sub_resource type="LabelSettings" id="LabelSettings_7fubm"]
+font_size = 46
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_emxk7"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_emxk7"]
-bg_color = Color(0.40704077, 0.6822227, 0.3195136, 1)
+bg_color = Color(1, 0.682565, 0.743957, 1)
+border_width_top = 20
+border_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l3l4f"]
-bg_color = Color(0.7049166, 0.57172513, 0.45243257, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aopeh"]
-bg_color = Color(0.46530426, 0.64712983, 0.57106525, 1)
+bg_color = Color(0.5849045, 0.6102724, 0.62419236, 1)
 
 [sub_resource type="Theme" id="Theme_emxk7"]
 default_font = ExtResource("3_yqpik")
@@ -176,17 +184,136 @@ layout_mode = 2
 metadata/_tab_index = 2
 metadata/_tab_name = "Audio"
 
-[node name="MasterVolume" type="HSlider" parent="TabContainer/TabBar3" unique_id=2082531559]
+[node name="Master" type="Label" parent="TabContainer/TabBar3" unique_id=632025025]
 layout_mode = 0
-offset_left = 411.0
-offset_top = 130.0
-offset_right = 683.0
-offset_bottom = 158.0
+offset_left = 500.0
+offset_top = 38.0
+offset_right = 653.0
+offset_bottom = 93.0
+text = "Master"
+label_settings = SubResource("LabelSettings_emxk7")
+
+[node name="Music" type="Label" parent="TabContainer/TabBar3" unique_id=123151422]
+layout_mode = 0
+offset_left = 310.0
+offset_top = 132.0
+offset_right = 417.0
+offset_bottom = 182.0
+text = "Music"
+label_settings = SubResource("LabelSettings_7fubm")
+
+[node name="UI" type="Label" parent="TabContainer/TabBar3" unique_id=1784575420]
+layout_mode = 0
+offset_left = 343.0
+offset_top = 178.0
+offset_right = 380.0
+offset_bottom = 228.0
+text = "U I"
+label_settings = SubResource("LabelSettings_7fubm")
+
+[node name="Enemies" type="Label" parent="TabContainer/TabBar3" unique_id=428047719]
+layout_mode = 0
+offset_left = 284.0
+offset_top = 227.0
+offset_right = 430.0
+offset_bottom = 277.0
+text = "Enemies"
+label_settings = SubResource("LabelSettings_7fubm")
+
+[node name="Projecties" type="Label" parent="TabContainer/TabBar3" unique_id=1665896395]
+layout_mode = 0
+offset_left = 266.0
+offset_top = 278.0
+offset_right = 458.0
+offset_bottom = 328.0
+text = "Projectiles"
+label_settings = SubResource("LabelSettings_7fubm")
+
+[node name="Collectables" type="Label" parent="TabContainer/TabBar3" unique_id=2047631094]
+layout_mode = 0
+offset_left = 252.0
+offset_top = 329.0
+offset_right = 469.0
+offset_bottom = 379.0
+text = "Collectables"
+label_settings = SubResource("LabelSettings_7fubm")
+
+[node name="MasterVolume" type="HSlider" parent="TabContainer/TabBar3" unique_id=1250817799]
+layout_mode = 0
+offset_left = 256.0
+offset_top = 100.0
+offset_right = 901.0
+offset_bottom = 129.0
+theme_override_icons/tick = SubResource("CanvasTexture_emxk7")
 theme_override_styles/slider = SubResource("StyleBoxFlat_emxk7")
 theme_override_styles/grabber_area = SubResource("StyleBoxFlat_l3l4f")
-theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_aopeh")
 max_value = 1.5
-step = 0.001
+step = 0.05
+value = 1.0
+
+[node name="MusicVolume" type="HSlider" parent="TabContainer/TabBar3" unique_id=184863618]
+layout_mode = 0
+offset_left = 482.0
+offset_top = 145.0
+offset_right = 899.0
+offset_bottom = 165.0
+theme_override_icons/tick = SubResource("CanvasTexture_emxk7")
+theme_override_styles/slider = SubResource("StyleBoxFlat_emxk7")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_l3l4f")
+max_value = 1.5
+step = 0.05
+value = 1.0
+
+[node name="UIVolume" type="HSlider" parent="TabContainer/TabBar3" unique_id=234887622]
+layout_mode = 0
+offset_left = 481.0
+offset_top = 192.0
+offset_right = 898.0
+offset_bottom = 212.0
+theme_override_icons/tick = SubResource("CanvasTexture_emxk7")
+theme_override_styles/slider = SubResource("StyleBoxFlat_emxk7")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_l3l4f")
+max_value = 1.5
+step = 0.05
+value = 1.0
+
+[node name="EnemiesVolume" type="HSlider" parent="TabContainer/TabBar3" unique_id=398694290]
+layout_mode = 0
+offset_left = 481.0
+offset_top = 239.0
+offset_right = 898.0
+offset_bottom = 259.0
+theme_override_icons/tick = SubResource("CanvasTexture_emxk7")
+theme_override_styles/slider = SubResource("StyleBoxFlat_emxk7")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_l3l4f")
+max_value = 1.5
+step = 0.05
+value = 1.0
+
+[node name="ProjectilesVolume" type="HSlider" parent="TabContainer/TabBar3" unique_id=213726778]
+layout_mode = 0
+offset_left = 481.0
+offset_top = 291.0
+offset_right = 898.0
+offset_bottom = 311.0
+theme_override_icons/tick = SubResource("CanvasTexture_emxk7")
+theme_override_styles/slider = SubResource("StyleBoxFlat_emxk7")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_l3l4f")
+max_value = 1.5
+step = 0.05
+value = 1.0
+
+[node name="CollectablesVolume" type="HSlider" parent="TabContainer/TabBar3" unique_id=1258629095]
+layout_mode = 0
+offset_left = 479.0
+offset_top = 343.0
+offset_right = 896.0
+offset_bottom = 363.0
+theme_override_icons/tick = SubResource("CanvasTexture_emxk7")
+theme_override_styles/slider = SubResource("StyleBoxFlat_emxk7")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_l3l4f")
+max_value = 1.5
+step = 0.05
 value = 1.0
 
 [node name="TabBar4" type="TabBar" parent="TabContainer" unique_id=1709817894]
@@ -211,4 +338,13 @@ script = ExtResource("6_sow1w")
 
 [node name="Click" parent="." unique_id=894376312 instance=ExtResource("7_emxk7")]
 
+[node name="Blip" parent="." unique_id=1149648539 instance=ExtResource("8_7fubm")]
+
+[connection signal="value_changed" from="TabContainer/TabBar3/MasterVolume" to="." method="_on_master_volume_value_changed"]
+[connection signal="value_changed" from="TabContainer/TabBar3/MusicVolume" to="." method="_on_music_volume_value_changed"]
+[connection signal="value_changed" from="TabContainer/TabBar3/UIVolume" to="." method="_on_ui_volume_value_changed"]
+[connection signal="value_changed" from="TabContainer/TabBar3/EnemiesVolume" to="." method="_on_enemies_volume_value_changed"]
+[connection signal="value_changed" from="TabContainer/TabBar3/ProjectilesVolume" to="." method="_on_projectiles_volume_value_changed"]
+[connection signal="value_changed" from="TabContainer/TabBar3/CollectablesVolume" to="." method="_on_collectables_volume_value_changed"]
+[connection signal="mouse_entered" from="Done" to="." method="_on_done_mouse_entered"]
 [connection signal="pressed" from="Done" to="." method="_on_done_pressed"]

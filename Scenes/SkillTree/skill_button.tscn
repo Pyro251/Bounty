@@ -10,7 +10,7 @@ font = ExtResource("3_1ueth")
 font_size = 45
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1ueth"]
-bg_color = Color(0.27387273, 0.27387276, 0.2738727, 1)
+bg_color = Color(0.09239709, 0.09239706, 0.09239706, 1)
 border_width_left = 5
 border_width_top = 5
 border_width_right = 5
@@ -19,10 +19,6 @@ border_color = Color(0, 0, 0, 1)
 corner_radius_top_left = 15
 corner_radius_top_right = 15
 corner_radius_bottom_right = 15
-
-[sub_resource type="LabelSettings" id="LabelSettings_8ar8t"]
-font = ExtResource("3_1ueth")
-font_size = 55
 
 [sub_resource type="Animation" id="Animation_vp1i6"]
 resource_name = "Accept"
@@ -180,10 +176,14 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="Text" type="Label" parent="TextBox/MarginContainer" unique_id=272141335]
+[node name="Text" type="RichTextLabel" parent="TextBox/MarginContainer" unique_id=950260579]
 layout_mode = 2
+bbcode_enabled = true
 text = "Test"
-label_settings = SubResource("LabelSettings_8ar8t")
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+autowrap_trim_flags = 0
 
 [node name="RejectAnim" type="AnimationPlayer" parent="." unique_id=407200291]
 libraries/ = SubResource("AnimationLibrary_8ar8t")
@@ -194,8 +194,10 @@ libraries/ = SubResource("AnimationLibrary_8ar8t")
 [node name="RejectSound" type="AudioStreamPlayer" parent="." unique_id=194637377]
 stream = SubResource("AudioStreamRandomizer_8ar8t")
 pitch_scale = 1.64
+bus = &"UI"
 
 [node name="AcceptSound" type="AudioStreamPlayer" parent="." unique_id=1009656485]
+bus = &"UI"
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

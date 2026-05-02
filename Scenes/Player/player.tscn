@@ -141,15 +141,18 @@ shape = SubResource("CircleShape2D_uvnfx")
 stream = SubResource("AudioStreamRandomizer_jhyir")
 volume_db = -7.091
 pitch_scale = 1.75
+bus = &"Projectiles"
 
 [node name="PickupAmmoSound" type="AudioStreamPlayer" parent="Sounds" unique_id=1213228537]
 stream = SubResource("AudioStreamRandomizer_74mp2")
 volume_db = -8.667
 pitch_scale = 1.82
+bus = &"Collectables"
 
 [node name="LevelClearedSound" type="AudioStreamPlayer" parent="Sounds" unique_id=477157814]
 stream = SubResource("AudioStreamRandomizer_oikmp")
 pitch_scale = 1.76
+bus = &"Music"
 
 [node name="Blip" parent="Sounds" unique_id=1149648539 instance=ExtResource("13_7g0yx")]
 
