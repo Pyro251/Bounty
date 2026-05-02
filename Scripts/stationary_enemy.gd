@@ -23,7 +23,7 @@ const HEALTH_DROP_SCENE = preload("res://Scenes/Collectables/Health/enemy_health
 
 func _on_bullet_detect_area_entered(area: Area2D) -> void:
 	if area.is_in_group("player_bullet"):
-		health -= 20
+		health -= Global.attack_damage
 
 func _ready() -> void:
 	player_detected = false

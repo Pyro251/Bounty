@@ -26,6 +26,9 @@ signal rapid_fire_used
 var health1: int = 0
 var health2: int = 0
 var regen1: int = 0
+var attack1: int = 0
+var attack2: int = 0
+var attack_speed1: int = 0
 
 var current_ability: String
 var using_ability: bool = false
@@ -53,6 +56,8 @@ var money_made_this_level: int = 0
 var player_health: float = 100.0
 var max_player_health: float = 100.0
 var health_per_enemy_health_collectable: int = 4
+var attack_speed: float = 0.25
+var attack_damage: float
 
 var enemies_in_current_level: int
 var enemies_killed: int = 0

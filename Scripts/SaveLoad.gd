@@ -12,6 +12,9 @@ var save_data: Dictionary = {
 	"health1": 0,
 	"health2": 0,
 	"regen1": 0,
+	"attack1": 0,
+	"attack2": 0,
+	"attack_speed1": 0,
 	
 	# audio settings
 	"master_audio": 1.0,
@@ -42,6 +45,9 @@ func _set_save_data():
 	save_data.health1 = Global.health1
 	save_data.health2 = Global.health2
 	save_data.regen1 = Global.regen1
+	save_data.attack1 = Global.attack1
+	save_data.attack2 = Global.attack2
+	save_data.attack_speed1 = Global.attack_speed1
 
 func _load():
 	if FileAccess.file_exists(SAVE_LOCATION):
@@ -64,6 +70,9 @@ func _set_load_data():
 	Global.health1 = save_data.health1
 	Global.health2 = save_data.health2
 	Global.regen1 = save_data.regen1
+	Global.attack1 = save_data.attack1
+	Global.attack2 = save_data.attack2
+	Global.attack_speed1 = save_data.attack_speed1
 
 func _wipe_save():
 	DirAccess.remove_absolute(SAVE_LOCATION)
