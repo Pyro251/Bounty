@@ -96,13 +96,14 @@ offset_top = 158.0
 offset_right = 1668.0
 offset_bottom = 901.0
 theme = SubResource("Theme_hq6we")
-current_tab = 0
+current_tab = 1
 tab_0/title = "HEALTH"
 tab_1/title = "ATTACK"
 tab_2/title = "MONEY"
 tab_3/title = "MOVEMENT"
 
 [node name="TabBar" type="TabBar" parent="TabContainer" unique_id=167490736]
+visible = false
 layout_mode = 2
 mouse_filter = 2
 theme = SubResource("Theme_unfjh")
@@ -115,6 +116,7 @@ offset_left = 175.0
 offset_top = 252.0
 offset_right = 317.0
 offset_bottom = 394.0
+max_level = 3
 levels_to_unlock_next_level = 1
 text = "[color=dark_red]HEALTH - I[color=white]
 
@@ -129,6 +131,7 @@ offset_right = 407.0
 offset_bottom = 30.0
 disabled = true
 max_level = 4
+levels_to_unlock_next_level = 3
 text = "HEALTH - II
 
 increases maximum health by 15
@@ -141,6 +144,8 @@ offset_top = 58.0
 offset_right = 408.0
 offset_bottom = 200.0
 disabled = true
+max_level = 3
+levels_to_unlock_next_level = 3
 text = "REGEN - I
 
 increases health gained by
@@ -148,10 +153,54 @@ increases health gained by
 Cost: 700 dollars"
 
 [node name="TabBar2" type="TabBar" parent="TabContainer" unique_id=1669389227]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 metadata/_tab_name = "ATTACK"
+
+[node name="SkillButton" parent="TabContainer/TabBar2" unique_id=181522165 groups=["attack1"] instance=ExtResource("1_up8uh")]
+layout_mode = 0
+offset_left = 204.0
+offset_top = 246.0
+offset_right = 346.0
+offset_bottom = 388.0
+disabled = true
+max_level = 4
+levels_to_unlock_next_level = 3
+text = "ATTACK - I
+
+increases damage by 5
+Cost: 100 dollars"
+
+[node name="SkillButton" parent="TabContainer/TabBar2/SkillButton" unique_id=1328681580 groups=["attack2"] instance=ExtResource("1_up8uh")]
+layout_mode = 0
+offset_left = 349.0
+offset_top = -100.0
+offset_right = 491.0
+offset_bottom = 42.0
+disabled = true
+max_level = 4
+levels_to_unlock_next_level = 3
+text = "ATTACK - II
+
+increases damage by 15
+Cost: 400 dollars"
+
+[node name="SkillButton2" parent="TabContainer/TabBar2/SkillButton" unique_id=2134326064 groups=["attack_speed1"] instance=ExtResource("1_up8uh")]
+layout_mode = 0
+offset_left = 354.0
+offset_top = 72.0
+offset_right = 496.0
+offset_bottom = 214.0
+disabled = true
+max_level = 4
+levels_to_unlock_next_level = 3
+text = "ATTACK SPEED - I
+
+decreases time between shots
+by 0.03 seconds
+(makes a bigger difference than
+you think, i prommy)
+Cost: 600 dollars"
 
 [node name="TabBar3" type="TabBar" parent="TabContainer" unique_id=1546747547]
 visible = false

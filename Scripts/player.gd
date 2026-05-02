@@ -140,10 +140,11 @@ func level_cleared():
 	Global.can_clear_level = false
 
 func activate_rapid_fire():
-	shoot_timer.wait_time = 0.1
+	if Global.attack_speed > 0.1:
+		shoot_timer.wait_time = 0.1
 
 func deactivate_rapid_fire():
-	shoot_timer.wait_time = 0.25
+	shoot_timer.wait_time = Global.attack_speed
 
 func teleport():
 	global_position = cursor.global_position
