@@ -59,12 +59,15 @@ func _load():
 				save_data[i] = data[i]
 		
 		file.close()
+		
+		print("Game Loaded")
 
 func _set_load_data():
 	Global.current_level = save_data.current_level
 	Global.player_health = save_data.player_health
 	Global.player_money = save_data.player_money
 	Global.show_changes = save_data.show_changes
+	
 	
 	#abilities
 	Global.health1 = save_data.health1

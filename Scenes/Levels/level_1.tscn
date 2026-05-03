@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cskobb6i5dv6i" path="res://Scenes/Collectables/Ammo/ammo.tscn" id="6_7r2dd"]
 [ext_resource type="PackedScene" uid="uid://1i162pgw0hts" path="res://Scenes/Enemies/stationary_enemy.tscn" id="7_k2mw1"]
 [ext_resource type="PackedScene" uid="uid://dsb13ox1hlm48" path="res://Scenes/Levels/level_cleared_trigger.tscn" id="8_tjl6l"]
+[ext_resource type="PackedScene" uid="uid://pvy5yudrnnlk" path="res://Scenes/Enemies/exploding_enemy.tscn" id="10_u5ghp"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_m0h5h"]
 vertices = PackedVector2Array(32, 32, -32, 32, -32, -32, 32, -32)
@@ -106,3 +107,8 @@ offset_left = 644.0
 offset_top = -3190.0
 offset_right = 1030.0
 offset_bottom = -2923.0
+
+[node name="ExplodingEnemy" parent="." unique_id=1081304712 node_paths=PackedStringArray("Goal", "target") instance=ExtResource("10_u5ghp")]
+position = Vector2(198, -708)
+Goal = NodePath("../Player")
+target = NodePath("../Player")

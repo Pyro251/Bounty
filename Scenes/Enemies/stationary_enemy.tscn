@@ -66,7 +66,7 @@ collision_mask = 2
 position = Vector2(1, -1)
 shape = SubResource("CircleShape2D_h84am")
 
-[node name="ExplosionParticles" type="GPUParticles2D" parent="." unique_id=103376655]
+[node name="ExplosionParticles" type="GPUParticles2D" parent="." unique_id=103376655 groups=["stationary_enemy"]]
 emitting = false
 amount = 158
 lifetime = 1.12

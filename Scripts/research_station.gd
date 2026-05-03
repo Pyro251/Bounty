@@ -12,6 +12,10 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("interact"):
 		if in_area:
 			get_tree().change_scene_to_file("res://Scenes/Menus/research_tree.tscn")
+			SaveLoad._set_save_data()
+			SaveLoad._save()
+			SaveLoad._load()
+			SaveLoad._set_load_data()
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	in_area = true

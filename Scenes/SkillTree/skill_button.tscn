@@ -124,9 +124,6 @@ texture_normal = ExtResource("1_hkca8")
 ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("2_1ueth")
-max_level = null
-levels_to_unlock_next_level = null
-text = null
 
 [node name="Panel" type="Panel" parent="." unique_id=974190668]
 show_behind_parent = true

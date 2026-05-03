@@ -146,17 +146,7 @@ theme_override_fonts/italics_font = ExtResource("4_sxvbq")
 theme_override_font_sizes/normal_font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_3pqo7")
 bbcode_enabled = true
-text = "+ BIG FEATURE: New research branches, including HEALTH - II, REGEN - I, ATTACK - I and II, and ATTACK SPEED - I. Not only that, but the whole research menu got a make over, with the introduction of tabs.
-
-+ Enemies now drop small amounts of health along with coins. It is weighted to where there is a higher amount of coins than health dropped per enemy killed.
-
-+ Re-coded options menu to be more efficiant.
-
-+ Big addition to the options tab: There is now an audio menu that comes with many controls for seperate audio busses, so you can get your audio exactly how you want it. The menu also saves when you exit.
-
-+ Added death screen with randomized death message and ability to load from last save
-
-+ Small tweaks to main menu/change log screen. Change log screen now has a text box that you can scroll in, and main menu \"load game\" button now has a blip and click sound. Main menu buttons are now also bigger."
+text = "+ Progress on getting resolution to work, currently crashes game."
 script = ExtResource("5_cn2xk")
 hover_scale = Vector2(1.15, 1.15)
 
