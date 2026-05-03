@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cskobb6i5dv6i" path="res://Scenes/Collectables/Ammo/ammo.tscn" id="4_ovj6s"]
 [ext_resource type="PackedScene" uid="uid://dsb13ox1hlm48" path="res://Scenes/Levels/level_cleared_trigger.tscn" id="5_8qsmg"]
 [ext_resource type="PackedScene" uid="uid://1i162pgw0hts" path="res://Scenes/Enemies/stationary_enemy.tscn" id="6_fphuk"]
+[ext_resource type="PackedScene" uid="uid://dqj0defqyfwmm" path="res://Scenes/Enemies/moving_enemy.tscn" id="7_1jlnc"]
 [ext_resource type="PackedScene" uid="uid://crjyhkqrei5ud" path="res://Scenes/Player/player.tscn" id="7_pnnky"]
 [ext_resource type="PackedScene" uid="uid://dpl1lfggjmjc5" path="res://Scenes/Camera/camera.tscn" id="8_pnnky"]
 [ext_resource type="AudioStream" uid="uid://c4l7sit2cgeic" path="res://Scenes/Sounds/music/Level.wav" id="9_blpqv"]
@@ -114,8 +115,9 @@ target = NodePath("../Player")
 position = Vector2(992, -113)
 target = NodePath("../Player")
 
-[node name="StationaryEnemy4" parent="." unique_id=484205166 node_paths=PackedStringArray("target") instance=ExtResource("6_fphuk")]
-position = Vector2(1250, -214)
+[node name="MovingEnemy" parent="." unique_id=1492660224 node_paths=PackedStringArray("Goal", "target") instance=ExtResource("7_1jlnc")]
+position = Vector2(748, -264)
+Goal = NodePath("../Player")
 target = NodePath("../Player")
 
 [node name="StationaryEnemy5" parent="." unique_id=37249797 node_paths=PackedStringArray("target") instance=ExtResource("6_fphuk")]

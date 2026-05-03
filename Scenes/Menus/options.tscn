@@ -162,16 +162,8 @@ theme_override_font_sizes/font_size = 26
 text = "Resolution"
 label_settings = SubResource("LabelSettings_8ogrm")
 
-[node name="OptionButton" type="OptionButton" parent="TabContainer/TabBar/VBoxContainer/HBoxContainer2" unique_id=1518351516]
+[node name="ResolutionDropdown" type="OptionButton" parent="TabContainer/TabBar/VBoxContainer/HBoxContainer2" unique_id=1518351516]
 layout_mode = 2
-selected = 0
-item_count = 3
-popup/item_0/text = "1               "
-popup/item_0/id = 0
-popup/item_1/text = "2              "
-popup/item_1/id = 1
-popup/item_2/text = "3             "
-popup/item_2/id = 2
 
 [node name="TabBar2" type="TabBar" parent="TabContainer" unique_id=1682589235]
 visible = false
@@ -340,6 +332,7 @@ script = ExtResource("6_sow1w")
 
 [node name="Blip" parent="." unique_id=1149648539 instance=ExtResource("8_7fubm")]
 
+[connection signal="item_selected" from="TabContainer/TabBar/VBoxContainer/HBoxContainer2/ResolutionDropdown" to="." method="_on_resolution_dropdown_item_selected"]
 [connection signal="value_changed" from="TabContainer/TabBar3/MasterVolume" to="." method="_on_master_volume_value_changed"]
 [connection signal="value_changed" from="TabContainer/TabBar3/MusicVolume" to="." method="_on_music_volume_value_changed"]
 [connection signal="value_changed" from="TabContainer/TabBar3/UIVolume" to="." method="_on_ui_volume_value_changed"]

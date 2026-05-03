@@ -6,8 +6,8 @@ extends CharacterBody2D
 @onready var collision2: CollisionShape2D = $BulletDetect/CollisionShape2D
 @onready var nav_agent: NavigationAgent2D = $NavigationAgent2D
 @onready var timer: Timer = $Timer
+@onready var explode_timer: Timer = $ExplodeTimer
 
-@onready var shoot_pos: Marker2D = $Body/ShootPos
 @onready var shoot_speed_timer: Timer = $ShootSpeedTimer
 @onready var shoot_sound: AudioStreamPlayer2D = $ShootSound
 @onready var explode_sound: AudioStreamPlayer2D = $ExplodeSound
@@ -20,9 +20,9 @@ var player_detected: bool = false
 
 var health = 100
 var can_die: bool = true
+var can_explode_player = false
 
-const MOVEMENT_SPEED = 10000.0
-const BULLET_SCENE = preload("res://Scenes/Enemies/enemy_bullet.tscn")
+const MOVEMENT_SPEED = 20000.0
 const COIN_DROP_SCENE = preload("res://Scenes/Collectables/Money/enemy_coin_drop.tscn")
 const HEALTH_DROP_SCENE = preload("res://Scenes/Collectables/Health/enemy_health_drop.tscn")
 
@@ -72,6 +72,9 @@ func die():
 	# Spawns some coins on death.
 	add_money_collectable()
 
+func target_explode():
+	explode_timer.start()
+
 func add_money_collectable():
 	var spawn_quantity = randi_range(3,6)
 	var new_coin
@@ -101,15 +104,6 @@ func add_money_collectable():
 func _on_explosion_particles_finished() -> void:
 	queue_free()
 
-func _shoot():
-	shoot_sound.play()
-	var new_bullet = BULLET_SCENE.instantiate()
-	new_bullet.global_position = shoot_pos.global_position
-	new_bullet.global_rotation = shoot_pos.global_rotation
-	get_parent().add_child(new_bullet)
-
-
-
 func _on_timer_timeout() -> void:
 	if player_detected:
 		if nav_agent.target_position != Goal.global_position:
@@ -119,13 +113,23 @@ func _on_timer_timeout() -> void:
 
 func _on_player_detection_area_entered(area: Area2D) -> void:
 	if area.is_in_group("player"):
-		_shoot()
-		shoot_speed_timer.start()
 		player_detected = true
+		target_explode()
 		
-		timer.start()
+		timer.start() 
 
 
-func _on_player_detection_area_exited(area: Area2D) -> void:
-	timer.stop()
+func _on_explode_timer_timeout() -> void:
 	player_detected = false
+	body.hide()
+	explosion_particles.emitting = true
+	if can_explode_player:
+		Global.explode_player.emit()
+
+
+func _on_explosion_detect_area_entered(area: Area2D) -> void:
+	can_explode_player = true
+
+
+func _on_explosion_detect_area_exited(area: Area2D) -> void:
+	can_explode_player = false

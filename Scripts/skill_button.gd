@@ -21,7 +21,6 @@ class_name SkillNode
 var level: int = 0:
 	set(value):
 		level = value
-		#label.text = str(level) + "/3"
 		label.text = str(level, "/", max_level)
 
 func _ready() -> void:
@@ -46,15 +45,29 @@ func _ready() -> void:
 		if Global.regen1 > 0 :
 			self.self_modulate = Color(1.0, 1.0, 1.0, 1.0)
 			line_2d.default_color = Color(1.0, 1.0, 1.0, 1.0)
-	
-	disabled = false
-	#var skills = get_children()
-	#for skill in skills:
-		#if skill is SkillNode and level == levels_to_unlock_next_level:
-			#skill.disabled = false
+	if self.is_in_group("attack1"):
+		level = Global.attack1
+		if Global.attack1 > 0 :
+			self.self_modulate = Color(1.0, 1.0, 1.0, 1.0)
+			line_2d.default_color = Color(1.0, 1.0, 1.0, 1.0)
+	if self.is_in_group("attack2"):
+		level = Global.attack2
+		if Global.attack2 > 0 :
+			self.self_modulate = Color(1.0, 1.0, 1.0, 1.0)
+			line_2d.default_color = Color(1.0, 1.0, 1.0, 1.0)
+	if self.is_in_group("attack_speed1"):
+		level = Global.attack_speed1
+		if Global.attack_speed1 > 0 :
+			self.self_modulate = Color(1.0, 1.0, 1.0, 1.0)
+			line_2d.default_color = Color(1.0, 1.0, 1.0, 1.0)
+	#disabled = false
+	var skills = get_children()
+	for skill in skills:
+		if skill is SkillNode and level >= levels_to_unlock_next_level:
+			skill.disabled = false
 
 #func _on_pressed() -> void:
-
+ 
 
 
 func _on_pressed() -> void:
@@ -74,7 +87,7 @@ func _on_pressed() -> void:
 			if Global.player_money >= 100:
 				Global.max_player_health += 5.0
 				Global.player_money -= 100
-				Global.health1 = min(Global.health1 + 1, max_level)
+				Global.health1 += 1
 				accept()
 			else:
 				reject()
@@ -82,7 +95,7 @@ func _on_pressed() -> void:
 			if Global.player_money >= 400:
 				Global.max_player_health += 15.0
 				Global.player_money -= 400
-				Global.health2 = min(Global.health2 + 1, max_level)
+				Global.health2 += 1
 				accept()
 			else:
 				reject()
@@ -90,7 +103,7 @@ func _on_pressed() -> void:
 			if Global.player_money >= 700:
 				Global.health_per_enemy_health_collectable += 15
 				Global.player_money -= 700
-				Global.regen1 = min(Global.regen1 + 1, max_level)
+				Global.regen1 += 1
 				accept()
 			else:
 				reject()
@@ -99,7 +112,7 @@ func _on_pressed() -> void:
 			if Global.player_money >= 100:
 				Global.attack_damage += 5
 				Global.player_money -= 100
-				Global.attack1 = min(Global.attack1 + 1, max_level)
+				Global.attack1 += 1
 				accept()
 			else:
 				reject()
@@ -107,7 +120,7 @@ func _on_pressed() -> void:
 			if Global.player_money >= 400:
 				Global.attack_damage += 15
 				Global.player_money -= 400
-				Global.attack2 = min(Global.attack2 + 1, max_level)
+				Global.attack2 += 1
 				accept()
 			else:
 				reject()

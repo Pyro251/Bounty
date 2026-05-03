@@ -34,6 +34,7 @@ func _ready() -> void:
 	Global.rapid_fire_used.connect(activate_rapid_fire)
 	Global.ability_ended.connect(deactivate_rapid_fire)
 	Global.teleport.connect(teleport)
+	Global.explode_player.connect(get_exploded)
 
 
 func _physics_process(delta: float) -> void:
@@ -148,3 +149,6 @@ func deactivate_rapid_fire():
 
 func teleport():
 	global_position = cursor.global_position
+
+func get_exploded():
+	Global.player_health -= 40

@@ -2,6 +2,7 @@ extends Control
 
 @onready var click_sound: AudioStreamPlayer = $Click
 @onready var blip: AudioStreamPlayer = $Blip
+@onready var resolution_dropdown: OptionButton = $TabContainer/TabBar/VBoxContainer/HBoxContainer2/ResolutionDropdown
 
 @onready var master_volume: HSlider = $TabContainer/TabBar3/MasterVolume
 @onready var music_volume: HSlider = $TabContainer/TabBar3/MusicVolume
@@ -18,7 +19,18 @@ func _ready() -> void:
 	projectiles_volume.value = SaveLoad.save_data.projectiles_audio
 	collectables_volume.value = SaveLoad.save_data.collectables_audio
 	
+	add_resolutions()
+	
 	hide()
+
+func add_resolutions():
+	for r in Global.resolutions:
+		resolution_dropdown.add_item(r)
+
+func update_resolution_value():
+	var window_size_string = str(get_window().size.x, "x", get_window().size.y)
+	var res_index = Global.resolutions.keys().find(window_size_string)
+	resolution_dropdown.selected = res_index
 
 func _on_done_pressed() -> void:
 	click_sound.play()
@@ -58,3 +70,8 @@ func _on_collectables_volume_value_changed(value: float) -> void:
 
 func _on_done_mouse_entered() -> void:
 	blip.play()
+
+
+func _on_resolution_dropdown_item_selected(index: int) -> void:
+	var key = resolution_dropdown.get_item_index(index)
+	get_window().set_size(Global.resolutions[key])

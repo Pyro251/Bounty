@@ -9,7 +9,7 @@ func _ready() -> void:
 	
 	match Global.current_level:
 		1:
-			Global.enemies_in_current_level = 3
+			Global.enemies_in_current_level = 4
 			print("(level 1) ENEMIES_IN_CURRENT_LEVEL SET TO: ", Global.enemies_in_current_level)
 		2:
 			Global.enemies_in_current_level = 12
