@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://ca5xsjfgwexpl"]
+
+[ext_resource type="Script" uid="uid://b8ti55qnbvvvv" path="res://Scripts/money_made_chart.gd" id="1_qjk0g"]
+[ext_resource type="PackedScene" uid="uid://dlwq4kmdb3bhs" path="res://addons/easy_charts/control_charts/chart.tscn" id="1_r1w1c"]
+
+[node name="MoneyMadeChart" type="Control" unique_id=1069673665]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_qjk0g")
+
+[node name="Chart" parent="." unique_id=1519456451 instance=ExtResource("1_r1w1c")]
+layout_mode = 1
+offset_left = 306.0
+offset_top = 205.0
+offset_right = 1560.0
+offset_bottom = 792.0
+grow_horizontal = 2
+grow_vertical = 2

@@ -29,7 +29,7 @@ window/stretch/mode="viewport"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg", "res://addons/project-time-tracker/plugin.cfg")
+enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg", "res://addons/easy_charts/plugin.cfg", "res://addons/project-time-tracker/plugin.cfg", "res://addons/tau-plot/plugin.cfg")
 
 [file_customization]
 
