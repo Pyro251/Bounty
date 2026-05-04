@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://cj4rgt8pkkdkw"]
+
+[ext_resource type="PackedScene" uid="uid://dbtgnlgjeoxj4" path="res://addons/easy_charts/examples/bar_chart/Control.tscn" id="1_8qxpn"]
+
+[node name="BarExample" unique_id=569314853 instance=ExtResource("1_8qxpn")]
