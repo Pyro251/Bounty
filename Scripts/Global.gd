@@ -51,11 +51,14 @@ var player_pos
 
 var chest_in_anim: bool = true
 
-var ammo: int
+var ammo: int = 20
 var bullet_damage = 20
 
 var in_menu: bool = false
 var at_base: bool = true
+var tutorial: bool = true
+var in_tutorial: bool = false
+var in_dialogue: bool = false
 var can_move: bool = true
 var paused: bool = false
 var show_changes: bool = true

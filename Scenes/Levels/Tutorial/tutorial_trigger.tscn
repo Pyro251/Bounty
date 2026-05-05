@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://c6i8vuqb76cob"]
+
+[ext_resource type="Script" uid="uid://b086dg8w4obft" path="res://Scripts/tutorial_trigger.gd" id="1_7oq1w"]
+[ext_resource type="Resource" uid="uid://o06bns8vbikv" path="res://Dialogue/Test.dialogue" id="2_dybe6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dybe6"]
+radius = 161.44658
+
+[sub_resource type="Animation" id="Animation_dybe6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_3yvxv"]
+resource_name = "blink"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.29219002, 0.29219005, 0.29219002, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_w72bu"]
+_data = {
+&"RESET": SubResource("Animation_dybe6"),
+&"blink": SubResource("Animation_3yvxv")
+}
+
+[node name="TutorialTrigger" type="Area2D" unique_id=1613960679]
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("1_7oq1w")
+dialogue_resource = ExtResource("2_dybe6")
+dialogue_start = "start"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2001748834]
+shape = SubResource("CircleShape2D_dybe6")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1151934169]
+offset_left = -17.0
+offset_top = -20.0
+offset_right = 23.0
+offset_bottom = 20.0
+color = Color(0.25729212, 0.9076705, 0.8742198, 1)
+
+[node name="AnimPlayer" type="AnimationPlayer" parent="." unique_id=2137018483]
+libraries/ = SubResource("AnimationLibrary_w72bu")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="animation_finished" from="AnimPlayer" to="." method="_on_anim_player_animation_finished"]
