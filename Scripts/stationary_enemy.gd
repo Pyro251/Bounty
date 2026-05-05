@@ -81,11 +81,12 @@ func _on_explosion_particles_finished() -> void:
 	queue_free()
 
 func _shoot():
-	shoot_sound.play()
-	var new_bullet = BULLET_SCENE.instantiate()
-	new_bullet.global_position = shoot_pos.global_position
-	new_bullet.global_rotation = shoot_pos.global_rotation
-	get_parent().add_child(new_bullet)
+	if !Global.in_tutorial:
+		shoot_sound.play()
+		var new_bullet = BULLET_SCENE.instantiate()
+		new_bullet.global_position = shoot_pos.global_position
+		new_bullet.global_rotation = shoot_pos.global_rotation
+		get_parent().add_child(new_bullet)
 
 
 func _on_player_detect_area_entered(area: Area2D) -> void:

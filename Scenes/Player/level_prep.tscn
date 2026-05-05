@@ -233,6 +233,45 @@ script = ExtResource("1_5woj2")
 [node name="CloseReadyPrepSound" type="AudioStreamPlayer" parent="." unique_id=1098142731]
 stream = SubResource("AudioStreamMP3_wi1mu")
 
+[node name="TutorialRoot" type="Control" parent="." unique_id=279230422]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Tutorial" type="Button" parent="TutorialRoot" unique_id=1997769859]
+z_index = 2
+layout_mode = 0
+offset_left = -775.0
+offset_top = 301.0
+offset_right = -413.0
+offset_bottom = 397.0
+theme = SubResource("Theme_jlvik")
+theme_override_font_sizes/font_size = 62
+theme_override_styles/normal = SubResource("StyleBoxFlat_gk6dx")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_jhyir")
+theme_override_styles/hover = SubResource("StyleBoxFlat_74mp2")
+shortcut = SubResource("Shortcut_oikmp")
+text = "TUTORIAL"
+script = ExtResource("3_4bwks")
+
+[node name="Skip" type="Button" parent="TutorialRoot" unique_id=269402128]
+z_index = 2
+layout_mode = 0
+offset_left = -399.0
+offset_top = 300.0
+offset_right = -162.0
+offset_bottom = 396.0
+theme = SubResource("Theme_jlvik")
+theme_override_font_sizes/font_size = 62
+theme_override_styles/normal = SubResource("StyleBoxFlat_gk6dx")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_jhyir")
+theme_override_styles/hover = SubResource("StyleBoxFlat_74mp2")
+shortcut = SubResource("Shortcut_oikmp")
+text = "SKIP"
+script = ExtResource("3_4bwks")
+
 [connection signal="pressed" from="PurchaseAmmo" to="." method="_on_purchase_ammo_pressed"]
 [connection signal="pressed" from="Cancel" to="." method="_on_cancel_pressed"]
 [connection signal="pressed" from="StartLevel" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="TutorialRoot/Tutorial" to="." method="_on_tutorial_pressed"]
+[connection signal="pressed" from="TutorialRoot/Skip" to="." method="_on_skip_pressed"]

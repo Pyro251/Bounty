@@ -2,7 +2,10 @@
 
 [ext_resource type="Script" uid="uid://d1wt4ma6055l8" path="res://addons/dialogue_manager/example_balloon/example_balloon.gd" id="1_36de5"]
 [ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="2_a8ve6"]
+[ext_resource type="FontFile" uid="uid://dndfik3argnf5" path="res://Assets/Fonts/Edge_of_the_galaxy/EdgeOfTheGalaxyRegular-OVEa6.otf" id="2_nlsx6"]
 [ext_resource type="Script" uid="uid://bb52rsfwhkxbn" path="res://addons/dialogue_manager/dialogue_responses_menu.gd" id="3_72ixx"]
+[ext_resource type="AudioStream" uid="uid://dknkf3ux10eji" path="res://Assets/sound/misc/blipSelect(4).wav" id="5_1337t"]
+[ext_resource type="AudioStream" uid="uid://b8hpxsrqs1d7b" path="res://Assets/sound/Buttons/LevelPrepOpen/litupsubway-ui-hover-sfx-513360.mp3" id="6_kmygl"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_spyqn"]
 bg_color = Color(0, 0, 0, 1)
@@ -63,6 +66,26 @@ MarginContainer/constants/margin_right = 30
 MarginContainer/constants/margin_top = 15
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_qkmqt")
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nlsx6"]
+bg_color = Color(0.060530342, 0.060530365, 0.060530297, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+shadow_size = 20
+shadow_offset = Vector2(5.49, 10.445)
+
+[sub_resource type="Theme" id="Theme_1337t"]
+default_font = ExtResource("2_nlsx6")
+
+[sub_resource type="Theme" id="Theme_kmygl"]
+default_font = ExtResource("2_nlsx6")
+default_font_size = 39
+
 [sub_resource type="Animation" id="Animation_nlsx6"]
 length = 0.001
 tracks/0/type = "bezier"
@@ -99,8 +122,21 @@ _data = {
 &"progress": SubResource("Animation_qkmqt")
 }
 
+[sub_resource type="Theme" id="Theme_r5ei8"]
+default_font = ExtResource("2_nlsx6")
+default_font_size = 43
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_1337t"]
+random_pitch = 1.1665515
+streams_count = 1
+stream_0/stream = ExtResource("5_1337t")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_r5ei8"]
+random_pitch = 1.122462
+streams_count = 1
+stream_0/stream = ExtResource("6_kmygl")
+
 [node name="ExampleBalloon" type="CanvasLayer" unique_id=1434168376]
-layer = 100
 script = ExtResource("1_36de5")
 
 [node name="Balloon" type="Control" parent="." unique_id=359403728]
@@ -119,7 +155,10 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -219.0
+offset_left = 186.0
+offset_top = -428.0
+offset_right = -184.0
+offset_bottom = -171.0
 grow_horizontal = 2
 grow_vertical = 0
 
@@ -127,6 +166,7 @@ grow_vertical = 0
 clip_children = 2
 layout_mode = 2
 mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_nlsx6")
 
 [node name="MarginContainer" type="MarginContainer" parent="Balloon/MarginContainer/PanelContainer" unique_id=1030936092]
 layout_mode = 2
@@ -143,6 +183,7 @@ unique_name_in_owner = true
 modulate = Color(1, 1, 1, 0.501961)
 layout_mode = 2
 mouse_filter = 1
+theme = SubResource("Theme_1337t")
 bbcode_enabled = true
 text = "Character"
 fit_content = true
@@ -152,7 +193,9 @@ scroll_active = false
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
+theme = SubResource("Theme_kmygl")
 text = "Dialogue..."
+seconds_per_step = 0.035
 
 [node name="Control" type="Control" parent="Balloon/MarginContainer/PanelContainer/MarginContainer/HBoxContainer" unique_id=1162966119]
 custom_minimum_size = Vector2(20, 10)
@@ -175,10 +218,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -290.5
-offset_top = -35.0
-offset_right = 290.5
-offset_bottom = 35.0
+offset_left = -503.0
+offset_top = 3.0
+offset_right = 78.0
+offset_bottom = 132.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 8
@@ -188,11 +231,23 @@ script = ExtResource("3_72ixx")
 response_template = NodePath("ResponseExample")
 
 [node name="ResponseExample" type="Button" parent="Balloon/ResponsesMenu" unique_id=914537232]
+custom_minimum_size = Vector2(0, 75.025)
 layout_mode = 2
+theme = SubResource("Theme_r5ei8")
 text = "Response example"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1116280512]
 unique_name_in_owner = true
+stream = SubResource("AudioStreamRandomizer_1337t")
+bus = &"UI"
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="." unique_id=1640695867]
+stream = SubResource("AudioStreamRandomizer_r5ei8")
+pitch_scale = 1.6
 
 [connection signal="gui_input" from="Balloon" to="." method="_on_balloon_gui_input"]
+[connection signal="meta_clicked" from="Balloon/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/CharacterLabel" to="." method="_on_character_label_meta_clicked"]
+[connection signal="meta_clicked" from="Balloon/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/DialogueLabel" to="." method="_on_dialogue_label_meta_clicked"]
+[connection signal="skipped_typing" from="Balloon/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/DialogueLabel" to="." method="_on_dialogue_label_skipped_typing"]
+[connection signal="spoke" from="Balloon/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/DialogueLabel" to="." method="_on_dialogue_label_spoke"]
 [connection signal="response_selected" from="Balloon/ResponsesMenu" to="." method="_on_responses_menu_response_selected"]

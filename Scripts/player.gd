@@ -41,12 +41,15 @@ func _physics_process(delta: float) -> void:
 	if Global.can_move:
 		var input_direction = Input.get_vector("left", "right", "up", "down")
 		velocity = input_direction * player_speed
+	else:
+		velocity.x = 0
+		velocity.y = 0
 	
 	cursor.global_position = get_global_mouse_position()
 	look_at_cursor.look_at(cursor.global_position)
 	
 	if Global.ammo > 0:
-		if Input.is_action_pressed("shoot") and can_shoot:
+		if Input.is_action_pressed("shoot") and can_shoot and !Global.in_dialogue:
 			_shoot()
 			can_shoot = false
 			shoot_timer.start()
@@ -102,7 +105,8 @@ func _shoot():
 		Global.ammo_changed.emit()
 		Global.shoot.emit()
 		if !Global.at_base:
-			Global.ammo -= 1
+			if !Global.in_tutorial:
+				Global.ammo -= 1
 		#if !rapid_fire:
 			#ammo -= 1
 		#Global.shoot.emit()

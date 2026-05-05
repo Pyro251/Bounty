@@ -1,0 +1,59 @@
+
+~ welcome
+
+set Global.can_move = false
+set Global.in_dialogue = true
+
+???: [[Welcome, USER|Hello, USER|Good evening, NEW USER]]
+???: This is the training, [wait=0.4] so don't worry about any consequences.
+???: Go ahead and start by going to the [color=light_blue][wave]blue marker[/wave][color=white] ahead.
+
+set Global.in_dialogue = false
+set Global.can_move = true
+=> END
+
+~ step1
+
+set Global.can_move = false
+set Global.in_dialogue = true
+
+???: We'll start with the obvious,[wait=0.4] go ahead and kill the enemy ahead by clicking the [color=red]Left Mouse Button[color=white]. Don't be afraid, we took away the ability for the enemies to shoot.
+???: After you're done,[wait=0.4] advance to the next blue marker.
+
+set Global.in_dialogue = false
+set Global.can_move = true
+
+=> END
+
+~ step2
+
+set Global.can_move = false
+set Global.in_dialogue = true
+
+???: Those little gold bits were [color=yellow]coins[color=white],[wait=0.4] by the way. Sometimes [wait=0.4](if you're lucky),[wait=0.4] those enemies will drop little green bits, which give you health.
+???: For this next enemy, I want you to use your [color=blue]ability[color=white]. Press [color=red]'F'[color=white] to activate it.
+
+set Global.in_dialogue = false
+set Global.can_move = true
+
+=> END
+
+
+~ step3
+
+set Global.can_move = false
+set Global.in_dialogue = true
+
+???: Thats it![wait=0.4] You'll have to discover the rest of the enemies for yourself,[wait=0.4] and don't forget the research tree!
+???: Go to base?
+ - TAKE ME TO BASE
+	do get_tree().change_scene_to_file("res://Scenes/Levels/base.tscn")
+	set Global.in_tutorial = false
+	set Global.at_base = true
+	set Global.tutorial = false
+	set Global.can_move = true
+
+set Global.in_dialogue = false
+set Global.can_move = true
+
+=> END

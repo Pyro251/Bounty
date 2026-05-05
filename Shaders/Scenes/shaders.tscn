@@ -27,6 +27,7 @@ shader_parameter/vignette_intensity = 0.53
 shader_parameter/vignette_opacity = 0.5
 
 [node name="Shaders" type="CanvasLayer" unique_id=821094781]
+layer = 20
 
 [node name="VHSShader" type="ColorRect" parent="." unique_id=1296610099]
 material = SubResource("ShaderMaterial_ninpl")

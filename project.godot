@@ -120,6 +120,10 @@ show_mouse={
 ]
 }
 
+[internationalization]
+
+locale/translations_pot_files=PackedStringArray("res://Dialogue/Test.dialogue", "res://Dialogue/Tutorial.dialogue")
+
 [layer_names]
 
 2d_physics/layer_1="World"

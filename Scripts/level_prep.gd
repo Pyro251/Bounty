@@ -4,11 +4,18 @@ extends Control
 @onready var close_ready_prep_sound: AudioStreamPlayer = $CloseReadyPrepSound
 @onready var est_enemies: Label = $MainPanel/VBoxContainer/EstimatedEnemies
 @onready var est_difficulty: Label 
+@onready var tutorial_root: Control = $TutorialRoot
 
 const LOADING_SCREEN = preload("res://Scenes/Menus/loading_screen.tscn")
 
+func _ready() -> void:
+	if Global.tutorial:
+		start_level_button.hide()
+		tutorial_root.show()
+	else:
+		start_level_button.show()
+		tutorial_root.hide()
 
-	
 func _physics_process(delta: float) -> void:
 	#line below doesn't quite work yet, attempting to make the label match enemies in the next level
 	est_enemies.text = str("Estimated Enemies:", Global.enemies_in_current_level)
@@ -38,3 +45,15 @@ func _on_cancel_pressed() -> void:
 
 func _on_purchase_ammo_pressed() -> void:
 	purchace_ammo()
+
+
+func _on_tutorial_pressed() -> void:
+	get_tree().change_scene_to_file("res://Scenes/Levels/Tutorial/tutorial_level.tscn")
+	Global.in_tutorial = true
+	Global.in_menu = false
+	Global.at_base = false
+
+func _on_skip_pressed() -> void:
+	tutorial_root.hide()
+	start_level_button.show()
+	Global.tutorial = false
