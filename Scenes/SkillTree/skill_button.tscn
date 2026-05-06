@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://c3t1au4vq7sn" path="res://Scripts/skill_button.gd" id="2_1ueth"]
 [ext_resource type="FontFile" uid="uid://dndfik3argnf5" path="res://Assets/Fonts/Edge_of_the_galaxy/EdgeOfTheGalaxyRegular-OVEa6.otf" id="3_1ueth"]
 [ext_resource type="AudioStream" uid="uid://bcl4idsvtgsuq" path="res://Assets/sound/misc/CancelLevelTrigger/idontknow-cancel-116016.mp3" id="4_vp1i6"]
+[ext_resource type="AudioStream" uid="uid://bf2iefyfmiebh" path="res://Assets/sound/Buttons/floraphonic-arcade-ui-7-229506.mp3" id="5_8ar8t"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_vp1i6"]
 font = ExtResource("3_1ueth")
@@ -197,6 +198,7 @@ pitch_scale = 1.64
 bus = &"UI"
 
 [node name="AcceptSound" type="AudioStreamPlayer" parent="." unique_id=1009656485]
+stream = ExtResource("5_8ar8t")
 bus = &"UI"
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

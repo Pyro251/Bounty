@@ -1,9 +1,9 @@
 extends Control
 
-
-@onready var money: Label = $Money
+@onready var money: Label = $UI/Money
 
 func _process(delta: float) -> void:
+	
 	money.text = str("MONEY: ", Global.player_money)
 
 func _on_quit_pressed() -> void:

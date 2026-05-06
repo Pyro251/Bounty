@@ -146,7 +146,11 @@ theme_override_fonts/italics_font = ExtResource("4_sxvbq")
 theme_override_font_sizes/normal_font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_3pqo7")
 bbcode_enabled = true
-text = "+ Progress on getting resolution to work, currently crashes game."
+text = "+ There is now a tutorial, for those who want it. (don't worry, you can skip it)
+
++ Settings, menu now saves even if you start a new game. Unfortunately, the 'Load Game' button now never disables. There is no known fix for it yet.
+
++ Progress on getting resolution to work, currently crashes game."
 script = ExtResource("5_cn2xk")
 hover_scale = Vector2(1.15, 1.15)
 

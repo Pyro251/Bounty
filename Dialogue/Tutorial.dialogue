@@ -6,7 +6,7 @@ set Global.in_dialogue = true
 
 ???: [[Welcome, USER|Hello, USER|Good evening, NEW USER]]
 ???: This is the training, [wait=0.4] so don't worry about any consequences.
-???: Go ahead and start by going to the [color=light_blue][wave]blue marker[/wave][color=white] ahead.
+???: Go ahead and start by going to the [color=blue][wave]blue marker[/wave][color=white] ahead.
 
 set Global.in_dialogue = false
 set Global.can_move = true

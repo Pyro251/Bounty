@@ -39,11 +39,11 @@ func _process(delta: float) -> void:
 	current_ammo.text = str(Global.ammo)
 	current_money_label.text = str(Global.player_money)
 	
-	if Global.at_base:
-		current_location.text = str("HOME BASE")
-		
-
-	
+	if Global.at_base or Global.in_tutorial:
+		if Global.at_base:
+			current_location.text = str("HOME BASE")
+		if Global.in_tutorial:
+			current_location.text = str("TUTORIAL")
 	else:
 		current_location.text = str("LEVEL ", Global.current_level)
 
@@ -78,6 +78,9 @@ func _process(delta: float) -> void:
 			Global.can_teleport = false
 			$Teleport.play()
 	
+	if Input.is_action_just_pressed("give_money"):
+		Global.player_money += 100
+		gain_coin_sound.play()
 
 func ammo_changed():
 	animation_player.play("change_ammo_1")

@@ -2,11 +2,20 @@ extends Node
 
 const SAVE_LOCATION = "user://SaveFile.json"
 
+var default_audio: float = 1.0
+var default_level: int = 1
+var default_health: float = 100.0
+var default_money: int = 100
+var default_show_changes: bool = true
+var default_tutorial: bool = true
+var default_research_level: int = 0
+
 var save_data: Dictionary = {
 	"current_level": 1,
 	"player_health": 100.0,
 	"player_money": 100,
 	"show_changes": true,
+	"tutorial": true,
 	
 	# research tree
 	"health1": 0,
@@ -40,6 +49,7 @@ func _set_save_data():
 	save_data.player_health = Global.player_health
 	save_data.player_money = Global.player_money
 	save_data.show_changes = Global.show_changes
+	save_data.tutorial = Global.tutorial
 	
 	#abilities
 	save_data.health1 = Global.health1
@@ -67,6 +77,7 @@ func _set_load_data():
 	Global.player_health = save_data.player_health
 	Global.player_money = save_data.player_money
 	Global.show_changes = save_data.show_changes
+	Global.tutorial = save_data.tutorial
 	
 	
 	#abilities
@@ -78,4 +89,16 @@ func _set_load_data():
 	Global.attack_speed1 = save_data.attack_speed1
 
 func _wipe_save():
-	DirAccess.remove_absolute(SAVE_LOCATION)
+	save_data.current_level = default_level
+	save_data.player_health = default_health
+	save_data.player_money = default_money
+	save_data.tutorial = default_tutorial
+	
+	save_data.health1 = default_research_level
+	save_data.health2 = default_research_level
+	save_data.regen1 = default_research_level
+	save_data.attack1 = default_research_level
+	save_data.attack2 = default_research_level
+	save_data.attack_speed1 = default_research_level
+	
+	#DirAccess.remove_absolute(SAVE_LOCATION)
