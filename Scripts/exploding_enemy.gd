@@ -7,10 +7,10 @@ extends CharacterBody2D
 @onready var nav_agent: NavigationAgent2D = $NavigationAgent2D
 @onready var timer: Timer = $Timer
 @onready var explode_timer: Timer = $ExplodeTimer
-
 @onready var shoot_speed_timer: Timer = $ShootSpeedTimer
 @onready var shoot_sound: AudioStreamPlayer2D = $ShootSound
 @onready var explode_sound: AudioStreamPlayer2D = $ExplodeSound
+@onready var rapid_clicking_sound: AudioStreamPlayer2D = $RapidClickingSound
 
 @export var Goal: Node = null
 @export var target: Node = null
@@ -68,7 +68,6 @@ func die():
 	print("enemies killed: ", Global.enemies_killed)
 	print("total enemies in level: ", Global.enemies_in_current_level)
 	print("enemies left to kill: ", Global.enemies_in_current_level - Global.enemies_killed)
-	
 	# Spawns some coins on death.
 	add_money_collectable()
 
@@ -116,13 +115,18 @@ func _on_player_detection_area_entered(area: Area2D) -> void:
 		player_detected = true
 		target_explode()
 		
+		rapid_clicking_sound.play()
+		
 		timer.start() 
 
 
 func _on_explode_timer_timeout() -> void:
+	can_die = false
+	Global.enemies_killed += 1
 	player_detected = false
 	body.hide()
 	explosion_particles.emitting = true
+	explode_sound.play()
 	if can_explode_player:
 		Global.explode_player.emit()
 

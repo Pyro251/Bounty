@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://djod8x76pndtq" path="res://Assets/Tiles/White.webp" id="5_ddnop"]
 [ext_resource type="Texture2D" uid="uid://dgagkclcjyo8x" path="res://Assets/Tiles/Wall/New Piskel(1).png" id="6_xtent"]
 [ext_resource type="PackedScene" uid="uid://1i162pgw0hts" path="res://Scenes/Enemies/stationary_enemy.tscn" id="7_xtent"]
+[ext_resource type="AudioStream" uid="uid://c4l7sit2cgeic" path="res://Scenes/Sounds/music/Level.wav" id="8_nw6pe"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_m0h5h"]
 vertices = PackedVector2Array(32, 32, -32, 32, -32, -32, 32, -32)
@@ -87,3 +88,8 @@ dialogue_start = "step2"
 position = Vector2(3166, -2111)
 dialogue_resource = ExtResource("4_qn7il")
 dialogue_start = "step3"
+
+[node name="Music" type="AudioStreamPlayer" parent="." unique_id=1609678658]
+stream = ExtResource("8_nw6pe")
+autoplay = true
+bus = &"Music"

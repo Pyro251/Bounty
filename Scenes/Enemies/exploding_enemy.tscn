@@ -3,6 +3,7 @@
 [ext_resource type="AudioStream" uid="uid://balows47fups0" path="res://Assets/sound/Shooting/Enemy/laserShoot(1).wav" id="1_di4f0"]
 [ext_resource type="Script" uid="uid://b2n3lpx483eq3" path="res://Scripts/exploding_enemy.gd" id="1_i0afe"]
 [ext_resource type="AudioStream" uid="uid://btuos22715jyd" path="res://Assets/sound/Shooting/Enemy/freesound_community-small-explosion-103779.mp3" id="2_i0afe"]
+[ext_resource type="AudioStream" uid="uid://no70yd4tlyak" path="res://Assets/sound/Enemies/dragon-studio-clicking-433009.mp3" id="4_hjta5"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hjta5"]
 bg_color = Color(0.34615496, 3.3691526e-07, 2.4065375e-07, 1)
@@ -41,6 +42,9 @@ radius = 548.61646
 [sub_resource type="CircleShape2D" id="CircleShape2D_uig65"]
 radius = 28.160255
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_i0afe"]
+radius = 124.3101
+
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_qsav2"]
 random_pitch = 1.3697538
 streams_count = 1
@@ -51,8 +55,10 @@ random_pitch = 1.2432214
 streams_count = 1
 stream_0/stream = ExtResource("2_i0afe")
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_i0afe"]
-radius = 124.3101
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_axaw1"]
+random_pitch = 1.1590959
+streams_count = 1
+stream_0/stream = ExtResource("4_hjta5")
 
 [node name="ExplodingEnemy" type="CharacterBody2D" unique_id=1081304712]
 script = ExtResource("1_i0afe")
@@ -99,7 +105,6 @@ shape = SubResource("CircleShape2D_uig65")
 path_desired_distance = 3.0
 target_desired_distance = 3.0
 path_postprocessing = 1
-debug_enabled = true
 
 [node name="Timer" type="Timer" parent="." unique_id=2057648534 groups=["moving_enemy"]]
 wait_time = 0.15
@@ -107,15 +112,6 @@ one_shot = true
 
 [node name="ExplodeTimer" type="Timer" parent="." unique_id=1259966852]
 wait_time = 1.5
-
-[node name="ShootSound" type="AudioStreamPlayer2D" parent="." unique_id=1868819970]
-stream = SubResource("AudioStreamRandomizer_qsav2")
-bus = &"Projectiles"
-
-[node name="ExplodeSound" type="AudioStreamPlayer2D" parent="." unique_id=1590604328]
-stream = SubResource("AudioStreamRandomizer_682yb")
-pitch_scale = 1.34
-bus = &"Enemies"
 
 [node name="ExplosionDetect" type="Area2D" parent="." unique_id=2095100964]
 position = Vector2(-23, -20)
@@ -126,6 +122,20 @@ collision_mask = 4
 position = Vector2(23, 20)
 shape = SubResource("CircleShape2D_i0afe")
 
+[node name="ShootSound" type="AudioStreamPlayer2D" parent="." unique_id=1868819970]
+stream = SubResource("AudioStreamRandomizer_qsav2")
+bus = &"Projectiles"
+
+[node name="ExplodeSound" type="AudioStreamPlayer2D" parent="." unique_id=1590604328]
+stream = SubResource("AudioStreamRandomizer_682yb")
+pitch_scale = 1.34
+bus = &"Enemies"
+
+[node name="RapidClickingSound" type="AudioStreamPlayer2D" parent="." unique_id=208102503]
+stream = SubResource("AudioStreamRandomizer_axaw1")
+pitch_scale = 1.73
+
+[connection signal="finished" from="ExplosionParticles" to="." method="_on_explosion_particles_finished"]
 [connection signal="area_entered" from="BulletDetect" to="." method="_on_bullet_detect_area_entered"]
 [connection signal="area_exited" from="BulletDetect" to="." method="_on_bullet_detect_area_exited"]
 [connection signal="area_entered" from="PlayerDetection" to="." method="_on_player_detection_area_entered"]

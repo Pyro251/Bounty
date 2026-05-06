@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://db3polanlhkce" path="res://Scripts/player.gd" id="1_uvnfx"]
 [ext_resource type="PackedScene" uid="uid://bdyasc8vqfpw5" path="res://Scenes/Player/player_cursor.tscn" id="2_06tpx"]
 [ext_resource type="Texture2D" uid="uid://484qfv0agrwl" path="res://Assets/Light/prop_fade_start_50.png" id="3_xpcdj"]
-[ext_resource type="PackedScene" uid="uid://doqbe36j80fkd" path="res://Shaders/Scenes/shaders.tscn" id="4_mtuoh"]
+[ext_resource type="PackedScene" uid="uid://cem0rvlvgo160" path="res://Shaders/Scenes/shaders.tscn" id="4_mtuoh"]
 [ext_resource type="AudioStream" uid="uid://bvxpbuqxr2fnx" path="res://Assets/sound/Shooting/BasicGun/dev_guy-semi-automatic-riflepistol-shot-389472.mp3" id="9_gk6dx"]
 [ext_resource type="AudioStream" uid="uid://cghf6lmy3o4cf" path="res://Assets/sound/Collectables/Ammo/pickupCoin.wav" id="10_jhyir"]
 [ext_resource type="AudioStream" uid="uid://bfkcim7oidf7r" path="res://Assets/sound/misc/LevelCleared/sunovia-level-up-289723.mp3" id="11_74mp2"]

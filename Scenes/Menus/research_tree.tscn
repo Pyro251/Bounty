@@ -77,38 +77,29 @@ script = ExtResource("1_hq6we")
 [node name="BG" type="ColorRect" parent="." unique_id=387277632]
 z_index = -2
 layout_mode = 0
-offset_left = -955.0
-offset_top = -702.0
-offset_right = 3157.0
-offset_bottom = 1773.0
+offset_left = -846.0
+offset_top = -705.0
+offset_right = 3266.0
+offset_bottom = 1770.0
 mouse_filter = 2
 color = Color(0.14767182, 0.14767179, 0.14767179, 1)
 
 [node name="MenuCursor" parent="." unique_id=1703668164 instance=ExtResource("3_vhcyw")]
 
-[node name="Shaders" parent="." unique_id=821094781 instance=ExtResource("4_k0pwm")]
-follow_viewport_enabled = true
-
 [node name="TabContainer" type="TabContainer" parent="." unique_id=2013577333]
 layout_mode = 0
-offset_left = 303.0
-offset_top = 158.0
-offset_right = 1668.0
-offset_bottom = 901.0
+offset_left = 740.0
+offset_top = 555.0
+offset_right = 2080.0
+offset_bottom = 1316.0
 theme = SubResource("Theme_hq6we")
-current_tab = 1
-tab_0/title = "HEALTH"
-tab_1/title = "ATTACK"
-tab_2/title = "MONEY"
-tab_3/title = "MOVEMENT"
+current_tab = 0
 
 [node name="TabBar" type="TabBar" parent="TabContainer" unique_id=167490736]
-visible = false
 layout_mode = 2
 mouse_filter = 2
 theme = SubResource("Theme_unfjh")
 metadata/_tab_index = 0
-metadata/_tab_name = "HEALTH"
 
 [node name="SkillButton" parent="TabContainer/TabBar" unique_id=4599111 groups=["health1"] instance=ExtResource("1_up8uh")]
 layout_mode = 0
@@ -116,10 +107,15 @@ offset_left = 175.0
 offset_top = 252.0
 offset_right = 317.0
 offset_bottom = 394.0
+variable_to_change = "max_player_health"
+group_name = "health1"
+value_to_add = "5"
+value_to_subtract = "0"
+cost = "20"
 text = "[color=dark_red]HEALTH - I[color=white]
 
 increases maximum [color=dark_red]health[color=white] by [color=green]5[color=white]
-[color=yellow]Cost:[color=green] 100 dollars"
+[color=yellow]Cost:[color=green] 20 dollars"
 
 [node name="SkillButton" parent="TabContainer/TabBar/SkillButton" unique_id=1827569660 groups=["health2"] instance=ExtResource("1_up8uh")]
 layout_mode = 0
@@ -130,10 +126,15 @@ offset_bottom = 30.0
 disabled = true
 max_level = 4
 levels_to_unlock_next_level = 4
+variable_to_change = "max_player_health"
+group_name = "health2"
+value_to_add = "15"
+value_to_subtract = "0"
+cost = "60"
 text = "HEALTH - II
 
 increases maximum health by 15
-Cost: 400 dollars"
+Cost: 60 dollars"
 
 [node name="SkillButton2" parent="TabContainer/TabBar/SkillButton" unique_id=1615386792 groups=["regen1"] instance=ExtResource("1_up8uh")]
 layout_mode = 0
@@ -142,16 +143,21 @@ offset_top = 58.0
 offset_right = 408.0
 offset_bottom = 200.0
 disabled = true
+variable_to_change = "health_per_enemy_health_collectable"
+group_name = "regen1"
+value_to_add = "5"
+value_to_subtract = "0"
+cost = "80"
 text = "REGEN - I
 
 increases health gained by
- enemy drops by by 15
-Cost: 700 dollars"
+ enemy drops by by 5
+Cost: 80 dollars"
 
 [node name="TabBar2" type="TabBar" parent="TabContainer" unique_id=1669389227]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 1
-metadata/_tab_name = "ATTACK"
 
 [node name="SkillButton" parent="TabContainer/TabBar2" unique_id=181522165 groups=["attack1"] instance=ExtResource("1_up8uh")]
 layout_mode = 0
@@ -162,10 +168,15 @@ offset_bottom = 388.0
 disabled = true
 max_level = 4
 levels_to_unlock_next_level = 4
+variable_to_change = "attack_damage"
+group_name = "attack1"
+value_to_add = "5"
+value_to_subtract = "0"
+cost = "20"
 text = "ATTACK - I
 
 increases damage by 5
-Cost: 100 dollars"
+Cost: 20 dollars"
 
 [node name="SkillButton" parent="TabContainer/TabBar2/SkillButton" unique_id=1328681580 groups=["attack2"] instance=ExtResource("1_up8uh")]
 layout_mode = 0
@@ -176,10 +187,15 @@ offset_bottom = 42.0
 disabled = true
 max_level = 4
 levels_to_unlock_next_level = 4
+variable_to_change = "attack_damage"
+group_name = "attack2"
+value_to_add = "15"
+value_to_subtract = "0"
+cost = "50"
 text = "ATTACK - II
 
 increases damage by 15
-Cost: 400 dollars"
+Cost: 50 dollars"
 
 [node name="SkillButton2" parent="TabContainer/TabBar2/SkillButton" unique_id=2134326064 groups=["attack_speed1"] instance=ExtResource("1_up8uh")]
 layout_mode = 0
@@ -188,41 +204,50 @@ offset_top = 72.0
 offset_right = 496.0
 offset_bottom = 214.0
 disabled = true
+variable_to_change = "attack_speed"
+group_name = "attack_speed1"
+value_to_add = "0"
+value_to_subtract = "0.003"
+cost = "60"
 text = "ATTACK SPEED - I
 
 decreases time between shots
 by 0.03 seconds
 (makes a bigger difference than
 you think, i prommy)
-Cost: 600 dollars"
+Cost: 60 dollars"
 
 [node name="TabBar3" type="TabBar" parent="TabContainer" unique_id=1546747547]
 visible = false
 layout_mode = 2
 metadata/_tab_index = 2
-metadata/_tab_name = "MONEY"
 
 [node name="TabBar4" type="TabBar" parent="TabContainer" unique_id=1717208644]
 visible = false
 layout_mode = 2
 metadata/_tab_index = 3
-metadata/_tab_name = "MOVEMENT"
 
-[node name="Money" type="Label" parent="." unique_id=1450796174]
-layout_mode = 0
-offset_left = 1261.0
-offset_top = 252.0
-offset_right = 1632.0
-offset_bottom = 336.0
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1164867808]
+position = Vector2(910, 602)
+
+[node name="Shaders" parent="Camera2D" unique_id=821094781 instance=ExtResource("4_k0pwm")]
+follow_viewport_enabled = true
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=1106503514]
+
+[node name="Money" type="Label" parent="UI" unique_id=1450796174]
+offset_left = 1648.0
+offset_top = 652.0
+offset_right = 2019.0
+offset_bottom = 736.0
 text = "MONEY: 0000"
 label_settings = SubResource("LabelSettings_hq6we")
 
-[node name="Quit" type="Button" parent="." unique_id=361308108]
-layout_mode = 0
-offset_left = 676.0
-offset_top = 778.0
-offset_right = 1219.0
-offset_bottom = 878.0
+[node name="Quit" type="Button" parent="UI" unique_id=361308108]
+offset_left = 1165.0
+offset_top = 1161.0
+offset_right = 1708.0
+offset_bottom = 1261.0
 theme = SubResource("Theme_g2pfg")
 theme_override_font_sizes/font_size = 62
 theme_override_styles/normal = SubResource("StyleBoxFlat_4g5dg")
@@ -231,13 +256,12 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_i45nu")
 text = "DONE"
 script = ExtResource("6_unfjh")
 
-[node name="Title" type="Label" parent="." unique_id=492918533]
-layout_mode = 0
-offset_left = 1278.0
-offset_top = 127.0
-offset_right = 1631.0
-offset_bottom = 232.0
+[node name="Title" type="Label" parent="UI" unique_id=492918533]
+offset_left = 1658.0
+offset_top = 507.0
+offset_right = 2011.0
+offset_bottom = 612.0
 text = "RESEARCH"
 label_settings = SubResource("LabelSettings_vhcyw")
 
-[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="UI/Quit" to="." method="_on_quit_pressed"]
