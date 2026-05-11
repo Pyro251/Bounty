@@ -78,7 +78,7 @@ func _process(delta: float) -> void:
 			Global.can_teleport = false
 			$Teleport.play()
 	
-	if Input.is_action_just_pressed("give_money"):
+	if Input.is_action_pressed("give_money"):
 		Global.player_money += 100
 		gain_coin_sound.play()
 

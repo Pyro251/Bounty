@@ -45,6 +45,7 @@ func _save():
 	print("Game Saved")
 
 func _set_save_data():
+	
 	save_data.current_level = Global.current_level
 	save_data.player_health = Global.player_health
 	save_data.player_money = Global.player_money
@@ -52,12 +53,14 @@ func _set_save_data():
 	save_data.tutorial = Global.tutorial
 	
 	#abilities
-	save_data.health1 = Global.health1
-	save_data.health2 = Global.health2
-	save_data.regen1 = Global.regen1
-	save_data.attack1 = Global.attack1
-	save_data.attack2 = Global.attack2
-	save_data.attack_speed1 = Global.attack_speed1
+	#save_data.health1 = Global.health1
+	#save_data.health2 = Global.health2
+	#save_data.regen1 = Global.regen1
+	#save_data.attack1 = Global.attack1
+	#save_data.attack2 = Global.attack2
+	#save_data.attack_speed1 = Global.attack_speed1
+	
+	save_data.merge(Global.abilities, true)
 
 func _load():
 	if FileAccess.file_exists(SAVE_LOCATION):
@@ -73,6 +76,9 @@ func _load():
 		print("Game Loaded")
 
 func _set_load_data():
+	
+
+	
 	Global.current_level = save_data.current_level
 	Global.player_health = save_data.player_health
 	Global.player_money = save_data.player_money
@@ -80,13 +86,17 @@ func _set_load_data():
 	Global.tutorial = save_data.tutorial
 	
 	
-	#abilities
-	Global.health1 = save_data.health1
-	Global.health2 = save_data.health2
-	Global.regen1 = save_data.regen1
-	Global.attack1 = save_data.attack1
-	Global.attack2 = save_data.attack2
-	Global.attack_speed1 = save_data.attack_speed1
+	##abilities
+	
+	
+	Global.abilities.merge(save_data, true)
+	
+	#Global.health1 = save_data.health1
+	#Global.health2 = save_data.health2
+	#Global.regen1 = save_data.regen1
+	#Global.attack1 = save_data.attack1
+	#Global.attack2 = save_data.attack2
+	#Global.attack_speed1 = save_data.attack_speed1
 
 func _wipe_save():
 	save_data.current_level = default_level

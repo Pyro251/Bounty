@@ -12,6 +12,7 @@ extends CharacterBody2D
 @onready var look_at_cursor: Node2D = $LookAtCursor
 @onready var shoot_pos: Marker2D = $LookAtCursor/ShootPos
 @onready var shoot_timer: Timer = $ShootTimer
+@onready var regen_timer: Timer = $RegenTimer
 @onready var current_ammo_label: Label = $Ammo/CurrentAmmoLabel
 @onready var skill_tree: Control = $SkillTree
 @onready var flashlight: PointLight2D = $LookAtCursor/Flashlight
@@ -156,3 +157,8 @@ func teleport():
 
 func get_exploded():
 	Global.player_health -= 40
+
+
+func _on_regen_timer_timeout() -> void:
+	print("regen health given: ", Global.regen_health)
+	Global.player_health += Global.regen_health

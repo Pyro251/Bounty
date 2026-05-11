@@ -18,6 +18,7 @@ signal teleport
 signal load_level
 signal game_saved
 signal explode_player
+signal bullet_exploded
 
 # abilities
 signal ability_ended
@@ -36,12 +37,17 @@ var resolutions = {
 }
 
 #abilities
-var health1: int = 0
-var health2: int = 0
-var regen1: int = 0
-var attack1: int = 0
-var attack2: int = 0
-var attack_speed1: int = 0
+
+#var health1: int = 0
+#var health2: int = 0
+#var regen1: int = 0
+#var attack1: int = 0
+#var attack2: int = 0
+#var attack_speed1: int = 0
+
+var abilities: Dictionary = {
+	
+}
 
 var current_ability: String
 var using_ability: bool = false
@@ -53,6 +59,8 @@ var chest_in_anim: bool = true
 
 var ammo: int = 20
 var bullet_damage = 20
+var bullet_explosion_chance: int = 0
+var bullet_explosion_radius: float = 1.0
 
 var in_menu: bool = false
 var at_base: bool = true
@@ -68,9 +76,11 @@ var level_to_load
 
 var player_money: int = 0
 var money_made_this_level: int = 0
+var money_per_drop: int = 15
 
 var player_health: float = 100.0
 var max_player_health: float = 100.0
+var regen_health: int = 0
 var health_per_enemy_health_collectable: int = 4
 var attack_speed: float = 0.25
 var attack_damage: float = 20

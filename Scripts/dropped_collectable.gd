@@ -31,7 +31,7 @@ func _on_magnet_area_exited(area: Area2D) -> void:
 func _on_collect_area_entered(area: Area2D) -> void:
 	if is_in_group("money"):
 		if area.is_in_group("player"):
-			var random_money = randi_range(5, 15)
+			var random_money = randi_range(Global.money_per_drop - 5, Global.money_per_drop + 5)
 			Global.player_money += random_money
 			Global.money_made_this_level += random_money
 			Global.money_collected.emit()
