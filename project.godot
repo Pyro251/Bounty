@@ -150,6 +150,7 @@ locale/translations_pot_files=PackedStringArray("res://Dialogue/Test.dialogue", 
 2d_physics/layer_7="Player Detection (pathfinding)"
 2d_physics/layer_8="Player Detection (enemy target finding)"
 2d_physics/layer_9="Enemy Bullet"
+2d_physics/layer_10="Exploding Bullets"
 
 [physics]
 

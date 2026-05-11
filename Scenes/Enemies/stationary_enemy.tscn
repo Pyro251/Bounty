@@ -7,6 +7,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5u4g2"]
 size = Vector2(37, 34)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_0rhk1"]
+radius = 466.05258
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_h84am"]
 radius = 21.470911
 
@@ -58,6 +61,13 @@ script = ExtResource("1_2gjou")
 position = Vector2(0.5, 1)
 shape = SubResource("RectangleShape2D_5u4g2")
 
+[node name="ExplodeArea" type="Area2D" parent="." unique_id=1529567880]
+collision_layer = 512
+collision_mask = 512
+
+[node name="ExplosionRadius" type="CollisionShape2D" parent="ExplodeArea" unique_id=1841191181]
+shape = SubResource("CircleShape2D_0rhk1")
+
 [node name="BulletDetect" type="Area2D" parent="." unique_id=1545309539]
 collision_layer = 2
 collision_mask = 2
@@ -67,6 +77,16 @@ position = Vector2(1, -1)
 shape = SubResource("CircleShape2D_h84am")
 
 [node name="ExplosionParticles" type="GPUParticles2D" parent="." unique_id=103376655 groups=["stationary_enemy"]]
+emitting = false
+amount = 158
+lifetime = 1.12
+one_shot = true
+speed_scale = 2.74
+explosiveness = 1.0
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_nplyx")
+
+[node name="BulletExplosionParticles" type="GPUParticles2D" parent="." unique_id=1203365886 groups=["stationary_enemy"]]
 emitting = false
 amount = 158
 lifetime = 1.12
@@ -110,6 +130,8 @@ stream = SubResource("AudioStreamRandomizer_5u4g2")
 pitch_scale = 1.34
 bus = &"Enemies"
 
+[connection signal="area_entered" from="ExplodeArea" to="." method="_on_explode_area_area_entered"]
+[connection signal="area_exited" from="ExplodeArea" to="." method="_on_explode_area_area_exited"]
 [connection signal="area_entered" from="BulletDetect" to="." method="_on_bullet_detect_area_entered"]
 [connection signal="finished" from="ExplosionParticles" to="." method="_on_explosion_particles_finished"]
 [connection signal="area_entered" from="PlayerDetect" to="." method="_on_player_detect_area_entered"]

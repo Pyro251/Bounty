@@ -5,6 +5,8 @@
 [ext_resource type="FontFile" uid="uid://dndfik3argnf5" path="res://Assets/Fonts/Edge_of_the_galaxy/EdgeOfTheGalaxyRegular-OVEa6.otf" id="3_1ueth"]
 [ext_resource type="AudioStream" uid="uid://bcl4idsvtgsuq" path="res://Assets/sound/misc/CancelLevelTrigger/idontknow-cancel-116016.mp3" id="4_vp1i6"]
 [ext_resource type="AudioStream" uid="uid://bf2iefyfmiebh" path="res://Assets/sound/Buttons/floraphonic-arcade-ui-7-229506.mp3" id="5_8ar8t"]
+[ext_resource type="AudioStream" uid="uid://b8hpxsrqs1d7b" path="res://Assets/sound/Buttons/LevelPrepOpen/litupsubway-ui-hover-sfx-513360.mp3" id="6_eakxa"]
+[ext_resource type="AudioStream" uid="uid://ws5fc7e0is62" path="res://Assets/sound/Buttons/levelup/floraphonic-arcade-ui-6-229503.mp3" id="7_uxm6h"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_vp1i6"]
 font = ExtResource("3_1ueth")
@@ -20,6 +22,30 @@ border_color = Color(0, 0, 0, 1)
 corner_radius_top_left = 15
 corner_radius_top_right = 15
 corner_radius_bottom_right = 15
+
+[sub_resource type="Theme" id="Theme_8ar8t"]
+default_font = ExtResource("3_1ueth")
+default_font_size = 50
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_8ar8t"]
+random_pitch = 1.2418578
+streams_count = 1
+stream_0/stream = ExtResource("4_vp1i6")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_uxm6h"]
+random_pitch = 1.1546855
+streams_count = 1
+stream_0/stream = ExtResource("6_eakxa")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_1dhf2"]
+random_pitch = 1.1674278
+streams_count = 1
+stream_0/stream = ExtResource("6_eakxa")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_nxjsk"]
+random_pitch = 1.1590959
+streams_count = 1
+stream_0/stream = ExtResource("7_uxm6h")
 
 [sub_resource type="Animation" id="Animation_vp1i6"]
 resource_name = "Accept"
@@ -111,10 +137,339 @@ _data = {
 &"Reject": SubResource("Animation_8ar8t")
 }
 
-[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_8ar8t"]
-random_pitch = 1.2418578
-streams_count = 1
-stream_0/stream = ExtResource("4_vp1i6")
+[sub_resource type="Animation" id="Animation_eakxa"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextBox:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(120, -0.075, 0, 0.075, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TextBox:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-99, -0.075, 0, 0.075, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TextBox:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-0.143117, -0.075, 0, 0.075, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("TextBox:modulate:r")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.1, 0, 0.1, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("TextBox:modulate:g")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.1, 0, 0.1, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("TextBox:modulate:b")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.1, 0, 0.1, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/6/type = "bezier"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("TextBox:modulate:a")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.1, 0, 0.1, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_uxm6h"]
+resource_name = "hover_on"
+length = 0.2
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextBox:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(120, -0.075, 0, 0.075, 0, 118, -0.025000002, 0.33333334, 0, 0),
+"times": PackedFloat32Array(0, 0.15)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TextBox:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(-99, -0.075, 0, 0.075, 0, -54, -0.025000002, -7.5000005, 0, 0),
+"times": PackedFloat32Array(0, 0.15)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TextBox:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 2, 2),
+"points": PackedFloat32Array(-0.143117, -0.075, 0, 0.075, 0, 0.0715585, -0.025046933, -0.03577925, 0, 0, 0, -0.008286402, 0.011926416, 0, 0),
+"times": PackedFloat32Array(0, 0.1502816, 0.2)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("TextBox:modulate:r")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(1, -0.1, 0, 0.1, 0, 1, -0.014908889, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.08945333)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("TextBox:modulate:g")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(1, -0.1, 0, 0.1, 0, 1, -0.014908889, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.08945333)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("TextBox:modulate:b")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(1, -0.1, 0, 0.1, 0, 1, -0.014908889, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.08945333)
+}
+tracks/6/type = "bezier"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("TextBox:modulate:a")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(0, -0.1, 0, 0.1, 0, 1, -0.014908889, -0.16666667, 0, 0),
+"times": PackedFloat32Array(0, 0.08945333)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1dhf2"]
+_data = {
+&"RESET": SubResource("Animation_eakxa"),
+&"hover_on": SubResource("Animation_uxm6h")
+}
+
+[sub_resource type="Animation" id="Animation_nxjsk"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextBox:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(118, -0.075, 0, 0.075, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TextBox:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-54, -0.075, 0, 0.075, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TextBox:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.075, 0, 0.075, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("TextBox:modulate:r")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.075, 0, 0.075, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("TextBox:modulate:g")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.075, 0, 0.075, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("TextBox:modulate:b")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.075, 0, 0.075, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/6/type = "bezier"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("TextBox:modulate:a")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.075, 0, 0.075, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_21lbu"]
+resource_name = "hover_off"
+length = 0.15
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextBox:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(118, -0.075, 0, 0.075, 0, 118, -0.025000002, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.15)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TextBox:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(-54, -0.075, 0, 0.075, 0, -6.14, -0.025000002, -7.976667, 0, 0),
+"times": PackedFloat32Array(0, 0.15)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TextBox:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(0, -0.075, 0, 0.075, 0, 0.0715585, -0.025000002, -0.011926416, 0, 0),
+"times": PackedFloat32Array(0, 0.15)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("TextBox:modulate:r")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(1, -0.075, 0, 0.075, 0, 1, -0.025000002, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.15)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("TextBox:modulate:g")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(1, -0.075, 0, 0.075, 0, 1, -0.025000002, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.15)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("TextBox:modulate:b")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(1, -0.075, 0, 0.075, 0, 1, -0.025000002, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.15)
+}
+tracks/6/type = "bezier"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("TextBox:modulate:a")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(1, -0.075, 0, 0.075, 0, 0, -0.025000002, 0.16666667, 0, 0),
+"times": PackedFloat32Array(0, 0.15)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ftf5d"]
+_data = {
+&"RESET": SubResource("Animation_nxjsk"),
+&"hover_off": SubResource("Animation_21lbu")
+}
 
 [node name="SkillButton" type="TextureButton" unique_id=4599111]
 self_modulate = Color(0.5649617, 0.5649616, 0.5649616, 1)
@@ -155,17 +510,17 @@ vertical_alignment = 2
 [node name="Line2D" type="Line2D" parent="." unique_id=1240884686]
 top_level = true
 z_index = -1
-width = 4.0
+width = 12.0
 default_color = Color(0.6748149, 0.6748145, 0.6748146, 1)
 
 [node name="TextBox" type="PanelContainer" parent="." unique_id=1561706234]
 visible = false
-z_index = 1
+z_index = 22
 layout_mode = 0
-offset_left = 120.0
-offset_top = -59.0
-offset_right = 252.0
-offset_bottom = 31.0
+offset_left = 118.0
+offset_top = -54.0
+offset_right = 250.0
+offset_bottom = 36.0
 pivot_offset = Vector2(0, 89.735)
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_1ueth")
@@ -179,6 +534,7 @@ theme_override_constants/margin_bottom = 10
 
 [node name="Text" type="RichTextLabel" parent="TextBox/MarginContainer" unique_id=950260579]
 layout_mode = 2
+theme = SubResource("Theme_8ar8t")
 bbcode_enabled = true
 text = "Test"
 fit_content = true
@@ -186,14 +542,9 @@ scroll_active = false
 autowrap_mode = 0
 autowrap_trim_flags = 0
 
-[node name="RejectAnim" type="AnimationPlayer" parent="." unique_id=407200291]
-libraries/ = SubResource("AnimationLibrary_8ar8t")
-
-[node name="AcceptAnim" type="AnimationPlayer" parent="." unique_id=544211330]
-libraries/ = SubResource("AnimationLibrary_8ar8t")
-
 [node name="RejectSound" type="AudioStreamPlayer" parent="." unique_id=194637377]
 stream = SubResource("AudioStreamRandomizer_8ar8t")
+volume_db = -3.309
 pitch_scale = 1.64
 bus = &"UI"
 
@@ -201,6 +552,32 @@ bus = &"UI"
 stream = ExtResource("5_8ar8t")
 bus = &"UI"
 
+[node name="HoverOn" type="AudioStreamPlayer" parent="." unique_id=1203185226]
+stream = SubResource("AudioStreamRandomizer_uxm6h")
+pitch_scale = 1.58
+
+[node name="HoverOff" type="AudioStreamPlayer" parent="." unique_id=1280511229]
+stream = SubResource("AudioStreamRandomizer_1dhf2")
+pitch_scale = 0.93
+
+[node name="MaxLevelReachedSound" type="AudioStreamPlayer" parent="." unique_id=151951376]
+stream = SubResource("AudioStreamRandomizer_nxjsk")
+pitch_scale = 1.74
+
+[node name="RejectAnim" type="AnimationPlayer" parent="." unique_id=407200291]
+libraries/ = SubResource("AnimationLibrary_8ar8t")
+
+[node name="AcceptAnim" type="AnimationPlayer" parent="." unique_id=544211330]
+libraries/ = SubResource("AnimationLibrary_8ar8t")
+
+[node name="HoverOnAnim" type="AnimationPlayer" parent="." unique_id=52883376]
+libraries/ = SubResource("AnimationLibrary_1dhf2")
+
+[node name="HoverOffAnim" type="AnimationPlayer" parent="." unique_id=876664965]
+libraries/ = SubResource("AnimationLibrary_ftf5d")
+
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
 [connection signal="pressed" from="." to="." method="_on_pressed"]
+[connection signal="animation_finished" from="AcceptAnim" to="." method="_on_accept_anim_animation_finished"]
+[connection signal="animation_finished" from="HoverOffAnim" to="." method="_on_hover_off_anim_animation_finished"]

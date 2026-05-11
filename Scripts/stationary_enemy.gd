@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @onready var body: ProgressBar = $Body
 @onready var explosion_particles: GPUParticles2D = $ExplosionParticles
+@onready var bullet_explosion_particles: GPUParticles2D = $BulletExplosionParticles
 @onready var shoot_pos: Marker2D = $ShootPos
 @onready var shoot_speed_timer: Timer = $ShootSpeedTimer
 @onready var shoot_sound: AudioStreamPlayer2D = $ShootSound
@@ -9,12 +10,15 @@ extends CharacterBody2D
 @onready var coin_spawn_1: Marker2D = $CoinSpawn1
 @onready var coin_spawn_2: Marker2D = $CoinSpawn2
 @onready var coin_spawn_3: Marker2D = $CoinSpawn3
+@onready var explosion_radius: CollisionShape2D = $ExplodeArea/ExplosionRadius
 
 @export var target: Node = null
 
 var health: int = 100
 var can_die: bool = true
 var player_detected: bool = false
+var in_exploding_area: bool = false
+var total_explosion_chance: int = randi_range(1, 100)
 
 
 const BULLET_SCENE = preload("res://Scenes/Enemies/enemy_bullet.tscn")
@@ -24,10 +28,15 @@ const HEALTH_DROP_SCENE = preload("res://Scenes/Collectables/Health/enemy_health
 func _on_bullet_detect_area_entered(area: Area2D) -> void:
 	if area.is_in_group("player_bullet"):
 		health -= Global.attack_damage
+		if Global.bullet_explosion_chance >= total_explosion_chance:
+			bullet_explosion_particles.emitting = true
+			health -= Global.attack_damage + 20
+			Global.bullet_exploded.emit()
 
 func _ready() -> void:
 	player_detected = false
 	target = get_parent().get_node("Player")
+	Global.bullet_exploded.connect(explode_bullet)
 
 func _physics_process(delta: float) -> void:
 	body.value = health
@@ -37,6 +46,9 @@ func _physics_process(delta: float) -> void:
 	
 	if player_detected:
 		self.look_at(target.global_position)
+	
+	bullet_explosion_particles.scale = Vector2(Global.bullet_explosion_radius, Global.bullet_explosion_radius)
+	explosion_radius.scale = Vector2(Global.bullet_explosion_radius, Global.bullet_explosion_radius)
 
 func die():
 	explode_sound.play()
@@ -88,6 +100,11 @@ func _shoot():
 		new_bullet.global_rotation = shoot_pos.global_rotation
 		get_parent().add_child(new_bullet)
 
+func explode_bullet():
+	if in_exploding_area:
+		explode_sound.play()
+		explosion_particles.emitting = true
+		health -= Global.attack_damage + 20
 
 func _on_player_detect_area_entered(area: Area2D) -> void:
 	if area.is_in_group("player"):
@@ -103,3 +120,11 @@ func _on_shoot_speed_timer_timeout() -> void:
 	if player_detected:
 		_shoot()
 		shoot_speed_timer.start()
+
+
+func _on_explode_area_area_entered(area: Area2D) -> void:
+	in_exploding_area = true
+
+
+func _on_explode_area_area_exited(area: Area2D) -> void:
+	in_exploding_area = false

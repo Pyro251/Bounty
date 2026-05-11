@@ -5,18 +5,33 @@
 [ext_resource type="FontFile" uid="uid://dndfik3argnf5" path="res://Assets/Fonts/Edge_of_the_galaxy/EdgeOfTheGalaxyRegular-OVEa6.otf" id="2_rg40v"]
 [ext_resource type="PackedScene" uid="uid://drk1pycy1a2ky" path="res://Scenes/Player/menu_cursor.tscn" id="3_vhcyw"]
 [ext_resource type="PackedScene" uid="uid://doqbe36j80fkd" path="res://Shaders/Scenes/shaders.tscn" id="4_k0pwm"]
+[ext_resource type="Script" uid="uid://bh5qdcuy0vdpv" path="res://Scripts/menu_camera.gd" id="5_unfjh"]
 [ext_resource type="Script" uid="uid://v86otcjdcl6t" path="res://Scripts/button.gd" id="6_unfjh"]
 
-[sub_resource type="Theme" id="Theme_hq6we"]
-default_font = ExtResource("2_rg40v")
-default_font_size = 57
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_unfjh"]
+bg_color = Color(0.099985994, 0.09998601, 0.099985965, 1)
+border_width_left = 7
+border_width_top = 7
+border_width_right = 7
+border_width_bottom = 7
+shadow_size = 59
 
-[sub_resource type="Theme" id="Theme_unfjh"]
+[sub_resource type="LabelSettings" id="LabelSettings_vhcyw"]
+font = ExtResource("2_rg40v")
+font_size = 97
+outline_size = 11
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_hq6we"]
 font = ExtResource("2_rg40v")
 font_size = 78
 font_color = Color(1, 1, 0.39215687, 1)
+outline_size = 18
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Theme" id="Theme_unfjh"]
+default_font = ExtResource("2_rg40v")
+default_font_size = 70
 
 [sub_resource type="Theme" id="Theme_g2pfg"]
 default_font = ExtResource("2_rg40v")
@@ -61,10 +76,6 @@ expand_margin_bottom = 10.0
 shadow_size = 10
 shadow_offset = Vector2(0.865, 5.985)
 
-[sub_resource type="LabelSettings" id="LabelSettings_vhcyw"]
-font = ExtResource("2_rg40v")
-font_size = 97
-
 [node name="ResearchTree" type="Control" unique_id=938331891]
 layout_mode = 3
 anchors_preset = 15
@@ -75,179 +86,84 @@ grow_vertical = 2
 script = ExtResource("1_hq6we")
 
 [node name="BG" type="ColorRect" parent="." unique_id=387277632]
-z_index = -2
+z_index = -410
 layout_mode = 0
-offset_left = -846.0
-offset_top = -705.0
-offset_right = 3266.0
-offset_bottom = 1770.0
+offset_left = -8665.0
+offset_top = -5534.0
+offset_right = 8154.0
+offset_bottom = 7093.0
 mouse_filter = 2
 color = Color(0.14767182, 0.14767179, 0.14767179, 1)
 
-[node name="MenuCursor" parent="." unique_id=1703668164 instance=ExtResource("3_vhcyw")]
+[node name="MenuCursor1" parent="." unique_id=1703668164 instance=ExtResource("3_vhcyw")]
 
-[node name="TabContainer" type="TabContainer" parent="." unique_id=2013577333]
-layout_mode = 0
-offset_left = 740.0
-offset_top = 555.0
-offset_right = 2080.0
-offset_bottom = 1316.0
-theme = SubResource("Theme_hq6we")
-current_tab = 0
-
-[node name="TabBar" type="TabBar" parent="TabContainer" unique_id=167490736]
-layout_mode = 2
-mouse_filter = 2
-theme = SubResource("Theme_unfjh")
-metadata/_tab_index = 0
-
-[node name="SkillButton" parent="TabContainer/TabBar" unique_id=4599111 groups=["health1"] instance=ExtResource("1_up8uh")]
-layout_mode = 0
-offset_left = 175.0
-offset_top = 252.0
-offset_right = 317.0
-offset_bottom = 394.0
-variable_to_change = "max_player_health"
-group_name = "health1"
-value_to_add = "5"
-value_to_subtract = "0"
-cost = "20"
-text = "[color=dark_red]HEALTH - I[color=white]
-
-increases maximum [color=dark_red]health[color=white] by [color=green]5[color=white]
-[color=yellow]Cost:[color=green] 20 dollars"
-
-[node name="SkillButton" parent="TabContainer/TabBar/SkillButton" unique_id=1827569660 groups=["health2"] instance=ExtResource("1_up8uh")]
-layout_mode = 0
-offset_left = 265.0
-offset_top = -112.0
-offset_right = 407.0
-offset_bottom = 30.0
-disabled = true
-max_level = 4
-levels_to_unlock_next_level = 4
-variable_to_change = "max_player_health"
-group_name = "health2"
-value_to_add = "15"
-value_to_subtract = "0"
-cost = "60"
-text = "HEALTH - II
-
-increases maximum health by 15
-Cost: 60 dollars"
-
-[node name="SkillButton2" parent="TabContainer/TabBar/SkillButton" unique_id=1615386792 groups=["regen1"] instance=ExtResource("1_up8uh")]
-layout_mode = 0
-offset_left = 266.0
-offset_top = 58.0
-offset_right = 408.0
-offset_bottom = 200.0
-disabled = true
-variable_to_change = "health_per_enemy_health_collectable"
-group_name = "regen1"
-value_to_add = "5"
-value_to_subtract = "0"
-cost = "80"
-text = "REGEN - I
-
-increases health gained by
- enemy drops by by 5
-Cost: 80 dollars"
-
-[node name="TabBar2" type="TabBar" parent="TabContainer" unique_id=1669389227]
-visible = false
-layout_mode = 2
-metadata/_tab_index = 1
-
-[node name="SkillButton" parent="TabContainer/TabBar2" unique_id=181522165 groups=["attack1"] instance=ExtResource("1_up8uh")]
-layout_mode = 0
-offset_left = 204.0
-offset_top = 246.0
-offset_right = 346.0
-offset_bottom = 388.0
-disabled = true
-max_level = 4
-levels_to_unlock_next_level = 4
-variable_to_change = "attack_damage"
-group_name = "attack1"
-value_to_add = "5"
-value_to_subtract = "0"
-cost = "20"
-text = "ATTACK - I
-
-increases damage by 5
-Cost: 20 dollars"
-
-[node name="SkillButton" parent="TabContainer/TabBar2/SkillButton" unique_id=1328681580 groups=["attack2"] instance=ExtResource("1_up8uh")]
-layout_mode = 0
-offset_left = 349.0
-offset_top = -100.0
-offset_right = 491.0
-offset_bottom = 42.0
-disabled = true
-max_level = 4
-levels_to_unlock_next_level = 4
-variable_to_change = "attack_damage"
-group_name = "attack2"
-value_to_add = "15"
-value_to_subtract = "0"
-cost = "50"
-text = "ATTACK - II
-
-increases damage by 15
-Cost: 50 dollars"
-
-[node name="SkillButton2" parent="TabContainer/TabBar2/SkillButton" unique_id=2134326064 groups=["attack_speed1"] instance=ExtResource("1_up8uh")]
-layout_mode = 0
-offset_left = 354.0
-offset_top = 72.0
-offset_right = 496.0
-offset_bottom = 214.0
-disabled = true
-variable_to_change = "attack_speed"
-group_name = "attack_speed1"
-value_to_add = "0"
-value_to_subtract = "0.003"
-cost = "60"
-text = "ATTACK SPEED - I
-
-decreases time between shots
-by 0.03 seconds
-(makes a bigger difference than
-you think, i prommy)
-Cost: 60 dollars"
-
-[node name="TabBar3" type="TabBar" parent="TabContainer" unique_id=1546747547]
-visible = false
-layout_mode = 2
-metadata/_tab_index = 2
-
-[node name="TabBar4" type="TabBar" parent="TabContainer" unique_id=1717208644]
-visible = false
-layout_mode = 2
-metadata/_tab_index = 3
-
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1164867808]
+[node name="MenuCamera" type="Camera2D" parent="." unique_id=1164867808]
 position = Vector2(910, 602)
+position_smoothing_enabled = true
+position_smoothing_speed = 20.0
+script = ExtResource("5_unfjh")
 
-[node name="Shaders" parent="Camera2D" unique_id=821094781 instance=ExtResource("4_k0pwm")]
-follow_viewport_enabled = true
+[node name="Shaders" parent="MenuCamera" unique_id=821094781 instance=ExtResource("4_k0pwm")]
 
-[node name="UI" type="CanvasLayer" parent="." unique_id=1106503514]
+[node name="UI" type="CanvasLayer" parent="MenuCamera" unique_id=1106503514]
 
-[node name="Money" type="Label" parent="UI" unique_id=1450796174]
-offset_left = 1648.0
-offset_top = 652.0
-offset_right = 2019.0
-offset_bottom = 736.0
+[node name="MenuCursor2" parent="MenuCamera/UI" unique_id=772636970 instance=ExtResource("3_vhcyw")]
+visible = false
+
+[node name="BottomPanel" type="Panel" parent="MenuCamera/UI" unique_id=146810528]
+offset_left = -334.0
+offset_top = 720.0
+offset_right = 2172.0
+offset_bottom = 1153.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_unfjh")
+
+[node name="TopPanel" type="Panel" parent="MenuCamera/UI" unique_id=1929133434]
+offset_left = -316.0
+offset_top = -176.0
+offset_right = 933.0
+offset_bottom = 257.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_unfjh")
+
+[node name="Title" type="Label" parent="MenuCamera/UI" unique_id=492918533]
+offset_left = 157.0
+offset_top = 133.0
+offset_right = 510.0
+offset_bottom = 238.0
+text = "RESEARCH"
+label_settings = SubResource("LabelSettings_vhcyw")
+
+[node name="Money" type="Label" parent="MenuCamera/UI" unique_id=1450796174]
+offset_left = 520.0
+offset_top = 149.0
+offset_right = 891.0
+offset_bottom = 233.0
 text = "MONEY: 0000"
 label_settings = SubResource("LabelSettings_hq6we")
 
-[node name="Quit" type="Button" parent="UI" unique_id=361308108]
-offset_left = 1165.0
-offset_top = 1161.0
-offset_right = 1708.0
-offset_bottom = 1261.0
+[node name="TabBar" type="TabBar" parent="MenuCamera/UI" unique_id=167490736]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 151.0
+offset_top = 771.0
+offset_right = 1083.0
+offset_bottom = -186.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_unfjh")
+current_tab = 0
+clip_tabs = false
+tab_count = 4
+tab_0/title = "Health"
+tab_1/title = "Attack"
+tab_2/title = "Money"
+tab_3/title = "Movement"
+
+[node name="Quit" type="Button" parent="MenuCamera/UI" unique_id=361308108]
+offset_left = 1103.0
+offset_top = 779.0
+offset_right = 1646.0
+offset_bottom = 879.0
 theme = SubResource("Theme_g2pfg")
 theme_override_font_sizes/font_size = 62
 theme_override_styles/normal = SubResource("StyleBoxFlat_4g5dg")
@@ -256,12 +172,360 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_i45nu")
 text = "DONE"
 script = ExtResource("6_unfjh")
 
-[node name="Title" type="Label" parent="UI" unique_id=492918533]
-offset_left = 1658.0
-offset_top = 507.0
-offset_right = 2011.0
-offset_bottom = 612.0
-text = "RESEARCH"
-label_settings = SubResource("LabelSettings_vhcyw")
+[node name="Tabs" type="Control" parent="." unique_id=1921304870]
+z_index = 8
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
-[connection signal="pressed" from="UI/Quit" to="." method="_on_quit_pressed"]
+[node name="Tab1" type="Control" parent="Tabs" unique_id=319666250]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="SkillButton" parent="Tabs/Tab1" unique_id=4599111 groups=["health1"] instance=ExtResource("1_up8uh")]
+layout_mode = 0
+offset_left = 621.0
+offset_top = 470.0
+offset_right = 763.0
+offset_bottom = 612.0
+variable_to_change = "max_player_health"
+group_name = "health1"
+value_to_add = 5.0
+cost = "20"
+short_description = "Inceases maximum health by 5"
+upgrade_name = "Health"
+upgrade_level = "I"
+
+[node name="SkillButton" parent="Tabs/Tab1/SkillButton" unique_id=1827569660 groups=["health2"] instance=ExtResource("1_up8uh")]
+layout_mode = 0
+offset_left = -1.0
+offset_top = -230.0
+offset_right = 141.0
+offset_bottom = -88.0
+disabled = true
+max_level = 4
+levels_to_unlock_next_level = 4
+variable_to_change = "max_player_health"
+group_name = "health2"
+value_to_add = 15.0
+cost = "60"
+short_description = "Increases maximum health by 15"
+upgrade_name = "Health"
+upgrade_level = "II"
+
+[node name="SkillButton2" parent="Tabs/Tab1/SkillButton" unique_id=1615386792 groups=["regen1"] instance=ExtResource("1_up8uh")]
+layout_mode = 0
+offset_left = 238.0
+offset_top = 2.0
+offset_right = 380.0
+offset_bottom = 144.0
+disabled = true
+variable_to_change = "health_per_enemy_health_collectable"
+group_name = "health_drop1"
+value_to_add = 5.0
+cost = "80"
+short_description = "Increases amount earned per health drop by 5"
+upgrade_name = "Health Drop"
+upgrade_level = "I"
+
+[node name="SkillButton2" parent="Tabs/Tab1/SkillButton/SkillButton2" unique_id=1166956831 groups=["regen1"] instance=ExtResource("1_up8uh")]
+layout_mode = 0
+offset_left = 221.0
+offset_top = 3.0
+offset_right = 363.0
+offset_bottom = 145.0
+disabled = true
+variable_to_change = "health_per_enemy_health_collectable"
+group_name = "health_drop2"
+value_to_add = 15.0
+cost = "120"
+short_description = "Increases amount earned per health drop by 15"
+upgrade_name = "Health Drop"
+upgrade_level = "II"
+
+[node name="SkillButton3" parent="Tabs/Tab1/SkillButton" unique_id=1908863561 groups=["health2"] instance=ExtResource("1_up8uh")]
+layout_mode = 0
+offset_left = -258.0
+offset_top = 2.0
+offset_right = -116.0
+offset_bottom = 144.0
+disabled = true
+max_level = 1
+levels_to_unlock_next_level = 1
+variable_to_change = "regen_health"
+group_name = "regen1"
+value_to_add = 1.0
+cost = "100"
+short_description = "Unlcoks    [wave]Regen[/wave]
+Regenerate 1 health every 15 seconds"
+upgrade_name = "Regen"
+upgrade_level = "I"
+
+[node name="SkillButton3" parent="Tabs/Tab1/SkillButton/SkillButton3" unique_id=1512845761 groups=["health2"] instance=ExtResource("1_up8uh")]
+layout_mode = 0
+offset_left = -215.0
+offset_top = -114.0
+offset_right = -73.0
+offset_bottom = 28.0
+disabled = true
+variable_to_change = "regen_health"
+group_name = "regen2"
+value_to_add = 2.0
+cost = "160"
+short_description = "Adds 2 health to the regeneration effect"
+upgrade_name = "Regen"
+upgrade_level = "II"
+
+[node name="SkillButton3" parent="Tabs/Tab1/SkillButton/SkillButton3/SkillButton3" unique_id=2091080462 groups=["health2"] instance=ExtResource("1_up8uh")]
+layout_mode = 0
+offset_left = -230.0
+offset_top = -1.0
+offset_right = -88.0
+offset_bottom = 141.0
+disabled = true
+max_level = 6
+levels_to_unlock_next_level = 6
+variable_to_change = "regen_health"
+group_name = "regen3"
+value_to_add = 5.0
+cost = "220"
+short_description = "Adds 5 health to the regeneration effect"
+upgrade_name = "Regen"
+upgrade_level = "III"
+
+[node name="Tab2" type="Control" parent="Tabs" unique_id=1778835482]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="SkillButton" parent="Tabs/Tab2" unique_id=181522165 groups=["attack1"] instance=ExtResource("1_up8uh")]
+layout_mode = 0
+offset_left = 765.0
+offset_top = 472.0
+offset_right = 907.0
+offset_bottom = 614.0
+disabled = true
+max_level = 4
+levels_to_unlock_next_level = 4
+variable_to_change = "attack_damage"
+group_name = "attack1"
+value_to_add = 5.0
+cost = "20"
+short_description = "Increases attack damage by 5"
+upgrade_name = "Bullet Damage"
+upgrade_level = "I"
+
+[node name="SkillButton" parent="Tabs/Tab2/SkillButton" unique_id=1328681580 groups=["attack2"] instance=ExtResource("1_up8uh")]
+layout_mode = 0
+offset_left = -2.0
+offset_top = -240.0
+offset_right = 140.0
+offset_bottom = -98.0
+disabled = true
+max_level = 5
+levels_to_unlock_next_level = 5
+variable_to_change = "attack_damage"
+group_name = "attack2"
+value_to_add = 15.0
+cost = "50"
+short_description = "Increases attack damage by 15"
+upgrade_name = "Bullet Damage"
+upgrade_level = "II"
+
+[node name="SkillButton" parent="Tabs/Tab2/SkillButton/SkillButton" unique_id=1407471227 groups=["attack2"] instance=ExtResource("1_up8uh")]
+layout_mode = 0
+offset_left = -2.0
+offset_top = -198.0
+offset_right = 140.0
+offset_bottom = -56.0
+disabled = true
+variable_to_change = "attack_damage"
+group_name = "attack3"
+value_to_add = 40.0
+cost = "120"
+short_description = "Increases attack damage by 40"
+upgrade_name = "Bullet Damage"
+upgrade_level = "III"
+
+[node name="SkillButton2" parent="Tabs/Tab2/SkillButton" unique_id=2134326064 groups=["attack_speed1"] instance=ExtResource("1_up8uh")]
+layout_mode = 0
+offset_left = 275.0
+offset_top = 2.0
+offset_right = 417.0
+offset_bottom = 144.0
+disabled = true
+variable_to_change = "attack_speed"
+group_name = "attack_speed1"
+value_to_subtract = 0.003
+cost = "60"
+short_description = "Decreases time you have to wait between shots by 0.003 seconds
+(Makes bigger difference than you think)"
+upgrade_name = "Attack Speed"
+upgrade_level = "I"
+
+[node name="SkillButton2" parent="Tabs/Tab2/SkillButton/SkillButton2" unique_id=719740037 groups=["attack_speed1"] instance=ExtResource("1_up8uh")]
+layout_mode = 0
+offset_left = 275.0
+offset_top = 2.0
+offset_right = 417.0
+offset_bottom = 144.0
+disabled = true
+variable_to_change = "attack_speed"
+group_name = "attack_speed2"
+value_to_subtract = 0.005
+cost = "130"
+short_description = "Decreases time you have to wait between shots by 0.005 seconds
+(Makes bigger difference than you think)"
+upgrade_name = "Attack Speed"
+upgrade_level = "II"
+
+[node name="SkillButton3" parent="Tabs/Tab2/SkillButton" unique_id=770225805 groups=["attack2"] instance=ExtResource("1_up8uh")]
+layout_mode = 0
+offset_left = -281.0
+offset_top = 3.0
+offset_right = -139.0
+offset_bottom = 145.0
+disabled = true
+max_level = 1
+levels_to_unlock_next_level = 1
+variable_to_change = "bullet_explosion_chance"
+group_name = "explosion_chance1"
+value_to_add = 1.0
+cost = "120"
+short_description = "Unlock    [wave]E X P L O S I O N[/wave]
+Gives enemies a chance to explode and cause
+damage to other enemies when shot with your bullet.
+Starting percent:  1%"
+upgrade_name = "EXPLOSION CHANCE"
+upgrade_level = "I"
+
+[node name="SkillButton3" parent="Tabs/Tab2/SkillButton/SkillButton3" unique_id=1185021603 groups=["attack2"] instance=ExtResource("1_up8uh")]
+layout_mode = 0
+offset_left = -246.0
+offset_top = -98.0
+offset_right = -104.0
+offset_bottom = 44.0
+disabled = true
+variable_to_change = "bullet_explosion_chance"
+group_name = "explosion_chance2"
+value_to_add = 3.0
+cost = "200"
+short_description = "Inceases explosion chance by 3%"
+upgrade_name = "EXPLOSION CHANCE"
+upgrade_level = "II"
+
+[node name="SkillButton3" parent="Tabs/Tab2/SkillButton/SkillButton3/SkillButton3" unique_id=47375609 groups=["attack2"] instance=ExtResource("1_up8uh")]
+layout_mode = 0
+offset_left = -259.0
+offset_top = 4.0
+offset_right = -117.0
+offset_bottom = 146.0
+disabled = true
+max_level = 5
+levels_to_unlock_next_level = 5
+variable_to_change = "bullet_explosion_chance"
+group_name = "explosion_chance3"
+value_to_add = 5.0
+cost = "350"
+short_description = "Inceases explosion chance by 5%"
+upgrade_name = "EXPLOSION CHANCE"
+upgrade_level = "III"
+
+[node name="SkillButton4" parent="Tabs/Tab2/SkillButton/SkillButton3" unique_id=1036146431 groups=["attack2"] instance=ExtResource("1_up8uh")]
+layout_mode = 0
+offset_left = -240.0
+offset_top = 94.0
+offset_right = -98.0
+offset_bottom = 236.0
+disabled = true
+variable_to_change = "bullet_explosion_radius"
+group_name = "explosion_radius1"
+value_to_add = 0.1
+cost = "120"
+short_description = "Increases explosion radius by 0.1"
+upgrade_name = "EXPLOSION RADIUS"
+upgrade_level = "I"
+
+[node name="SkillButton4" parent="Tabs/Tab2/SkillButton/SkillButton3/SkillButton4" unique_id=2048070185 groups=["attack2"] instance=ExtResource("1_up8uh")]
+layout_mode = 0
+offset_left = -264.0
+offset_top = 2.0
+offset_right = -122.0
+offset_bottom = 144.0
+disabled = true
+variable_to_change = "bullet_explosion_radius"
+group_name = "explosion_radius2"
+value_to_add = 0.3
+cost = "250"
+short_description = "Increases explosion radius by 0.3"
+upgrade_name = "EXPLOSION RADIUS"
+upgrade_level = "II"
+
+[node name="Panel" type="Panel" parent="Tabs/Tab2" unique_id=396441754]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Tab3" type="Control" parent="Tabs" unique_id=512368977]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="SkillButton" parent="Tabs/Tab3" unique_id=1088820416 groups=["attack2"] instance=ExtResource("1_up8uh")]
+layout_mode = 0
+offset_left = 874.0
+offset_top = 440.0
+offset_right = 1016.0
+offset_bottom = 582.0001
+disabled = true
+variable_to_change = "money_per_drop"
+group_name = "money1"
+value_to_add = 5.0
+cost = "50"
+short_description = "Increases money per drop by 5"
+upgrade_name = "More BUCK for your BANG"
+upgrade_level = "I"
+
+[node name="SkillButton2" parent="Tabs/Tab3/SkillButton" unique_id=1219817433 groups=["attack2"] instance=ExtResource("1_up8uh")]
+layout_mode = 0
+offset_left = 243.0
+offset_right = 385.0
+disabled = true
+variable_to_change = "money_per_drop"
+group_name = "money2"
+value_to_add = 15.0
+cost = "90"
+short_description = "Increases money per drop by 15"
+upgrade_name = "More BUCK for your BANG"
+upgrade_level = "II"
+
+[node name="SkillButton2" parent="Tabs/Tab3/SkillButton/SkillButton2" unique_id=1391402503 groups=["attack2"] instance=ExtResource("1_up8uh")]
+layout_mode = 0
+offset_left = 271.0
+offset_top = -3.0
+offset_right = 413.0
+offset_bottom = 139.00012
+disabled = true
+variable_to_change = "money_per_drop"
+group_name = "money3"
+value_to_add = 30.0
+cost = "150"
+short_description = "Increases money per drop by 30"
+upgrade_name = "More BUCK for your BANG"
+upgrade_level = "III"
+
+[node name="Tab4" type="Control" parent="Tabs" unique_id=498485251]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[connection signal="mouse_entered" from="BG" to="." method="_on_bg_mouse_entered"]
+[connection signal="mouse_entered" from="MenuCamera/UI/BottomPanel" to="." method="_on_bottom_panel_mouse_entered"]
+[connection signal="mouse_exited" from="MenuCamera/UI/BottomPanel" to="." method="_on_bottom_panel_mouse_exited"]
+[connection signal="mouse_entered" from="MenuCamera/UI/TabBar" to="." method="_on_tab_bar_mouse_entered"]
+[connection signal="tab_selected" from="MenuCamera/UI/TabBar" to="." method="_on_tab_bar_tab_selected"]
+[connection signal="pressed" from="MenuCamera/UI/Quit" to="." method="_on_quit_pressed"]
