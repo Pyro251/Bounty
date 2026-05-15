@@ -46,6 +46,7 @@ sources/3 = SubResource("TileSetAtlasSource_ir7pk")
 
 [node name="level_three" type="Node2D" unique_id=1627836218 groups=["level1"]]
 script = ExtResource("1_4ahh4")
+enemies = 18
 
 [node name="BG" type="TileMapLayer" parent="." unique_id=2053103087]
 z_index = -6

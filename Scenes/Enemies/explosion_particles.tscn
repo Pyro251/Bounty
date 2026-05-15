@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://bc2ipxn2eu4wx"]
+
+[ext_resource type="Script" uid="uid://b52v62ehmhdid" path="res://Scripts/explosion_particles.gd" id="1_urfdb"]
+[ext_resource type="AudioStream" uid="uid://btuos22715jyd" path="res://Assets/sound/Shooting/Enemy/freesound_community-small-explosion-103779.mp3" id="2_d0u52"]
+
+[sub_resource type="Gradient" id="Gradient_ujy2b"]
+offsets = PackedFloat32Array(0.42957747, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_vfguo"]
+gradient = SubResource("Gradient_ujy2b")
+width = 255
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_jwpp7"]
+lifetime_randomness = 0.45
+particle_flag_disable_z = true
+angle_min = -720.0
+angle_max = 720.0
+spread = 180.0
+initial_velocity_max = 169.23
+angular_velocity_min = -1.6093254e-05
+angular_velocity_max = 88.61998
+gravity = Vector3(0, 0, 0)
+radial_accel_min = -64.950005
+radial_accel_max = 47.679996
+scale_max = 20.0
+color_ramp = SubResource("GradientTexture1D_vfguo")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_nllvc"]
+random_pitch = 1.2432214
+streams_count = 1
+stream_0/stream = ExtResource("2_d0u52")
+
+[node name="ExplosionParticles" type="GPUParticles2D" unique_id=1183659726]
+emitting = false
+amount = 158
+lifetime = 1.12
+one_shot = true
+speed_scale = 2.74
+explosiveness = 1.0
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_jwpp7")
+script = ExtResource("1_urfdb")
+
+[node name="ExplodeSound" type="AudioStreamPlayer2D" parent="." unique_id=1892446695]
+stream = SubResource("AudioStreamRandomizer_nllvc")
+pitch_scale = 1.34
+bus = &"Enemies"

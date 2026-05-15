@@ -46,6 +46,7 @@ sources/3 = SubResource("TileSetAtlasSource_ir7pk")
 
 [node name="LevelSkeleton" type="Node2D" unique_id=1627836218 groups=["level1"]]
 script = ExtResource("1_wakwf")
+enemies = 12
 
 [node name="Camera2D" parent="." unique_id=584421790 instance=ExtResource("2_doouk")]
 

@@ -125,6 +125,7 @@ tab_0/title = "Graphics"
 tab_1/title = "Gameplay"
 tab_2/title = "Audio"
 tab_3/title = "Statistics"
+tab_4/title = "Debug"
 
 [node name="TabBar" type="TabBar" parent="TabContainer" unique_id=1700488526]
 visible = false
@@ -313,6 +314,12 @@ visible = false
 layout_mode = 2
 metadata/_tab_index = 3
 metadata/_tab_name = "Statistics"
+
+[node name="TabBar5" type="TabBar" parent="TabContainer" unique_id=1104057227]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 4
+metadata/_tab_name = "Debug"
 
 [node name="Done" type="Button" parent="." unique_id=1539435738]
 layout_mode = 0

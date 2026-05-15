@@ -41,5 +41,6 @@ func _on_collect_area_entered(area: Area2D) -> void:
 		if area.is_in_group("player"):
 			var random_health = randi_range(10, 20)
 			Global.player_health += random_health
+			Global.health_collected.emit()
 			print("Health collected.")
 			queue_free()

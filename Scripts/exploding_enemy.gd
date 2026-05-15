@@ -1,7 +1,6 @@
 extends CharacterBody2D
 
 @onready var body: ProgressBar = $Body
-@onready var explosion_particles: GPUParticles2D = $ExplosionParticles
 @onready var collision: CollisionShape2D = $CollisionShape2D
 @onready var collision2: CollisionShape2D = $BulletDetect/CollisionShape2D
 @onready var nav_agent: NavigationAgent2D = $NavigationAgent2D
@@ -25,6 +24,7 @@ var can_explode_player = false
 const MOVEMENT_SPEED = 20000.0
 const COIN_DROP_SCENE = preload("res://Scenes/Collectables/Money/enemy_coin_drop.tscn")
 const HEALTH_DROP_SCENE = preload("res://Scenes/Collectables/Health/enemy_health_drop.tscn")
+const EXPLOSION_PARTICLES = preload("res://Scenes/Enemies/explosion_particles.tscn")
 
 func _ready() -> void:
 	nav_agent.target_position = Goal.global_position
@@ -61,7 +61,6 @@ func _on_bullet_detect_area_entered(area: Area2D) -> void:
 func die():
 	explode_sound.play()
 	Global.enemy_killed.emit()
-	explosion_particles.emitting = true
 	body.hide()
 	can_die = false
 	Global.enemies_killed += 1
@@ -70,6 +69,17 @@ func die():
 	print("enemies left to kill: ", Global.enemies_in_current_level - Global.enemies_killed)
 	# Spawns some coins on death.
 	add_money_collectable()
+	
+	add_exposion_particles()
+	
+	queue_free()
+
+func add_exposion_particles():
+	var new_particles
+	
+	new_particles = EXPLOSION_PARTICLES.instantiate()
+	get_parent().add_child(new_particles)
+	new_particles.global_position = self.global_position
 
 func target_explode():
 	explode_timer.start()
@@ -100,8 +110,6 @@ func add_money_collectable():
 	#maybe make it so they drop ammo too??
 	#no??
 
-func _on_explosion_particles_finished() -> void:
-	queue_free()
 
 func _on_timer_timeout() -> void:
 	if player_detected:
@@ -125,10 +133,11 @@ func _on_explode_timer_timeout() -> void:
 	Global.enemies_killed += 1
 	player_detected = false
 	body.hide()
-	explosion_particles.emitting = true
+	add_exposion_particles()
 	explode_sound.play()
 	if can_explode_player:
 		Global.explode_player.emit()
+	queue_free()
 
 
 func _on_explosion_detect_area_entered(area: Area2D) -> void:

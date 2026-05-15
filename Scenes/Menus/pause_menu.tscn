@@ -222,26 +222,14 @@ modulate = Color(1, 1, 1, 0)
 offset_left = 608.0
 offset_top = 123.484985
 offset_right = 1864.5
-offset_bottom = 1098.4857
+offset_bottom = 1098.4861
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Marker2D/Panel" unique_id=2138452238]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -417.25
-offset_top = -369.50018
-offset_right = 545.5
-offset_bottom = 443.49982
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.875, 0.875)
-theme_override_constants/separation = 32
-
-[node name="Resume" type="Button" parent="Marker2D/Panel/VBoxContainer" unique_id=2097557822 node_paths=PackedStringArray("click", "blip")]
-layout_mode = 2
+[node name="Resume" type="Button" parent="Marker2D/Panel" unique_id=2097557822 node_paths=PackedStringArray("click", "blip")]
+layout_mode = 0
+offset_left = 216.0
+offset_top = 118.0
+offset_right = 1178.0
+offset_bottom = 324.0
 theme = SubResource("Theme_nwnlq")
 theme_override_font_sizes/font_size = 127
 theme_override_styles/normal = SubResource("StyleBoxFlat_8kr8e")
@@ -250,11 +238,15 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_803fv")
 shortcut = SubResource("Shortcut_2cpnl")
 text = "Resume"
 script = ExtResource("3_pw12o")
-click = NodePath("../../../../Click")
-blip = NodePath("../../../../Blip")
+click = NodePath("../../../Click")
+blip = NodePath("../../../Blip")
 
-[node name="Save" type="Button" parent="Marker2D/Panel/VBoxContainer" unique_id=1490808071 node_paths=PackedStringArray("click", "blip")]
-layout_mode = 2
+[node name="Save" type="Button" parent="Marker2D/Panel" unique_id=1490808071 node_paths=PackedStringArray("click", "blip")]
+layout_mode = 0
+offset_left = 217.0
+offset_top = 360.0
+offset_right = 584.0
+offset_bottom = 497.0
 theme = SubResource("Theme_nwnlq")
 theme_override_font_sizes/font_size = 127
 theme_override_styles/normal = SubResource("StyleBoxFlat_8kr8e")
@@ -263,24 +255,15 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_803fv")
 shortcut = SubResource("Shortcut_2cpnl")
 text = "Save"
 script = ExtResource("3_pw12o")
-click = NodePath("../../../../Click")
-blip = NodePath("../../../../Blip")
+click = NodePath("../../../Click")
+blip = NodePath("../../../Blip")
 
-[node name="Options" type="Button" parent="Marker2D/Panel/VBoxContainer" unique_id=1537346671 node_paths=PackedStringArray("click", "blip")]
-layout_mode = 2
-theme = SubResource("Theme_nwnlq")
-theme_override_font_sizes/font_size = 127
-theme_override_styles/normal = SubResource("StyleBoxFlat_8kr8e")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_cnjyl")
-theme_override_styles/hover = SubResource("StyleBoxFlat_803fv")
-shortcut = SubResource("Shortcut_2cpnl")
-text = "Options"
-script = ExtResource("3_pw12o")
-click = NodePath("../../../../Click")
-blip = NodePath("../../../../Blip")
-
-[node name="SaveAndQuit" type="Button" parent="Marker2D/Panel/VBoxContainer" unique_id=52146261 node_paths=PackedStringArray("click", "blip")]
-layout_mode = 2
+[node name="SaveAndQuit" type="Button" parent="Marker2D/Panel" unique_id=52146261 node_paths=PackedStringArray("click", "blip")]
+layout_mode = 0
+offset_left = 599.0
+offset_top = 361.0
+offset_right = 1172.0
+offset_bottom = 498.0
 theme = SubResource("Theme_nwnlq")
 theme_override_font_sizes/font_size = 127
 theme_override_styles/normal = SubResource("StyleBoxFlat_8kr8e")
@@ -289,11 +272,32 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_803fv")
 shortcut = SubResource("Shortcut_2cpnl")
 text = "Save & Quit"
 script = ExtResource("3_pw12o")
-click = NodePath("../../../../Click")
-blip = NodePath("../../../../Blip")
+click = NodePath("../../../Click")
+blip = NodePath("../../../Blip")
 
-[node name="ForceQuit" type="Button" parent="Marker2D/Panel/VBoxContainer" unique_id=1683182134 node_paths=PackedStringArray("click", "blip")]
-layout_mode = 2
+[node name="Options" type="Button" parent="Marker2D/Panel" unique_id=1537346671 node_paths=PackedStringArray("click", "blip")]
+layout_mode = 0
+offset_left = 209.0
+offset_top = 532.0
+offset_right = 1171.0
+offset_bottom = 669.0
+theme = SubResource("Theme_nwnlq")
+theme_override_font_sizes/font_size = 127
+theme_override_styles/normal = SubResource("StyleBoxFlat_8kr8e")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_cnjyl")
+theme_override_styles/hover = SubResource("StyleBoxFlat_803fv")
+shortcut = SubResource("Shortcut_2cpnl")
+text = "Options"
+script = ExtResource("3_pw12o")
+click = NodePath("../../../Click")
+blip = NodePath("../../../Blip")
+
+[node name="ForceQuit" type="Button" parent="Marker2D/Panel" unique_id=1683182134 node_paths=PackedStringArray("click", "blip")]
+layout_mode = 0
+offset_left = 216.0
+offset_top = 692.0
+offset_right = 1178.0
+offset_bottom = 829.0
 theme = SubResource("Theme_nwnlq")
 theme_override_font_sizes/font_size = 127
 theme_override_styles/normal = SubResource("StyleBoxFlat_8kr8e")
@@ -302,10 +306,10 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_803fv")
 shortcut = SubResource("Shortcut_2cpnl")
 text = "Force Quit"
 script = ExtResource("3_pw12o")
-click = NodePath("../../../../Click")
-blip = NodePath("../../../../Blip")
+click = NodePath("../../../Click")
+blip = NodePath("../../../Blip")
 
-[connection signal="pressed" from="Marker2D/Panel/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
-[connection signal="pressed" from="Marker2D/Panel/VBoxContainer/Save" to="." method="_on_save_pressed"]
-[connection signal="pressed" from="Marker2D/Panel/VBoxContainer/SaveAndQuit" to="." method="_on_save_and_quit_pressed"]
-[connection signal="pressed" from="Marker2D/Panel/VBoxContainer/ForceQuit" to="." method="_on_force_quit_pressed"]
+[connection signal="pressed" from="Marker2D/Panel/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="Marker2D/Panel/Save" to="." method="_on_save_pressed"]
+[connection signal="pressed" from="Marker2D/Panel/SaveAndQuit" to="." method="_on_save_and_quit_pressed"]
+[connection signal="pressed" from="Marker2D/Panel/ForceQuit" to="." method="_on_force_quit_pressed"]
