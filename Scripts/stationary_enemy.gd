@@ -1,7 +1,6 @@
 extends CharacterBody2D
 
 @onready var body: ProgressBar = $Body
-@onready var explosion_particles: GPUParticles2D = $ExplosionParticles
 @onready var bullet_explosion_particles: GPUParticles2D = $BulletExplosionParticles
 @onready var shoot_pos: Marker2D = $ShootPos
 @onready var shoot_speed_timer: Timer = $ShootSpeedTimer
@@ -24,6 +23,7 @@ var total_explosion_chance: int = randi_range(1, 100)
 const BULLET_SCENE = preload("res://Scenes/Enemies/enemy_bullet.tscn")
 const COIN_DROP_SCENE = preload("res://Scenes/Collectables/Money/enemy_coin_drop.tscn")
 const HEALTH_DROP_SCENE = preload("res://Scenes/Collectables/Health/enemy_health_drop.tscn")
+const EXPLOSION_PARTICLES = preload("res://Scenes/Enemies/explosion_particles.tscn")
 
 func _on_bullet_detect_area_entered(area: Area2D) -> void:
 	if area.is_in_group("player_bullet"):
@@ -53,7 +53,6 @@ func _physics_process(delta: float) -> void:
 func die():
 	explode_sound.play()
 	Global.enemy_killed.emit()
-	explosion_particles.emitting = true
 	body.hide()
 	can_die = false
 	Global.enemies_killed += 1
@@ -63,6 +62,17 @@ func die():
 	
 	# Spawns some coins on death.
 	add_money_collectable()
+	
+	add_exposion_particles()
+	
+	queue_free()
+
+func add_exposion_particles():
+	var new_particles
+	
+	new_particles = EXPLOSION_PARTICLES.instantiate()
+	get_parent().add_child(new_particles)
+	new_particles.global_position = self.global_position
 
 func add_money_collectable():
 	var spawn_quantity = randi_range(3,6)
@@ -89,9 +99,6 @@ func add_money_collectable():
 		
 	#maybe make it so they drop ammo too??
 
-func _on_explosion_particles_finished() -> void:
-	queue_free()
-
 func _shoot():
 	if !Global.in_tutorial:
 		shoot_sound.play()
@@ -103,7 +110,6 @@ func _shoot():
 func explode_bullet():
 	if in_exploding_area:
 		explode_sound.play()
-		explosion_particles.emitting = true
 		health -= Global.attack_damage + 20
 
 func _on_player_detect_area_entered(area: Area2D) -> void:

@@ -114,6 +114,11 @@ expand_margin_bottom = 10.0
 shadow_size = 10
 shadow_offset = Vector2(0.865, 5.985)
 
+[sub_resource type="LabelSettings" id="LabelSettings_8bdjp"]
+font = ExtResource("4_aur2u")
+font_size = 62
+font_color = Color(0, 0, 0, 1)
+
 [sub_resource type="Animation" id="Animation_aatm5"]
 resource_name = "Fill bar"
 tracks/0/type = "value"
@@ -185,9 +190,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -356.0
-offset_top = -245.0
+offset_top = -258.0
 offset_right = 356.0
-offset_bottom = 307.0
+offset_bottom = 294.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 46
@@ -248,12 +253,22 @@ blip = NodePath("../../Blip")
 
 [node name="Title" type="Label" parent="." unique_id=1116725505]
 layout_mode = 0
-offset_left = 552.0
-offset_top = 131.0
-offset_right = 1391.0
-offset_bottom = 355.0
+offset_left = 602.0
+offset_top = 154.0
+offset_right = 975.0
+offset_bottom = 298.0
 text = "BOUNTY"
 label_settings = ExtResource("6_anmaw")
+horizontal_alignment = 1
+
+[node name="Version" type="Label" parent="." unique_id=974589187]
+layout_mode = 0
+offset_left = 989.0
+offset_top = 209.0
+offset_right = 1097.0
+offset_bottom = 277.0
+text = "0.0.6"
+label_settings = SubResource("LabelSettings_8bdjp")
 horizontal_alignment = 1
 
 [node name="OptionsMenu" parent="." unique_id=1044197230 instance=ExtResource("8_6t1rs")]

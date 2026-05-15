@@ -19,6 +19,7 @@ signal load_level
 signal game_saved
 signal explode_player
 signal bullet_exploded
+signal health_collected
 
 # abilities
 signal ability_ended

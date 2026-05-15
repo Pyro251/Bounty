@@ -3,12 +3,29 @@
 [ext_resource type="Script" uid="uid://6krktoifhfcv" path="res://Scripts/player_ui.gd" id="1_nqcsj"]
 [ext_resource type="FontFile" uid="uid://dndfik3argnf5" path="res://Assets/Fonts/Edge_of_the_galaxy/EdgeOfTheGalaxyRegular-OVEa6.otf" id="2_v8xh3"]
 [ext_resource type="AudioStream" uid="uid://uydmhx6i4krg" path="res://Assets/sound/Money/GainMoney/litupsubway-key-collect-sfx-522219.mp3" id="3_v8xh3"]
+[ext_resource type="AudioStream" uid="uid://cqj2ms8de5457" path="res://Assets/sound/Collectables/universfield-button-124476.mp3" id="4_e88pc"]
 [ext_resource type="PackedScene" uid="uid://df53hobwfnkci" path="res://Scenes/Menus/pause_menu.tscn" id="4_h3wt1"]
 [ext_resource type="AudioStream" uid="uid://cborqv6s5xo6v" path="res://Scenes/Sounds/teleport.wav" id="5_pocnh"]
 [ext_resource type="AudioStream" uid="uid://gbynoupal1nq" path="res://Scenes/Sounds/bu-dum.wav" id="6_3m0mf"]
 [ext_resource type="AudioStream" uid="uid://v82ewbgyxm44" path="res://Scenes/Sounds/Ability.wav" id="6_msvkv"]
 [ext_resource type="AudioStream" uid="uid://bfkcim7oidf7r" path="res://Assets/sound/misc/LevelCleared/sunovia-level-up-289723.mp3" id="7_ovxsg"]
 [ext_resource type="AudioStream" uid="uid://dmxxg4mwgtnnl" path="res://Scenes/Sounds/random.wav" id="9_rmhtn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e88pc"]
+bg_color = Color(0.17283267, 0.17283267, 0.17283261, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pljam"]
+bg_color = Color(0.27752772, 0.27752772, 0.27752772, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0, 0, 0, 1)
 
 [sub_resource type="Theme" id="Theme_v8xh3"]
 default_font = ExtResource("2_v8xh3")
@@ -17,8 +34,15 @@ default_font_size = 97
 [sub_resource type="LabelSettings" id="LabelSettings_msvkv"]
 font = ExtResource("2_v8xh3")
 font_size = 116
-font_color = Color(0, 0, 0, 1)
-outline_size = 8
+outline_size = 17
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_e88pc"]
+font = ExtResource("2_v8xh3")
+font_size = 74
+font_color = Color(0.74978, 0.74978, 0.74977994, 1)
+outline_size = 17
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_h3wt1"]
 font = ExtResource("2_v8xh3")
@@ -267,6 +291,11 @@ _data = {
 random_pitch = 1.5426563
 streams_count = 1
 stream_0/stream = ExtResource("3_v8xh3")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_pljam"]
+random_pitch = 1.1323605
+streams_count = 1
+stream_0/stream = ExtResource("4_e88pc")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h3wt1"]
 bg_color = Color(0, 0, 0, 1)
@@ -1063,6 +1092,63 @@ _data = {
 &"fade out": SubResource("Animation_o0m48")
 }
 
+[sub_resource type="Animation" id="Animation_2k5u6"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EnemiesLeft:scale:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("EnemiesLeft:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_rtdyg"]
+resource_name = "out"
+length = 1.055
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EnemiesLeft:scale:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 2.865, -0.030000001, -0.31083333, 0, 0, 2.865, -0.043333333, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.43333334, 0.6333333)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("EnemiesLeft:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.030000001, 0, 0, 0, 1e-05, -0.043333333, 0.166665, 0, 0),
+"times": PackedFloat32Array(0, 0.43333334, 0.6333333)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0op70"]
+_data = {
+&"RESET": SubResource("Animation_2k5u6"),
+&"out": SubResource("Animation_rtdyg")
+}
+
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_pocnh"]
 random_pitch = 1.2780994
 streams_count = 1
@@ -1077,15 +1163,48 @@ stream_0/stream = ExtResource("7_ovxsg")
 [node name="PlayerUI" type="CanvasLayer" unique_id=69200222]
 script = ExtResource("1_nqcsj")
 
+[node name="EnemiesLeft" type="ProgressBar" parent="." unique_id=1254501170]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -185.0
+offset_top = -429.0
+offset_right = 243.0
+offset_bottom = -253.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(216.275, 75.265)
+size_flags_horizontal = 4
+theme_override_styles/background = SubResource("StyleBoxFlat_e88pc")
+theme_override_styles/fill = SubResource("StyleBoxFlat_pljam")
+max_value = 14.13
+fill_mode = 1
+show_percentage = false
+
 [node name="CurrentLocation" type="Label" parent="." unique_id=180037738]
-offset_left = 763.0
+offset_left = 400.0
 offset_top = 145.0
-offset_right = 1154.0
-offset_bottom = 250.0
+offset_right = 1598.0
+offset_bottom = 270.0
 theme = SubResource("Theme_v8xh3")
-theme_override_colors/font_color = Color(0.18359044, 0.18359044, 0.18359044, 1)
-text = "HOME BASE"
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "LEVEL 1"
 label_settings = SubResource("LabelSettings_msvkv")
+horizontal_alignment = 1
+
+[node name="Extract" type="Label" parent="." unique_id=356354287]
+visible = false
+offset_left = 396.0
+offset_top = 257.0
+offset_right = 1594.0
+offset_bottom = 337.0
+theme = SubResource("Theme_v8xh3")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "EXTRACT"
+label_settings = SubResource("LabelSettings_e88pc")
+horizontal_alignment = 1
 
 [node name="CurrentAmmo" type="Label" parent="." unique_id=1722381002]
 offset_left = 195.0
@@ -1117,6 +1236,10 @@ libraries/ = SubResource("AnimationLibrary_pocnh")
 stream = SubResource("AudioStreamRandomizer_h3wt1")
 volume_db = -0.15
 pitch_scale = 1.58
+
+[node name="HealthCollected" type="AudioStreamPlayer" parent="." unique_id=1804805211]
+stream = SubResource("AudioStreamRandomizer_pljam")
+pitch_scale = 1.94
 
 [node name="MoneyAnim" type="AnimationPlayer" parent="." unique_id=6067867]
 libraries/ = SubResource("AnimationLibrary_pocnh")
@@ -1389,6 +1512,9 @@ autoplay = &"RESET"
 root_node = NodePath("../PressFforAbility")
 libraries/ = SubResource("AnimationLibrary_2je15")
 
+[node name="EnemiesLeftAnim" type="AnimationPlayer" parent="." unique_id=974877316]
+libraries/ = SubResource("AnimationLibrary_0op70")
+
 [node name="Teleport" type="AudioStreamPlayer" parent="." unique_id=122280397]
 stream = SubResource("AudioStreamRandomizer_pocnh")
 volume_db = -5.366
@@ -1413,5 +1539,5 @@ stream = ExtResource("9_rmhtn")
 pitch_scale = 2.89
 
 [connection signal="timeout" from="TeleportTimer" to="." method="_on_teleport_timer_timeout"]
-[connection signal="animation_finished" from="AbilityAnim" to="." method="_on_ability_anim_animation_finished_cooldown"]
 [connection signal="animation_finished" from="AbilityAnim" to="." method="_on_ability_anim_animation_finished"]
+[connection signal="animation_finished" from="AbilityAnim" to="." method="_on_ability_anim_animation_finished_cooldown"]

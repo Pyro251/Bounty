@@ -16,6 +16,7 @@ extends CanvasLayer
 @onready var ability_anim: AnimationPlayer = $AbilityAnim
 @onready var ammo_anim: AnimationPlayer = $AmmoAnim
 @onready var letter_anim: AnimationPlayer = $LetterAnim
+@onready var enemies_left: ProgressBar = $EnemiesLeft
 
 #music/sounds:
 @onready var chords: AudioStreamPlayer = $music/Chords
@@ -25,27 +26,54 @@ var using_ability_bar: bool = false
 var using_teleport_bar: bool = false
 var can_cooldown = false
 var can_use_ability_anim = true
+var can_enemies_left_anim = true
 
 func _ready() -> void:
 	Global.ammo_changed.connect(ammo_changed)
 	Global.ammo_added.connect(ammo_added)
 	#Global.enemy_killed.connect(money_added)
 	Global.money_collected.connect(money_added)
+	Global.health_collected.connect(health_collected)
 	Global.can_teleport = true
+	can_enemies_left_anim = true
+	
+	#enemies_left.max_value = Global.enemies_in_current_level
 
 
 func _process(delta: float) -> void:
+	
+	enemies_left.value = Global.enemies_in_current_level - Global.enemies_killed
+	enemies_left.max_value = Global.enemies_in_current_level
+	print("progress bar value is ", enemies_left.value, ", should be ", Global.enemies_in_current_level - Global.enemies_killed, ". Max value is ", enemies_left.max_value, ", should be ", Global.enemies_in_current_level)
+	
+	if enemies_left.value == enemies_left.min_value:
+		if can_enemies_left_anim:
+			$EnemiesLeftAnim.play("out")
+			can_enemies_left_anim = false
 	
 	current_ammo.text = str(Global.ammo)
 	current_money_label.text = str(Global.player_money)
 	
 	if Global.at_base or Global.in_tutorial:
+		enemies_left.hide()
+		$Extract.hide()
+		
 		if Global.at_base:
 			current_location.text = str("HOME BASE")
 		if Global.in_tutorial:
 			current_location.text = str("TUTORIAL")
-	else:
-		current_location.text = str("LEVEL ", Global.current_level)
+	
+	if !Global.at_base and !Global.in_tutorial:
+		enemies_left.show()
+		
+		if Global.enemies_killed == Global.enemies_in_current_level and !Global.at_base and !Global.in_tutorial:
+			current_location.text = str("LEVEL COMPLETE")
+			current_location.modulate = Color(0.597, 0.921, 0.515, 1.0)
+			$Extract.show()
+		else:
+			current_location.text = str("LEVEL ", Global.current_level)
+			$Extract.hide()
+			current_location.modulate = Color(1.0, 1.0, 1.0, 1.0)
 
 	
 	if using_teleport_bar:
@@ -92,15 +120,13 @@ func money_added():
 	gain_coin_sound.play()
 	money_anim.play("add_money_1")
 
-
-	
-	
-
 func _on_teleport_timer_timeout() -> void:
 	using_teleport_bar = false
 	teleport_anim.play("ready")
 	Global.can_teleport = true
 
+func health_collected():
+	$HealthCollected.play()
 
 func _on_ability_anim_animation_finished(use_ability):
 	if !can_use_ability_anim:

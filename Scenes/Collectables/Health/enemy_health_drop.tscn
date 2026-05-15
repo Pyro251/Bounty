@@ -34,7 +34,7 @@ collision_mask = 8
 [node name="CollisionShape2D" type="CollisionShape2D" parent="magnet" unique_id=1473134783]
 shape = SubResource("CircleShape2D_3apfn")
 
-[node name="collect" type="Area2D" parent="." unique_id=1378185724 groups=["health"]]
+[node name="collect" type="Area2D" parent="." unique_id=1378185724 groups=["enemy_health_drop", "health"]]
 collision_layer = 4
 collision_mask = 4
 

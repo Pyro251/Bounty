@@ -1,16 +1,15 @@
 extends CharacterBody2D
 
-@onready var body: ProgressBar = $Body
-@onready var explosion_particles: GPUParticles2D = $ExplosionParticles
+@onready var pivot: Node2D = $Pivot
+@onready var body: ProgressBar = $Pivot/Body
 @onready var collision: CollisionShape2D = $CollisionShape2D
 @onready var collision2: CollisionShape2D = $BulletDetect/CollisionShape2D
 @onready var nav_agent: NavigationAgent2D = $NavigationAgent2D
 @onready var timer: Timer = $Timer
 
-@onready var shoot_pos: Marker2D = $Body/ShootPos
+@onready var shoot_pos: Marker2D = $Pivot/Body/ShootPos
 @onready var shoot_speed_timer: Timer = $ShootSpeedTimer
 @onready var shoot_sound: AudioStreamPlayer2D = $ShootSound
-@onready var explode_sound: AudioStreamPlayer2D = $ExplodeSound
 
 @export var Goal: Node = null
 @export var target: Node = null
@@ -25,6 +24,8 @@ const MOVEMENT_SPEED = 10000.0
 const BULLET_SCENE = preload("res://Scenes/Enemies/enemy_bullet.tscn")
 const COIN_DROP_SCENE = preload("res://Scenes/Collectables/Money/enemy_coin_drop.tscn")
 const HEALTH_DROP_SCENE = preload("res://Scenes/Collectables/Health/enemy_health_drop.tscn")
+const EXPLOSION_PARTICLES = preload("res://Scenes/Enemies/explosion_particles.tscn")
+
 
 func _ready() -> void:
 	nav_agent.target_position = Goal.global_position
@@ -41,6 +42,9 @@ func _physics_process(delta: float) -> void:
 	
 	
 	body.value = health
+	
+	pivot.look_at(target.global_position)
+	
 	if health < 0:
 		health = 0
 	if health == 0 and can_die:
@@ -59,9 +63,8 @@ func _on_bullet_detect_area_entered(area: Area2D) -> void:
 
 
 func die():
-	explode_sound.play()
 	Global.enemy_killed.emit()
-	explosion_particles.emitting = true
+	
 	body.hide()
 	can_die = false
 	Global.enemies_killed += 1
@@ -69,8 +72,19 @@ func die():
 	print("total enemies in level: ", Global.enemies_in_current_level)
 	print("enemies left to kill: ", Global.enemies_in_current_level - Global.enemies_killed)
 	
+	add_exposion_particles()
+	
 	# Spawns some coins on death.
 	add_money_collectable()
+	
+	queue_free()
+
+func add_exposion_particles():
+	var new_particles
+	
+	new_particles = EXPLOSION_PARTICLES.instantiate()
+	get_parent().add_child(new_particles)
+	new_particles.global_position = self.global_position
 
 func add_money_collectable():
 	var spawn_quantity = randi_range(3,6)
@@ -98,8 +112,6 @@ func add_money_collectable():
 	#maybe make it so they drop ammo too??
 	#no??
 
-func _on_explosion_particles_finished() -> void:
-	queue_free()
 
 func _shoot():
 	shoot_sound.play()
@@ -128,4 +140,10 @@ func _on_player_detection_area_entered(area: Area2D) -> void:
 
 func _on_player_detection_area_exited(area: Area2D) -> void:
 	timer.stop()
+	shoot_speed_timer.stop()
 	player_detected = false
+
+
+func _on_shoot_speed_timer_timeout() -> void:
+	if player_detected:
+		_shoot()

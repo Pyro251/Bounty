@@ -47,6 +47,7 @@ sources/3 = SubResource("TileSetAtlasSource_ir7pk")
 
 [node name="level2" type="Node2D" unique_id=1627836218 groups=["level1"]]
 script = ExtResource("1_oylv5")
+enemies = 12
 
 [node name="BG" type="TileMapLayer" parent="." unique_id=2053103087]
 z_index = -6
@@ -103,6 +104,15 @@ offset_top = -3067.0
 offset_right = 1314.0
 offset_bottom = -2800.0
 
+[node name="Player" parent="." unique_id=111604148 instance=ExtResource("7_pnnky")]
+
+[node name="Camera2D" parent="." unique_id=584421790 instance=ExtResource("8_pnnky")]
+
+[node name="Level" type="AudioStreamPlayer" parent="." unique_id=615980964]
+stream = ExtResource("9_blpqv")
+volume_db = -9.226
+autoplay = true
+
 [node name="StationaryEnemy" parent="." unique_id=362908067 node_paths=PackedStringArray("target") instance=ExtResource("6_fphuk")]
 position = Vector2(2280, -1301)
 target = NodePath("../Player")
@@ -151,12 +161,3 @@ target = NodePath("../Player")
 [node name="StationaryEnemy12" parent="." unique_id=744416773 node_paths=PackedStringArray("target") groups=["level2"] instance=ExtResource("6_fphuk")]
 position = Vector2(1174, -2538)
 target = NodePath("../Player")
-
-[node name="Player" parent="." unique_id=111604148 instance=ExtResource("7_pnnky")]
-
-[node name="Camera2D" parent="." unique_id=584421790 instance=ExtResource("8_pnnky")]
-
-[node name="Level" type="AudioStreamPlayer" parent="." unique_id=615980964]
-stream = ExtResource("9_blpqv")
-volume_db = -9.226
-autoplay = true

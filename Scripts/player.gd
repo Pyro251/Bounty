@@ -108,10 +108,6 @@ func _shoot():
 		if !Global.at_base:
 			if !Global.in_tutorial:
 				Global.ammo -= 1
-		#if !rapid_fire:
-			#ammo -= 1
-		#Global.shoot.emit()
-		#shooting_sfx.play()
 
 
 func _on_shoot_timer_timeout() -> void:

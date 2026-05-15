@@ -296,6 +296,7 @@ upgrade_name = "Regen"
 upgrade_level = "III"
 
 [node name="Tab2" type="Control" parent="Tabs" unique_id=1778835482]
+visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -463,13 +464,7 @@ short_description = "Increases explosion radius by 0.3"
 upgrade_name = "EXPLOSION RADIUS"
 upgrade_level = "II"
 
-[node name="Panel" type="Panel" parent="Tabs/Tab2" unique_id=396441754]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
 [node name="Tab3" type="Control" parent="Tabs" unique_id=512368977]
-visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -516,6 +511,21 @@ cost = "150"
 short_description = "Increases money per drop by 30"
 upgrade_name = "More BUCK for your BANG"
 upgrade_level = "III"
+
+[node name="SkillButton2" parent="Tabs/Tab3/SkillButton/SkillButton2/SkillButton2" unique_id=403891011 groups=["attack2"] instance=ExtResource("1_up8uh")]
+layout_mode = 0
+offset_left = 271.0
+offset_top = -3.0
+offset_right = 413.0
+offset_bottom = 139.00012
+disabled = true
+variable_to_change = "money_per_drop"
+group_name = "money4"
+value_to_add = 200.0
+cost = "1000"
+short_description = "Increases money per drop by 200"
+upgrade_name = "More BUCK for your BANG"
+upgrade_level = "IIII"
 
 [node name="Tab4" type="Control" parent="Tabs" unique_id=498485251]
 visible = false
