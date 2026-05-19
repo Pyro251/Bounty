@@ -50,6 +50,11 @@ var abilities: Dictionary = {
 	
 }
 
+var enable_tooltips: bool = true
+var tooltips: Dictionary = {
+	"target_dummy" = true
+}
+
 var current_ability: String
 var using_ability: bool = false
 var can_teleport: bool = true

@@ -60,7 +60,8 @@ func _set_save_data():
 	#save_data.attack2 = Global.attack2
 	#save_data.attack_speed1 = Global.attack_speed1
 	
-	save_data.merge(Global.abilities, true)
+	save_data.merge(Global.abilities)#, true)
+	save_data.merge(Global.tooltips)
 
 func _load():
 	if FileAccess.file_exists(SAVE_LOCATION):
@@ -89,7 +90,7 @@ func _set_load_data():
 	##abilities
 	
 	
-	Global.abilities.merge(save_data, true)
+	Global.abilities.merge(save_data)#, true)
 	
 	#Global.health1 = save_data.health1
 	#Global.health2 = save_data.health2

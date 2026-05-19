@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://b2n3lpx483eq3" path="res://Scripts/exploding_enemy.gd" id="1_i0afe"]
 [ext_resource type="AudioStream" uid="uid://btuos22715jyd" path="res://Assets/sound/Shooting/Enemy/freesound_community-small-explosion-103779.mp3" id="2_i0afe"]
 [ext_resource type="AudioStream" uid="uid://no70yd4tlyak" path="res://Assets/sound/Enemies/dragon-studio-clicking-433009.mp3" id="4_hjta5"]
+[ext_resource type="AudioStream" uid="uid://bsbk7ibge8e2q" path="res://Assets/sound/Enemies/rohhsadotcom-knock-on-wood-02-421991.mp3" id="5_axaw1"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hjta5"]
 bg_color = Color(0.34615496, 3.3691526e-07, 2.4065375e-07, 1)
@@ -59,6 +60,11 @@ stream_0/stream = ExtResource("2_i0afe")
 random_pitch = 1.1590959
 streams_count = 1
 stream_0/stream = ExtResource("4_hjta5")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_33kfi"]
+random_pitch = 1.2045548
+streams_count = 1
+stream_0/stream = ExtResource("5_axaw1")
 
 [node name="ExplodingEnemy" type="CharacterBody2D" unique_id=1081304712]
 script = ExtResource("1_i0afe")
@@ -134,6 +140,11 @@ bus = &"Enemies"
 [node name="RapidClickingSound" type="AudioStreamPlayer2D" parent="." unique_id=208102503]
 stream = SubResource("AudioStreamRandomizer_axaw1")
 pitch_scale = 1.73
+
+[node name="HitSound" type="AudioStreamPlayer2D" parent="." unique_id=1659434687]
+stream = SubResource("AudioStreamRandomizer_33kfi")
+volume_db = 10.075
+pitch_scale = 1.36
 
 [connection signal="finished" from="ExplosionParticles" to="." method="_on_explosion_particles_finished"]
 [connection signal="area_entered" from="BulletDetect" to="." method="_on_bullet_detect_area_entered"]

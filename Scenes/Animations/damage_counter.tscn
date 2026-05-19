@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://byacbtmrusqt4"]
+
+[ext_resource type="Script" uid="uid://5nsjksq7fj4s" path="res://Scripts/damage_counter.gd" id="1_auxm8"]
+[ext_resource type="FontFile" uid="uid://dndfik3argnf5" path="res://Assets/Fonts/Edge_of_the_galaxy/EdgeOfTheGalaxyRegular-OVEa6.otf" id="2_ba2hn"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ba2hn"]
+font = ExtResource("2_ba2hn")
+font_size = 24
+font_color = Color(1, 0.3857914, 0.4168308, 1)
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_auxm8"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="Gradient" id="Gradient_auxm8"]
+offsets = PackedFloat32Array(0.0114613185, 1)
+colors = PackedColorArray(0.67337024, 0.50624627, 0, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ba2hn"]
+gradient = SubResource("Gradient_auxm8")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ba2hn"]
+lifetime_randomness = 0.35
+particle_flag_disable_z = true
+angle_min = -8.099989
+angle_max = 8.0000105
+direction = Vector3(80, -80, 80)
+spread = 10.945
+initial_velocity_min = 286.50998
+initial_velocity_max = 314.13
+angular_velocity_min = -3.350016
+angular_velocity_max = 37.009983
+gravity = Vector3(0, 500, 0)
+scale_max = 1.5
+color_ramp = SubResource("GradientTexture1D_ba2hn")
+
+[node name="DamageCounter" type="Node2D" unique_id=1984679700]
+z_index = 134
+script = ExtResource("1_auxm8")
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=1535627205]
+disable_3d = true
+transparent_bg = true
+size = Vector2i(128, 128)
+render_target_update_mode = 4
+
+[node name="Label" type="Label" parent="SubViewport" unique_id=784448463]
+offset_right = 128.0
+offset_bottom = 128.0
+text = "- 15"
+label_settings = SubResource("LabelSettings_ba2hn")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=807263705]
+emitting = false
+amount = 1
+texture = SubResource("ViewportTexture_auxm8")
+one_shot = true
+speed_scale = 1.5
+explosiveness = 1.0
+randomness = 0.56
+process_material = SubResource("ParticleProcessMaterial_ba2hn")

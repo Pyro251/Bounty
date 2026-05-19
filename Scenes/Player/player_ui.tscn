@@ -1170,9 +1170,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -185.0
-offset_top = -429.0
+offset_top = -375.0
 offset_right = 243.0
-offset_bottom = -253.0
+offset_bottom = -310.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(216.275, 75.265)
@@ -1217,6 +1217,9 @@ theme_override_font_sizes/font_size = 101
 text = "##"
 label_settings = SubResource("LabelSettings_h3wt1")
 
+[node name="MoneyCounterMarker" type="Marker2D" parent="." unique_id=40598223]
+position = Vector2(328, 236)
+
 [node name="CurrentMoney" type="Label" parent="." unique_id=1261538308]
 offset_left = 172.0
 offset_top = 157.0
@@ -1236,10 +1239,12 @@ libraries/ = SubResource("AnimationLibrary_pocnh")
 stream = SubResource("AudioStreamRandomizer_h3wt1")
 volume_db = -0.15
 pitch_scale = 1.58
+bus = &"Collectables"
 
 [node name="HealthCollected" type="AudioStreamPlayer" parent="." unique_id=1804805211]
 stream = SubResource("AudioStreamRandomizer_pljam")
 pitch_scale = 1.94
+bus = &"Collectables"
 
 [node name="MoneyAnim" type="AnimationPlayer" parent="." unique_id=6067867]
 libraries/ = SubResource("AnimationLibrary_pocnh")

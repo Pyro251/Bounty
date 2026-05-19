@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://q5ao7jwlewq4" path="res://Scripts/enemy.gd" id="1_ujy2b"]
 [ext_resource type="AudioStream" uid="uid://balows47fups0" path="res://Assets/sound/Shooting/Enemy/laserShoot(1).wav" id="2_jwpp7"]
+[ext_resource type="AudioStream" uid="uid://bsbk7ibge8e2q" path="res://Assets/sound/Enemies/rohhsadotcom-knock-on-wood-02-421991.mp3" id="3_jwpp7"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_euqig"]
 bg_color = Color(0.34615496, 3.3691526e-07, 2.4065375e-07, 1)
@@ -22,6 +23,11 @@ radius = 28.160255
 random_pitch = 1.3697538
 streams_count = 1
 stream_0/stream = ExtResource("2_jwpp7")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_70eek"]
+random_pitch = 1.2045548
+streams_count = 1
+stream_0/stream = ExtResource("3_jwpp7")
 
 [node name="MovingEnemy" type="CharacterBody2D" unique_id=1492660224]
 script = ExtResource("1_ujy2b")
@@ -76,6 +82,11 @@ one_shot = true
 [node name="ShootSound" type="AudioStreamPlayer2D" parent="." unique_id=1413284185]
 stream = SubResource("AudioStreamRandomizer_akqyb")
 bus = &"Projectiles"
+
+[node name="HitSound" type="AudioStreamPlayer2D" parent="." unique_id=1220981961]
+stream = SubResource("AudioStreamRandomizer_70eek")
+volume_db = 10.075
+pitch_scale = 1.36
 
 [connection signal="area_entered" from="BulletDetect" to="." method="_on_bullet_detect_area_entered"]
 [connection signal="area_entered" from="PlayerDetection" to="." method="_on_player_detection_area_entered"]
