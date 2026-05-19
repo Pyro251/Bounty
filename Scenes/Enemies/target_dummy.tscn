@@ -1,0 +1,92 @@
+[gd_scene format=3 uid="uid://dfuhy2urvbt67"]
+
+[ext_resource type="Script" uid="uid://ds7psftw4og4q" path="res://Scripts/target_dummy.gd" id="1_4iqdt"]
+[ext_resource type="AudioStream" uid="uid://bsbk7ibge8e2q" path="res://Assets/sound/Enemies/rohhsadotcom-knock-on-wood-02-421991.mp3" id="2_hhydw"]
+[ext_resource type="PackedScene" uid="uid://co5wrrkfe6e6h" path="res://Scenes/Menus/tool_tip.tscn" id="3_xnlle"]
+
+[sub_resource type="Animation" id="Animation_g1cfy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_4iqdt"]
+resource_name = "hit"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.051383484, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.78466105, 0, 0.11575002, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hhydw"]
+_data = {
+&"RESET": SubResource("Animation_g1cfy"),
+&"hit": SubResource("Animation_4iqdt")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hhydw"]
+size = Vector2(55, 55)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xnlle"]
+radius = 54.00926
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_xnlle"]
+random_pitch = 1.2045548
+streams_count = 1
+stream_0/stream = ExtResource("2_hhydw")
+
+[node name="TargetDummy" type="StaticBody2D" unique_id=2027378571]
+script = ExtResource("1_4iqdt")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=423206716]
+offset_left = -27.0
+offset_top = -26.0
+offset_right = 28.0
+offset_bottom = 29.0
+color = Color(0.3553136, 0.35531354, 0.35531357, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1230293677]
+libraries/ = SubResource("AnimationLibrary_hhydw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=471755070]
+position = Vector2(1.5, 1.5)
+shape = SubResource("RectangleShape2D_hhydw")
+
+[node name="BulletDetect" type="Area2D" parent="." unique_id=1372349466]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BulletDetect" unique_id=899268939]
+shape = SubResource("CircleShape2D_xnlle")
+
+[node name="HitSound" type="AudioStreamPlayer2D" parent="." unique_id=1104176825]
+stream = SubResource("AudioStreamRandomizer_xnlle")
+volume_db = 10.075
+pitch_scale = 1.36
+
+[node name="ToolTip" parent="." unique_id=1504563898 instance=ExtResource("3_xnlle")]
+visible = true
+offset_left = 22.0
+offset_top = -83.0
+offset_right = 171.0
+offset_bottom = -12.0
+save_name = "target_dummy"
+label_text = "    Target Dummy
+        (shoot it)"
+
+[connection signal="area_entered" from="BulletDetect" to="." method="_on_bullet_detect_area_entered"]

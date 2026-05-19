@@ -17,6 +17,7 @@ extends CanvasLayer
 @onready var ammo_anim: AnimationPlayer = $AmmoAnim
 @onready var letter_anim: AnimationPlayer = $LetterAnim
 @onready var enemies_left: ProgressBar = $EnemiesLeft
+@onready var money_counter_marker: Marker2D = $MoneyCounterMarker
 
 #music/sounds:
 @onready var chords: AudioStreamPlayer = $music/Chords
@@ -28,6 +29,8 @@ var can_cooldown = false
 var can_use_ability_anim = true
 var can_enemies_left_anim = true
 
+const MONEY_COUNTER_PARTICLES = preload("res://Scenes/Animations/money_counter.tscn")
+
 func _ready() -> void:
 	Global.ammo_changed.connect(ammo_changed)
 	Global.ammo_added.connect(ammo_added)
@@ -37,6 +40,7 @@ func _ready() -> void:
 	Global.can_teleport = true
 	can_enemies_left_anim = true
 	
+	add_money_counter()
 	#enemies_left.max_value = Global.enemies_in_current_level
 
 
@@ -44,7 +48,7 @@ func _process(delta: float) -> void:
 	
 	enemies_left.value = Global.enemies_in_current_level - Global.enemies_killed
 	enemies_left.max_value = Global.enemies_in_current_level
-	print("progress bar value is ", enemies_left.value, ", should be ", Global.enemies_in_current_level - Global.enemies_killed, ". Max value is ", enemies_left.max_value, ", should be ", Global.enemies_in_current_level)
+	#print("progress bar value is ", enemies_left.value, ", should be ", Global.enemies_in_current_level - Global.enemies_killed, ". Max value is ", enemies_left.max_value, ", should be ", Global.enemies_in_current_level)
 	
 	if enemies_left.value == enemies_left.min_value:
 		if can_enemies_left_anim:
@@ -119,6 +123,7 @@ func ammo_added():
 func money_added():
 	gain_coin_sound.play()
 	money_anim.play("add_money_1")
+	add_money_counter()
 
 func _on_teleport_timer_timeout() -> void:
 	using_teleport_bar = false
@@ -126,7 +131,7 @@ func _on_teleport_timer_timeout() -> void:
 	Global.can_teleport = true
 
 func health_collected():
-	$HealthCollected.play()
+	$GainCoinSound.play()
 
 func _on_ability_anim_animation_finished(use_ability):
 	if !can_use_ability_anim:
@@ -151,3 +156,11 @@ func _on_ability_anim_animation_finished_cooldown(cooldown):
 		ammo_anim.play("ammo_up")
 		print("cooldown bar finished")
 		can_cooldown = false
+
+
+func add_money_counter():
+	var new_particles
+	
+	new_particles = MONEY_COUNTER_PARTICLES.instantiate()
+	get_parent().add_child(new_particles)
+	new_particles.global_position = money_counter_marker.global_position

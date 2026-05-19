@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://co5wrrkfe6e6h"]
+
+[ext_resource type="Script" uid="uid://ccen7qsrwstfb" path="res://Scripts/tool_tip.gd" id="1_xk4du"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xk4du"]
+bg_color = Color(0.060530342, 0.06053035, 0.060530327, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.7581917, 0.7581919, 0.7581914, 1)
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+shadow_size = 17
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j58i1"]
+bg_color = Color(0.20871016, 0.20871013, 0.2087102, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.7581917, 0.7581919, 0.7581914, 1)
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+shadow_size = 17
+
+[node name="ToolTip" type="Button" unique_id=1504563898]
+visible = false
+offset_right = 98.0
+offset_bottom = 56.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_xk4du")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_xk4du")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_xk4du")
+theme_override_styles/hover = SubResource("StyleBoxFlat_j58i1")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_xk4du")
+theme_override_styles/focus = SubResource("StyleBoxFlat_xk4du")
+script = ExtResource("1_xk4du")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1903996830]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+bbcode_enabled = true
+text = "TOOL TIP"
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]

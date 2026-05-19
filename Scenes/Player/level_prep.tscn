@@ -102,7 +102,7 @@ offset_bottom = 423.0
 color = Color(0.5850621, 0.58506197, 0.5850624, 1)
 script = ExtResource("1_5woj2")
 
-[node name="EstimatedEnemies" type="Label" parent="MainPanel" unique_id=1266495144]
+[node name="Insight" type="Label" parent="MainPanel" unique_id=1266495144]
 layout_mode = 0
 offset_left = 35.0
 offset_top = 199.0

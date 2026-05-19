@@ -117,7 +117,7 @@ shadow_offset = Vector2(0.865, 5.985)
 [sub_resource type="LabelSettings" id="LabelSettings_8bdjp"]
 font = ExtResource("4_aur2u")
 font_size = 62
-font_color = Color(0, 0, 0, 1)
+font_color = Color(0.16206557, 0.1620656, 0.16206557, 1)
 
 [sub_resource type="Animation" id="Animation_aatm5"]
 resource_name = "Fill bar"
@@ -253,20 +253,20 @@ blip = NodePath("../../Blip")
 
 [node name="Title" type="Label" parent="." unique_id=1116725505]
 layout_mode = 0
-offset_left = 602.0
-offset_top = 154.0
-offset_right = 975.0
-offset_bottom = 298.0
+offset_left = 763.0
+offset_top = 141.0
+offset_right = 1136.0
+offset_bottom = 285.0
 text = "BOUNTY"
 label_settings = ExtResource("6_anmaw")
 horizontal_alignment = 1
 
 [node name="Version" type="Label" parent="." unique_id=974589187]
 layout_mode = 0
-offset_left = 989.0
-offset_top = 209.0
-offset_right = 1097.0
-offset_bottom = 277.0
+offset_left = 1148.0
+offset_top = 201.0
+offset_right = 1256.0
+offset_bottom = 269.0
 text = "0.0.6"
 label_settings = SubResource("LabelSettings_8bdjp")
 horizontal_alignment = 1

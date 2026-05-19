@@ -6,11 +6,13 @@ extends CharacterBody2D
 @onready var shoot_speed_timer: Timer = $ShootSpeedTimer
 @onready var shoot_sound: AudioStreamPlayer2D = $ShootSound
 @onready var explode_sound: AudioStreamPlayer2D = $ExplodeSound
+@onready var hit_sound: AudioStreamPlayer2D = $HitSound
 @onready var coin_spawn_1: Marker2D = $CoinSpawn1
 @onready var coin_spawn_2: Marker2D = $CoinSpawn2
 @onready var coin_spawn_3: Marker2D = $CoinSpawn3
 @onready var explosion_radius: CollisionShape2D = $ExplodeArea/ExplosionRadius
 
+@export var Goal: Node = null
 @export var target: Node = null
 
 var health: int = 100
@@ -24,6 +26,7 @@ const BULLET_SCENE = preload("res://Scenes/Enemies/enemy_bullet.tscn")
 const COIN_DROP_SCENE = preload("res://Scenes/Collectables/Money/enemy_coin_drop.tscn")
 const HEALTH_DROP_SCENE = preload("res://Scenes/Collectables/Health/enemy_health_drop.tscn")
 const EXPLOSION_PARTICLES = preload("res://Scenes/Enemies/explosion_particles.tscn")
+const DAMAGE_COUNTER = preload("res://Scenes/Animations/damage_counter.tscn")
 
 func _on_bullet_detect_area_entered(area: Area2D) -> void:
 	if area.is_in_group("player_bullet"):
@@ -32,6 +35,10 @@ func _on_bullet_detect_area_entered(area: Area2D) -> void:
 			bullet_explosion_particles.emitting = true
 			health -= Global.attack_damage + 20
 			Global.bullet_exploded.emit()
+		
+		hit_sound.play()
+		
+		add_damage_counter()
 
 func _ready() -> void:
 	player_detected = false
@@ -65,12 +72,20 @@ func die():
 	
 	add_exposion_particles()
 	
+	
 	queue_free()
 
 func add_exposion_particles():
 	var new_particles
 	
 	new_particles = EXPLOSION_PARTICLES.instantiate()
+	get_parent().add_child(new_particles)
+	new_particles.global_position = self.global_position
+
+func add_damage_counter():
+	var new_particles
+	
+	new_particles = DAMAGE_COUNTER.instantiate()
 	get_parent().add_child(new_particles)
 	new_particles.global_position = self.global_position
 

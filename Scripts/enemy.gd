@@ -25,6 +25,7 @@ const BULLET_SCENE = preload("res://Scenes/Enemies/enemy_bullet.tscn")
 const COIN_DROP_SCENE = preload("res://Scenes/Collectables/Money/enemy_coin_drop.tscn")
 const HEALTH_DROP_SCENE = preload("res://Scenes/Collectables/Health/enemy_health_drop.tscn")
 const EXPLOSION_PARTICLES = preload("res://Scenes/Enemies/explosion_particles.tscn")
+const DAMAGE_COUNTER = preload("res://Scenes/Animations/damage_counter.tscn")
 
 
 func _ready() -> void:
@@ -60,6 +61,8 @@ func _physics_process(delta: float) -> void:
 func _on_bullet_detect_area_entered(area: Area2D) -> void:
 	if area.is_in_group("player_bullet"):
 		health -= Global.attack_damage
+		add_damage_counter()
+		$HitSound.play()
 
 
 func die():
@@ -83,6 +86,13 @@ func add_exposion_particles():
 	var new_particles
 	
 	new_particles = EXPLOSION_PARTICLES.instantiate()
+	get_parent().add_child(new_particles)
+	new_particles.global_position = self.global_position
+
+func add_damage_counter():
+	var new_particles
+	
+	new_particles = DAMAGE_COUNTER.instantiate()
 	get_parent().add_child(new_particles)
 	new_particles.global_position = self.global_position
 
