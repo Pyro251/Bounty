@@ -40,7 +40,6 @@ func _ready() -> void:
 	Global.can_teleport = true
 	can_enemies_left_anim = true
 	
-	add_money_counter()
 	#enemies_left.max_value = Global.enemies_in_current_level
 
 

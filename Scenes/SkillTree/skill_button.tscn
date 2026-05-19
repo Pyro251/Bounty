@@ -5,7 +5,7 @@
 [ext_resource type="FontFile" uid="uid://dndfik3argnf5" path="res://Assets/Fonts/Edge_of_the_galaxy/EdgeOfTheGalaxyRegular-OVEa6.otf" id="3_1ueth"]
 [ext_resource type="AudioStream" uid="uid://bcl4idsvtgsuq" path="res://Assets/sound/misc/CancelLevelTrigger/idontknow-cancel-116016.mp3" id="4_vp1i6"]
 [ext_resource type="AudioStream" uid="uid://bf2iefyfmiebh" path="res://Assets/sound/Buttons/floraphonic-arcade-ui-7-229506.mp3" id="5_8ar8t"]
-[ext_resource type="AudioStream" uid="uid://b8hpxsrqs1d7b" path="res://Assets/sound/Buttons/LevelPrepOpen/litupsubway-ui-hover-sfx-513360.mp3" id="6_eakxa"]
+[ext_resource type="AudioStream" uid="uid://bsbk7ibge8e2q" path="res://Assets/sound/Enemies/rohhsadotcom-knock-on-wood-02-421991.mp3" id="6_uxm6h"]
 [ext_resource type="AudioStream" uid="uid://ws5fc7e0is62" path="res://Assets/sound/Buttons/levelup/floraphonic-arcade-ui-6-229503.mp3" id="7_uxm6h"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_vp1i6"]
@@ -35,12 +35,12 @@ stream_0/stream = ExtResource("4_vp1i6")
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_uxm6h"]
 random_pitch = 1.1546855
 streams_count = 1
-stream_0/stream = ExtResource("6_eakxa")
+stream_0/stream = ExtResource("6_uxm6h")
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_1dhf2"]
 random_pitch = 1.1674278
 streams_count = 1
-stream_0/stream = ExtResource("6_eakxa")
+stream_0/stream = ExtResource("6_uxm6h")
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_nxjsk"]
 random_pitch = 1.1590959
