@@ -14,7 +14,7 @@ font = ExtResource("1_0y3bn")
 font_size = 45
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rexrh"]
-size = Vector2(407.5, 174)
+size = Vector2(475.75, 208)
 
 [node name="ResearchStation" type="Node2D" unique_id=51131661]
 script = ExtResource("1_wbt5b")

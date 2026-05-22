@@ -13,6 +13,7 @@
 [ext_resource type="AudioStream" uid="uid://b8hpxsrqs1d7b" path="res://Assets/sound/Buttons/LevelPrepOpen/litupsubway-ui-hover-sfx-513360.mp3" id="10_24o66"]
 [ext_resource type="PackedScene" uid="uid://ccifrvhnrnr3x" path="res://Scenes/Player/level_prep.tscn" id="12_dui0l"]
 [ext_resource type="PackedScene" uid="uid://dfuhy2urvbt67" path="res://Scenes/Enemies/target_dummy.tscn" id="13_dui0l"]
+[ext_resource type="PackedScene" uid="uid://bb6q073clxf5t" path="res://Scenes/Menus/Mission Control/mission_control_trigger.tscn" id="14_0s6n1"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_smvwu"]
 polygon = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
@@ -88,6 +89,8 @@ position = Vector2(-461, -170)
 
 [node name="Camera2D" parent="." unique_id=584421790 instance=ExtResource("3_apibs")]
 position = Vector2(-461, -170)
+max_shake = 7.0
+shake_fade = 10.0
 
 [node name="ReadyUp" type="ProgressBar" parent="." unique_id=623219]
 z_index = -5
@@ -138,7 +141,7 @@ pitch_scale = 1.03
 
 [node name="ResearchStation" parent="." unique_id=51131661 instance=ExtResource("9_ou2ib")]
 z_index = -1
-position = Vector2(-145, -380)
+position = Vector2(80, -381)
 
 [node name="LevelPrep" parent="." unique_id=1618305278 instance=ExtResource("12_dui0l")]
 visible = false
@@ -149,6 +152,9 @@ offset_bottom = -85.0
 
 [node name="TargetDummy" parent="." unique_id=2027378571 instance=ExtResource("13_dui0l")]
 position = Vector2(196, 295)
+
+[node name="MissionControlTrigger" parent="." unique_id=1516926793 instance=ExtResource("14_0s6n1")]
+position = Vector2(-476, -421)
 
 [connection signal="area_entered" from="ReadyUp/Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="ReadyUp/Area2D" to="." method="_on_area_2d_area_exited"]

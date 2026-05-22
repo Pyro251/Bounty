@@ -20,6 +20,7 @@ signal game_saved
 signal explode_player
 signal bullet_exploded
 signal health_collected
+signal mission_selected
 
 # abilities
 signal ability_ended
@@ -77,6 +78,9 @@ var can_move: bool = true
 var paused: bool = false
 var show_changes: bool = true
 
+var mission_selected_var: bool = false
+var show_alert: bool = true
+
 var current_level: int = 1
 var level_to_load
 
@@ -96,3 +100,5 @@ var enemies_killed: int = 0
 var can_clear_level: bool = true
 
 var ability_cooldown: float = 5.0
+
+var mission_panel_text: String

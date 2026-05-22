@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dc6wrv5g6n5r3"]
 
-[ext_resource type="Script" uid="uid://bxeci7l7kkvdl" path="res://Scenes/Menus/change_log.gd" id="1_3pqo7"]
+[ext_resource type="Script" uid="uid://bxeci7l7kkvdl" path="res://Scripts/change_log.gd" id="1_3pqo7"]
 [ext_resource type="FontFile" uid="uid://dndfik3argnf5" path="res://Assets/Fonts/Edge_of_the_galaxy/EdgeOfTheGalaxyRegular-OVEa6.otf" id="1_bqh7i"]
 [ext_resource type="Script" uid="uid://v86otcjdcl6t" path="res://Scripts/button.gd" id="3_ewit8"]
 [ext_resource type="FontFile" uid="uid://cvsn4niy0s83l" path="res://Assets/Fonts/Edge_of_the_galaxy/EdgeOfTheGalaxyPoster-3zRAp.otf" id="3_pphjs"]
@@ -146,7 +146,7 @@ theme_override_fonts/italics_font = ExtResource("4_sxvbq")
 theme_override_font_sizes/normal_font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_3pqo7")
 bbcode_enabled = true
-text = "+ There is now a tutorial, for those who want it. (don't worry, you can skip it)
+text = "dw+ There is now a tutorial, for those who want it. (don't worry, you can skip it)
 
 + [wave][b]H U G E[/b][/wave] expansion to the research tree. Refactored the code for the whole system, rearranged the menu to have tabs, and add a LOT of new upgrades, including upgrades that add new passive abilities.
 

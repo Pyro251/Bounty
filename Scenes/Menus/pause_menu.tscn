@@ -1,12 +1,13 @@
 [gd_scene format=3 uid="uid://df53hobwfnkci"]
 
 [ext_resource type="Shader" uid="uid://bk8kastl8as64" path="res://Shaders/Scripts/blur.gdshader" id="1_tf3q2"]
-[ext_resource type="Script" uid="uid://b6c7077qc60pa" path="res://Scenes/Menus/pause_menu.gd" id="1_yeo1y"]
+[ext_resource type="Script" uid="uid://b6c7077qc60pa" path="res://Scripts/pause_menu.gd" id="1_yeo1y"]
 [ext_resource type="PackedScene" uid="uid://drk1pycy1a2ky" path="res://Scenes/Player/menu_cursor.tscn" id="2_pw12o"]
 [ext_resource type="FontFile" uid="uid://dndfik3argnf5" path="res://Assets/Fonts/Edge_of_the_galaxy/EdgeOfTheGalaxyRegular-OVEa6.otf" id="2_yeo1y"]
 [ext_resource type="Script" uid="uid://v86otcjdcl6t" path="res://Scripts/button.gd" id="3_pw12o"]
 [ext_resource type="PackedScene" uid="uid://coid35tdcb4ul" path="res://Scenes/Sounds/blip.tscn" id="6_nwnlq"]
 [ext_resource type="PackedScene" uid="uid://cnmerspdilm08" path="res://Scenes/Sounds/click.tscn" id="7_8kr8e"]
+
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7smr3"]
 shader = ExtResource("1_tf3q2")

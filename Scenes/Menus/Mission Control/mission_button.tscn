@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://bevvrevplb5mg"]
+
+[ext_resource type="Script" uid="uid://0vhuyosirtnp" path="res://Scripts/mission_button.gd" id="1_8jlc1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fm2td"]
+bg_color = Color(0.16206557, 0.1620656, 0.16206557, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+shadow_size = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_16koc"]
+bg_color = Color(0.11119685, 0.11119685, 0.11119678, 1)
+border_width_left = 15
+border_width_top = 15
+border_width_right = 15
+border_width_bottom = 15
+border_color = Color(0.40832943, 0.4083295, 0.40832922, 1)
+border_blend = true
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8jlc1"]
+bg_color = Color(0.16206557, 0.1620656, 0.16206557, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+shadow_size = 30
+
+[sub_resource type="LabelSettings" id="LabelSettings_uljva"]
+font_size = 45
+
+[node name="MissionButton" type="Button" unique_id=322602833]
+custom_minimum_size = Vector2(0, 75)
+offset_top = -4.0
+offset_right = 342.0
+offset_bottom = 59.0
+pivot_offset_ratio = Vector2(0.5, 0.485)
+theme_override_styles/normal = SubResource("StyleBoxFlat_fm2td")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_16koc")
+theme_override_styles/hover = SubResource("StyleBoxFlat_8jlc1")
+script = ExtResource("1_8jlc1")
+
+[node name="Title" type="Label" parent="." unique_id=1354509332]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -22.0
+offset_bottom = 22.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "MISSION ##"
+label_settings = SubResource("LabelSettings_uljva")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

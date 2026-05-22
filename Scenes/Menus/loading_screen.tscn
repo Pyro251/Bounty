@@ -1,11 +1,12 @@
 [gd_scene format=3 uid="uid://bi8b5i1inwbwc"]
 
-[ext_resource type="Script" uid="uid://bc20seiaopdj0" path="res://Scenes/Menus/loading_screen.gd" id="1_1njbj"]
+[ext_resource type="Script" uid="uid://bc20seiaopdj0" path="res://Scripts/loading_screen.gd" id="1_1njbj"]
 [ext_resource type="LabelSettings" uid="uid://rephklwoaysm" path="res://Assets/Fonts/LabelSettings.tres" id="1_18mfb"]
 [ext_resource type="Script" uid="uid://b6tf1xoqis13n" path="res://progress_bar.gd" id="2_1njbj"]
 [ext_resource type="AudioStream" uid="uid://cscfhb6w852f8" path="res://Assets/sound/tone.wav" id="4_aatm5"]
 [ext_resource type="AudioStream" uid="uid://c6j5gaj0q6xm7" path="res://Assets/sound/soundreality-textures-impact-137826.mp3" id="5_etwiq"]
 [ext_resource type="PackedScene" uid="uid://doqbe36j80fkd" path="res://Shaders/Scenes/shaders.tscn" id="6_0w37i"]
+
 
 [sub_resource type="Animation" id="Animation_aatm5"]
 resource_name = "Fill bar"
