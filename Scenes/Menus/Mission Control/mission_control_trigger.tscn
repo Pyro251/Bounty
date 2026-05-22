@@ -1,0 +1,89 @@
+[gd_scene format=3 uid="uid://bb6q073clxf5t"]
+
+[ext_resource type="Script" uid="uid://byj6r4suv6akt" path="res://Scripts/mission_control_trigger.gd" id="1_4v5ut"]
+[ext_resource type="FontFile" uid="uid://dndfik3argnf5" path="res://Assets/Fonts/Edge_of_the_galaxy/EdgeOfTheGalaxyRegular-OVEa6.otf" id="1_5nm84"]
+[ext_resource type="FontFile" uid="uid://bt17ccrgmyjg4" path="res://Assets/Fonts/Edge_of_the_galaxy/EdgeOfTheGalaxyPosterItalic-x3o1m.otf" id="3_oq0cq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rexrh"]
+size = Vector2(541, 329)
+
+[sub_resource type="LabelSettings" id="LabelSettings_3fowh"]
+font = ExtResource("1_5nm84")
+font_size = 34
+outline_size = 16
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_wbt5b"]
+font = ExtResource("1_5nm84")
+font_size = 45
+
+[sub_resource type="LabelSettings" id="LabelSettings_h2anh"]
+font = ExtResource("3_oq0cq")
+font_size = 28
+font_color = Color(0.94175184, 0.635758, 0.5736986, 1)
+
+[sub_resource type="Animation" id="Animation_oq0cq"]
+resource_name = "needs_triggered"
+length = 0.15
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_h2anh"]
+_data = {
+&"needs_triggered": SubResource("Animation_oq0cq")
+}
+
+[node name="MissionControlTrigger" type="Node2D" unique_id=51131661]
+script = ExtResource("1_4v5ut")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=446920218]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1445688391]
+position = Vector2(0.5, 57.5)
+shape = SubResource("RectangleShape2D_rexrh")
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=1438864935]
+offset_left = -236.99998
+offset_top = -106.0
+offset_right = 154.00966
+offset_bottom = 63.68341
+scale = Vector2(1.2148038, 1.2148038)
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=42185097]
+offset_left = -228.0
+offset_top = -98.0
+offset_right = 229.0
+offset_bottom = 100.0
+size_flags_horizontal = 4
+color = Color(0, 0, 0, 1)
+
+[node name="pressE" type="Label" parent="." unique_id=1471346442]
+offset_left = -47.0
+offset_top = 113.0
+offset_right = 48.0
+offset_bottom = 151.0
+text = "press E"
+label_settings = SubResource("LabelSettings_3fowh")
+
+[node name="MissionControlLabel" type="Label" parent="." unique_id=242160459]
+offset_left = -143.0
+offset_top = -24.0
+offset_right = 141.0
+offset_bottom = 25.0
+text = "MISSION CONTROL"
+label_settings = SubResource("LabelSettings_wbt5b")
+metadata/_edit_use_anchors_ = true
+
+[node name="AlertLabel" type="Label" parent="." unique_id=1392996374]
+offset_left = -26.0
+offset_top = 25.0
+offset_right = 27.0
+offset_bottom = 55.0
+text = "ALERT"
+label_settings = SubResource("LabelSettings_h2anh")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1895672807]
+libraries/ = SubResource("AnimationLibrary_h2anh")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

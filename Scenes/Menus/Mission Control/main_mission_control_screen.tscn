@@ -1,0 +1,592 @@
+[gd_scene format=3 uid="uid://bjit68pl2ywb5"]
+
+[ext_resource type="PackedScene" uid="uid://doqbe36j80fkd" path="res://Shaders/Scenes/shaders.tscn" id="1_babjf"]
+[ext_resource type="Script" uid="uid://bkpnuolmxhe55" path="res://Scenes/Menus/Mission Control/main_mission_control_screen.gd" id="1_ujw66"]
+[ext_resource type="PackedScene" uid="uid://c1w0agxcv1rim" path="res://Scenes/Camera/menu_camera_with_mouse_offset.tscn" id="3_n6cyq"]
+[ext_resource type="PackedScene" uid="uid://bevvrevplb5mg" path="res://Scenes/Menus/Mission Control/mission_button.tscn" id="4_3lxvd"]
+[ext_resource type="PackedScene" uid="uid://drk1pycy1a2ky" path="res://Scenes/Player/menu_cursor.tscn" id="5_pkqwo"]
+[ext_resource type="FontFile" uid="uid://dndfik3argnf5" path="res://Assets/Fonts/Edge_of_the_galaxy/EdgeOfTheGalaxyRegular-OVEa6.otf" id="6_cbmot"]
+[ext_resource type="Script" uid="uid://v86otcjdcl6t" path="res://Scripts/button.gd" id="7_0df8o"]
+[ext_resource type="AudioStream" uid="uid://dn0oqkf4oek02" path="res://Assets/sound/MissionControl/kauasilbershlachparodes-chutter-click-494024.mp3" id="9_lx767"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n6cyq"]
+bg_color = Color(0.07683588, 0.07683579, 0.07683582, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+expand_margin_left = 50.0
+expand_margin_top = 50.0
+expand_margin_right = 50.0
+expand_margin_bottom = 50.0
+shadow_size = 82
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ujw66"]
+bg_color = Color(0.16924527, 0.1692453, 0.16924527, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+expand_margin_left = 50.0
+expand_margin_top = 50.0
+expand_margin_right = 50.0
+expand_margin_bottom = 50.0
+shadow_size = 82
+
+[sub_resource type="Theme" id="Theme_h4e7i"]
+default_font = ExtResource("6_cbmot")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lx767"]
+bg_color = Color(0.14901961, 0.14901961, 0.14901961, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+shadow_size = 10
+shadow_offset = Vector2(0.865, 5.985)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tqnnq"]
+bg_color = Color(0.30624878, 0.1286192, 0.121844865, 1)
+border_width_left = 15
+border_width_top = 15
+border_width_right = 15
+border_width_bottom = 15
+border_color = Color(0.24432683, 0.13429776, 0.13186726, 1)
+border_blend = true
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+shadow_offset = Vector2(0.865, 5.985)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5qy0r"]
+bg_color = Color(0.35945734, 0.15650335, 0.14987409, 1)
+border_width_left = 15
+border_width_top = 15
+border_width_right = 15
+border_width_bottom = 15
+border_color = Color(0.41297364, 0.2413998, 0.23775369, 1)
+border_blend = true
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+expand_margin_top = 10.0
+expand_margin_bottom = 10.0
+shadow_size = 10
+shadow_offset = Vector2(0.865, 5.985)
+
+[sub_resource type="LabelSettings" id="LabelSettings_cbmot"]
+font_size = 76
+
+[sub_resource type="Animation" id="Animation_lx767"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1002, -0.1, 0, 0.1, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(450, -0.1, 0, 0.1, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:modulate:r")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.1, 0, 0.1, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:modulate:g")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.1, 0, 0.1, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:modulate:b")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.1, 0, 0.1, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".:modulate:a")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.1, 0, 0.1, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_tqnnq"]
+resource_name = "out"
+length = 0.2
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(2, 2),
+"points": PackedFloat32Array(1002, -0.1, 0, 0.1, 0, 1002, -0.033333335, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.2)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(2, 2),
+"points": PackedFloat32Array(450, -0.1, 0, 0.1, 0, 545.265, -0.033333335, -15.877503, 0, 0),
+"times": PackedFloat32Array(0, 0.2)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:modulate:r")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(1, -0.1, 0, 0.1, 0, 1, -0.033333335, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.2)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:modulate:g")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(1, -0.1, 0, 0.1, 0, 1, -0.033333335, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.2)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:modulate:b")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(1, -0.1, 0, 0.1, 0, 1, -0.033333335, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.2)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".:modulate:a")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(1, -0.1, 0, 0.1, 0, 0, -0.033333335, 0.16666667, 0, 0),
+"times": PackedFloat32Array(0, 0.2)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5qy0r"]
+_data = {
+&"RESET": SubResource("Animation_lx767"),
+&"out": SubResource("Animation_tqnnq")
+}
+
+[sub_resource type="Animation" id="Animation_cbmot"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MissionsTextPanel:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(788, -0.1, 0, 0.1, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MissionsTextPanel:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(158, -0.1, 0, 0.1, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MissionsTextPanel:modulate:r")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.1, 0, 0.1, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MissionsTextPanel:modulate:g")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.1, 0, 0.1, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("MissionsTextPanel:modulate:b")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.1, 0, 0.1, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("MissionsTextPanel:modulate:a")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.1, 0, 0.1, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_0df8o"]
+resource_name = "in"
+length = 0.2
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MissionsTextPanel:modulate:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(2, 0),
+"points": PackedFloat32Array(1, 0, 0, 0.033333335, 0, 1, -0.1, 0, 0.1, 0),
+"times": PackedFloat32Array(0, 0.2)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MissionsTextPanel:modulate:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(2, 0),
+"points": PackedFloat32Array(1, 0, 0, 0.033333335, 0, 1, -0.1, 0, 0.1, 0),
+"times": PackedFloat32Array(0, 0.2)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MissionsTextPanel:modulate:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(2, 0),
+"points": PackedFloat32Array(1, 0, 0, 0.033333335, 0, 1, -0.1, 0, 0.1, 0),
+"times": PackedFloat32Array(0, 0.2)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MissionsTextPanel:modulate:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(2, 0),
+"points": PackedFloat32Array(0, 0, 0, 0.033333335, 0.16666667, 1, -0.1, 0, 0.1, 0),
+"times": PackedFloat32Array(0, 0.2)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("MissionsTextPanel:position:x")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(788, -0.1, 0, 0.1, 0, 788, -0.033333335, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.2)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("MissionsTextPanel:position:y")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(-59.415, -0.1, 0, 0.1, 0, 158, -0.033333335, -36.235836, 0, 0),
+"times": PackedFloat32Array(0, 0.2)
+}
+
+[sub_resource type="Animation" id="Animation_h4e7i"]
+resource_name = "out"
+length = 0.2
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MissionsTextPanel:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(788, -0.1, 0, 0.1, 0, 788, -0.033333335, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.2)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MissionsTextPanel:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(158, -0.1, 0, 0.1, 0, 353.285, -0.033333335, -32.5475, 0, 0),
+"times": PackedFloat32Array(0, 0.2)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MissionsTextPanel:modulate:r")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(1, -0.1, 0, 0.1, 0, 1, -0.033333335, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.2)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MissionsTextPanel:modulate:g")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(1, -0.1, 0, 0.1, 0, 1, -0.033333335, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.2)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("MissionsTextPanel:modulate:b")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(1, -0.1, 0, 0.1, 0, 1, -0.033333335, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.2)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("MissionsTextPanel:modulate:a")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(1, -0.1, 0, 0.1, 0, 0, -0.033333335, 0.16666667, 0, 0),
+"times": PackedFloat32Array(0, 0.2)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lx767"]
+_data = {
+&"RESET": SubResource("Animation_cbmot"),
+&"in": SubResource("Animation_0df8o"),
+&"out": SubResource("Animation_h4e7i")
+}
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_tqnnq"]
+random_pitch = 1.174055
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_5qy0r"]
+random_pitch = 1.2866919
+streams_count = 1
+stream_0/stream = ExtResource("9_lx767")
+
+[node name="MainMissionControlScreen" type="Control" unique_id=1425583387]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ujw66")
+
+[node name="MenuCursor" parent="." unique_id=1703668164 instance=ExtResource("5_pkqwo")]
+position = Vector2(504, 438)
+
+[node name="BG" type="ColorRect" parent="." unique_id=2062349447]
+layout_mode = 0
+offset_left = -2272.0
+offset_top = -1139.0
+offset_right = 3896.0
+offset_bottom = 2749.0
+mouse_filter = 2
+color = Color(0.12225223, 0.12225223, 0.12225223, 1)
+
+[node name="Shaders" parent="." unique_id=821094781 instance=ExtResource("1_babjf")]
+
+[node name="CameraOffsetStart" type="Marker2D" parent="." unique_id=374124718]
+position = Vector2(965, 526)
+
+[node name="MenuCameraWithMouseOffset" parent="." unique_id=1015775101 instance=ExtResource("3_n6cyq")]
+position = Vector2(961, 522)
+position_smoothing_enabled = true
+
+[node name="MissionsTextPanel" type="Panel" parent="." unique_id=1805117024]
+visible = false
+layout_mode = 0
+offset_left = 788.0
+offset_top = 158.0
+offset_right = 1867.0
+offset_bottom = 909.99927
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_n6cyq")
+
+[node name="MissionsText" type="RichTextLabel" parent="MissionsTextPanel" unique_id=1449788944]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 35
+bbcode_enabled = true
+text = "Select a Mission."
+
+[node name="MissionsPanelOffset" type="Marker2D" parent="." unique_id=1252489808]
+position = Vector2(356, 533)
+
+[node name="MissionsPanel" type="Panel" parent="MissionsPanelOffset" unique_id=93360907]
+offset_left = -277.0
+offset_top = -377.0
+offset_right = 291.0
+offset_bottom = 374.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ujw66")
+
+[node name="MissionsPanelVBoxContainer" type="VBoxContainer" parent="MissionsPanelOffset/MissionsPanel" unique_id=1403159622]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -14.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 45
+
+[node name="MissionButton" parent="MissionsPanelOffset/MissionsPanel/MissionsPanelVBoxContainer" unique_id=322602833 instance=ExtResource("4_3lxvd")]
+layout_mode = 2
+title = "MISSION I"
+mission_text = "This is your first mission, USER.
+
+------------  Searching Open-Ended End-to-End Crypto Encryption System Servicing Software (OEEECESSS)
+------------ MESSAGE ID:    '1827307231674'
+------------ USERNAME DETECTED:    DOC
+
+Welcome to Faltas, we've sent you here to help aid in the effort to destroy our planets common enemy. As you are one of many, we don't care if you die, but if you don't, we expect that they will use stronger and stronger force until you do. Complete the first level, so we can narrow down our candidates for the second mission. Good luck.
+
+----------- MESSAGE ENDED
+
+Mission Objective: Reach level 2"
+level_till_next_unlock = 5
+unlocked_from_start = true
+
+[node name="MissionButton2" parent="MissionsPanelOffset/MissionsPanel/MissionsPanelVBoxContainer" unique_id=327427040 instance=ExtResource("4_3lxvd")]
+layout_mode = 2
+title = "MISSION II"
+mission_text = "
+------------ USERNAME DETECTED:    DOC
+
+Congradulations, you passed the first round to narrow down candidates. Unfortunately, you barely dented the enemy. Reach round 5"
+
+[node name="Quit" type="Button" parent="." unique_id=189657599]
+layout_mode = 0
+offset_left = 79.0
+offset_top = 818.0
+offset_right = 661.0
+offset_bottom = 905.0
+size_flags_vertical = 3
+theme = SubResource("Theme_h4e7i")
+theme_override_font_sizes/font_size = 62
+theme_override_styles/normal = SubResource("StyleBoxFlat_lx767")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_tqnnq")
+theme_override_styles/hover = SubResource("StyleBoxFlat_5qy0r")
+text = "D O N E"
+script = ExtResource("7_0df8o")
+
+[node name="SelectMission" type="Label" parent="." unique_id=807986683]
+layout_mode = 0
+offset_left = 1002.0
+offset_top = 450.0
+offset_right = 1606.0
+offset_bottom = 555.0001
+text = "Select a Mission."
+label_settings = SubResource("LabelSettings_cbmot")
+
+[node name="SelectMissionAnim" type="AnimationPlayer" parent="." unique_id=564628216]
+root_node = NodePath("../SelectMission")
+libraries/ = SubResource("AnimationLibrary_5qy0r")
+
+[node name="ExchangeTextAnim" type="AnimationPlayer" parent="." unique_id=1436339599]
+libraries/ = SubResource("AnimationLibrary_lx767")
+
+[node name="WhooshSound" type="AudioStreamPlayer" parent="." unique_id=1334444028]
+stream = SubResource("AudioStreamRandomizer_tqnnq")
+volume_db = -7.673
+pitch_scale = 0.54
+bus = &"UI"
+
+[node name="ClickSound" type="AudioStreamPlayer" parent="." unique_id=816899711]
+stream = SubResource("AudioStreamRandomizer_5qy0r")
+pitch_scale = 1.08
+bus = &"UI"
+
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
+[connection signal="animation_finished" from="SelectMissionAnim" to="." method="_on_select_mission_anim_animation_finished"]
+[connection signal="animation_finished" from="ExchangeTextAnim" to="." method="_on_exchange_text_anim_animation_finished"]
+[connection signal="animation_started" from="ExchangeTextAnim" to="." method="_on_exchange_text_anim_animation_started"]

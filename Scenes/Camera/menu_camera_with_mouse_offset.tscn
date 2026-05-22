@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://c1w0agxcv1rim"]
+
+[ext_resource type="Script" uid="uid://c2tdl2ygu8qqg" path="res://Scripts/menu_camera_mouse_movement.gd" id="1_aket3"]
+
+[node name="MenuCameraWithMouseOffset" type="Camera2D" unique_id=1015775101]
+script = ExtResource("1_aket3")
