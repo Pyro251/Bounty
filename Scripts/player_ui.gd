@@ -65,6 +65,8 @@ func _process(delta: float) -> void:
 			current_location.text = str("HOME BASE")
 		if Global.in_tutorial:
 			current_location.text = str("TUTORIAL")
+		if Global.in_boss_level:
+			current_location.text = str("BOSS")
 	
 	if !Global.at_base and !Global.in_tutorial:
 		enemies_left.show()

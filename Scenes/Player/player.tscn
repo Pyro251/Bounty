@@ -93,10 +93,6 @@ value = 100.0
 show_percentage = false
 metadata/_edit_use_anchors_ = true
 
-[node name="ShootPos" type="Marker2D" parent="LookAtCursor" unique_id=981844130]
-position = Vector2(38, 0)
-rotation = 1.5707964
-
 [node name="Flashlight" type="PointLight2D" parent="LookAtCursor" unique_id=269791777]
 position = Vector2(2, 1)
 energy = 1.19
@@ -106,6 +102,10 @@ shadow_filter_smooth = 1.0
 texture = ExtResource("3_xpcdj")
 offset = Vector2(387.032, 6.755)
 texture_scale = 4.24
+
+[node name="ShootPos" type="Marker2D" parent="LookAtCursor" unique_id=981844130]
+position = Vector2(38, 0)
+rotation = 1.5707964
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=703187005]
 position = Vector2(0.5, 2.5)

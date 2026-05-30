@@ -1,0 +1,154 @@
+[gd_scene format=3 uid="uid://dth7y4mi03yn5"]
+
+[ext_resource type="Script" uid="uid://bjbxgtnvhbiie" path="res://Scripts/boss_1.gd" id="1_os78t"]
+[ext_resource type="AudioStream" uid="uid://balows47fups0" path="res://Assets/sound/Shooting/Enemy/laserShoot(1).wav" id="2_yqnq1"]
+[ext_resource type="AudioStream" uid="uid://bsbk7ibge8e2q" path="res://Assets/sound/Enemies/rohhsadotcom-knock-on-wood-02-421991.mp3" id="3_dpqg5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yqnq1"]
+size = Vector2(239, 239)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yqnq1"]
+radius = 865.3907
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dpqg5"]
+size = Vector2(296, 291)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yqnq1"]
+bg_color = Color(0.2051174, 0.20511746, 0.20511732, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dpqg5"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_8qxf3"]
+random_pitch = 1.3697538
+streams_count = 1
+stream_0/stream = ExtResource("2_yqnq1")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_b60mh"]
+random_pitch = 1.2045548
+streams_count = 1
+stream_0/stream = ExtResource("3_dpqg5")
+
+[sub_resource type="Animation" id="Animation_yqnq1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BulletSpawnPoints:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_dpqg5"]
+resource_name = "rotate"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BulletSpawnPoints:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.2831855]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8qxf3"]
+_data = {
+&"RESET": SubResource("Animation_yqnq1"),
+&"rotate": SubResource("Animation_dpqg5")
+}
+
+[node name="Boss1" type="CharacterBody2D" unique_id=501228073]
+script = ExtResource("1_os78t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1583204725]
+position = Vector2(0.5, -2.5)
+shape = SubResource("RectangleShape2D_yqnq1")
+
+[node name="BossActivation" type="Area2D" parent="." unique_id=204878108]
+collision_layer = 64
+collision_mask = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BossActivation" unique_id=1253742182]
+shape = SubResource("CircleShape2D_yqnq1")
+
+[node name="BulletDetection" type="Area2D" parent="." unique_id=1039963681]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BulletDetection" unique_id=1290171073]
+position = Vector2(1, -3.5)
+shape = SubResource("RectangleShape2D_dpqg5")
+
+[node name="Body" type="ProgressBar" parent="." unique_id=685949091]
+offset_left = -133.0
+offset_top = -137.0
+offset_right = 137.0
+offset_bottom = 132.0
+rotation = 0.004223985
+theme_override_colors/font_color = Color(0.70796657, 0.7079665, 0.7079665, 1)
+theme_override_styles/background = SubResource("StyleBoxFlat_yqnq1")
+theme_override_styles/fill = SubResource("StyleBoxFlat_dpqg5")
+
+[node name="Sounds" type="Node" parent="." unique_id=67882203]
+
+[node name="ShootSound" type="AudioStreamPlayer2D" parent="Sounds" unique_id=74719889]
+stream = SubResource("AudioStreamRandomizer_8qxf3")
+bus = &"Projectiles"
+
+[node name="HitSound" type="AudioStreamPlayer2D" parent="Sounds" unique_id=533592193]
+stream = SubResource("AudioStreamRandomizer_b60mh")
+volume_db = 10.075
+pitch_scale = 1.36
+
+[node name="ShootSpeed" type="Timer" parent="." unique_id=447868630]
+wait_time = 0.15
+
+[node name="BulletSpawnPoints" type="Node2D" parent="." unique_id=752281275]
+
+[node name="Spawn1" type="Marker2D" parent="BulletSpawnPoints" unique_id=1579680320]
+position = Vector2(0, -229)
+
+[node name="Spawn2" type="Marker2D" parent="BulletSpawnPoints" unique_id=703944740]
+position = Vector2(237.00002, 2.0000002)
+rotation = 1.5788666
+
+[node name="Spawn3" type="Marker2D" parent="BulletSpawnPoints" unique_id=1823340537]
+position = Vector2(0, 203)
+rotation = -3.1099353
+
+[node name="Spawn4" type="Marker2D" parent="BulletSpawnPoints" unique_id=1463486813]
+position = Vector2(-243, 1.000001)
+rotation = 4.7855387
+
+[node name="Spawn5" type="Marker2D" parent="BulletSpawnPoints" unique_id=1246457292]
+position = Vector2(152, -175)
+rotation = 0.8050909
+
+[node name="Spawn6" type="Marker2D" parent="BulletSpawnPoints" unique_id=1038425373]
+position = Vector2(165, 149)
+rotation = 2.2808797
+
+[node name="Spawn7" type="Marker2D" parent="BulletSpawnPoints" unique_id=1710876714]
+position = Vector2(-161, -165)
+rotation = -0.79173
+
+[node name="Spawn8" type="Marker2D" parent="BulletSpawnPoints" unique_id=185624982]
+position = Vector2(-158, 148)
+rotation = -2.1019943
+
+[node name="BulletRotationAnim" type="AnimationPlayer" parent="." unique_id=50393124]
+libraries/ = SubResource("AnimationLibrary_8qxf3")
+
+[connection signal="area_entered" from="BossActivation" to="." method="_on_boss_activation_area_entered"]
+[connection signal="area_entered" from="BulletDetection" to="." method="_on_bullet_detection_area_entered"]
+[connection signal="timeout" from="ShootSpeed" to="." method="_on_shoot_speed_timeout"]

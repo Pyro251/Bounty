@@ -543,6 +543,8 @@ mission_text = "
 ------------ USERNAME DETECTED:    DOC
 
 Congradulations, you passed the first round to narrow down candidates. Unfortunately, you barely dented the enemy. Reach round 5"
+level_till_unlock = 2
+level_till_next_unlock = 5
 
 [node name="Quit" type="Button" parent="." unique_id=189657599]
 layout_mode = 0

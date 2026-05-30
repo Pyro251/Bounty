@@ -17,7 +17,7 @@ func _ready() -> void:
 	mouse_entered.connect(_button_enter)
 	mouse_exited.connect(_button_exit)
 	
-	if level_till_unlock >= Global.current_level:
+	if level_till_unlock <= Global.current_level:
 		show()
 	else:
 		if !unlocked_from_start:
