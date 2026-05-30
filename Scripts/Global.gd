@@ -21,6 +21,7 @@ signal explode_player
 signal bullet_exploded
 signal health_collected
 signal mission_selected
+signal trigger_boss
 
 # abilities
 signal ability_ended
@@ -77,6 +78,7 @@ var in_dialogue: bool = false
 var can_move: bool = true
 var paused: bool = false
 var show_changes: bool = true
+var in_boss_level: bool = false
 
 var mission_selected_var: bool = false
 var show_alert: bool = true

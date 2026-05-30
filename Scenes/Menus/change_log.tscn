@@ -146,7 +146,7 @@ theme_override_fonts/italics_font = ExtResource("4_sxvbq")
 theme_override_font_sizes/normal_font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_3pqo7")
 bbcode_enabled = true
-text = "dw+ There is now a tutorial, for those who want it. (don't worry, you can skip it)
+text = " + There is now a tutorial, for those who want it. (don't worry, you can skip it)
 
 + [wave][b]H U G E[/b][/wave] expansion to the research tree. Refactored the code for the whole system, rearranged the menu to have tabs, and add a LOT of new upgrades, including upgrades that add new passive abilities.
 

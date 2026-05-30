@@ -131,10 +131,12 @@ func _on_player_detect_area_entered(area: Area2D) -> void:
 	if area.is_in_group("player"):
 		shoot_speed_timer.start()
 		player_detected = true
+		create_tween().tween_property(self, "scale", Vector2(1.1, 1.1), 0.1).set_trans(Tween.TRANS_SINE)
 
 
 func _on_player_detect_area_exited(area: Area2D) -> void:
 	player_detected = false
+	create_tween().tween_property(self, "scale", Vector2.ONE, 0.1).set_trans(Tween.TRANS_SINE)
 
 
 func _on_shoot_speed_timer_timeout() -> void:

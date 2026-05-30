@@ -1,10 +1,10 @@
-[gd_scene format=3 uid="uid://dsb13ox1hlm48"]
+[gd_scene format=3 uid="uid://b7honj3e5i61k"]
 
-[ext_resource type="FontFile" uid="uid://dndfik3argnf5" path="res://Assets/Fonts/Edge_of_the_galaxy/EdgeOfTheGalaxyRegular-OVEa6.otf" id="1_1ptls"]
-[ext_resource type="Script" uid="uid://b3ksx2q7xkdmm" path="res://Scripts/level_cleared_trigger.gd" id="1_5chko"]
-[ext_resource type="AudioStream" uid="uid://diuf3al3hk3tc" path="res://Assets/sound/misc/ready_up/freesound_community-sci-fi-charge-up-37395.mp3" id="3_r2h2s"]
-[ext_resource type="AudioStream" uid="uid://c3rkly7kf6s1f" path="res://Assets/sound/misc/ready_up/u_u4pf5h7zip-click-345983.mp3" id="4_22wjv"]
-[ext_resource type="AudioStream" uid="uid://bcl4idsvtgsuq" path="res://Assets/sound/misc/CancelLevelTrigger/idontknow-cancel-116016.mp3" id="5_22wjv"]
+[ext_resource type="Script" uid="uid://djdsi607f080w" path="res://Scripts/boss_trigger.gd" id="1_bdyry"]
+[ext_resource type="FontFile" uid="uid://dndfik3argnf5" path="res://Assets/Fonts/Edge_of_the_galaxy/EdgeOfTheGalaxyRegular-OVEa6.otf" id="2_5bj07"]
+[ext_resource type="AudioStream" uid="uid://diuf3al3hk3tc" path="res://Assets/sound/misc/ready_up/freesound_community-sci-fi-charge-up-37395.mp3" id="3_hlbf4"]
+[ext_resource type="AudioStream" uid="uid://c3rkly7kf6s1f" path="res://Assets/sound/misc/ready_up/u_u4pf5h7zip-click-345983.mp3" id="4_msjda"]
+[ext_resource type="AudioStream" uid="uid://bcl4idsvtgsuq" path="res://Assets/sound/misc/CancelLevelTrigger/idontknow-cancel-116016.mp3" id="5_hdwb4"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uqe6s"]
 bg_color = Color(0, 0, 0, 1)
@@ -16,55 +16,55 @@ bg_color = Color(0.26657522, 0.2665752, 0.2665752, 1)
 size = Vector2(401, 226)
 
 [sub_resource type="LabelSettings" id="LabelSettings_5chko"]
-font = ExtResource("1_1ptls")
+font = ExtResource("2_5bj07")
 font_size = 64
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_jg24e"]
 random_pitch = 1.319508
 streams_count = 1
-stream_0/stream = ExtResource("3_r2h2s")
+stream_0/stream = ExtResource("3_hlbf4")
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_upoxr"]
 random_pitch = 1.319508
 streams_count = 1
-stream_0/stream = ExtResource("4_22wjv")
+stream_0/stream = ExtResource("4_msjda")
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_1rmkm"]
 streams_count = 1
-stream_0/stream = ExtResource("5_22wjv")
+stream_0/stream = ExtResource("5_hdwb4")
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_pr6km"]
 random_pitch = 1.086421
 streams_count = 1
 stream_0/stream = SubResource("AudioStreamRandomizer_1rmkm")
 
-[node name="LevelClearedTrigger" type="ProgressBar" unique_id=999598559]
+[node name="BossTrigger" type="ProgressBar" unique_id=999598559]
 z_index = -5
-offset_left = -193.0
-offset_top = -130.0
-offset_right = 193.0
-offset_bottom = 137.0
+offset_left = -194.0
+offset_top = -103.0
+offset_right = 192.0
+offset_bottom = 104.0
 theme_override_styles/background = SubResource("StyleBoxFlat_uqe6s")
 theme_override_styles/fill = SubResource("StyleBoxFlat_1ptls")
 max_value = 1.0
 fill_mode = 2
 show_percentage = false
-script = ExtResource("1_5chko")
+script = ExtResource("1_bdyry")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=266773611]
 collision_layer = 32
 collision_mask = 32
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1208579010]
-position = Vector2(190.5, 131.5)
+position = Vector2(193, 102)
 shape = SubResource("RectangleShape2D_gtyeh")
 
 [node name="READY?" type="Label" parent="Area2D" unique_id=2111068702]
-offset_left = 92.0
-offset_top = 96.0
-offset_right = 295.0
-offset_bottom = 165.0
-text = "EXTRACT"
+offset_left = 6.0
+offset_top = 70.0
+offset_right = 381.0
+offset_bottom = 139.0
+text = "ACTIVATE BOSS?"
 label_settings = SubResource("LabelSettings_5chko")
 
 [node name="ReadyUpTimer" type="Timer" parent="." unique_id=1278797794]
