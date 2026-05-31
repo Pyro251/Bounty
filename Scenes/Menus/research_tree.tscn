@@ -192,9 +192,9 @@ offset_right = 763.0
 offset_bottom = 612.0
 variable_to_change = "max_player_health"
 group_name = "health1"
-value_to_add = 5.0
+value_to_add = 3.0
 cost = "20"
-short_description = "Inceases maximum health by 5"
+short_description = "Increases maximum health by 3"
 upgrade_name = "Health"
 upgrade_level = "I"
 
@@ -209,9 +209,9 @@ max_level = 4
 levels_to_unlock_next_level = 4
 variable_to_change = "max_player_health"
 group_name = "health2"
-value_to_add = 15.0
+value_to_add = 8.0
 cost = "60"
-short_description = "Increases maximum health by 15"
+short_description = "Increases maximum health by 8"
 upgrade_name = "Health"
 upgrade_level = "II"
 
@@ -224,9 +224,9 @@ offset_bottom = 144.0
 disabled = true
 variable_to_change = "health_per_enemy_health_collectable"
 group_name = "health_drop1"
-value_to_add = 5.0
+value_to_add = 1.0
 cost = "80"
-short_description = "Increases amount earned per health drop by 5"
+short_description = "Increases amount earned per health drop by 1"
 upgrade_name = "Health Drop"
 upgrade_level = "I"
 
@@ -239,9 +239,9 @@ offset_bottom = 145.0
 disabled = true
 variable_to_change = "health_per_enemy_health_collectable"
 group_name = "health_drop2"
-value_to_add = 15.0
+value_to_add = 3.0
 cost = "120"
-short_description = "Increases amount earned per health drop by 15"
+short_description = "Increases amount earned per health drop by 3"
 upgrade_name = "Health Drop"
 upgrade_level = "II"
 
