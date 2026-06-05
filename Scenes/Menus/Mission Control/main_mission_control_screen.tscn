@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bjit68pl2ywb5"]
 
 [ext_resource type="PackedScene" uid="uid://doqbe36j80fkd" path="res://Shaders/Scenes/shaders.tscn" id="1_babjf"]
-[ext_resource type="Script" uid="uid://bkpnuolmxhe55" path="res://Scenes/Menus/Mission Control/main_mission_control_screen.gd" id="1_ujw66"]
+[ext_resource type="Script" uid="uid://bkpnuolmxhe55" path="res://Scripts/main_mission_control_screen.gd" id="1_ujw66"]
 [ext_resource type="PackedScene" uid="uid://c1w0agxcv1rim" path="res://Scenes/Camera/menu_camera_with_mouse_offset.tscn" id="3_n6cyq"]
 [ext_resource type="PackedScene" uid="uid://bevvrevplb5mg" path="res://Scenes/Menus/Mission Control/mission_button.tscn" id="4_3lxvd"]
 [ext_resource type="PackedScene" uid="uid://drk1pycy1a2ky" path="res://Scenes/Player/menu_cursor.tscn" id="5_pkqwo"]
@@ -526,7 +526,7 @@ mission_text = "This is your first mission, USER.
 
 ------------  Searching Open-Ended End-to-End Crypto Encryption System Servicing Software (OEEECESSS)
 ------------ MESSAGE ID:    '1827307231674'
------------- USERNAME DETECTED:    DOC
+------------ = MESSAGE FROM:    COOL PERSON
 
 Welcome to Faltas, we've sent you here to help aid in the effort to destroy our planets common enemy. As you are one of many, we don't care if you die, but if you don't, we expect that they will use stronger and stronger force until you do. Complete the first level, so we can narrow down our candidates for the second mission. Good luck.
 
@@ -540,11 +540,22 @@ unlocked_from_start = true
 layout_mode = 2
 title = "MISSION II"
 mission_text = "
------------- USERNAME DETECTED:    DOC
+------------ MESSAGE FROM:   BIG OFFICIAL PEOPLE
 
 Congradulations, you passed the first round to narrow down candidates. Unfortunately, you barely dented the enemy. Reach round 5"
 level_till_unlock = 2
 level_till_next_unlock = 5
+
+[node name="MissionButton3" parent="MissionsPanelOffset/MissionsPanel/MissionsPanelVBoxContainer" unique_id=1689967891 instance=ExtResource("4_3lxvd")]
+layout_mode = 2
+title = "MISSION II"
+mission_text = "
+------------ MESSAGE FROM:   BIG OFFICIAL PEOPLE
+
+YOU KILLED ALL OF EM
+Reach round 5"
+level_till_unlock = 5
+level_till_next_unlock = 10
 
 [node name="Quit" type="Button" parent="." unique_id=189657599]
 layout_mode = 0

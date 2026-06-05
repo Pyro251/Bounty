@@ -17,8 +17,8 @@ extends CharacterBody2D
 @onready var skill_tree: Control = $SkillTree
 @onready var flashlight: PointLight2D = $LookAtCursor/Flashlight
 @onready var levels_animation_player: AnimationPlayer = $Levels
-@onready var body: ProgressBar = $LookAtCursor/Body
 @onready var anim_player: AnimationPlayer = $AnimationPlayer
+@onready var body: ProgressBar = $LookAtCursor/Body
 
 var can_shoot: bool = true
 var skill_tree_show: bool = false
@@ -36,6 +36,8 @@ func _ready() -> void:
 	Global.ability_ended.connect(deactivate_rapid_fire)
 	Global.teleport.connect(teleport)
 	Global.explode_player.connect(get_exploded)
+	
+	body.modulate = Global.player_color
 
 
 func _physics_process(delta: float) -> void:
@@ -134,7 +136,7 @@ func _on_button_pressed() -> void:
 func _on_hit_box_area_entered(area: Area2D) -> void:
 	if area.is_in_group("enemy_bullet"):
 		anim_player.play("hit")
-		Global.player_health -= 5
+		Global.player_health -= Global.enemy_damage
 		Global.player_damaged.emit()
 
 func level_cleared():

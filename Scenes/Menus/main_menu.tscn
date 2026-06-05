@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://cnmerspdilm08" path="res://Scenes/Sounds/click.tscn" id="12_80s4p"]
 [ext_resource type="AudioStream" uid="uid://byi4vm1dwgqp7" path="res://Scenes/Sounds/music/Menu.mp3" id="13_80s4p"]
 [ext_resource type="AudioStream" uid="uid://c6j5gaj0q6xm7" path="res://Assets/sound/soundreality-textures-impact-137826.mp3" id="13_ou7d0"]
+[ext_resource type="PackedScene" uid="uid://c1w0agxcv1rim" path="res://Scenes/Camera/menu_camera_with_mouse_offset.tscn" id="19_0rh2w"]
 
 [sub_resource type="Theme" id="Theme_aur2u"]
 default_font = ExtResource("4_aur2u")
@@ -342,6 +343,13 @@ autoplay = true
 bus = &"Music"
 playback_type = 1
 parameters/looping = true
+
+[node name="MenuCameraWithMouseOffset" parent="." unique_id=1015775101 instance=ExtResource("19_0rh2w")]
+position = Vector2(957, 546)
+position_smoothing_enabled = true
+
+[node name="CameraOffsetStart" type="Marker2D" parent="." unique_id=2079028014]
+position = Vector2(962, 533)
 
 [connection signal="focus_entered" from="VBoxContainer/NewGame" to="." method="_on_play_focus_entered"]
 [connection signal="mouse_entered" from="VBoxContainer/NewGame" to="." method="_on_play_mouse_entered"]

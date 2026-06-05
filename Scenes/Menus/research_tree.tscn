@@ -192,9 +192,9 @@ offset_right = 763.0
 offset_bottom = 612.0
 variable_to_change = "max_player_health"
 group_name = "health1"
-value_to_add = 3.0
+value_to_add = 2.0
 cost = "20"
-short_description = "Increases maximum health by 3"
+short_description = "Increases maximum health by 2"
 upgrade_name = "Health"
 upgrade_level = "I"
 
@@ -209,9 +209,9 @@ max_level = 4
 levels_to_unlock_next_level = 4
 variable_to_change = "max_player_health"
 group_name = "health2"
-value_to_add = 8.0
+value_to_add = 3.0
 cost = "60"
-short_description = "Increases maximum health by 8"
+short_description = "Increases maximum health by 3"
 upgrade_name = "Health"
 upgrade_level = "II"
 
@@ -296,7 +296,6 @@ upgrade_name = "Regen"
 upgrade_level = "III"
 
 [node name="Tab2" type="Control" parent="Tabs" unique_id=1778835482]
-visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -312,9 +311,9 @@ max_level = 4
 levels_to_unlock_next_level = 4
 variable_to_change = "attack_damage"
 group_name = "attack1"
-value_to_add = 5.0
+value_to_add = 2.0
 cost = "20"
-short_description = "Increases attack damage by 5"
+short_description = "Increases attack damage by 2"
 upgrade_name = "Bullet Damage"
 upgrade_level = "I"
 
@@ -329,9 +328,9 @@ max_level = 5
 levels_to_unlock_next_level = 5
 variable_to_change = "attack_damage"
 group_name = "attack2"
-value_to_add = 15.0
+value_to_add = 5.0
 cost = "50"
-short_description = "Increases attack damage by 15"
+short_description = "Increases attack damage by 5"
 upgrade_name = "Bullet Damage"
 upgrade_level = "II"
 
@@ -344,9 +343,9 @@ offset_bottom = -56.0
 disabled = true
 variable_to_change = "attack_damage"
 group_name = "attack3"
-value_to_add = 40.0
+value_to_add = 12.0
 cost = "120"
-short_description = "Increases attack damage by 40"
+short_description = "Increases attack damage by 12"
 upgrade_name = "Bullet Damage"
 upgrade_level = "III"
 
@@ -464,7 +463,29 @@ short_description = "Increases explosion radius by 0.3"
 upgrade_name = "EXPLOSION RADIUS"
 upgrade_level = "II"
 
+[node name="SkillButton4" parent="Tabs/Tab2/SkillButton" unique_id=1847179512 groups=["attack2"] instance=ExtResource("1_up8uh")]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 220.0
+offset_right = 144.0
+offset_bottom = 362.0
+disabled = true
+max_level = 1
+levels_to_unlock_next_level = 1
+variable_to_change = "recurrence_unlocked"
+group_name = "recurrence1"
+is_it_boolean = true
+make_true = true
+cost = "1000"
+short_description = "Unlcoks   [wave]R E C U R R E N C E[/wave]
+
+Upon hitting an enemy, player bullets now shoot
+off in a random direction."
+upgrade_name = "RECURRENCE"
+upgrade_level = "I"
+
 [node name="Tab3" type="Control" parent="Tabs" unique_id=512368977]
+visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -478,9 +499,9 @@ offset_bottom = 582.0001
 disabled = true
 variable_to_change = "money_per_drop"
 group_name = "money1"
-value_to_add = 5.0
+value_to_add = 2.0
 cost = "50"
-short_description = "Increases money per drop by 5"
+short_description = "Increases money per drop by 2"
 upgrade_name = "More BUCK for your BANG"
 upgrade_level = "I"
 
@@ -491,9 +512,9 @@ offset_right = 385.0
 disabled = true
 variable_to_change = "money_per_drop"
 group_name = "money2"
-value_to_add = 15.0
+value_to_add = 5.0
 cost = "200"
-short_description = "Increases money per drop by 15"
+short_description = "Increases money per drop by 5"
 upgrade_name = "More BUCK for your BANG"
 upgrade_level = "II"
 
@@ -506,9 +527,9 @@ offset_bottom = 139.00012
 disabled = true
 variable_to_change = "money_per_drop"
 group_name = "money3"
-value_to_add = 30.0
+value_to_add = 12.0
 cost = "750"
-short_description = "Increases money per drop by 30"
+short_description = "Increases money per drop by 12"
 upgrade_name = "More BUCK for your BANG"
 upgrade_level = "III"
 
@@ -521,9 +542,9 @@ offset_bottom = 139.00012
 disabled = true
 variable_to_change = "money_per_drop"
 group_name = "money4"
-value_to_add = 200.0
+value_to_add = 20.0
 cost = "2000"
-short_description = "Increases money per drop by 200"
+short_description = "Increases money per drop by 20"
 upgrade_name = "More BUCK for your BANG"
 upgrade_level = "IIII"
 

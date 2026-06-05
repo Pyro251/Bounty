@@ -6,6 +6,7 @@ extends Control
 @onready var options_menu: Control = $OptionsMenu
 @onready var change_log: Control = $ChangeLog
 @onready var load_game_button: Button = $VBoxContainer/LoadGame
+@onready var game_settings_scene: Control = $GameSettingsScene
 
 func _ready():
 	if Global.show_changes:
@@ -23,8 +24,9 @@ func _physics_process(delta: float) -> void:
 
 
 func _on_play_pressed() -> void:
-	loading.show()
-	$loading_screen/ProgressBar/AnimationPlayer.play("Fill bar")
+	#loading.show()
+	#$loading_screen/ProgressBar/AnimationPlayer.play("Fill bar")
+	get_tree().change_scene_to_file("res://Scenes/Menus/game_settings_scene.tscn")
 	SaveLoad._wipe_save()
 	click_sound.play()
 	

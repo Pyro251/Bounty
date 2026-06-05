@@ -9,7 +9,10 @@ extends Node2D
 var speed: float = 2000
 
 func _ready() -> void:
+	print("bullet instanciated")
 	animation_player.play("appear")
+	
+	modulate = Global.player_color
 
 func _physics_process(delta: float) -> void:
 	global_position += Vector2(0, -1).rotated(rotation) * speed * delta
@@ -21,4 +24,5 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	queue_free()
+	if body.is_in_group("enemy") or body.is_in_group("walls"):
+		queue_free()

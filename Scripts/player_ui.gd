@@ -86,6 +86,8 @@ func _process(delta: float) -> void:
 	else:
 		teleport_bar.value = teleport_bar.max_value
 	
+	# takes care of actually using your ability
+	
 	if Input.is_action_just_pressed("ability"):
 		if can_use_ability:
 			Global.using_ability = true
@@ -96,20 +98,31 @@ func _process(delta: float) -> void:
 			ammo_anim.play("ammo_down")
 			$Ability.play()
 			$Ability2.play()
-			Global.rapid_fire_used.emit()
+			
+			# The below code matches the key of the dictionary in the Global
+			# script to its corresponding function
+			
+			if Global.selectable_main_abilities.rapid_fire == true:
+				Global.rapid_fire_used.emit()
+				Global.ammo += 5
+			
+			
+			
 			print("ability used")
+	
+	
 	if can_cooldown:
 		ability_anim.play("cooldown")
-		
-		
-		
-	if Input.is_action_just_pressed("dash_teleport"):
+	
+	
+	if Input.is_action_just_pressed("secondary_ability"):
 		if Global.can_teleport:
-			using_teleport_bar = true
-			Global.teleport.emit()
-			teleport_timer.start()
-			Global.can_teleport = false
-			$Teleport.play()
+			if Global.selectable_secondary_abilities.teleport == true:
+				using_teleport_bar = true
+				Global.teleport.emit()
+				teleport_timer.start()
+				Global.can_teleport = false
+				$Teleport.play()
 	
 	if Input.is_action_pressed("give_money"):
 		Global.player_money += 100
@@ -158,10 +171,10 @@ func _on_ability_anim_animation_finished_cooldown(cooldown):
 		print("cooldown bar finished")
 		can_cooldown = false
 
-
+# WORK IN PROGRESS
 func add_money_counter():
 	var new_particles
 	
-	new_particles = MONEY_COUNTER_PARTICLES.instantiate()
-	get_parent().add_child(new_particles)
-	new_particles.global_position = money_counter_marker.global_position
+	#new_particles = MONEY_COUNTER_PARTICLES.instantiate()
+	#get_parent().add_child(new_particles)
+	#new_particles.global_position = money_counter_marker.global_position

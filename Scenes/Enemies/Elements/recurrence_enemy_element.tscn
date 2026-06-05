@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://eiw3kgdbhglw"]
+
+[ext_resource type="Script" uid="uid://vh0ahx3thx2j" path="res://Scripts/recurrence_enemy_element.gd" id="1_vd762"]
+
+[node name="RecurrenceEnemyElement" type="Node2D" unique_id=1681042735]
+script = ExtResource("1_vd762")
+
+[node name="RecurrencePivot" type="Marker2D" parent="." unique_id=337115576]
+
+[node name="RecurrenceShootPos" type="Marker2D" parent="RecurrencePivot" unique_id=1312604238]
+position = Vector2(31, 0)
