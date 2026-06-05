@@ -154,6 +154,7 @@ offset_bottom = -85.0
 position = Vector2(196, 295)
 
 [node name="MissionControlTrigger" parent="." unique_id=1516926793 instance=ExtResource("14_0s6n1")]
+z_index = -1
 position = Vector2(-476, -421)
 
 [connection signal="area_entered" from="ReadyUp/Area2D" to="." method="_on_area_2d_area_entered"]

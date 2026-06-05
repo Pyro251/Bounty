@@ -146,19 +146,13 @@ theme_override_fonts/italics_font = ExtResource("4_sxvbq")
 theme_override_font_sizes/normal_font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_3pqo7")
 bbcode_enabled = true
-text = " + There is now a tutorial, for those who want it. (don't worry, you can skip it)
+text = "+ Two more stages have been added to starting a new game:
+	- Choose the type of game to start
+	- Choose the player color
 
-+ [wave][b]H U G E[/b][/wave] expansion to the research tree. Refactored the code for the whole system, rearranged the menu to have tabs, and add a LOT of new upgrades, including upgrades that add new passive abilities.
++ A boss has been added to level 5, still kind of a work in progress
 
-+ New levels, new enemies, and UI tweaks
-
-+ Bullets no longer clip through walls
-
-+ Bug fixes with enemy deaths
-
-+ Settings menu now saves even if you start a new game. Unfortunately, the 'Load Game' button now never disables. There is no known fix for it yet.
-
-+ Progress on getting resolution to work, currently crashes game."
+ + There is now a parallax background for the levels"
 script = ExtResource("5_cn2xk")
 hover_scale = Vector2(1.15, 1.15)
 

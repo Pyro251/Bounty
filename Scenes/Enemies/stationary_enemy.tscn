@@ -4,6 +4,7 @@
 [ext_resource type="AudioStream" uid="uid://balows47fups0" path="res://Assets/sound/Shooting/Enemy/laserShoot(1).wav" id="2_xt718"]
 [ext_resource type="AudioStream" uid="uid://btuos22715jyd" path="res://Assets/sound/Shooting/Enemy/freesound_community-small-explosion-103779.mp3" id="3_0rhk1"]
 [ext_resource type="AudioStream" uid="uid://bsbk7ibge8e2q" path="res://Assets/sound/Enemies/rohhsadotcom-knock-on-wood-02-421991.mp3" id="4_5u4g2"]
+[ext_resource type="PackedScene" uid="uid://eiw3kgdbhglw" path="res://Scenes/Enemies/Elements/recurrence_enemy_element.tscn" id="5_h84am"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5u4g2"]
 size = Vector2(37, 34)
@@ -60,7 +61,7 @@ random_pitch = 1.2045548
 streams_count = 1
 stream_0/stream = ExtResource("4_5u4g2")
 
-[node name="StationaryEnemy" type="CharacterBody2D" unique_id=362908067]
+[node name="StationaryEnemy" type="CharacterBody2D" unique_id=362908067 groups=["enemy"]]
 script = ExtResource("1_2gjou")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=937308337]
@@ -126,6 +127,8 @@ one_shot = true
 [node name="ShootPos" type="Marker2D" parent="." unique_id=249418268]
 position = Vector2(27, 0)
 rotation = 1.5707964
+
+[node name="RecurrenceEnemyElement" parent="." unique_id=1681042735 instance=ExtResource("5_h84am")]
 
 [node name="ShootSound" type="AudioStreamPlayer2D" parent="." unique_id=813542742]
 stream = SubResource("AudioStreamRandomizer_0rhk1")

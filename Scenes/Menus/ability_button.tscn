@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://xo1lm35lpbhh"]
+
+[ext_resource type="Texture2D" uid="uid://dk811l810o1sw" path="res://Assets/GodotIcon/icon.svg" id="1_mwapp"]
+[ext_resource type="Script" uid="uid://coa2jxahqvps4" path="res://Scripts/ability_button.gd" id="2_g432n"]
+
+[node name="AbilityButton" type="TextureButton" unique_id=321334228]
+offset_right = 128.0
+offset_bottom = 128.0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture_normal = ExtResource("1_mwapp")
+texture_pressed = ExtResource("1_mwapp")
+texture_hover = ExtResource("1_mwapp")
+texture_disabled = ExtResource("1_mwapp")
+texture_focused = ExtResource("1_mwapp")
+script = ExtResource("2_g432n")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]

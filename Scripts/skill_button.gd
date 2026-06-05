@@ -7,6 +7,9 @@ class_name SkillNode
 @export var group_name: String
 @export var value_to_add: float
 @export var value_to_subtract: float
+@export var is_it_boolean: bool
+@export var make_true: bool
+@export var make_false: bool
 @export var cost: String
 
 @export_multiline var short_description: String
@@ -99,8 +102,13 @@ func _on_pressed() -> void:
 			levels_till_next_level = 0
 		
 		if Global.player_money >= int(cost) and level >= levels_till_next_level:
-			var_to_change += value_to_add
-			var_to_change -= value_to_subtract
+			if !is_it_boolean:
+				var_to_change += value_to_add
+				var_to_change -= value_to_subtract
+			if make_true:
+				var_to_change = true
+			if make_false:
+				var_to_change = false
 			Global.player_money -= int(cost)
 			level = min(level + 1, max_level)
 			Global.abilities[group_name] += 1

@@ -35,6 +35,8 @@ func _on_bullet_detect_area_entered(area: Area2D) -> void:
 			bullet_explosion_particles.emitting = true
 			health -= Global.attack_damage + 20
 			Global.bullet_exploded.emit()
+		#if Global.recurrence_unlocked:
+		$RecurrenceEnemyElement.activate_recurrence()
 		
 		hit_sound.play()
 		

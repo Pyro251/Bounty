@@ -22,10 +22,20 @@ signal bullet_exploded
 signal health_collected
 signal mission_selected
 signal trigger_boss
+signal update_ability_description
+signal update_ability_button_texture
+signal main_ability_selected
+signal secondary_ability_selected
 
 # abilities
 signal ability_ended
 signal rapid_fire_used
+
+var game_type: Dictionary = {
+	"action_packed": false,
+	"campaign": false,
+	"speed_run": false
+}
 
 var resolutions = {
 	"3840x2160": Vector2i(3840,2160),
@@ -48,9 +58,57 @@ var resolutions = {
 #var attack2: int = 0
 #var attack_speed1: int = 0
 
+#var unlocked_main_abilities_count: int = 1
+#var unlocked_secondary_abilities_count: int = 1
+
+
+
+var main_ability_selected_var: bool = false
+var secondary_ability_selected_var: bool = false
+
+var main_ability_description: String
+var secondary_ability_description: String
+
+
+
+#class Ability:
+	#var description: String
+	#var selectable: bool
+#
+#func _init
+
+#var abilities_nested: Dictionary {
+	#
+#}
+
+
+
+
+var main_ability_descriptions: Array = [
+	"RAPID FIRE, increases firing speed of your gun. Gives you five ammo."
+]
+var secondary_ability_descriptions: Array = [
+	"TELEPORT, telports you to the position of your mouse cursor.",
+	"SHOCKWAVE, releases a shockwave from your current location."
+]
+
+
+var selectable_main_abilities: Dictionary = {
+	"rapid_fire": true
+}
+var selectable_secondary_abilities: Dictionary = {
+	"teleport": true,
+	"shockwave": false
+}
+
+
 var abilities: Dictionary = {
 	
 }
+
+
+var recurrence_unlocked: bool = false
+
 
 var enable_tooltips: bool = true
 var tooltips: Dictionary = {
@@ -62,6 +120,7 @@ var using_ability: bool = false
 var can_teleport: bool = true
 
 var player_pos
+var player_color: Color
 
 var chest_in_anim: bool = true
 
@@ -90,10 +149,11 @@ var player_money: int = 0
 var money_made_this_level: int = 0
 var money_per_drop: int = 15
 
-var player_health: float = 100.0
-var max_player_health: float = 100.0
+var player_health: float = 15.0
+var enemy_damage: float = 5.0
+var max_player_health: float = 15.0
 var regen_health: int = 0
-var health_per_enemy_health_collectable: int = 4
+var health_per_enemy_health_collectable: int = 1
 var attack_speed: float = 0.25
 var attack_damage: float = 20
 
