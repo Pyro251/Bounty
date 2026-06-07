@@ -62,6 +62,7 @@ func _set_save_data():
 	
 	save_data.merge(Global.abilities)#, true)
 	save_data.merge(Global.tooltips)
+	save_data.merge(Global.abilities_nested)
 
 func _load():
 	if FileAccess.file_exists(SAVE_LOCATION):
@@ -91,6 +92,7 @@ func _set_load_data():
 	
 	
 	Global.abilities.merge(save_data)#, true)
+	Global.abilities_nested.merge(save_data)
 	
 	#Global.health1 = save_data.health1
 	#Global.health2 = save_data.health2

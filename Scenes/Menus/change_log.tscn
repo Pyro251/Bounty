@@ -146,13 +146,16 @@ theme_override_fonts/italics_font = ExtResource("4_sxvbq")
 theme_override_font_sizes/normal_font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_3pqo7")
 bbcode_enabled = true
-text = "+ Two more stages have been added to starting a new game:
-	- Choose the type of game to start
-	- Choose the player color
+text = " + Added a boss to level five.
+ + Began work on a dynamic missions system that is intuitive and easy for me to add to in the future.
+ + Added an ability choosing screen to the level preparation screen, took a VERY long time to make.
+ + Added two new screens to the start screen, one for choosing your game mode and another for picking your player color. At the moment, there is only one game mode available, which is campaign mode. In the future, I plan to make a game mode with no story, for people who don't enjoy story, and a game mode meant for speed running, that takes away the story and adds a timer and leader board.
+ + Added a parallax background to each level.
+ + Add some actual art to the abilities screen.
+ + Some minor bug fixes
 
-+ A boss has been added to level 5, still kind of a work in progress
-
- + There is now a parallax background for the levels"
+Note:
+     Things should go along much smoother now, as I'm almost done making things as modular and easy to add on to as possible. Hopefully in the next couple of weeks I can grind out a bunch of new levels, abilities, upgrades, and missions, and find a way to make the game actually fun."
 script = ExtResource("5_cn2xk")
 hover_scale = Vector2(1.15, 1.15)
 

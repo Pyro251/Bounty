@@ -268,7 +268,7 @@ offset_left = 1148.0
 offset_top = 201.0
 offset_right = 1256.0
 offset_bottom = 269.0
-text = "0.0.6"
+text = "0.0.7"
 label_settings = SubResource("LabelSettings_8bdjp")
 horizontal_alignment = 1
 

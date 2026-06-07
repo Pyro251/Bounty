@@ -102,7 +102,7 @@ func _process(delta: float) -> void:
 			# The below code matches the key of the dictionary in the Global
 			# script to its corresponding function
 			
-			if Global.selectable_main_abilities.rapid_fire == true:
+			if Global.abilities_nested.main.selected.rapid_fire == true:
 				Global.rapid_fire_used.emit()
 				Global.ammo += 5
 			
@@ -117,7 +117,7 @@ func _process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("secondary_ability"):
 		if Global.can_teleport:
-			if Global.selectable_secondary_abilities.teleport == true:
+			if Global.abilities_nested.secondary.selected.teleport == true:
 				using_teleport_bar = true
 				Global.teleport.emit()
 				teleport_timer.start()
