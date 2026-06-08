@@ -1359,7 +1359,7 @@ grow_vertical = 2
 text = "RAPID FIRE"
 label_settings = SubResource("LabelSettings_rpwng")
 
-[node name="ChosenLabel" type="Label" parent="ChosenMainAbilityPanel" unique_id=1146462783]
+[node name="MainChosenLabel" type="Label" parent="ChosenMainAbilityPanel" unique_id=1146462783]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1402,7 +1402,7 @@ grow_vertical = 2
 text = "TELEPORT"
 label_settings = SubResource("LabelSettings_wi1mu")
 
-[node name="ChosenLabel" type="Label" parent="ChosenSecondaryAbilityPanel" unique_id=985697089]
+[node name="SecondaryChosenLabel" type="Label" parent="ChosenSecondaryAbilityPanel" unique_id=985697089]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

@@ -26,10 +26,15 @@ signal update_ability_description
 signal update_ability_button_texture
 signal main_ability_selected
 signal secondary_ability_selected
+signal options_button_pressed
 
 # abilities
 signal ability_ended
 signal rapid_fire_used
+
+var boolean_game_settings: Dictionary = {
+	"tab_for_infinate_money": false
+}
 
 var game_type: Dictionary = {
 	"action_packed": false,
@@ -77,29 +82,81 @@ var secondary_ability_description: String
 #
 #func _init
 
-#var abilities_nested: Dictionary {
-	#
+
+
+
+
+var abilities_nested: Dictionary = {
+	"main": {
+		"names": {
+			"rapid_fire": "Rapid Fire"
+		},
+		"descriptions": {
+			"rapid_fire": "RAPID FIRE, increases firing speed of your gun. Gives you five ammo."
+		},
+		"selectable": {
+			"rapid_fire": true
+		},
+		"selected": {
+			"rapid_fire": false
+		}
+	},
+	
+	"secondary": {
+		"names": {
+			"teleport": "Teleport",
+			"shockwave": "Shockwave"
+		},
+		"descriptions": {
+			"teleport": "TELEPORT, telports you to the position of your mouse cursor.",
+			"shockwave": "SHOCKWAVE, releases a shockwave from your current location."
+		},
+		"selectable": {
+			"teleport": true,
+			"shockwave": false
+		},
+		"selected": {
+			"teleport": false,
+			"shockwave": false
+		}
+	}
+}
+
+#var secondary_abilities_nested: Dictionary = {
+	#"names": {
+		#"teleport": "Teleport",
+		#"shockwave": "Shockwave"
+	#},
+	#"descriptions": {
+		#"teleport": "TELEPORT, telports you to the position of your mouse cursor.",
+		#"shockwave": "SHOCKWAVE, releases a shockwave from your current location."
+	#},
+	#"selectable": {
+		#"teleport": true,
+		#"shockwave": false
+	#},
+	#"selected": {
+		#"teleport": false,
+		#"shockwave": false
+	#}
 #}
 
-
-
-
-var main_ability_descriptions: Array = [
-	"RAPID FIRE, increases firing speed of your gun. Gives you five ammo."
-]
-var secondary_ability_descriptions: Array = [
-	"TELEPORT, telports you to the position of your mouse cursor.",
-	"SHOCKWAVE, releases a shockwave from your current location."
-]
-
-
-var selectable_main_abilities: Dictionary = {
-	"rapid_fire": true
-}
-var selectable_secondary_abilities: Dictionary = {
-	"teleport": true,
-	"shockwave": false
-}
+#var main_ability_descriptions: Array = [
+	#"RAPID FIRE, increases firing speed of your gun. Gives you five ammo."
+#]
+#var secondary_ability_descriptions: Array = [
+	#"TELEPORT, telports you to the position of your mouse cursor.",
+	#"SHOCKWAVE, releases a shockwave from your current location."
+#]
+#
+#
+#var selectable_main_abilities: Dictionary = {
+	#"rapid_fire": true
+#}
+#var selectable_secondary_abilities: Dictionary = {
+	#"teleport": true,
+	#"shockwave": false
+#}
 
 
 var abilities: Dictionary = {

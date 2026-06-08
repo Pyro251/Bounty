@@ -134,9 +134,9 @@ label_settings = SubResource("LabelSettings_osxki")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1831767474]
 layout_mode = 0
-offset_left = 319.0
+offset_left = 312.0
 offset_top = 355.0
-offset_right = 1625.0
+offset_right = 1618.0
 offset_bottom = 679.0
 theme = SubResource("Theme_bqh7i")
 theme_override_colors/default_color = Color(0, 0, 0, 1)
@@ -146,13 +146,11 @@ theme_override_fonts/italics_font = ExtResource("4_sxvbq")
 theme_override_font_sizes/normal_font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_3pqo7")
 bbcode_enabled = true
-text = "+ Two more stages have been added to starting a new game:
-	- Choose the type of game to start
-	- Choose the player color
+text = " + Made the background lighter
 
-+ A boss has been added to level 5, still kind of a work in progress
+ + Refactored some code and fixed some bugs
 
- + There is now a parallax background for the levels"
++ Added to the debug section of the settings menu, and made the settings menu accessable from the pause menu."
 script = ExtResource("5_cn2xk")
 hover_scale = Vector2(1.15, 1.15)
 

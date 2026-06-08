@@ -102,7 +102,7 @@ func _process(delta: float) -> void:
 			# The below code matches the key of the dictionary in the Global
 			# script to its corresponding function
 			
-			if Global.selectable_main_abilities.rapid_fire == true:
+			if Global.abilities_nested.main.selected.rapid_fire == true:
 				Global.rapid_fire_used.emit()
 				Global.ammo += 5
 			
@@ -117,7 +117,7 @@ func _process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("secondary_ability"):
 		if Global.can_teleport:
-			if Global.selectable_secondary_abilities.teleport == true:
+			if Global.abilities_nested.secondary.selected.teleport == true:
 				using_teleport_bar = true
 				Global.teleport.emit()
 				teleport_timer.start()
@@ -125,8 +125,9 @@ func _process(delta: float) -> void:
 				$Teleport.play()
 	
 	if Input.is_action_pressed("give_money"):
-		Global.player_money += 100
-		gain_coin_sound.play()
+		if Global.boolean_game_settings.tab_for_infinate_money:
+			Global.player_money += 1000
+			gain_coin_sound.play()
 
 func ammo_changed():
 	animation_player.play("change_ammo_1")
@@ -138,6 +139,9 @@ func money_added():
 	gain_coin_sound.play()
 	money_anim.play("add_money_1")
 	add_money_counter()
+
+func options_button_pressed():
+	$Options.show()
 
 func _on_teleport_timer_timeout() -> void:
 	using_teleport_bar = false

@@ -48,3 +48,7 @@ func _on_save_and_quit_pressed() -> void:
 
 func _on_force_quit_pressed() -> void:
 	get_tree().quit()
+
+
+func _on_options_pressed() -> void:
+	$Options.show()

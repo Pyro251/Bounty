@@ -7,7 +7,7 @@
 [ext_resource type="Script" uid="uid://v86otcjdcl6t" path="res://Scripts/button.gd" id="3_pw12o"]
 [ext_resource type="PackedScene" uid="uid://coid35tdcb4ul" path="res://Scenes/Sounds/blip.tscn" id="6_nwnlq"]
 [ext_resource type="PackedScene" uid="uid://cnmerspdilm08" path="res://Scenes/Sounds/click.tscn" id="7_8kr8e"]
-
+[ext_resource type="PackedScene" uid="uid://dphptfsmm08hq" path="res://Scenes/Menus/options.tscn" id="8_8kr8e"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7smr3"]
 shader = ExtResource("1_tf3q2")
@@ -223,7 +223,7 @@ modulate = Color(1, 1, 1, 0)
 offset_left = 608.0
 offset_top = 123.484985
 offset_right = 1864.5
-offset_bottom = 1098.4861
+offset_bottom = 1098.4866
 
 [node name="Resume" type="Button" parent="Marker2D/Panel" unique_id=2097557822 node_paths=PackedStringArray("click", "blip")]
 layout_mode = 0
@@ -310,7 +310,15 @@ script = ExtResource("3_pw12o")
 click = NodePath("../../../Click")
 blip = NodePath("../../../Blip")
 
+[node name="Options" parent="." unique_id=1044197230 instance=ExtResource("8_8kr8e")]
+layout_mode = 1
+offset_left = 244.0
+offset_top = 48.0
+offset_right = 244.0
+offset_bottom = 48.0
+
 [connection signal="pressed" from="Marker2D/Panel/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="Marker2D/Panel/Save" to="." method="_on_save_pressed"]
 [connection signal="pressed" from="Marker2D/Panel/SaveAndQuit" to="." method="_on_save_and_quit_pressed"]
+[connection signal="pressed" from="Marker2D/Panel/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="Marker2D/Panel/ForceQuit" to="." method="_on_force_quit_pressed"]

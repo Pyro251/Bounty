@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://dv5vrt2ewxnte" path="res://Scripts/main_menu.gd" id="1_pha2q"]
 [ext_resource type="PackedScene" uid="uid://doqbe36j80fkd" path="res://Shaders/Scenes/shaders.tscn" id="2_penys"]
 [ext_resource type="FontFile" uid="uid://dndfik3argnf5" path="res://Assets/Fonts/Edge_of_the_galaxy/EdgeOfTheGalaxyRegular-OVEa6.otf" id="4_aur2u"]
+[ext_resource type="Texture2D" uid="uid://c3sgldwrcldo2" path="res://Assets/TitlePageBackgrounds/BountyTitileBG.png" id="5_0rh2w"]
 [ext_resource type="Script" uid="uid://v86otcjdcl6t" path="res://Scripts/button.gd" id="5_5wi6m"]
 [ext_resource type="LabelSettings" uid="uid://rephklwoaysm" path="res://Assets/Fonts/LabelSettings.tres" id="6_anmaw"]
 [ext_resource type="AudioStream" uid="uid://dlf3181g8utgc" path="res://Assets/sound/Buttons/Blip/blipSelect(3).wav" id="7_4fgt5"]
@@ -183,6 +184,12 @@ script = ExtResource("1_pha2q")
 position = Vector2(951, 566)
 texture = ExtResource("1_38aua")
 
+[node name="BountyTitileBg" type="Sprite2D" parent="." unique_id=1854735164]
+visible = false
+position = Vector2(918, 589)
+scale = Vector2(0.6099537, 0.6099537)
+texture = ExtResource("5_0rh2w")
+
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=184856236]
 layout_mode = 1
 anchors_preset = 8
@@ -268,7 +275,7 @@ offset_left = 1148.0
 offset_top = 201.0
 offset_right = 1256.0
 offset_bottom = 269.0
-text = "0.0.6"
+text = "0.0.7"
 label_settings = SubResource("LabelSettings_8bdjp")
 horizontal_alignment = 1
 

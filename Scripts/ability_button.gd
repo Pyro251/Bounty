@@ -39,14 +39,14 @@ func _on_pressed() -> void:
 	if main_ability:
 		Global.main_ability_selected_var = true
 		Global.main_ability_selected.emit()
-		for i in range(Global.selectable_main_abilities.size()):
-			Global.selectable_main_abilities[i] = false
+		for i in range(Global.abilities_nested.main.selected.size()):
+			Global.abilities_nested.main.selected[i] = false
 		
-		Global.selectable_main_abilities.set(ability, true)
+		Global.abilities_nested.main.selected.set(ability, true)
 	elif secondary_ability:
 		Global.secondary_ability_selected_var = true
 		Global.secondary_ability_selected.emit()
-		for i in range(Global.selectable_secondary_abilities.size()):
-			Global.selectable_secondary_abilities[i] = false
+		for i in range(Global.abilities_nested.secondary.selected.size()):
+			Global.abilities_nested.secondary.selected[i] = false
 		
-		Global.selectable_secondary_abilities.set(ability, true)
+		Global.abilities_nested.secondary.selected.set(ability, true)

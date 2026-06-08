@@ -1,7 +1,9 @@
 [gd_scene format=3 uid="uid://dnr3xudvttfxk"]
 
 [ext_resource type="Script" uid="uid://daaiah4s6k0t7" path="res://Scripts/parallax_b_gs.gd" id="1_33vcr"]
-[ext_resource type="Texture2D" uid="uid://d0cxnyiol775a" path="res://Assets/Level Backgrounds/BG1.png" id="1_ql1cp"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ql1cp"]
+load_path = "res://.godot/imported/BG2.png-6476b3bb4f4c99d97d6ffc0879785fea.ctex"
 
 [node name="ParallaxBGs" type="Parallax2D" unique_id=754237350]
 z_index = -6
@@ -12,4 +14,4 @@ script = ExtResource("1_33vcr")
 [node name="Bg1" type="Sprite2D" parent="." unique_id=1449038226]
 position = Vector2(752, -779)
 scale = Vector2(1.729931, 1.729931)
-texture = ExtResource("1_ql1cp")
+texture = SubResource("CompressedTexture2D_ql1cp")

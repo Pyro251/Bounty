@@ -75,3 +75,7 @@ func _on_done_mouse_entered() -> void:
 func _on_resolution_dropdown_item_selected(index: int) -> void:
 	var key = resolution_dropdown.get_item_index(index)
 	get_window().set_size(Global.resolutions[key])
+
+
+func _on_check_button_toggled(toggled_on: bool) -> void:
+	Global.boolean_game_settings.tab_for_infinate_money = !Global.boolean_game_settings.tab_for_infinate_money

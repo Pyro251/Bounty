@@ -141,7 +141,7 @@ pitch_scale = 1.03
 
 [node name="ResearchStation" parent="." unique_id=51131661 instance=ExtResource("9_ou2ib")]
 z_index = -1
-position = Vector2(80, -381)
+position = Vector2(194, -380)
 
 [node name="LevelPrep" parent="." unique_id=1618305278 instance=ExtResource("12_dui0l")]
 visible = false
@@ -155,7 +155,7 @@ position = Vector2(196, 295)
 
 [node name="MissionControlTrigger" parent="." unique_id=1516926793 instance=ExtResource("14_0s6n1")]
 z_index = -1
-position = Vector2(-476, -421)
+position = Vector2(-362, -420)
 
 [connection signal="area_entered" from="ReadyUp/Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="ReadyUp/Area2D" to="." method="_on_area_2d_area_exited"]

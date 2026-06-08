@@ -37,6 +37,32 @@ border_color = Color(0, 0, 0, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l3l4f"]
 bg_color = Color(0.5849045, 0.6102724, 0.62419236, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aopeh"]
+bg_color = Color(0.7204674, 0.72046757, 0.7204672, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 1, 1, 1)
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+shadow_size = 13
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_45oyd"]
+bg_color = Color(0.3665946, 0.3665946, 0.36659458, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 1, 1, 1)
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+shadow_size = 13
+
 [sub_resource type="Theme" id="Theme_emxk7"]
 default_font = ExtResource("3_yqpik")
 
@@ -120,7 +146,7 @@ offset_top = 255.0
 offset_right = 1607.0
 offset_bottom = 899.0
 theme = SubResource("Theme_7fubm")
-current_tab = 2
+current_tab = 4
 tab_0/title = "Graphics"
 tab_1/title = "Gameplay"
 tab_2/title = "Audio"
@@ -173,6 +199,7 @@ metadata/_tab_index = 1
 metadata/_tab_name = "Gameplay"
 
 [node name="TabBar3" type="TabBar" parent="TabContainer" unique_id=1101101757]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 2
 metadata/_tab_name = "Audio"
@@ -316,10 +343,30 @@ metadata/_tab_index = 3
 metadata/_tab_name = "Statistics"
 
 [node name="TabBar5" type="TabBar" parent="TabContainer" unique_id=1104057227]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 4
 metadata/_tab_name = "Debug"
+
+[node name="CheckButton" type="CheckButton" parent="TabContainer/TabBar5" unique_id=1733036107]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 65.0
+offset_right = 366.0
+offset_bottom = 109.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0.09239689, 0.09239713, 0.09239692, 0.5019608)
+theme_override_font_sizes/font_size = 39
+theme_override_styles/normal = SubResource("StyleBoxFlat_aopeh")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_aopeh")
+theme_override_styles/hover = SubResource("StyleBoxFlat_aopeh")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_aopeh")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_45oyd")
+theme_override_styles/focus = SubResource("StyleBoxFlat_aopeh")
+text = "Press 'Tab' for infinate money"
 
 [node name="Done" type="Button" parent="." unique_id=1539435738]
 layout_mode = 0
@@ -346,5 +393,6 @@ script = ExtResource("6_sow1w")
 [connection signal="value_changed" from="TabContainer/TabBar3/EnemiesVolume" to="." method="_on_enemies_volume_value_changed"]
 [connection signal="value_changed" from="TabContainer/TabBar3/ProjectilesVolume" to="." method="_on_projectiles_volume_value_changed"]
 [connection signal="value_changed" from="TabContainer/TabBar3/CollectablesVolume" to="." method="_on_collectables_volume_value_changed"]
+[connection signal="toggled" from="TabContainer/TabBar5/CheckButton" to="." method="_on_check_button_toggled"]
 [connection signal="mouse_entered" from="Done" to="." method="_on_done_mouse_entered"]
 [connection signal="pressed" from="Done" to="." method="_on_done_pressed"]

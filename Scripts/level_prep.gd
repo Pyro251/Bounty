@@ -56,10 +56,10 @@ func _ready() -> void:
 	
 	
 	
-	var main_values_array: Array = Global.selectable_main_abilities.values()
-	var main_keys_array: Array = Global.selectable_main_abilities.keys()
+	var main_values_array: Array = Global.abilities_nested.main.selectable.values()
+	var main_keys_array: Array = Global.abilities_nested.main.selectable.keys()
 	
-	for i in Global.selectable_main_abilities.size():
+	for i in Global.abilities_nested.main.selectable.size():
 		if main_values_array.get(i):
 			var new_ability_button = ABILITY_BUTTON.instantiate()
 			
@@ -68,7 +68,9 @@ func _ready() -> void:
 			new_ability_button.main_ability = true
 			
 			new_ability_button.ability = str(main_keys_array.get(i))
-			new_ability_button.ability_button_text = Global.main_ability_descriptions.get(i)
+			
+			var ability_button_descriptions: Array = Global.abilities_nested.main.descriptions.values()
+			new_ability_button.ability_button_text = ability_button_descriptions.get(i)
 			
 			new_ability_button.texture = get(str(new_ability_button.ability, "_texture"))
 	
@@ -87,10 +89,10 @@ func _ready() -> void:
 			#
 			#new_ability_button.texture = get(str(new_ability_button.ability, "_texture"))
 	
-	var secondary_values_array: Array = Global.selectable_secondary_abilities.values()
-	var secondary_keys_array: Array = Global.selectable_secondary_abilities.keys()
+	var secondary_values_array: Array = Global.abilities_nested.secondary.selectable.values()
+	var secondary_keys_array: Array = Global.abilities_nested.secondary.selectable.keys()
 	
-	for i in Global.selectable_secondary_abilities.size():
+	for i in Global.abilities_nested.secondary.selectable.size():
 		if secondary_values_array.get(i):
 			var new_ability_button = ABILITY_BUTTON.instantiate()
 			
@@ -99,7 +101,9 @@ func _ready() -> void:
 			new_ability_button.secondary_ability = true
 			
 			new_ability_button.ability = str(secondary_keys_array.get(i))
-			new_ability_button.ability_button_text = Global.secondary_ability_descriptions.get(i)
+			
+			var ability_button_descriptions: Array = Global.abilities_nested.secondary.descriptions.values()
+			new_ability_button.ability_button_text = ability_button_descriptions.get(i)
 			
 			new_ability_button.texture = get(str(new_ability_button.ability, "_texture"))
 	
