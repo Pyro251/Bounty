@@ -26,10 +26,15 @@ signal update_ability_description
 signal update_ability_button_texture
 signal main_ability_selected
 signal secondary_ability_selected
+signal options_button_pressed
 
 # abilities
 signal ability_ended
 signal rapid_fire_used
+
+var boolean_game_settings: Dictionary = {
+	"tab_for_infinate_money": false
+}
 
 var game_type: Dictionary = {
 	"action_packed": false,
